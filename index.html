@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honza Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .sections {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #667eea;
+            margin: 30px 0 15px;
+            padding-left: 5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: #1a1a2e;
+            border: 1px solid #2a2a4a;
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.15);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .card-desc {
+            color: #999;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.72rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-online { background: #0d3320; color: #34d399; }
+        .badge-local { background: #332b0d; color: #fbbf24; }
+        .badge-wp { background: #1a1a3e; color: #818cf8; }
+
+        .tech {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: #2a2a4a;
+            color: #ccc;
+        }
+
+        .btn-secondary:hover {
+            background: #3a3a5a;
+            color: #fff;
+        }
+
+        .btn-admin {
+            background: #1a1a3e;
+            color: #818cf8;
+        }
+
+        .btn-admin:hover {
+            background: #2a2a5e;
+        }
+
+        .btn-action {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .btn-action:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        /* Email bot special card */
+        .card-action {
+            border-color: #4a3a0a;
+            background: linear-gradient(135deg, #1a1a2e, #1f1a10);
+        }
+
+        .card-action:hover {
+            border-color: #f59e0b;
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.15);
+        }
+
+        /* Color themes for icons */
+        .icon-blue { background: linear-gradient(135deg, #1e3a5f, #1e4a7f); }
+        .icon-purple { background: linear-gradient(135deg, #3b1f5e, #5b2f8e); }
+        .icon-green { background: linear-gradient(135deg, #1a3a2a, #1a5a3a); }
+        .icon-orange { background: linear-gradient(135deg, #3a2a0a, #5a3a0a); }
+        .icon-red { background: linear-gradient(135deg, #3a1a1a, #5a2a2a); }
+        .icon-teal { background: linear-gradient(135deg, #0a2a2a, #0a4a4a); }
+        .icon-pink { background: linear-gradient(135deg, #3a1a2a, #5a1a3a); }
+
+        .folder-path {
+            font-size: 0.7rem;
+            color: #555;
+            font-family: 'SF Mono', Monaco, monospace;
+            margin-top: 10px;
+            word-break: break-all;
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        /* Copy toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #333;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .divider {
+            height: 1px;
+            background: #2a2a4a;
+            margin: 10px 0 16px;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal {
+            background: #1a1a2e;
+            border: 1px solid #2a2a4a;
+            border-radius: 16px;
+            width: 95%;
+            max-width: 1100px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid #2a2a4a;
+        }
+
+        .modal-header h2 {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+
+        .modal-close:hover { color: #fff; background: #2a2a4a; }
+
+        .modal-toolbar {
+            display: flex;
+            gap: 10px;
+            padding: 14px 24px;
+            border-bottom: 1px solid #2a2a4a;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px solid #2a2a4a;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            font-size: 0.88rem;
+            outline: none;
+        }
+
+        .search-input:focus { border-color: #667eea; }
+
+        .filter-btn {
+            padding: 6px 14px;
+            border-radius: 8px;
+            border: 1px solid #2a2a4a;
+            background: #0f0f1a;
+            color: #aaa;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active { border-color: #667eea; color: #667eea; background: #1a1a3e; }
+
+        .modal-stats {
+            color: #666;
+            font-size: 0.78rem;
+            margin-left: auto;
+        }
+
+        .modal-body {
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .contacts-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .contacts-table th {
+            background: #12121f;
+            color: #888;
+            font-weight: 500;
+            text-align: left;
+            padding: 10px 14px;
+            position: sticky;
+            top: 0;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 1;
+        }
+
+        .contacts-table td {
+            padding: 9px 14px;
+            border-bottom: 1px solid #1f1f35;
+            color: #ccc;
+        }
+
+        .contacts-table tr:hover td { background: #1f1f35; }
+
+        .contacts-table .email-cell { color: #667eea; }
+        .contacts-table .sent-badge {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #0d3320;
+            color: #34d399;
+        }
+        .contacts-table .pending-badge {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #332b0d;
+            color: #fbbf24;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
+            .card { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Honza Hub</h1>
+    <p>Rozcestnik vsech aplikaci a projektu</p>
+</div>
+
+<div class="sections">
+
+    <!-- HOFO -->
+    <div class="section-title">HOFO produkce</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-top">
+                <div class="card-icon icon-blue">&#128270;</div>
+                <div class="card-title">HOFO Lead Finder</div>
+            </div>
+            <div class="card-desc">CRM pro vyhledavani obchodnich leadu. SerpAPI, Google Maps, AI analyza, newsletter builder, veletrhy.</div>
+            <div class="card-meta">
+                <span class="badge badge-online">Online</span>
+                <span class="tech">FastAPI + SQLite + Claude AI</span>
+            </div>
+            <div class="card-links">
+                <a href="https://hofo-lead-finder.onrender.com" target="_blank" class="btn btn-primary">&#127760; Render</a>
+                <a href="http://localhost:8000" target="_blank" class="btn btn-secondary">&#128187; Localhost</a>
+            </div>
+            <div class="folder-path">~/Desktop/Claude/lead-finder/ &bull; python3 app.py</div>
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <div class="card-icon icon-purple">&#128241;</div>
+                <div class="card-title">HOFO Socky</div>
+            </div>
+            <div class="card-desc">Social media scheduler. Planovani prispevku na IG, FB, LinkedIn, TikTok s analytiku.</div>
+            <div class="card-meta">
+                <span class="badge badge-online">Online</span>
+                <span class="tech">FastAPI + PostgreSQL + Docker</span>
+            </div>
+            <div class="card-links">
+                <a href="https://social-scheduler-e506.onrender.com" target="_blank" class="btn btn-primary">&#127760; Render</a>
+                <a href="http://localhost:8000" target="_blank" class="btn btn-secondary">&#128187; Localhost</a>
+            </div>
+            <div class="folder-path">~/Desktop/social-scheduler/ &bull; uvicorn app.main:app --port 8000</div>
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <div class="card-icon icon-teal">&#9997;&#65039;</div>
+                <div class="card-title">ContentHub</div>
+            </div>
+            <div class="card-desc">Sprava obsahoveho marketingu. Ukolovy system, AI generator, schvalovaci workflow, content kalendar.</div>
+            <div class="card-meta">
+                <span class="badge badge-online">Online</span>
+                <span class="tech">Next.js 14 + Prisma + PostgreSQL</span>
+            </div>
+            <div class="card-links">
+                <a href="https://contenthub-1x7h.onrender.com" target="_blank" class="btn btn-primary">&#127760; Render</a>
+                <a href="http://localhost:3000" target="_blank" class="btn btn-secondary">&#128187; Localhost</a>
+            </div>
+            <div class="folder-path">~/Desktop/content-planner/ &bull; npm run dev</div>
+        </div>
+
+    </div>
+
+    <!-- ManMat -->
+    <div class="section-title">ManMat</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-top">
+                <div class="card-icon icon-green">&#127758;</div>
+                <div class="card-title">ManMat Lead Finder</div>
+            </div>
+            <div class="card-desc">Hledani distributoru pro ManMat. Multi-country search, mushing race scraper, Caflou CRM, AI scoring.</div>
+            <div class="card-meta">
+                <span class="badge badge-online">Online</span>
+                <span class="tech">FastAPI + SQLite + Claude AI</span>
+            </div>
+            <div class="card-links">
+                <a href="https://manmat-leads.onrender.com" target="_blank" class="btn btn-primary">&#127760; Render</a>
+                <a href="http://localhost:8001" target="_blank" class="btn btn-secondary">&#128187; Localhost</a>
+            </div>
+            <div class="folder-path">~/Desktop/manmat-leads/ &bull; python3 app.py</div>
+        </div>
+
+    </div>
+
+    <!-- Mapa -->
+    <div class="section-title">Mapa veterinaru</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-top">
+                <div class="card-icon icon-teal">&#128506;&#65039;</div>
+                <div class="card-title">Mapa ManMat</div>
+            </div>
+            <div class="card-desc">Interaktivni mapa veterinaru po Evrope. ~190k zaznamu, SOS funkce, hledani blizkych klinik.</div>
+            <div class="card-meta">
+                <span class="badge badge-local">Staticka</span>
+                <span class="tech">Leaflet.js + SQLite + Python</span>
+            </div>
+            <div class="card-links">
+                <a href="file:///Users/janformanek/Desktop/projekty/mapa.html" class="btn btn-secondary">&#128506; Otevrit mapu</a>
+            </div>
+            <div class="folder-path">~/Desktop/projekty/ &bull; mapa.html</div>
+        </div>
+
+    </div>
+
+    <!-- Weby -->
+    <div class="section-title">Weby</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-top">
+                <div class="card-icon icon-pink">&#127939;</div>
+                <div class="card-title">Befit Elis</div>
+            </div>
+            <div class="card-desc">Jumping fitness s Eliskou Loudovou v Praze. Kontaktni formular, testovaci lekce.</div>
+            <div class="card-meta">
+                <span class="badge badge-wp">WordPress</span>
+                <span class="tech">WordPress 6.9.1 + hello-elementor</span>
+            </div>
+            <div class="card-links">
+                <a href="https://befitelis.cz" target="_blank" class="btn btn-primary">&#127760; befitelis.cz</a>
+                <a href="https://befitelis.cz/wp-admin" target="_blank" class="btn btn-admin">&#128272; Admin</a>
+            </div>
+            <div class="folder-path">~/Desktop/eliska web/</div>
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <div class="card-icon icon-orange">&#128230;</div>
+                <div class="card-title">Stehovani Formanek</div>
+            </div>
+            <div class="card-desc">Web stehovaci firmy v Praze. SEO blog clanky, poptavkovy formular.</div>
+            <div class="card-meta">
+                <span class="badge badge-wp">WordPress</span>
+                <span class="tech">WordPress 6.9.1 + Elementor Pro</span>
+            </div>
+            <div class="card-links">
+                <a href="https://stehovaniformanek.cz" target="_blank" class="btn btn-primary">&#127760; stehovaniformanek.cz</a>
+                <a href="https://stehovaniformanek.cz/wp-admin" target="_blank" class="btn btn-admin">&#128272; Admin</a>
+            </div>
+            <div class="folder-path">~/Desktop/stehovani/</div>
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <div class="card-icon icon-green">&#128054;</div>
+                <div class="card-title">Makej s ManMatem</div>
+            </div>
+            <div class="card-desc">Komunitni portal ManMat. Clanky o mushingu, canicrossu, bikejoringu a dalsich psich sportech.</div>
+            <div class="card-meta">
+                <span class="badge badge-wp">Web</span>
+                <span class="tech">makejsmanmatem.cz</span>
+            </div>
+            <div class="card-links">
+                <a href="http://www.makejsmanmatem.cz" target="_blank" class="btn btn-primary">&#127760; makejsmanmatem.cz</a>
+                <a href="file:///Users/janformanek/Desktop/projekty/uvod.html" class="btn btn-secondary">&#128187; Uvodni stranka</a>
+            </div>
+            <div class="folder-path">~/Desktop/projekty/ &bull; scraper.py</div>
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="section-title">Rychle akce</div>
+    <div class="grid">
+
+        <div class="card card-action">
+            <div class="card-top">
+                <div class="card-icon icon-orange">&#128232;</div>
+                <div class="card-title">Stehovaci Email Bot</div>
+            </div>
+            <div class="card-desc">Automaticky oslovuje realitni maklere s nabidkou spoluprace. Denni limit 100 emailu.</div>
+            <div class="divider"></div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+                <div style="font-size: 0.85rem; color: #aaa;">
+                    <span id="emailStatus">&#9679; Pripraven ke spusteni</span>
+                </div>
+            </div>
+            <div class="card-links">
+                <button class="btn btn-action" onclick="copyCommand('cd ~/Desktop/stehovani/email_bot && python3 bot.py --auto')">
+                    &#9889; Kopirovat prikaz
+                </button>
+                <button class="btn btn-secondary" onclick="copyCommand('cd ~/Desktop/stehovani/email_bot && python3 bot.py --auto --dry-run')">
+                    &#128065; Testovaci beh
+                </button>
+                <button class="btn btn-secondary" onclick="openContacts()">
+                    &#128203; Kontakty
+                </button>
+            </div>
+            <div class="folder-path">~/Desktop/stehovani/email_bot/ &bull; python3 bot.py --auto</div>
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <div class="card-icon icon-blue">&#128190;</div>
+                <div class="card-title">Zaloha na Google Drive</div>
+            </div>
+            <div class="card-desc">Zaloha vsech projektu pres rclone na Google Drive slozku "Claude zalohy".</div>
+            <div class="divider"></div>
+            <div class="card-links">
+                <button class="btn btn-action" onclick="copyCommand('~/.claude/backup_to_gdrive.sh')">
+                    &#9889; Kopirovat prikaz
+                </button>
+            </div>
+            <div class="folder-path">~/.claude/backup_to_gdrive.sh</div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Contacts Modal -->
+<div class="modal-overlay" id="contactsModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>&#128203; Kontakty - Stehovaci Email Bot</h2>
+            <button class="modal-close" onclick="closeContacts()">&times;</button>
+        </div>
+        <div class="modal-toolbar">
+            <input type="text" class="search-input" id="searchInput" placeholder="Hledat firmu, email, region..." oninput="filterContacts()">
+            <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">Vse</button>
+            <button class="filter-btn" data-filter="sent" onclick="setFilter('sent', this)">Odeslane</button>
+            <button class="filter-btn" data-filter="pending" onclick="setFilter('pending', this)">Neodeslane</button>
+            <span class="modal-stats" id="modalStats"></span>
+        </div>
+        <div class="modal-body">
+            <table class="contacts-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Firma</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>Web</th>
+                        <th>Typ</th>
+                        <th>Region</th>
+                        <th>Stav</th>
+                    </tr>
+                </thead>
+                <tbody id="contactsBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast">Prikaz zkopirovan do schranky!</div>
+
+<script src="dashboard_data.js"></script>
+<script>
+    let allContacts = [];
+    let sentEmails = {};
+    let currentFilter = 'all';
+
+    async function openContacts() {
+        document.getElementById('contactsModal').classList.add('open');
+        if (allContacts.length === 0) {
+            await loadContacts();
+        }
+        renderContacts();
+    }
+
+    function closeContacts() {
+        document.getElementById('contactsModal').classList.remove('open');
+    }
+
+    // Close on overlay click
+    document.getElementById('contactsModal').addEventListener('click', function(e) {
+        if (e.target === this) closeContacts();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeContacts();
+    });
+
+    async function loadContacts() {
+        loadEmbeddedData();
+    }
+
+    function setFilter(filter, btn) {
+        currentFilter = filter;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderContacts();
+    }
+
+    function filterContacts() {
+        renderContacts();
+    }
+
+    function renderContacts() {
+        const search = document.getElementById('searchInput').value.toLowerCase();
+        const tbody = document.getElementById('contactsBody');
+
+        let filtered = allContacts.filter(c => {
+            // Search filter
+            const matchSearch = !search ||
+                c.firma.toLowerCase().includes(search) ||
+                c.email.toLowerCase().includes(search) ||
+                c.region.toLowerCase().includes(search) ||
+                c.typ.toLowerCase().includes(search);
+
+            // Status filter
+            const isSent = sentEmails[c.email];
+            const matchFilter = currentFilter === 'all' ||
+                (currentFilter === 'sent' && isSent) ||
+                (currentFilter === 'pending' && !isSent);
+
+            return matchSearch && matchFilter;
+        });
+
+        const totalSent = allContacts.filter(c => sentEmails[c.email]).length;
+        document.getElementById('modalStats').textContent =
+            `Zobrazeno: ${filtered.length} | Celkem: ${allContacts.length} | Odeslano: ${totalSent} | Zbyvá: ${allContacts.length - totalSent}`;
+
+        // Render max 500 rows for performance
+        const limit = Math.min(filtered.length, 500);
+        let html = '';
+        for (let i = 0; i < limit; i++) {
+            const c = filtered[i];
+            const sent = sentEmails[c.email];
+            const statusBadge = sent
+                ? `<span class="sent-badge">Odeslano ${sent.date || ''}</span>`
+                : '<span class="pending-badge">Ceka</span>';
+            html += `<tr>
+                <td>${i + 1}</td>
+                <td>${esc(c.firma)}</td>
+                <td class="email-cell">${esc(c.email)}</td>
+                <td>${esc(c.telefon)}</td>
+                <td>${c.web ? '<a href="' + (c.web.startsWith('http') ? '' : 'https://') + esc(c.web) + '" target="_blank" style="color:#667eea;text-decoration:none;">' + esc(c.web) + '</a>' : ''}</td>
+                <td>${esc(c.typ)}</td>
+                <td>${esc(c.region)}</td>
+                <td>${statusBadge}</td>
+            </tr>`;
+        }
+        if (filtered.length > 500) {
+            html += `<tr><td colspan="8" style="text-align:center;color:#888;padding:16px;">... a dalsich ${filtered.length - 500} zaznamu (pouzij vyhledavani)</td></tr>`;
+        }
+        tbody.innerHTML = html;
+    }
+
+    function esc(str) {
+        const d = document.createElement('div');
+        d.textContent = str;
+        return d.innerHTML;
+    }
+
+    function loadEmbeddedData() {
+        if (typeof CONTACTS_DATA !== 'undefined') {
+            allContacts = CONTACTS_DATA.map(c => ({
+                firma: c.f, email: c.e, telefon: c.t, web: c.w, typ: c.y, region: c.r
+            }));
+            sentEmails = {};
+            if (typeof SENT_DATA !== 'undefined') {
+                for (const [email, date] of Object.entries(SENT_DATA)) {
+                    sentEmails[email] = { date: date };
+                }
+            }
+            renderContacts();
+        } else {
+            const tbody = document.getElementById('contactsBody');
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#888;padding:30px;">Soubor dashboard_data.js nenalezen. Spust: python3 generate_data.py</td></tr>';
+        }
+    }
+
+    function copyCommand(cmd) {
+        navigator.clipboard.writeText(cmd).then(() => {
+            showToast('Prikaz zkopirovan do schranky!');
+        }).catch(() => {
+            // Fallback
+            const ta = document.createElement('textarea');
+            ta.value = cmd;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showToast('Prikaz zkopirovan do schranky!');
+        });
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+</script>
+
+</body>
+</html>
