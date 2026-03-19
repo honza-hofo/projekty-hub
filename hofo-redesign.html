@@ -294,7 +294,7 @@ footer{padding:48px 60px;border-top:1px solid var(--border);display:flex;justify
         </div>
       </div>
     </div>
-    <div class="case-card reveal">
+    <div class="case-card reveal" onclick="toggleCS('cs-tatra')">
       <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2021/07/215731711_2842695309376142_8538834105948461147_n-1024x678.png') center/cover">
         <div class="case-play">&#9654;</div>
       </div>
@@ -308,7 +308,7 @@ footer{padding:48px 60px;border-top:1px solid var(--border);display:flex;justify
         </div>
       </div>
     </div>
-    <div class="case-card reveal">
+    <div class="case-card reveal" onclick="toggleCS('cs-viadrus')">
       <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2021/07/Viadrus_Jaromir_Jagr_28.8.20180106-1024x683.jpg') center/cover">
         <div class="case-play">&#9654;</div>
       </div>
@@ -397,90 +397,65 @@ footer{padding:48px 60px;border-top:1px solid var(--border);display:flex;justify
     </div>
   </div>
 
-  <!-- VŠECHNY PRÁCE -->
-  <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border)">
-    <h3 class="s-title" style="font-size:28px;margin-bottom:24px">Další práce</h3>
-    <div id="dalsi-prace-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('arriva')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2025/01/arr241211_153541_0431-enhanced-nr-1024x682.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Arriva</div><h3 style="font-size:14px">Vánoční vlak</h3></div>
+  <!-- TATRA DETAIL -->
+  <div id="cs-tatra" class="cs-detail" style="position:relative">
+    <div class="cs-close" onclick="toggleCS('cs-tatra')">&times;</div>
+    <div style="padding:48px;display:flex;gap:48px;flex-wrap:wrap">
+      <div style="flex:1;min-width:300px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:12px">Tatra Trucks</div>
+        <h3 style="font-size:28px;font-weight:900;line-height:1.15;margin-bottom:14px;color:#fff">Content pro legendu, která jezdí od roku 1850</h3>
+        <p style="font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:16px">Tvorba video obsahu pro sociální sítě Tatra Trucks v letech 2020–2022. Desítky videí natáčených v reálném provozu — na stavbách, v terénu i v zahraničí. Z této spolupráce vznikla série Behind the Wheels.</p>
+        <div class="svc-tags"><span class="svc-tag">Video</span><span class="svc-tag">Social Media</span><span class="svc-tag">Dokument</span></div>
       </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('detecha')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2024/08/Aloe_Square-2-1024x1024.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Detecha</div><h3 style="font-size:14px">Regina, Jelení lůj</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('jacobs')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2022/07/ICED-CAPPUCCINO_detail_krabicka_opravena-kopie-1024x768.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Jacobs</div><h3 style="font-size:14px">Obsah na sociální sítě</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('viadrus')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2021/07/Viadrus_Jaromir_Jagr_28.8.20180106-1024x683.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Viadrus</div><h3 style="font-size:14px">Jak Jarda ke kotli přišel</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('cas')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2021/07/A002_C006_0101HX_001.00_12_21_02.Still002-1024x432.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Atletický svaz</div><h3 style="font-size:14px">Podpora české atletiky</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('palirna')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2022/03/Heffron_HOFO_tukani-kopie-1024x683.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Palírna u Zeleného stromu</div><h3 style="font-size:14px">Content pro sociální sítě</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('amundsen')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2021/07/amundsen_merch_prostor39_0459_optimized-1024x683.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Amundsen</div><h3 style="font-size:14px">Probuď v sobě 6. smysl</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('pudis')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2025/05/84e3d9c5-b5f9-4090-b756-4d1e74d1eef0-1024x679.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">PUDIS</div><h3 style="font-size:14px">Cesta je cíl</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('kucharova')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2024/08/135-Noblessni-kuchyne-Tatany-Kucharove-Noblessa-kuchynske-studio-YouTube-1024x538.png') center/cover"></div>
-        <div class="case-info"><div class="case-client">Taťána Kuchařová</div><h3 style="font-size:14px">Noblessní kuchařka</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('henkel')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2024/11/pattex2-1024x569.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Henkel</div><h3 style="font-size:14px">Produktová videa CEE</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('itn')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2024/08/itn-scaled.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">ITnetwork</div><h3 style="font-size:14px">Image, dokument, pořad</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('mutumutu')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2024/11/IMG_9055-1024x683.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">MutuMutu</div><h3 style="font-size:14px">TV kampaň</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('tatra')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2021/07/215731711_2842695309376142_8538834105948461147_n-1024x678.png') center/cover"></div>
-        <div class="case-info"><div class="case-client">Tatra Trucks</div><h3 style="font-size:14px">Video content</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('hermelin')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2021/07/Sedlcansky_Hermelin_HoFo_134-1024x1024.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Sedlčanský Hermelín</div><h3 style="font-size:14px">Smažený nebo pečený?</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('cnb')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2022/04/Financni-trampoty-Oty-Negramoty-–-Investicni-special-8.-dil-YouTube.png') center/cover"></div>
-        <div class="case-info"><div class="case-client">ČNB</div><h3 style="font-size:14px">Finanční trampoty Oty Negramoty</h3></div>
-      </div>
-      <div class="case-card" style="text-decoration:none" onclick="toggleDP('plesinger')">
-        <div class="case-thumb" style="background:url('https://hofo.cz/wp-content/uploads/2021/07/18_Plesinger-BTS-scaled-1-1024x576.jpg') center/cover"></div>
-        <div class="case-info"><div class="case-client">Plešinger</div><h3 style="font-size:14px">Košile na míru</h3></div>
+      <div style="flex:1;min-width:300px">
+        <img src="https://hofo.cz/wp-content/uploads/2021/07/213628547_471554440848125_4615323904880249369_n.png" style="width:100%;border-radius:12px;object-fit:cover" alt="Tatra">
       </div>
     </div>
-    <!-- Shared detail panel for Další práce -->
-    <div id="dp-detail" class="dp-detail">
-      <div class="cs-close" onclick="closeDP()">&times;</div>
-      <div class="dp-detail-inner">
-        <div class="dp-detail-left">
-          <div class="case-client" id="dp-client"></div>
-          <h3 id="dp-title"></h3>
-          <p id="dp-desc"></p>
-          <div class="svc-tags" id="dp-tags"></div>
+  </div>
+
+  <!-- VIADRUS DETAIL -->
+  <div id="cs-viadrus" class="cs-detail" style="position:relative">
+    <div class="cs-close" onclick="toggleCS('cs-viadrus')">&times;</div>
+    <div style="padding:48px;border-bottom:1px solid var(--border)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap">
+        <div style="flex:1;min-width:300px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:12px">Viadrus</div>
+          <h3 style="font-size:28px;font-weight:900;line-height:1.15;margin-bottom:14px;color:#fff">Jágr a kotel za 3 týdny. TV spot, 5 milionů lidí.</h3>
+          <p style="font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:16px">TV spot pro kotel Viadrus U68 s Jaromírem Jágrem. Od briefu po finální dodání za pouhé 3 týdny. Kreativa, scénář, casting, lokace, produkce, postprodukce, reklamní fotografie.</p>
+          <div class="svc-tags"><span class="svc-tag">TV Spot</span><span class="svc-tag">Online Video</span><span class="svc-tag">OOH</span><span class="svc-tag">Foto</span></div>
         </div>
-        <div class="dp-detail-right">
-          <img id="dp-image" src="" alt="">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:240px">
+          <div style="background:var(--bg-card);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-size:28px;font-weight:900;color:var(--green)">5M+</div>
+            <div style="font-size:11px;color:var(--gray);margin-top:2px">reach</div>
+          </div>
+          <div style="background:var(--bg-card);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-size:28px;font-weight:900;color:var(--green)">200k+</div>
+            <div style="font-size:11px;color:var(--gray);margin-top:2px">video views</div>
+          </div>
+          <div style="background:var(--bg-card);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-size:28px;font-weight:900;color:var(--green)">454k</div>
+            <div style="font-size:11px;color:var(--gray);margin-top:2px">earned media</div>
+          </div>
+          <div style="background:var(--bg-card);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-size:28px;font-weight:900;color:var(--green)">3</div>
+            <div style="font-size:11px;color:var(--gray);margin-top:2px">týdny realizace</div>
+          </div>
         </div>
       </div>
     </div>
+    <div style="padding:48px;display:flex;gap:48px;flex-wrap:wrap">
+      <div style="flex:1;min-width:300px">
+        <img src="https://hofo.cz/wp-content/uploads/2021/07/Viadrus_Jaromir_Jagr_28.8.20180106-1024x683.jpg" style="width:100%;border-radius:12px;object-fit:cover" alt="Viadrus Jágr">
+      </div>
+      <div style="flex:1;min-width:300px">
+        <img src="https://hofo.cz/wp-content/uploads/2021/07/Viadrus_Jaromir_Jagr_28.8.20180160_final-scaled-1.jpg" style="width:100%;border-radius:12px;object-fit:cover" alt="Viadrus Jágr 2">
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:40px">
+    <a href="#prace" style="display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border:1px solid var(--border);border-radius:50px;color:var(--gray-light);font-weight:600;font-size:14px;transition:all .3s;text-decoration:none" onmouseover="this.style.borderColor='var(--green)';this.style.color='#fff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--gray-light)'">Všechna práce &rarr;</a>
   </div>
 </section>
 
