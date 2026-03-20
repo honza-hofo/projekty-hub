@@ -51,12 +51,11 @@ a{color:inherit;text-decoration:none}
 .hero-stats{display:flex;gap:48px;padding-top:40px;border-top:1px solid #222}
 .h-stat .h-num{font-size:36px;font-weight:900;color:var(--green);line-height:1}
 .h-stat .h-lbl{font-size:12px;color:var(--gray);margin-top:4px;font-weight:500}
-/* REEL */
-.reel-float{position:absolute;right:80px;top:50%;transform:translateY(-50%);z-index:3}
-.reel-circle{width:200px;height:200px;border-radius:50%;border:1px solid #333;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;cursor:pointer;transition:all .4s;background:rgba(255,255,255,0.02)}
-.reel-circle:hover{border-color:var(--green);background:rgba(0,180,132,0.08);transform:scale(1.05)}
-.reel-circle .play{font-size:36px;color:var(--green)}
-.reel-circle .reel-txt{font-size:11px;color:#666;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+/* HERO VIDEO */
+.hero-video{position:absolute;top:0;right:0;width:55%;height:100%;overflow:hidden;z-index:1}
+.hero-video iframe{position:absolute;top:50%;left:50%;width:180%;height:180%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-video-gradient{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,#000 0%,#000 5%,rgba(0,0,0,0.85) 25%,rgba(0,0,0,0.4) 60%,rgba(0,0,0,0.2) 100%);pointer-events:none}
+.hero-video::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,#000);z-index:2}
 
 /* SECTION */
 section{padding:120px 60px}
@@ -168,6 +167,7 @@ footer{padding:48px 60px;border-top:1px solid var(--border);display:flex;justify
   .nav-links{display:none}
   .hero{padding:120px 24px 80px}
   .hero h1{font-size:36px}
+  .hero-video{display:none}
   section{padding:80px 24px}
   .svc-grid{grid-template-columns:1fr}
   .case-grid{grid-template-columns:1fr}
@@ -215,12 +215,11 @@ footer{padding:48px 60px;border-top:1px solid var(--border);display:flex;justify
       <div class="h-stat"><div class="h-num">&#9679;</div><div class="h-lbl">působení po celé ČR</div></div>
     </div>
   </div>
-  <a href="https://www.youtube.com/watch?v=8bPUlSjJSsw" target="_blank" class="reel-float" style="text-decoration:none">
-    <div class="reel-circle">
-      <div class="play">&#9654;</div>
-      <div class="reel-txt">Showreel</div>
-    </div>
-  </a>
+  <!-- Showreel video na pozadí vpravo -->
+  <div class="hero-video">
+    <div class="hero-video-gradient"></div>
+    <iframe src="https://www.youtube.com/embed/8bPUlSjJSsw?autoplay=1&mute=1&loop=1&playlist=8bPUlSjJSsw&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+  </div>
 </section>
 
 <!-- LOGOS -->
