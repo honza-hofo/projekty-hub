@@ -357,11 +357,10 @@ function buildColorBar() {
   const bar = document.getElementById('color-bar');
   bar.innerHTML = '<span class="color-bar-label">Sladit barvu:</span>';
 
-  // "All" dot
   const allDot = document.createElement('div');
   allDot.className = 'color-dot-all' + (!selectedColor ? ' active' : '');
   allDot.title = 'Všechny barvy';
-  allDot.addEventListener('click', () => { selectedColor = null; buildResults(); });
+  allDot.addEventListener('click', () => { selectedColor = null; applyColorFilter(); });
   bar.appendChild(allDot);
 
   const colorOrder = ['orange','pink','red','blue','green','silver','black'];
@@ -371,8 +370,58 @@ function buildColorBar() {
     dot.className = 'color-dot' + (selectedColor === key ? ' active' : '');
     dot.style.background = def.hex;
     dot.title = def.label;
-    dot.addEventListener('click', () => { selectedColor = key; buildResults(); });
+    dot.addEventListener('click', () => { selectedColor = key; applyColorFilter(); });
     bar.appendChild(dot);
+  });
+}
+
+// Fast color switch — no DOM rebuild, just update images + classes
+function applyColorFilter() {
+  // Update color bar active state
+  document.querySelectorAll('.color-dot, .color-dot-all').forEach(d => d.classList.remove('active'));
+  if (selectedColor) {
+    document.querySelectorAll('.color-dot').forEach(d => { if (d.title === colorDefs[selectedColor].label) d.classList.add('active'); });
+  } else {
+    document.querySelector('.color-dot-all').classList.add('active');
+  }
+
+  // Update each card
+  document.querySelectorAll('.rec-card').forEach(card => {
+    const pid = card.dataset.pid;
+    const p = findProduct(pid);
+    if (!p) return;
+
+    const hasColor = !selectedColor || (p.colors && p.colors.includes(selectedColor));
+
+    // Update image
+    const img = card.querySelector('.rc-img img');
+    if (img) {
+      const newSrc = selectedColor && p.colorImgs && p.colorImgs[selectedColor] ? p.colorImgs[selectedColor] : p.img;
+      if (img.src !== newSrc) img.src = newSrc;
+    }
+
+    // Update mismatch class
+    card.classList.toggle('color-mismatch', !hasColor);
+
+    // Update color dots highlight
+    card.querySelectorAll('.rc-color-sm').forEach(dot => {
+      dot.style.boxShadow = selectedColor && dot.title === colorDefs[selectedColor]?.label ? '0 0 0 2px ' + colorDefs[selectedColor].hex : '';
+    });
+
+    // Update/remove mismatch note
+    let note = card.querySelector('.color-note');
+    if (!hasColor && selectedColor) {
+      if (!note) {
+        note = document.createElement('div');
+        note.className = 'color-note';
+        note.style.cssText = 'font-size:10px;color:var(--red);font-weight:600;margin-top:4px';
+        const priceEl = card.querySelector('.rc-price');
+        if (priceEl) priceEl.after(note);
+      }
+      note.textContent = 'Nedostupné v ' + colorDefs[selectedColor].label.toLowerCase();
+    } else if (note) {
+      note.remove();
+    }
   });
 }
 
@@ -481,7 +530,7 @@ function buildResults() {
           '<div class="rc-desc">' + p.desc + '</div>' +
           '<div class="rc-colors">' + colorDotsHtml + '</div>' +
           '<div class="rc-price">' + p.price.toLocaleString('cs-CZ') + ' Kč</div>' +
-          (!hasColor ? '<div style="font-size:10px;color:var(--red);font-weight:600;margin-top:4px">Nedostupné v ' + colorDefs[selectedColor].label.toLowerCase() + '</div>' : '') +
+          (!hasColor && selectedColor ? '<div class="color-note" style="font-size:10px;color:var(--red);font-weight:600;margin-top:4px">Nedostupné v ' + colorDefs[selectedColor].label.toLowerCase() + '</div>' : '') +
           '<a href="' + p.url + '" target="_blank" class="rc-link" onclick="event.stopPropagation()">Detail produktu &rarr;</a>' +
         '</div>';
 
