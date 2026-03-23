@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO - Veterinární Mapa Evropy | ManMat Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; font-family: 'Montserrat', sans-serif; }
+        body { display: flex; flex-direction: column; }
+
+        .demo-banner {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            border-bottom: 3px solid #E30A14;
+        }
+        .demo-badge {
+            background: #E30A14;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .demo-title {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .demo-title span { color: #E30A14; }
+        .demo-count {
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 400;
+        }
+
+        #map { flex: 1; min-height: 0; }
+
+        /* SOS Button */
+        .sos-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #E30A14;
+            color: #fff;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(227, 10, 20, 0.5), 0 0 0 0 rgba(227, 10, 20, 0.4);
+            animation: sosPulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+        .sos-btn:hover { transform: scale(1.1); }
+        @keyframes sosPulse {
+            0% { box-shadow: 0 4px 20px rgba(227,10,20,0.5), 0 0 0 0 rgba(227,10,20,0.4); }
+            70% { box-shadow: 0 4px 20px rgba(227,10,20,0.5), 0 0 0 16px rgba(227,10,20,0); }
+            100% { box-shadow: 0 4px 20px rgba(227,10,20,0.5), 0 0 0 0 rgba(227,10,20,0); }
+        }
+
+        /* SOS Panel */
+        .sos-panel {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            z-index: 1000;
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px 24px;
+            width: 280px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+            border-top: 4px solid #E30A14;
+        }
+        .sos-panel.visible { display: block; }
+        .sos-panel h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: #E30A14;
+            margin-bottom: 8px;
+        }
+        .sos-panel p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .sos-panel .sos-action {
+            display: block;
+            background: #E30A14;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Leaflet popup override */
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+            padding: 0 !important;
+        }
+        .leaflet-popup-content {
+            margin: 0 !important;
+            min-width: 200px;
+        }
+        .popup-inner {
+            padding: 16px 18px;
+        }
+        .popup-inner h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        .popup-city {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        .popup-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #E30A14;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+        }
+        .popup-call:hover { background: #c50812; }
+        .popup-call svg {
+            width: 14px;
+            height: 14px;
+            fill: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .demo-banner { padding: 10px 16px; gap: 8px; }
+            .demo-title { font-size: 13px; }
+            .demo-count { font-size: 11px; }
+            .sos-btn { width: 52px; height: 52px; font-size: 13px; bottom: 16px; right: 16px; }
+            .sos-panel { right: 16px; bottom: 80px; width: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        <span class="demo-badge">DEMO</span>
+        <span class="demo-title">Veterinární Mapa Evropy | <span>ManMat Club</span></span>
+        <span class="demo-count">Zobrazeno 50 z 7 462 klinik v ČR</span>
+    </div>
+
+    <div id="map"></div>
+
+    <button class="sos-btn" onclick="toggleSOS()" title="SOS - Nouzové veterinární kontakty">SOS</button>
+    <div class="sos-panel" id="sosPanel">
+        <h3>SOS Veterinární pohotovost</h3>
+        <p>Najděte nejbližší veterinární pohotovost ve vašem okolí. V plné verzi mapy vás lokalizujeme a zobrazíme pohotovostní služby.</p>
+        <a href="#" class="sos-action" onclick="event.preventDefault(); alert('Tato funkce je dostupná v plné verzi mapy na makejsmanmatem.cz');">Najít nejbližší pohotovost</a>
+    </div>
+
+    <script>
+    const clinics = [
+        {n:'Lins s.r.o.',ci:'Vyšší Brod',p:'+420 776 710 494',lat:48.616314,lng:14.312286},
+        {n:'MVDr. Petr Fischer',ci:'Kaplice',p:'+420 731 115 974',lat:48.737549,lng:14.489767},
+        {n:'MVDr. Radek Švejd',ci:'Sušice',p:'+420 376 526 489',lat:49.231231,lng:13.516121},
+        {n:'Stanice pro handicapovaná zvířata',ci:'Vimperk',p:'+420 731 530 223',lat:49.026861,lng:13.753689},
+        {n:'Veterinární ordinace Chvalšiny',ci:'Chvalšiny',p:'+420 725 146 205',lat:48.853654,lng:14.211582},
+        {n:'MVDr. Dominik Mališ',ci:'Netolice',p:'+420 604 540 970',lat:49.043478,lng:14.183161},
+        {n:'Veterinární ošetřovna',ci:'Český Krumlov',p:'+420 602 394 790',lat:48.806842,lng:14.32648},
+        {n:'Zverex "U hada"',ci:'Český Krumlov',p:'+420 606 957 697',lat:48.804707,lng:14.310002},
+        {n:'Veterinární klinika JHvet',ci:'Jindřichův Hradec',p:'+420 602 600 065',lat:49.154042,lng:14.998423},
+        {n:'MVDr. Marcela Pešková',ci:'Jílovice',p:'+420 605 304 877',lat:48.884601,lng:14.773867},
+        {n:'MVDr. Magdalena Hlavsová',ci:'Jemnice',p:'+420 602 666 707',lat:49.019032,lng:15.570728},
+        {n:'MVDr. Štokr Dešná s.r.o.',ci:'Dešná',p:'+420 602 758 191',lat:48.958475,lng:15.543118},
+        {n:'Veterinární ordinace Jevišovice',ci:'Jevišovice',p:'+420 775 147 661',lat:48.988089,lng:15.994205},
+        {n:'MVDr. Bedřich Kuřítka',ci:'Bezkov',p:'+420 602 705 770',lat:48.873049,lng:15.95193},
+        {n:'MVDr. Štěpánka Illková',ci:'Únanov',p:'+420 737 900 718',lat:48.900823,lng:16.063509},
+        {n:'Veterinární ordinace Marek Chyba',ci:'Brno',p:'+420 541 248 626',lat:49.223571,lng:16.590842},
+        {n:'Veterinární ordinace Seman',ci:'Brno',p:'+420 777 478 007',lat:49.206307,lng:16.658087},
+        {n:'Albavet s.r.o.',ci:'Újezd u Brna',p:'+420 770 626 049',lat:49.101555,lng:16.754276},
+        {n:'Veterina Šlesinger s.r.o.',ci:'Koryčany',p:'+420 604 696 336',lat:49.107125,lng:17.16506},
+        {n:'Animal Help s.r.o.',ci:'Kyjov',p:'+420 773 893 667',lat:49.013619,lng:17.125262},
+        {n:'Exotická veterina',ci:'Sudoměřice',p:'+420 608 288 901',lat:48.867054,lng:17.250576},
+        {n:'MVDr. Dušan Dvořáček',ci:'Bzenec',p:'+420 607 838 466',lat:48.97366,lng:17.266172},
+        {n:'MVDr. Lucie Hruzíková',ci:'Vizovice',p:'+420 732 318 612',lat:49.221623,lng:17.85197},
+        {n:'Petr Mlček MVDr.',ci:'Luhačovice',p:'+420 731 570 167',lat:49.097908,lng:17.753431},
+        {n:'VETMANIE',ci:'Frýdek-Místek',p:'+420 734 575 602',lat:49.667352,lng:18.350165},
+        {n:'AlfaVet',ci:'Frýdek-Místek',p:'+420 558 632 435',lat:49.690634,lng:18.360641},
+        {n:'MVDr. Lenka Holčáková',ci:'Velké Karlovice',p:'+420 603 940 004',lat:49.360791,lng:18.283599},
+        {n:'Bc. Zuzana Špetlová - FyzioCani',ci:'Zlín',p:'+420 776 718 572',lat:49.2331,lng:17.6669},
+        {n:'MVDr. Martin Lochman',ci:'Cheb',p:'+420 354 431 441',lat:50.069622,lng:12.372623},
+        {n:'Veterinární ordinace NA FAŘE',ci:'Chodov',p:'+420 777 166 120',lat:50.239921,lng:12.749132},
+        {n:'Ostrovský Macík',ci:'Ostrov',p:'+420 776 669 084',lat:50.33541,lng:12.942651},
+        {n:'PhysioDOG Plzeň',ci:'Plzeň',p:'+420 775 491 333',lat:49.7384,lng:13.3736},
+        {n:'Veterinární klinika Písek',ci:'Písek',p:'+420 382 212 480',lat:49.311578,lng:14.155582},
+        {n:'Dogswill - MVDr. Lucie Pohanová',ci:'Tábor',p:'+420 605 572 995',lat:49.4144,lng:14.6581},
+        {n:'VetExotic',ci:'Praha-Modřany',p:'+420 724 190 384',lat:50.008506,lng:14.403901},
+        {n:'Vetallia s.r.o.',ci:'Praha 5',p:'+420 723 224 014',lat:50.052557,lng:14.35981},
+        {n:'Jinvet s.r.o.',ci:'Praha 5',p:'+420 257 222 525',lat:50.063014,lng:14.37467},
+        {n:'Veterinární klinika Parník',ci:'Praha 9',p:'+420 281 918 862',lat:50.106887,lng:14.572271},
+        {n:'Veterinární ambulance Veterina Skalka',ci:'Praha 10',p:'+420 604 917 565',lat:50.068973,lng:14.511174},
+        {n:'DeraVet s.r.o.',ci:'Žďár nad Sázavou',p:'+420 603 542 628',lat:49.566024,lng:15.901691},
+        {n:'MVDr. Jan Havránek',ci:'Žďár nad Sázavou',p:'+420 771 171 038',lat:49.608136,lng:15.915488},
+        {n:'Canine Centrum - Stephanie Mach',ci:'Hradec Králové',p:'+420 605 341 072',lat:50.2093,lng:15.8328},
+        {n:'VetFyz.cz - MVDr. Eva Zubalová',ci:'Hradec Králové',p:'+420 605 728 840',lat:50.2093,lng:15.8328},
+        {n:'MVDr. Zoltán Pálinkás',ci:'Bruntál',p:'+420 724 840 552',lat:49.980623,lng:17.461515},
+        {n:'Mgr. Mária Filípková - Fyzioterapie psů',ci:'Olomouc',p:'+420 775 670 880',lat:49.5938,lng:17.2509},
+        {n:'FyzioTlapka s.r.o.',ci:'Olomouc',p:'+420 725 753 836',lat:49.5938,lng:17.2509},
+        {n:'MVDr. Lenka Kölblová',ci:'Jihlava',p:'+420 721 849 319',lat:49.413826,lng:15.636687},
+        {n:'MVDr. Pavel Bártík',ci:'Jihlava',p:'+420 602 544 987',lat:49.406224,lng:15.600278},
+        {n:'Veterinární ordinace Doubravník',ci:'Doubravník',p:'+420 771 281 441',lat:49.417174,lng:16.354279},
+        {n:'VETERINA MÁŠKA s.r.o.',ci:'Oslavany',p:'+420 606 275 246',lat:49.125089,lng:16.334104},
+    ];
+
+    // Initialize map
+    const map = L.map('map', {
+        zoomControl: true
+    }).setView([49.8, 15.5], 7);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+
+    // Custom red marker icon
+    const redIcon = L.divIcon({
+        className: 'custom-marker',
+        html: `<svg width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 22 14 22s14-11.5 14-22C28 6.268 21.732 0 14 0z" fill="#E30A14"/>
+            <circle cx="14" cy="13" r="5.5" fill="#fff"/>
+            <circle cx="14" cy="13" r="3" fill="#E30A14"/>
+        </svg>`,
+        iconSize: [28, 36],
+        iconAnchor: [14, 36],
+        popupAnchor: [0, -36]
+    });
+
+    // Add markers
+    clinics.forEach(c => {
+        const phoneClean = c.p.replace(/\s/g, '');
+        const popup = `
+            <div class="popup-inner">
+                <h3>${c.n}</h3>
+                <div class="popup-city">${c.ci}</div>
+                <a href="tel:${phoneClean}" class="popup-call">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    VOLAT HNED
+                </a>
+            </div>
+        `;
+        L.marker([c.lat, c.lng], { icon: redIcon }).addTo(map).bindPopup(popup);
+    });
+
+    // SOS toggle
+    function toggleSOS() {
+        document.getElementById('sosPanel').classList.toggle('visible');
+    }
+
+    // Close SOS panel on map click
+    map.on('click', () => {
+        document.getElementById('sosPanel').classList.remove('visible');
+    });
+    </script>
+</body>
+</html>
