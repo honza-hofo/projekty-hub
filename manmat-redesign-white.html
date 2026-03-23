@@ -3,412 +3,535 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ManMat — Vyrobeno ručně v Česku od 1992</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzFhMWExYSIvPjx0ZXh0IHg9IjUiIHk9IjIyIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjRkY2QjAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiI+TTwvdGV4dD48L3N2Zz4=">
+<title>ManMat — E-shop | Postroje, obojky a vybavení pro psy a koně</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzFhMWExYSIvPjx0ZXh0IHg9IjUiIHk9IjIyIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjYmIxZjJmIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiI+TTwvdGV4dD48L3N2Zz4=">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --red:#bb1f2f;--red-dark:#871722;--red-light:rgba(187,31,47,0.08);
-  --dark:#f5f5f5;--card:#ffffff;--border:#e5e5e5;
-  --white:#1a1a1a;--gray:#777;--gray-light:#555;
-  --bg:#ffffff;--bg-alt:#f8f8f8;--bg-card:#f0f0f0;
+  --red:#bb1f2f;--red-dark:#971a26;--red-light:rgba(187,31,47,0.08);
+  --bg:#ffffff;--bg-alt:#f7f7f8;--bg-card:#f2f2f3;
+  --text:#1a1a1a;--text-light:#555;--gray:#888;
+  --border:#e5e5e5;--border-light:#eee;
+  --green:#16a34a;--star:#f59e0b;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-::selection{background:var(--red);color:#000}
+::selection{background:var(--red);color:#fff}
 img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+
+/* TOP BAR */
+.top-bar{background:var(--text);color:#fff;font-size:12px;padding:8px 60px;display:flex;justify-content:space-between;align-items:center}
+.top-bar a{color:rgba(255,255,255,0.7);transition:color .2s}
+.top-bar a:hover{color:#fff}
+.top-bar-left{display:flex;gap:20px;align-items:center}
+.top-bar-right{display:flex;gap:16px;align-items:center}
+.top-bar .free-ship{color:var(--red);font-weight:700}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
-.nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 2px 10px rgba(0,0,0,0.05)}
-.nav-logo{height:32px;filter:brightness(10)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{font-size:13px;font-weight:600;color:#fff;transition:color .3s}\n.nav.scrolled .nav-links a{color:#333}
-.nav-links a:hover{color:var(--red)}
-.nav-cta{padding:10px 24px;background:var(--red);color:#fff;font-weight:800;border-radius:8px;font-size:13px;transition:all .3s}
-.nav-cta:hover{background:var(--red-dark)}
-.nav-cart{font-size:20px;cursor:pointer}
+.nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);padding:0 60px}
+.nav-main{display:flex;align-items:center;gap:24px;height:80px}
+.nav-logo{height:70px}
+.nav-search{flex:1;max-width:480px;position:relative}
+.nav-search input{width:100%;padding:10px 16px 10px 40px;border:2px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;outline:none;transition:border-color .2s;background:var(--bg-alt)}
+.nav-search input:focus{border-color:var(--red);background:#fff}
+.nav-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--gray)}
+.nav-actions{display:flex;align-items:center;gap:6px;margin-left:auto}
+.nav-act{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 12px;border-radius:8px;font-size:10px;font-weight:600;color:var(--text-light);transition:all .2s;background:none;border:none;cursor:pointer;position:relative}
+.nav-act:hover{color:var(--red);background:var(--red-light)}
+.nav-act svg{width:22px;height:22px}
+.nav-act .badge{position:absolute;top:2px;right:6px;background:var(--red);color:#fff;font-size:9px;font-weight:800;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-cats{display:flex;gap:0;border-top:1px solid var(--border-light)}
+.nav-cats a{padding:12px 18px;font-size:13px;font-weight:600;color:var(--text-light);transition:all .2s;border-bottom:2px solid transparent}
+.nav-cats a:hover,.nav-cats a.active{color:var(--red);border-bottom-color:var(--red)}
+.nav-dropdown{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.08);padding:20px 60px;z-index:999}
+.nav-dropdown.open{display:flex;gap:12px;flex-wrap:wrap}
+.nav-dropdown a{padding:12px 20px;background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;font-size:13px;font-weight:600;color:var(--text);transition:all .2s;display:flex;align-items:center;gap:8px}
+.nav-dropdown a:hover{border-color:var(--red);color:var(--red);background:var(--red-light)}
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:140px 60px 80px;position:relative;overflow:hidden;text-align:center}
-.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:1}
-.hero-bg{position:absolute;inset:0;background:url('https://www.manmat.cz/data/user-content/media/letak%20k%20filmu%20publicita2025%20-%20MANMAT%20NA%20CESTE%202.pdf') center/cover;filter:brightness(0.7)}
-.hero-bg-img{position:absolute;inset:0;background:#1a1a1a url('https://images.unsplash.com/photo-1558788353-f76d92427f16?w=1600') center/cover}
-.hero-content{max-width:800px;position:relative;z-index:2;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(187,31,47,0.1);border:1px solid rgba(187,31,47,0.3);border-radius:40px;font-size:12px;font-weight:700;color:var(--red);margin-bottom:28px;letter-spacing:1px}
-.hero h1{font-size:60px;font-weight:900;line-height:1.05;margin-bottom:20px;letter-spacing:-2px;color:#fff}
+/* HERO - fullwidth */
+.hero{position:relative;min-height:460px;display:flex;align-items:center;padding:80px 60px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:1}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558788353-f76d92427f16?w=1600') center 30%/cover;filter:brightness(0.8)}
+.hero-content{position:relative;z-index:2;max-width:620px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(187,31,47,0.85);border-radius:6px;font-size:11px;font-weight:700;color:#fff;margin-bottom:20px;letter-spacing:0.5px}
+.hero h1{font-size:48px;font-weight:900;line-height:1.08;margin-bottom:14px;letter-spacing:-1.5px;color:#fff}
 .hero h1 span{color:var(--red)}
-.hero-sub{font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto}
-.hero-sub strong{color:#fff}
-.hero-btns{display:flex;gap:14px;margin-bottom:60px;justify-content:center}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:50px;font-size:15px;font-weight:700;transition:all .3s;border:none;cursor:pointer;font-family:inherit}
-.btn-orange{background:var(--red);color:#fff}
-.btn-orange:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(187,31,47,0.3)}
-.btn-ghost{background:transparent;border:1px solid #444;color:#ccc}
-.btn-ghost:hover{border-color:var(--red);color:#fff}
-.hero-trust{display:flex;gap:40px;justify-content:center}
-.trust-item{text-align:center}
-.trust-num{font-size:28px;font-weight:900;color:#fff}
-.trust-lbl{font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:28px}
+.hero-btns{display:flex;gap:10px;margin-bottom:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:14px;font-weight:700;transition:all .3s;border:none;cursor:pointer;font-family:inherit}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.8)}
+.btn-outline:hover{border-color:#fff;color:#fff}
+.hero-trust{display:flex;gap:28px}
+.hero-trust div{text-align:left}
+.hero-trust .ht-num{font-size:22px;font-weight:900;color:#fff}
+.hero-trust .ht-lbl{font-size:10px;color:rgba(255,255,255,0.5);margin-top:1px}
+.hero-promo{position:absolute;bottom:28px;right:60px;z-index:2;background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);padding:16px 22px;border-radius:12px;border:1px solid rgba(255,255,255,0.1)}
+.hero-promo .hp-tag{font-size:10px;font-weight:700;color:var(--red);letter-spacing:1px;margin-bottom:4px}
+.hero-promo .hp-text{font-size:14px;font-weight:700;color:#fff}
+
+/* USP BAR */
+.usp-bar{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.usp-item{display:flex;align-items:center;gap:12px;padding:18px 24px;justify-content:center;border-right:1px solid var(--border)}
+.usp-item:last-child{border-right:none}
+.usp-item .usp-icon{font-size:22px}
+.usp-item .usp-text{font-size:12px;font-weight:600;color:var(--text);line-height:1.3}
+.usp-item .usp-sub{font-size:11px;color:var(--gray);font-weight:400}
 
 /* SECTION */
-section{padding:100px 60px}
-.s-label{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
-.s-title{font-size:42px;font-weight:900;line-height:1.1;margin-bottom:14px;letter-spacing:-1px}
-.s-desc{font-size:16px;color:var(--gray);line-height:1.7;max-width:550px;margin-bottom:40px}
+section{padding:60px 60px}
+.s-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px}
+.s-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.s-title{font-size:32px;font-weight:900;line-height:1.1;letter-spacing:-0.5px}
+.s-link{font-size:13px;font-weight:700;color:var(--red);display:flex;align-items:center;gap:4px;white-space:nowrap}
+.s-link:hover{text-decoration:underline}
 
-/* CATEGORIES */
-.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.cat-card{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;cursor:pointer;transition:transform .4s}
-.cat-card:hover{transform:translateY(-4px)}
+/* CATEGORY CARDS */
+.cat-scroll{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.cat-card{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/4;cursor:pointer;transition:transform .3s}
+.cat-card:hover{transform:translateY(-3px)}
 .cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .cat-card:hover img{transform:scale(1.05)}
-.cat-card .cat-overlay{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,0.85));display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
-.cat-card h3{font-size:20px;font-weight:800;color:#fff;margin-bottom:4px}
-.cat-card p{font-size:12px;color:var(--gray)}
-.cat-card .cat-count{position:absolute;top:16px;right:16px;padding:6px 14px;background:rgba(187,31,47,0.9);color:#fff;font-size:11px;font-weight:800;border-radius:20px}
+.cat-card .cat-overlay{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,0.85));display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.cat-card h3{font-size:16px;font-weight:800;color:#fff;margin-bottom:2px}
+.cat-card .cat-count{font-size:11px;color:rgba(255,255,255,0.6)}
 
-/* PRODUCTS */
-.products{background:var(--bg-alt)}
-.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.prod-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;cursor:pointer}
-.prod-card:hover{border-color:var(--red);transform:translateY(-4px)}
+/* PRODUCT GRID */
+.prod-section{background:var(--bg-alt)}
+.prod-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.prod-toolbar .pt-count{font-size:14px;color:var(--gray)}
+.prod-toolbar .pt-count strong{color:var(--text)}
+.prod-filters{display:flex;gap:8px}
+.prod-filters button{padding:8px 16px;border:1px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;background:#fff;color:var(--text-light);transition:all .2s}
+.prod-filters button:hover,.prod-filters button.active{border-color:var(--red);color:var(--red);background:var(--red-light)}
+.prod-sort{display:flex;align-items:center;gap:8px}
+.prod-sort select{padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:12px;font-family:inherit;background:#fff;color:var(--text);outline:none;cursor:pointer}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prod-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .3s;cursor:pointer;position:relative}
+.prod-card:hover{border-color:var(--red);box-shadow:0 8px 30px rgba(0,0,0,0.08);transform:translateY(-3px)}
 .prod-img{aspect-ratio:1;background:var(--bg-card);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
 .prod-img img{width:80%;height:80%;object-fit:contain}
-.prod-badge{position:absolute;top:12px;left:12px;padding:4px 12px;background:var(--red);color:#fff;font-size:10px;font-weight:800;border-radius:20px}
-.prod-info{padding:18px}
-.prod-info h3{font-size:15px;font-weight:700;margin-bottom:6px;line-height:1.3}
-.prod-info .prod-price{font-size:18px;font-weight:900;color:var(--red)}
-.prod-info .prod-price-old{font-size:13px;color:var(--gray);text-decoration:line-through;margin-left:8px}
-.prod-info .prod-stock{font-size:11px;color:#16a34a;margin-top:6px;font-weight:600}
+.prod-badge{position:absolute;top:8px;left:8px;padding:3px 8px;color:#fff;font-size:9px;font-weight:800;border-radius:4px}
+.prod-badge.bestseller{background:var(--red)}
+.prod-badge.new{background:#0ea5e9}
+.prod-badge.sale{background:#e11d48}
+.prod-wishlist{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-size:13px;color:var(--gray)}
+.prod-wishlist:hover{border-color:var(--red);color:var(--red)}
+.prod-colors{position:absolute;bottom:8px;left:8px;display:flex;gap:3px}
+.prod-colors span{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2)}
+.prod-info{padding:12px}
+.prod-info .prod-cat{font-size:10px;color:var(--gray);font-weight:500;margin-bottom:2px}
+.prod-info h3{font-size:12px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.prod-stars{display:flex;align-items:center;gap:3px;margin-bottom:6px}
+.prod-stars .stars{color:var(--star);font-size:10px;letter-spacing:0px}
+.prod-stars .star-count{font-size:10px;color:var(--gray)}
+.prod-pricing{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+.prod-price{font-size:15px;font-weight:900;color:var(--text)}
+.prod-price-old{font-size:11px;color:var(--gray);text-decoration:line-through}
+.prod-stock{font-size:10px;color:var(--green);font-weight:600;display:flex;align-items:center;gap:4px}
+.prod-stock.low{color:#f59e0b}
+.prod-btn{width:100%;padding:8px;background:var(--text);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:700;transition:all .2s;margin-top:8px}
+.prod-btn:hover{background:var(--red)}
+.prod-more{display:flex;justify-content:center;margin-top:28px}
+.prod-more a{padding:14px 40px;border:2px solid var(--border);border-radius:10px;font-size:14px;font-weight:700;color:var(--text);transition:all .2s}
+.prod-more a:hover{border-color:var(--red);color:var(--red)}
 
 /* STORY */
-.story{background:var(--bg)}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.story-img{border-radius:20px;overflow:hidden}
-.story-img img{width:100%;height:400px;object-fit:cover}
-.story-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-.story-stat{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
-.story-stat .ss-num{font-size:28px;font-weight:900;color:var(--red)}
-.story-stat .ss-lbl{font-size:11px;color:var(--gray);margin-top:4px}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.story-img{border-radius:16px;overflow:hidden}
+.story-img img{width:100%;height:360px;object-fit:cover}
+.story-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.story-stat{background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.story-stat .ss-num{font-size:24px;font-weight:900;color:var(--red)}
+.story-stat .ss-lbl{font-size:11px;color:var(--gray);margin-top:2px}
 
 /* ATHLETES */
-.athletes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.athlete{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s}
+.athletes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.athlete{background:var(--bg-alt);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s}
 .athlete:hover{border-color:var(--red)}
-.athlete-img{height:260px;background:var(--card);overflow:hidden}
+.athlete-img{height:220px;overflow:hidden}
 .athlete-img img{width:100%;height:100%;object-fit:cover}
-.athlete-info{padding:24px}
-.athlete-info h3{font-size:18px;font-weight:800;margin-bottom:4px}
-.athlete-info .athlete-role{font-size:12px;color:var(--red);font-weight:600;margin-bottom:10px}
-.athlete-info p{font-size:13px;color:var(--gray);line-height:1.6}
+.athlete-info{padding:20px}
+.athlete-info h3{font-size:16px;font-weight:800;margin-bottom:3px}
+.athlete-info .athlete-role{font-size:11px;color:var(--red);font-weight:600;margin-bottom:8px}
+.athlete-info p{font-size:12px;color:var(--gray);line-height:1.5}
 
-/* TRUST BAR */
-.trust-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
-.trust-block{background:var(--bg);padding:32px;text-align:center}
-.trust-block .tb-icon{font-size:28px;margin-bottom:12px}
-.trust-block h4{font-size:15px;font-weight:700;margin-bottom:4px}
-.trust-block p{font-size:12px;color:var(--gray);line-height:1.5}
+/* REVIEWS */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .3s}
+.review-card:hover{border-color:var(--red)}
+.review-stars{color:var(--star);font-size:14px;letter-spacing:1px;margin-bottom:12px}
+.review-text{font-size:14px;color:var(--text-light);line-height:1.6;margin-bottom:16px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:10px}
+.review-author img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.review-author .ra-name{font-size:13px;font-weight:700}
+.review-author .ra-role{font-size:11px;color:var(--gray)}
 
 /* GUIDE */
-.guide{background:var(--bg-alt)}
-.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.guide-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer}
-.guide-card:hover{border-color:var(--red);transform:translateY(-4px)}
-.guide-card .guide-img{height:200px;background:var(--bg-card);overflow:hidden}
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.guide-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;cursor:pointer}
+.guide-card:hover{border-color:var(--red);transform:translateY(-3px)}
+.guide-card .guide-img{height:180px;overflow:hidden}
 .guide-card .guide-img img{width:100%;height:100%;object-fit:cover}
-.guide-card .guide-info{padding:24px}
-.guide-card .guide-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
-.guide-card h3{font-size:17px;font-weight:700;margin-bottom:8px;line-height:1.3}
-.guide-card p{font-size:13px;color:var(--gray);line-height:1.5}
+.guide-card .guide-info{padding:20px}
+.guide-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.guide-card h3{font-size:15px;font-weight:700;margin-bottom:6px;line-height:1.3}
+.guide-card p{font-size:12px;color:var(--gray);line-height:1.5}
+
+/* B2B */
+.b2b{background:var(--text);color:#fff;border-radius:20px;margin:0 60px;padding:50px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.b2b .s-title{color:#fff}
+.b2b p{color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6}
+.b2b ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin:20px 0}
+.b2b li{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.7)}
+.b2b li span{color:var(--red);font-weight:800;font-size:16px}
+.b2b-form{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:32px}
+.b2b-form h3{font-size:18px;font-weight:800;margin-bottom:4px}
+.b2b-form .bf-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:20px}
+.b2b-form input{width:100%;padding:12px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;color:#fff;font-size:13px;font-family:inherit;outline:none;margin-bottom:8px;transition:border-color .2s}
+.b2b-form input:focus{border-color:var(--red)}
+.b2b-form input::placeholder{color:rgba(255,255,255,0.3)}
+.b2b-form button{width:100%;padding:13px;background:var(--red);color:#fff;font-weight:800;font-size:13px;border:none;border-radius:8px;margin-top:8px;transition:background .2s}
+.b2b-form button:hover{background:var(--red-dark)}
 
 /* NEWSLETTER */
-.newsletter{background:var(--red);padding:60px;border-radius:20px;margin:0 60px;text-align:center}
-.newsletter h2{font-size:32px;font-weight:900;color:#fff;margin-bottom:8px}
-.newsletter p{font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:24px}
-.newsletter form{display:flex;gap:10px;max-width:500px;margin:0 auto}
-.newsletter input{flex:1;padding:14px 20px;border:none;border-radius:10px;font-size:15px;font-family:inherit;background:rgba(0,0,0,0.1);color:#000;outline:none}
-.newsletter input::placeholder{color:rgba(0,0,0,0.4)}
-.newsletter button{padding:14px 28px;background:#000;color:#fff;font-weight:800;border:none;border-radius:10px;cursor:pointer;font-size:15px;font-family:inherit}
+.newsletter{background:var(--red);padding:40px 60px;text-align:center;margin-top:60px}
+.newsletter h2{font-size:24px;font-weight:900;color:#fff;margin-bottom:6px}
+.newsletter p{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:18px}
+.newsletter form{display:flex;gap:8px;max-width:460px;margin:0 auto}
+.newsletter input{flex:1;padding:12px 16px;border:none;border-radius:8px;font-size:14px;font-family:inherit;background:rgba(255,255,255,0.2);color:#fff;outline:none}
+.newsletter input::placeholder{color:rgba(255,255,255,0.6)}
+.newsletter button{padding:12px 24px;background:#fff;color:var(--red);font-weight:800;border:none;border-radius:8px;font-size:14px}
 
 /* FOOTER */
-footer{padding:60px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;border-top:1px solid var(--border);color:var(--gray);font-size:13px}
-footer h4{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:14px}
-footer a{display:block;padding:3px 0;color:var(--gray);transition:color .3s}
+footer{padding:50px 60px 30px;border-top:1px solid var(--border)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+footer h4{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:12px}
+footer a{display:block;padding:3px 0;color:var(--gray);font-size:13px;transition:color .2s}
 footer a:hover{color:var(--red)}
-.foot-brand p{line-height:1.6;margin-top:8px}
-.foot-social{display:flex;gap:10px;margin-top:16px}
-.foot-social a{width:36px;height:36px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:14px}
+.foot-brand{font-size:13px;color:var(--gray);line-height:1.6}
+.foot-brand .fb-logo{font-size:20px;font-weight:900;color:var(--text);margin-bottom:6px}
+.foot-brand .fb-logo span{color:var(--red)}
+.foot-social{display:flex;gap:8px;margin-top:14px}
+.foot-social a{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0;font-size:13px;font-weight:700}
 .foot-social a:hover{border-color:var(--red);color:var(--red)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--gray)}
+.foot-pay{display:flex;gap:8px;align-items:center}
+.foot-pay span{padding:4px 10px;border:1px solid var(--border);border-radius:4px;font-size:11px;font-weight:600;color:var(--text-light)}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:all .6s cubic-bezier(.25,.46,.45,.94)}
+.reveal{opacity:0;transform:translateY(16px);transition:all .5s cubic-bezier(.25,.46,.45,.94)}
 .reveal.vis{opacity:1;transform:translateY(0)}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .nav{padding:14px 20px}
-  .nav-links{display:none}
-  .hero{padding:100px 24px 60px}
-  .hero h1{font-size:36px}
-  section{padding:60px 24px}
-  .cat-grid{grid-template-columns:1fr 1fr}
-  section div[style*="repeat(6"]{grid-template-columns:1fr 1fr 1fr!important}
-  .prod-grid{grid-template-columns:1fr 1fr}
+  .top-bar{padding:8px 20px;font-size:11px}
+  .nav{padding:0 20px}
+  .nav-search{max-width:280px}
+  .nav-cats{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .hero{min-height:340px;padding:60px 24px}
+  .hero h1{font-size:30px}
+  .hero-promo{right:20px;bottom:20px}
+  .usp-bar{grid-template-columns:1fr 1fr}
+  section{padding:40px 20px}
+  .cat-scroll{grid-template-columns:repeat(3,1fr)}
+  .prod-grid{grid-template-columns:repeat(3,1fr)!important}
+  .prod-toolbar{flex-direction:column;gap:12px;align-items:flex-start}
   .story-grid{grid-template-columns:1fr}
   .athletes-grid{grid-template-columns:1fr}
+  .review-grid{grid-template-columns:1fr}
   .guide-grid{grid-template-columns:1fr}
-  .trust-bar{grid-template-columns:1fr 1fr}
-  .newsletter{margin:0 20px;padding:40px 24px}
+  .b2b{margin:0 20px;grid-template-columns:1fr;padding:32px 24px}
+  .newsletter{padding:32px 20px}
   .newsletter form{flex-direction:column}
-  footer{grid-template-columns:1fr 1fr;padding:40px 24px}
-  .s-title{font-size:28px}
+  footer{padding:32px 20px 20px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-bottom{flex-direction:column;gap:12px;text-align:center}
+  .s-title{font-size:24px}
+}
+@media(max-width:640px){
+  .top-bar-left span:not(.free-ship){display:none}
+  .nav-act span:not(.badge){display:none}
+  .cat-scroll{grid-template-columns:1fr 1fr}
+  .prod-grid{grid-template-columns:repeat(3,1fr)!important}
+  .usp-bar{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <span class="free-ship">&#128666; Doprava zdarma nad 2 000 Kč</span>
+    <span>&#128222; +420 603 596 848</span>
+    <span>Po–Pá 8:00–16:00</span>
+  </div>
+  <div class="top-bar-right">
+    <a href="#">&#127464;&#127487; CZ</a>
+    <a href="#">EN</a>
+    <a href="#">DE</a>
+    <a href="#">|</a>
+    <a href="#">CZK Kč</a>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <img src="https://honza-hofo.github.io/honza-hub/manmat-logo.png" alt="ManMat" style="height:52px">
-  <div class="nav-links">
-    <a href="#produkty">Produkty</a>
-    <a href="#canicross">Canicross</a>
-    <a href="#mushing">Mushing</a>
-    <a href="#kone">Koně</a>
-    <a href="#pribeh">Náš příběh</a>
-    <a href="#blog">Blog</a>
-    <div class="nav-cart">&#128722;</div>
-    <a href="#produkty" class="nav-cta">Nakupovat</a>
+  <div class="nav-main">
+    <a href="/"><img src="https://honza-hofo.github.io/honza-hub/manmat-logo.png" alt="ManMat" class="nav-logo"></a>
+
+    <div class="nav-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Hledejte postroje, obojky, vodítka...">
+    </div>
+
+    <div class="nav-actions">
+      <button class="nav-act">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Účet</span>
+      </button>
+      <button class="nav-act">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Oblíbené</span>
+        <div class="badge">3</div>
+      </button>
+      <button class="nav-act">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span>Košík</span>
+        <div class="badge">2</div>
+      </button>
+    </div>
+  </div>
+  <div class="nav-cats">
+    <a href="#">&#128054; Pro psy</a>
+    <a href="#">&#128014; Pro koně</a>
+    <a href="#">&#128694; Pro lidi</a>
+    <a href="#" class="nav-dropdown-trigger" onclick="event.preventDefault();document.querySelector('.nav-dropdown').classList.toggle('open')">&#127939; Dle aktivity <span style="font-size:9px;margin-left:2px">&#9660;</span></a>
+    <a href="#">&#129395; Výprodej</a>
+  </div>
+  <div class="nav-dropdown">
+    <a href="#">&#127939; Canicross</a>
+    <a href="#">&#128054; Mushing</a>
+    <a href="#">&#128692; Bikejöring</a>
+    <a href="#">&#9975; Skijöring</a>
+    <a href="#">&#128014; Koně</a>
+    <a href="#">&#127956; Turistika</a>
+    <a href="#">&#127961; Město</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-img"></div>
+  <div class="hero-bg"></div>
   <div class="hero-content">
-    <div style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;background:rgba(187,31,47,0.85);border-radius:8px;font-size:15px;font-weight:700;color:#fff;margin-bottom:28px;letter-spacing:0.5px">&#127464;&#127487; Český výrobek od roku 1992</div>
+    <div class="hero-badge">&#127464;&#127487; Ruční výroba v Česku od 1992</div>
     <h1>Vyrobeno ručně.<br>Testováno <span>v divočině.</span></h1>
-    <p class="hero-sub">Postroje, obojky a vybavení pro <strong>sportovní psy a koně</strong>. Vlastní vývoj, ruční výroba v Česku. 5 let záruka na každý steh.</p>
+    <p class="hero-sub">Postroje, obojky a vybavení pro sportovní psy a koně. Vlastní vývoj, ruční výroba. 5 let záruka na každý steh.</p>
     <div class="hero-btns">
-      <a href="#produkty" class="btn btn-orange">Prohlédnout produkty</a>
-      <a href="#pribeh" class="btn btn-ghost">Náš příběh →</a>
+      <a href="#produkty" class="btn btn-red">Prohlédnout produkty &#8594;</a>
+      <a href="#pribeh" class="btn btn-outline">Náš příběh</a>
     </div>
     <div class="hero-trust">
-      <div class="trust-item"><div class="trust-num">30+</div><div class="trust-lbl">let tradice</div></div>
-      <div class="trust-item"><div class="trust-num">5 let</div><div class="trust-lbl">záruka na šití</div></div>
-      <div class="trust-item"><div class="trust-num">50+</div><div class="trust-lbl">zemí světa</div></div>
-      <div class="trust-item"><div class="trust-num">100%</div><div class="trust-lbl">česká výroba</div></div>
+      <div><div class="ht-num">30+</div><div class="ht-lbl">let tradice</div></div>
+      <div><div class="ht-num">50+</div><div class="ht-lbl">zemí světa</div></div>
+      <div><div class="ht-num">5 let</div><div class="ht-lbl">záruka</div></div>
     </div>
+  </div>
+  <div class="hero-promo">
+    <div class="hp-tag">AKCE TÝDNE</div>
+    <div class="hp-text">-15 % na všechny postroje &#8594;</div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<section style="padding:40px 60px">
-  <div class="trust-bar">
-    <div class="trust-block reveal">
-      <div class="tb-icon">&#9997;</div>
-      <h4>Ruční výroba</h4>
-      <p>Každý produkt šijeme ručně v naší dílně v Police nad Metují</p>
+<!-- USP BAR -->
+<div class="usp-bar">
+  <div class="usp-item">
+    <div class="usp-icon">&#9997;</div>
+    <div><div class="usp-text">Ruční výroba</div><div class="usp-sub">Dílna v Police nad Metují</div></div>
+  </div>
+  <div class="usp-item">
+    <div class="usp-icon">&#128666;</div>
+    <div><div class="usp-text">Doprava zdarma</div><div class="usp-sub">Nad 2 000 Kč</div></div>
+  </div>
+  <div class="usp-item">
+    <div class="usp-icon">&#128170;</div>
+    <div><div class="usp-text">5 let záruka</div><div class="usp-sub">Na každý steh</div></div>
+  </div>
+  <div class="usp-item">
+    <div class="usp-icon">&#128259;</div>
+    <div><div class="usp-text">14 dní na vrácení</div><div class="usp-sub">Bez udání důvodu</div></div>
+  </div>
+</div>
+
+<!-- BESTSELLERY -->
+<section class="prod-section" id="produkty">
+
+  <div class="prod-grid" style="grid-template-columns:repeat(6,1fr)">
+    <div class="prod-card reveal">
+      <div class="prod-img">
+        <div class="prod-badge bestseller">Bestseller</div>
+        <div class="prod-wishlist">&#9825;</div>
+        <img src="https://cdn.manmat.cz/images/0/dba8ca995780d281/2/postroj-smart-reflex-xs.jpg" alt="Postroj SMART" style="width:100%;height:100%;object-fit:contain;padding:16px">
+        <div class="prod-colors">
+          <span style="background:#c00"></span>
+          <span style="background:#222"></span>
+          <span style="background:#0066cc"></span>
+        </div>
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Postroje / Canicross</div>
+        <h3>Postroj SMART</h3>
+        <div class="prod-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="star-count">(127)</span></div>
+        <div class="prod-pricing">
+          <span class="prod-price">1 007 Kč</span>
+        </div>
+        <div class="prod-stock">&#9679; Skladem — odesíláme dnes</div>
+        <button class="prod-btn">Do košíku</button>
+      </div>
     </div>
-    <div class="trust-block reveal">
-      <div class="tb-icon">&#128170;</div>
-      <h4>5 let záruka</h4>
-      <p>Na každý steh. Protože věříme kvalitě našich materiálů</p>
+
+    <div class="prod-card reveal">
+      <div class="prod-img">
+        <div class="prod-badge bestseller">Top</div>
+        <div class="prod-wishlist">&#9825;</div>
+        <img src="https://cdn.manmat.cz/images/0/86cc51d3524ff059/2/postroj-run-long-d-l.jpg" alt="Postroj RUN LONG" style="width:100%;height:100%;object-fit:contain;padding:16px">
+        <div class="prod-colors">
+          <span style="background:#c00"></span>
+          <span style="background:#222"></span>
+        </div>
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Postroje / Mushing</div>
+        <h3>Postroj RUN LONG</h3>
+        <div class="prod-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="star-count">(203)</span></div>
+        <div class="prod-pricing">
+          <span class="prod-price">580 Kč</span>
+        </div>
+        <div class="prod-stock">&#9679; Skladem — odesíláme dnes</div>
+        <button class="prod-btn">Do košíku</button>
+      </div>
     </div>
-    <div class="trust-block reveal">
-      <div class="tb-icon">&#127942;</div>
-      <h4>Testováno šampiony</h4>
-      <p>Brent Sass (Aljaška), Jérôme Lafourte (Belgie) a další</p>
+
+    <div class="prod-card reveal">
+      <div class="prod-img">
+        <div class="prod-wishlist">&#9825;</div>
+        <img src="https://cdn.manmat.cz/images/0/64eebe45310efa5a/2/opasek-race-pro.jpg" alt="Opasek RACE PRO" style="width:100%;height:100%;object-fit:contain;padding:16px">
+        <div class="prod-colors">
+          <span style="background:#222"></span>
+          <span style="background:#c00"></span>
+        </div>
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Opasky / Závodní</div>
+        <h3>Opasek RACE PRO</h3>
+        <div class="prod-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="star-count">(94)</span></div>
+        <div class="prod-pricing">
+          <span class="prod-price">1 199 Kč</span>
+        </div>
+        <div class="prod-stock">&#9679; Skladem</div>
+        <button class="prod-btn">Do košíku</button>
+      </div>
     </div>
-    <div class="trust-block reveal">
-      <div class="tb-icon">&#127758;</div>
-      <h4>Dodáváme do 50+ zemí</h4>
-      <p>Od Aljašky po Austrálii. Česká kvalita pro celý svět</p>
+
+    <div class="prod-card reveal">
+      <div class="prod-img">
+        <div class="prod-badge new">Novinka</div>
+        <div class="prod-wishlist">&#9825;</div>
+        <img src="https://cdn.manmat.cz/images/0/2ad870c0edc5edd4/2/obojek-polstrovany-design.jpg" alt="Obojek POLSTROVANÝ DESIGN" style="width:100%;height:100%;object-fit:contain;padding:16px">
+        <div class="prod-colors">
+          <span style="background:#c00"></span>
+          <span style="background:#222"></span>
+          <span style="background:#996633"></span>
+        </div>
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Obojky / Design</div>
+        <h3>Obojek POLSTROVANÝ DESIGN</h3>
+        <div class="prod-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="star-count">(67)</span></div>
+        <div class="prod-pricing">
+          <span class="prod-price">321 Kč</span>
+        </div>
+        <div class="prod-stock">&#9679; Skladem</div>
+        <button class="prod-btn">Do košíku</button>
+      </div>
+    </div>
+
+    <div class="prod-card reveal">
+      <div class="prod-img">
+        <div class="prod-wishlist">&#9825;</div>
+        <img src="https://cdn.manmat.cz/images/0/34bc7cf824b30878/2/obojek-standard.jpg" alt="Obojek STANDARD" style="width:100%;height:100%;object-fit:contain;padding:16px">
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Obojky / Standard</div>
+        <h3>Obojek STANDARD</h3>
+        <div class="prod-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="star-count">(156)</span></div>
+        <div class="prod-pricing">
+          <span class="prod-price">373 Kč</span>
+        </div>
+        <div class="prod-stock">&#9679; Skladem — odesíláme dnes</div>
+        <button class="prod-btn">Do košíku</button>
+      </div>
+    </div>
+
+    <div class="prod-card reveal">
+      <div class="prod-img">
+        <div class="prod-wishlist">&#9825;</div>
+        <img src="https://cdn.manmat.cz/images/0/e56b9560135636ac/1/snura-s-amortizerem-a-alu-karabinou.jpg" alt="Šňůra s amortizérem" style="width:100%;height:100%;object-fit:contain;padding:16px">
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat">Šňůry / Univerzální</div>
+        <h3>Šňůra s AMORTIZÉREM a ALU karabinou</h3>
+        <div class="prod-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="star-count">(112)</span></div>
+        <div class="prod-pricing">
+          <span class="prod-price">856 Kč</span>
+        </div>
+        <div class="prod-stock">&#9679; Skladem — odesíláme dnes</div>
+        <button class="prod-btn">Do košíku</button>
+      </div>
     </div>
   </div>
+
 </section>
 
 <!-- KATEGORIE -->
 <section>
-  <div class="s-label">Kategorie</div>
-  <h2 class="s-title">Vyberte podle aktivity</h2>
-  <p class="s-desc">Ať běháte, jezdíte na kole nebo trénujete se psím spřežením — máme vybavení přesně pro vás.</p>
-  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px">
+  <div class="s-header">
+    <div>
+      <div class="s-label">Kategorie</div>
+      <h2 class="s-title">Nakupovat podle aktivity</h2>
+    </div>
+    <a href="#" class="s-link">Všechny kategorie &#8594;</a>
+  </div>
+  <div class="cat-scroll">
     <div class="cat-card reveal">
       <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=600" alt="Canicross">
-      <div class="cat-overlay">
-        <h3>Canicross</h3>
-        <p>Běh se psem</p>
-      </div>
+      <div class="cat-overlay"><h3>Canicross</h3><div class="cat-count">42 produktů</div></div>
     </div>
     <div class="cat-card reveal">
       <img src="https://images.unsplash.com/photo-1567752881298-894bb81f9379?w=600" alt="Mushing">
-      <div class="cat-overlay">
-        <h3>Mushing</h3>
-        <p>Spřežení & skijöring</p>
-      </div>
+      <div class="cat-overlay"><h3>Mushing</h3><div class="cat-count">38 produktů</div></div>
     </div>
     <div class="cat-card reveal">
       <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600" alt="Bikejöring">
-      <div class="cat-overlay">
-        <h3>Bikejöring</h3>
-        <p>Kolo + pes</p>
-      </div>
+      <div class="cat-overlay"><h3>Bikejöring</h3><div class="cat-count">24 produktů</div></div>
     </div>
     <div class="cat-card reveal">
       <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600" alt="Koně">
-      <div class="cat-overlay">
-        <h3>Koně</h3>
-        <p>Jezdecké vybavení</p>
-      </div>
+      <div class="cat-overlay"><h3>Koně</h3><div class="cat-count">31 produktů</div></div>
     </div>
     <div class="cat-card reveal">
       <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600" alt="Hobby">
-      <div class="cat-overlay">
-        <h3>Hobby</h3>
-        <p>Turistika & výlety</p>
-      </div>
+      <div class="cat-overlay"><h3>Hobby</h3><div class="cat-count">56 produktů</div></div>
     </div>
     <div class="cat-card reveal">
       <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=600" alt="Město">
-      <div class="cat-overlay">
-        <h3>Město</h3>
-        <p>Každodenní venčení</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PODLE POUŽITÍ -->
-<section style="background:var(--bg-alt)">
-  <div class="s-label">Podle použití</div>
-  <h2 class="s-title">Pro koho to děláme</h2>
-  <p class="s-desc">Ať závodíte, běháte pro radost nebo venčíte ve městě.</p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-    <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center;transition:all .3s;cursor:pointer" class="reveal" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--border)'">
-      <div style="font-size:48px;margin-bottom:16px">&#127942;</div>
-      <h3 style="font-size:22px;font-weight:800;margin-bottom:8px">Sport</h3>
-      <p style="font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:16px">Profesionální vybavení pro závodníky. Canicross, mushing, bikejöring, skijöring. Testováno šampiony.</p>
-      <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap">
-        <span style="padding:4px 12px;background:var(--red-light);border-radius:4px;font-size:11px;color:var(--red);font-weight:600">Závodní postroje</span>
-        <span style="padding:4px 12px;background:var(--red-light);border-radius:4px;font-size:11px;color:var(--red);font-weight:600">Opasky</span>
-        <span style="padding:4px 12px;background:var(--red-light);border-radius:4px;font-size:11px;color:var(--red);font-weight:600">Šňůry</span>
-      </div>
-    </div>
-    <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center;transition:all .3s;cursor:pointer" class="reveal" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--border)'">
-      <div style="font-size:48px;margin-bottom:16px">&#127793;</div>
-      <h3 style="font-size:22px;font-weight:800;margin-bottom:8px">Hobby</h3>
-      <p style="font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:16px">Pro aktivní majitele, kteří rádi chodí do přírody. Turistika, výlety, rekreační běh. Komfort a odolnost.</p>
-      <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap">
-        <span style="padding:4px 12px;background:var(--red-light);border-radius:4px;font-size:11px;color:var(--red);font-weight:600">Postroje</span>
-        <span style="padding:4px 12px;background:var(--red-light);border-radius:4px;font-size:11px;color:var(--red);font-weight:600">Vodítka</span>
-        <span style="padding:4px 12px;background:var(--red-light);border-radius:4px;font-size:11px;color:var(--red);font-weight:600">Amortizéry</span>
-      </div>
-    </div>
-    <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center;transition:all .3s;cursor:pointer" class="reveal" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--border)'">
-      <div style="font-size:48px;margin-bottom:16px">&#127961;</div>
-      <h3 style="font-size:22px;font-weight:800;margin-bottom:8px">Město</h3>
-      <p style="font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:16px">Stylové a funkční vybavení na každodenní venčení. Obojky, vodítka, design kolekce. Kvalita co vydrží.</p>
-      <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap">
-        <span style="padding:4px 12px;background:var(--red-light);border-radius:4px;font-size:11px;color:var(--red);font-weight:600">Obojky</span>
-        <span style="padding:4px 12px;background:var(--red-light);border-radius:4px;font-size:11px;color:var(--red);font-weight:600">Vodítka</span>
-        <span style="padding:4px 12px;background:var(--red-light);border-radius:4px;font-size:11px;color:var(--red);font-weight:600">Design</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BESTSELLERY -->
-<section class="products" id="produkty">
-  <div class="s-label">Bestsellery</div>
-  <h2 class="s-title">Nejprodávanější produkty</h2>
-  <p class="s-desc">Ověřené tisíci zákazníků a sportovci po celém světě.</p>
-  <div class="prod-grid">
-    <div class="prod-card reveal">
-      <div class="prod-img">
-        <div class="prod-badge">Bestseller</div>
-        <div style="font-size:64px">&#128054;</div>
-      </div>
-      <div class="prod-info">
-        <h3>Postroj SMART</h3>
-        <div class="prod-price">1 007 Kč</div>
-        <div class="prod-stock">&#9679; Skladem</div>
-      </div>
-    </div>
-    <div class="prod-card reveal">
-      <div class="prod-img">
-        <div style="font-size:64px">&#127939;</div>
-      </div>
-      <div class="prod-info">
-        <h3>Opasek CANICROSS</h3>
-        <div class="prod-price">1 165 Kč</div>
-        <div class="prod-stock">&#9679; Skladem</div>
-      </div>
-    </div>
-    <div class="prod-card reveal">
-      <div class="prod-img">
-        <div class="prod-badge">Top</div>
-        <div style="font-size:64px">&#128021;</div>
-      </div>
-      <div class="prod-info">
-        <h3>Postroj LONG DISTANCE</h3>
-        <div class="prod-price">966 Kč</div>
-        <div class="prod-stock">&#9679; Skladem</div>
-      </div>
-    </div>
-    <div class="prod-card reveal">
-      <div class="prod-img">
-        <div style="font-size:64px">&#129454;</div>
-      </div>
-      <div class="prod-info">
-        <h3>Šňůra s AMORTIZÉREM</h3>
-        <div class="prod-price">856 Kč</div>
-        <div class="prod-stock">&#9679; Skladem</div>
-      </div>
-    </div>
-    <div class="prod-card reveal">
-      <div class="prod-img">
-        <div style="font-size:64px">&#128062;</div>
-      </div>
-      <div class="prod-info">
-        <h3>Obojek POLSTROVANÝ DESIGN</h3>
-        <div class="prod-price">321 Kč</div>
-        <div class="prod-stock">&#9679; Skladem</div>
-      </div>
-    </div>
-    <div class="prod-card reveal">
-      <div class="prod-img">
-        <div class="prod-badge">Nové</div>
-        <div style="font-size:64px">&#127938;</div>
-      </div>
-      <div class="prod-info">
-        <h3>Opasek RACE PRO</h3>
-        <div class="prod-price">1 199 Kč</div>
-        <div class="prod-stock">&#9679; Skladem</div>
-      </div>
-    </div>
-    <div class="prod-card reveal">
-      <div class="prod-img">
-        <div style="font-size:64px">&#10052;</div>
-      </div>
-      <div class="prod-info">
-        <h3>SNAP šňůra (skijöring)</h3>
-        <div class="prod-price">900 Kč</div>
-        <div class="prod-stock">&#9679; Skladem</div>
-      </div>
-    </div>
-    <div class="prod-card reveal">
-      <div class="prod-img">
-        <div style="font-size:64px">&#128006;</div>
-      </div>
-      <div class="prod-info">
-        <h3>Vodítko s amortizérem</h3>
-        <div class="prod-price">890 Kč</div>
-        <div class="prod-stock">&#9679; Skladem</div>
-      </div>
+      <div class="cat-overlay"><h3>Město</h3><div class="cat-count">29 produktů</div></div>
     </div>
   </div>
 </section>
@@ -419,9 +542,9 @@ footer a:hover{color:var(--red)}
     <div>
       <div class="s-label">Náš příběh</div>
       <h2 class="s-title">Od garáže v Police nad Metují po celý svět.</h2>
-      <p class="s-desc" style="margin-bottom:20px">ManMat vznikl v roce 1992 jako malá rodinná dílna. Dnes vyváží do více než 50 zemí světa — od Aljašky po Austrálii. Ale jedna věc se nezměnila: každý postroj, obojek a vodítko šijeme ručně v Česku.</p>
-      <p style="font-size:15px;color:var(--gray-light);line-height:1.7;margin-bottom:32px">Spolupracujeme se špičkovými sportovci — musher <strong style="color:#fff">Brent Sass</strong> z Aljašky, belgický canicrossař <strong style="color:#fff">Jérôme Lafourte</strong>, české reprezentantky v canicrossu. Jejich zpětná vazba formuje naše produkty.</p>
-      <a href="#" class="btn btn-orange" style="padding:12px 28px;font-size:14px">Celý příběh →</a>
+      <p style="font-size:14px;color:var(--text-light);line-height:1.7;margin:14px 0">ManMat vznikl v roce 1992 jako malá rodinná dílna. Dnes vyváží do více než 50 zemí světa — od Aljašky po Austrálii. Ale jedna věc se nezměnila: každý postroj, obojek a vodítko šijeme ručně v Česku.</p>
+      <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:24px">Spolupracujeme se špičkovými sportovci — musher <strong style="color:var(--text)">Brent Sass</strong> z Aljašky, belgický canicrossař <strong style="color:var(--text)">Jérôme Lafourte</strong>, české reprezentantky v canicrossu.</p>
+      <a href="#" class="btn btn-red" style="padding:12px 24px;font-size:13px">Celý příběh &#8594;</a>
     </div>
     <div>
       <div class="story-img reveal">
@@ -438,9 +561,12 @@ footer a:hover{color:var(--red)}
 
 <!-- AMBASADOŘI -->
 <section style="background:var(--bg-alt)">
-  <div class="s-label">Ambasadoři</div>
-  <h2 class="s-title">Testováno v extrémních podmínkách</h2>
-  <p class="s-desc">Naše vybavení používají špičkoví sportovci po celém světě.</p>
+  <div class="s-header">
+    <div>
+      <div class="s-label">Ambasadoři</div>
+      <h2 class="s-title">Testováno šampiony</h2>
+    </div>
+  </div>
   <div class="athletes-grid">
     <div class="athlete reveal">
       <div class="athlete-img"><img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600" alt="Musher"></div>
@@ -469,14 +595,55 @@ footer a:hover{color:var(--red)}
   </div>
 </section>
 
+<!-- RECENZE -->
+<section>
+  <div class="s-header">
+    <div>
+      <div class="s-label">Recenze</div>
+      <h2 class="s-title">Co říkají zákazníci</h2>
+    </div>
+    <a href="#" class="s-link">Všechny recenze (340+) &#8594;</a>
+  </div>
+  <div class="review-grid">
+    <div class="review-card reveal">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">S ManMat postrojem běháme už 3 roky. Kvalita šití je neuvěřitelná — po stovkách kilometrů vypadá jako nový.</p>
+      <div class="review-author">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="">
+        <div><div class="ra-name">Katka N.</div><div class="ra-role">Canicross, Česko &#10003; Ověřený nákup</div></div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">I use ManMat harnesses for my team of 14 dogs. They handle -40°C Alaska winters without any issues. The best.</p>
+      <div class="review-author">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="">
+        <div><div class="ra-name">Brent S.</div><div class="ra-role">Musher, Alaska &#10003; Ověřený nákup</div></div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">Obojek Design kolekce nosí náš labrador každý den. Polstrování je perfektní, na srsti žádné otlaky.</p>
+      <div class="review-author">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="">
+        <div><div class="ra-name">Martin H.</div><div class="ra-role">Venčení, Praha &#10003; Ověřený nákup</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRŮVODCE -->
-<section class="guide" id="blog">
-  <div class="s-label">Průvodce & Blog</div>
-  <h2 class="s-title">Jak začít se psím sportem</h2>
-  <p class="s-desc">Tipy, návody a příběhy ze světa canicrossu, mushingu a bikejöringu.</p>
+<section style="background:var(--bg-alt)">
+  <div class="s-header">
+    <div>
+      <div class="s-label">Průvodce</div>
+      <h2 class="s-title">Jak začít se psím sportem</h2>
+    </div>
+    <a href="#" class="s-link">Všechny články &#8594;</a>
+  </div>
   <div class="guide-grid">
     <div class="guide-card reveal">
-      <div class="guide-img"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600" alt="Guide"></div>
+      <div class="guide-img"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600" alt=""></div>
       <div class="guide-info">
         <div class="guide-tag">Průvodce</div>
         <h3>Jak vybrat správný postroj pro svého psa</h3>
@@ -484,7 +651,7 @@ footer a:hover{color:var(--red)}
       </div>
     </div>
     <div class="guide-card reveal">
-      <div class="guide-img"><img src="https://images.unsplash.com/photo-1567752881298-894bb81f9379?w=600" alt="Canicross"></div>
+      <div class="guide-img"><img src="https://images.unsplash.com/photo-1567752881298-894bb81f9379?w=600" alt=""></div>
       <div class="guide-info">
         <div class="guide-tag">Canicross</div>
         <h3>Canicross pro začátečníky — kompletní průvodce</h3>
@@ -492,91 +659,46 @@ footer a:hover{color:var(--red)}
       </div>
     </div>
     <div class="guide-card reveal">
-      <div class="guide-img"><img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600" alt="Mushing"></div>
+      <div class="guide-img"><img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600" alt=""></div>
       <div class="guide-info">
         <div class="guide-tag">Film</div>
         <h3>ManMat na cestě — dokumentární film</h3>
-        <p>Příběh české značky, která dobyla svět psích sportů. Sledujte na YouTube.</p>
+        <p>Příběh české značky, která dobyla svět psích sportů.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PŘÍBĚHY ZÁKAZNÍKŮ -->
-<section>
-  <div class="s-label">Příběhy</div>
-  <h2 class="s-title">Co říkají naši zákazníci</h2>
-  <p class="s-desc">Tisíce spokojených psích sportovců po celém světě.</p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .3s" class="reveal">
-      <div style="font-size:32px;color:var(--red);margin-bottom:12px">"</div>
-      <p style="font-size:15px;color:var(--gray-light);line-height:1.7;margin-bottom:20px;font-style:italic;color:#444">S ManMat postrojem běháme už 3 roky. Kvalita šití je neuvěřitelná — po stovkách kilometrů vypadá jako nový. Žádný jiný postroj nevydrží tolik.</p>
-      <div style="display:flex;align-items:center;gap:12px">
-        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" style="width:44px;height:44px;border-radius:50%;object-fit:cover">
-        <div>
-          <div style="font-size:14px;font-weight:700">Katka N.</div>
-          <div style="font-size:12px;color:var(--gray)">Canicross, Česko</div>
-        </div>
-      </div>
-    </div>
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .3s" class="reveal">
-      <div style="font-size:32px;color:var(--red);margin-bottom:12px">"</div>
-      <p style="font-size:15px;color:var(--gray-light);line-height:1.7;margin-bottom:20px;font-style:italic;color:#444">I use ManMat harnesses for my team of 14 dogs. They handle -40°C Alaska winters without any issues. The best harnesses I've ever used.</p>
-      <div style="display:flex;align-items:center;gap:12px">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" style="width:44px;height:44px;border-radius:50%;object-fit:cover">
-        <div>
-          <div style="font-size:14px;font-weight:700">Brent S.</div>
-          <div style="font-size:12px;color:var(--gray)">Musher, Alaska</div>
-        </div>
-      </div>
-    </div>
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .3s" class="reveal">
-      <div style="font-size:32px;color:var(--red);margin-bottom:12px">"</div>
-      <p style="font-size:15px;color:var(--gray-light);line-height:1.7;margin-bottom:20px;font-style:italic;color:#444">Obojek Design kolekce nosí náš labrador každý den už rok. Polstrování je perfektní, na srsti nevidíte žádné otlaky. A vypadá skvěle!</p>
-      <div style="display:flex;align-items:center;gap:12px">
-        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" style="width:44px;height:44px;border-radius:50%;object-fit:cover">
-        <div>
-          <div style="font-size:14px;font-weight:700">Martin H.</div>
-          <div style="font-size:12px;color:var(--gray)">Venčení, Praha</div>
-        </div>
-      </div>
-    </div>
+<!-- B2B -->
+<div class="b2b">
+  <div>
+    <div class="s-label" style="color:rgba(187,31,47,0.8)">Pro obchodní partnery</div>
+    <h2 class="s-title">B2B velkoobchod</h2>
+    <p>Jste obchod, distributor nebo trenér? Nabízíme velkoobchodní podmínky.</p>
+    <ul>
+      <li><span>&#10003;</span> Velkoobchodní ceny od 20% slevy</li>
+      <li><span>&#10003;</span> Vlastní branding a private label</li>
+      <li><span>&#10003;</span> Dodávky do 50+ zemí světa</li>
+      <li><span>&#10003;</span> Dedikovaný obchodní kontakt</li>
+    </ul>
   </div>
-</section>
-
-<!-- B2B ZÓNA -->
-<section style="background:var(--bg-alt)">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
-    <div>
-      <div class="s-label">Pro obchodní partnery</div>
-      <h2 class="s-title">B2B velkoobchod</h2>
-      <p class="s-desc" style="margin-bottom:20px">Jste obchod, distributor nebo trenér? Nabízíme velkoobchodní ceny, vlastní brandované produkty a exkluzivní podmínky pro partnery.</p>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px">
-        <li style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--gray-light)"><span style="color:var(--red);font-weight:800;font-size:18px">&#10003;</span> Velkoobchodní ceny od 20% slevy</li>
-        <li style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--gray-light)"><span style="color:var(--red);font-weight:800;font-size:18px">&#10003;</span> Vlastní branding a private label</li>
-        <li style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--gray-light)"><span style="color:var(--red);font-weight:800;font-size:18px">&#10003;</span> Dodávky do 50+ zemí světa</li>
-        <li style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--gray-light)"><span style="color:var(--red);font-weight:800;font-size:18px">&#10003;</span> Dedikovaný obchodní kontakt</li>
-      </ul>
-      <a href="#" class="btn btn-orange" style="padding:14px 32px;font-size:14px;border-radius:10px">Přihlásit se do B2B zóny</a>
-    </div>
-    <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:40px">
-      <h3 style="font-size:20px;font-weight:800;margin-bottom:6px">Přístup pro partnery</h3>
-      <p style="font-size:13px;color:var(--gray);margin-bottom:24px">Přihlaste se nebo požádejte o přístup do B2B sekce.</p>
-      <form onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:var(--red);font-weight:700;padding:20px 0\'>Žádost odeslána! Ozveme se do 24h.</p>'">
-        <input type="text" placeholder="Firma / IČO" required style="width:100%;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:#fff;font-size:14px;font-family:inherit;outline:none;margin-bottom:10px">
-        <input type="email" placeholder="Email" required style="width:100%;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:#fff;font-size:14px;font-family:inherit;outline:none;margin-bottom:10px">
-        <input type="tel" placeholder="Telefon" style="width:100%;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:#fff;font-size:14px;font-family:inherit;outline:none;margin-bottom:16px">
-        <button type="submit" style="width:100%;padding:14px;background:var(--red);color:#fff;font-weight:800;font-size:14px;border:none;border-radius:8px;cursor:pointer;font-family:inherit">Požádat o přístup</button>
-      </form>
-    </div>
+  <div class="b2b-form">
+    <h3>Přístup pro partnery</h3>
+    <div class="bf-sub">Přihlaste se nebo požádejte o přístup do B2B sekce.</div>
+    <form onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:var(--red);font-weight:700;padding:16px 0;text-align:center\'>Žádost odeslána! Ozveme se do 24h.</p>'">
+      <input type="text" placeholder="Firma / IČO" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Telefon">
+      <button type="submit">Požádat o přístup</button>
+    </form>
   </div>
-</section>
+</div>
 
 <!-- NEWSLETTER -->
-<div class="newsletter" style="margin-bottom:80px">
+<div class="newsletter">
   <h2>Buďte součástí smečky</h2>
   <p>Novinky, tipy a exkluzivní nabídky přímo do emailu.</p>
-  <form onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-size:18px;font-weight:700;color:#000;padding:14px\'>Díky! Jste ve smečce. &#128054;</p>'">
+  <form onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-size:16px;font-weight:700;color:#fff;padding:12px\'>Díky! Jste ve smečce. &#128054;</p>'">
     <input type="email" placeholder="Váš email" required>
     <button type="submit">Přihlásit se</button>
   </form>
@@ -584,53 +706,97 @@ footer a:hover{color:var(--red)}
 
 <!-- FOOTER -->
 <footer>
-  <div class="foot-brand">
-    <div style="font-size:22px;font-weight:900;color:#fff;margin-bottom:4px">MAN<span style="color:var(--red)">MAT</span></div>
-    <p>Český výrobce sportovního vybavení pro psy a koně. Ruční výroba od roku 1992.</p>
-    <p style="margin-top:8px">K Drůbežárně 220<br>549 54 Police nad Metují</p>
-    <div class="foot-social">
-      <a href="https://facebook.com/manmatCR" target="_blank">FB</a>
-      <a href="https://instagram.com/manmat.czechrepublic" target="_blank">IG</a>
-      <a href="https://tiktok.com/@manmat_official" target="_blank">TT</a>
-      <a href="#" target="_blank">YT</a>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="fb-logo">MAN<span>MAT</span></div>
+      <p>Český výrobce sportovního vybavení pro psy a koně. Ruční výroba od roku 1992.</p>
+      <p style="margin-top:6px">K Drůbežárně 220, 549 54 Police nad Metují</p>
+      <div class="foot-social">
+        <a href="https://facebook.com/manmatCR" target="_blank">FB</a>
+        <a href="https://instagram.com/manmat.czechrepublic" target="_blank">IG</a>
+        <a href="https://tiktok.com/@manmat_official" target="_blank">TT</a>
+        <a href="#" target="_blank">YT</a>
+      </div>
+    </div>
+    <div>
+      <h4>Produkty</h4>
+      <a href="#">Postroje</a>
+      <a href="#">Obojky</a>
+      <a href="#">Vodítka</a>
+      <a href="#">Šňůry</a>
+      <a href="#">Opasky</a>
+      <a href="#">Koně</a>
+    </div>
+    <div>
+      <h4>Aktivity</h4>
+      <a href="#">Canicross</a>
+      <a href="#">Bikejöring</a>
+      <a href="#">Mushing</a>
+      <a href="#">Skijöring</a>
+      <a href="#">Každodenní</a>
+    </div>
+    <div>
+      <h4>Info</h4>
+      <a href="#">O nás</a>
+      <a href="#">Kontakt</a>
+      <a href="#">Doprava a platba</a>
+      <a href="#">Obchodní podmínky</a>
+      <a href="#">Reklamace</a>
+      <a href="#">GDPR</a>
+      <a href="tel:+420603596848">+420 603 596 848</a>
+      <a href="mailto:office@manmat.cz">office@manmat.cz</a>
     </div>
   </div>
-  <div>
-    <h4>Produkty</h4>
-    <a href="#">Postroje</a>
-    <a href="#">Obojky</a>
-    <a href="#">Vodítka</a>
-    <a href="#">Šňůry</a>
-    <a href="#">Opasky</a>
-    <a href="#">Koně</a>
-  </div>
-  <div>
-    <h4>Aktivity</h4>
-    <a href="#">Canicross</a>
-    <a href="#">Bikejöring</a>
-    <a href="#">Mushing</a>
-    <a href="#">Skijöring</a>
-    <a href="#">Každodenní</a>
-  </div>
-  <div>
-    <h4>Info</h4>
-    <a href="#">O nás</a>
-    <a href="#">Kontakt</a>
-    <a href="#">Doprava</a>
-    <a href="#">Obchodní podmínky</a>
-    <a href="#">Reklamace</a>
-    <a href="#">GDPR</a>
-    <a href="tel:+420603596848">+420 603 596 848</a>
-    <a href="mailto:office@manmat.cz">office@manmat.cz</a>
+  <div class="foot-bottom">
+    <span>&copy; 2026 ManMat s.r.o. Všechna práva vyhrazena.</span>
+    <div class="foot-pay">
+      <span>Visa</span>
+      <span>Mastercard</span>
+      <span>PayPal</span>
+      <span>Dobírka</span>
+      <span>Převod</span>
+    </div>
   </div>
 </footer>
 
 <script>
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
-});
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('vis')})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+
+// Close dropdown on click outside
+document.addEventListener('click',(e)=>{
+  if(!e.target.closest('.nav-dropdown-trigger')&&!e.target.closest('.nav-dropdown')){
+    document.querySelector('.nav-dropdown').classList.remove('open');
+  }
+});
+
+// Filter buttons
+document.querySelectorAll('.prod-filters button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.prod-filters button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Add to cart animation
+document.querySelectorAll('.prod-btn').forEach(btn=>{
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    const orig=btn.textContent;
+    btn.textContent='&#10003; Přidáno!';
+    btn.style.background='var(--green)';
+    setTimeout(()=>{btn.textContent=orig;btn.style.background=''},1500);
+  });
+});
+
+// Wishlist toggle
+document.querySelectorAll('.prod-wishlist').forEach(w=>{
+  w.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    w.innerHTML=w.innerHTML.includes('9825')?'&#9829;':'&#9825;';
+    w.style.color=w.innerHTML.includes('9829')?'var(--red)':'';
+  });
+});
 </script>
 
 </body>
