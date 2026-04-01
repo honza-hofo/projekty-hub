@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOFO Lead Finder - AI obchodní platforma</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; background: #fff; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #0f0f1a 0%, #1a1a3e 50%, #2d1b69 100%); color: #fff; padding: 80px 20px 100px; text-align: center; position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 80px; background: #fff; clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 100%); }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.1; }
+        .hero h1 span { background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.25rem; color: #b0b0d0; max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+        .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 14px 32px; border-radius: 10px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .btn-primary { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102,126,234,0.4); }
+        .btn-outline { border: 2px solid rgba(255,255,255,0.3); color: #fff; }
+        .btn-outline:hover { border-color: #667eea; background: rgba(102,126,234,0.1); }
+        .badge { display: inline-block; background: rgba(102,126,234,0.2); color: #667eea; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }
+
+        /* Stats */
+        .stats { display: flex; justify-content: center; gap: 60px; padding: 60px 20px; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 2.8rem; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { color: #666; font-size: 0.95rem; margin-top: 4px; }
+
+        /* Features */
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 12px; }
+        .section-sub { text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .feature { background: #f8f9ff; border-radius: 16px; padding: 32px; border: 1px solid #eef0ff; transition: all 0.3s; }
+        .feature:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(102,126,234,0.12); border-color: #667eea; }
+        .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+        .feature h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+        .feature p { color: #555; font-size: 0.95rem; line-height: 1.6; }
+
+        /* How it works */
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 48px; }
+        .step { text-align: center; }
+        .step-num { width: 48px; height: 48px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; margin: 0 auto 16px; }
+        .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+        .step p { color: #666; font-size: 0.9rem; line-height: 1.5; }
+
+        /* Fairs section */
+        .fairs-bg { background: #f8f9ff; }
+        .fair-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+        .fair-card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #eef0ff; }
+        .fair-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+        .fair-card .fair-count { color: #667eea; font-weight: 700; font-size: 1.1rem; }
+        .fair-card .fair-meta { color: #888; font-size: 0.85rem; }
+
+        /* CTA */
+        .cta { background: linear-gradient(135deg, #0f0f1a, #1a1a3e); color: #fff; padding: 80px 20px; text-align: center; }
+        .cta h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; }
+        .cta p { color: #b0b0d0; font-size: 1.1rem; margin-bottom: 32px; }
+
+        /* Footer */
+        footer { padding: 32px 20px; text-align: center; color: #999; font-size: 0.85rem; }
+        footer a { color: #667eea; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .stats { gap: 30px; }
+            .stat-num { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="badge">AI-powered obchodní platforma</div>
+        <h1>Najdeme vám <span>nové zákazníky</span></h1>
+        <p>CRM s AI analýzou, automatický scraping veletrhů, newsletter builder a emailové kampaně. Vše na jednom místě.</p>
+        <div class="hero-btns">
+            <a href="https://hofo-lead-finder.onrender.com" class="btn btn-primary">Vyzkoušet zdarma</a>
+            <a href="#funkce" class="btn btn-outline">Jak to funguje</a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-num">1 600+</div>
+            <div class="stat-label">Kontaktů z veletrhů</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">9</div>
+            <div class="stat-label">Veletrhů</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">86%</div>
+            <div class="stat-label">Kontaktů s emailem</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">83%</div>
+            <div class="stat-label">Open rate emailů</div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <section class="section" id="funkce">
+        <h2 class="section-title">Co všechno umí</h2>
+        <p class="section-sub">Od hledání leadů po uzavření obchodu — kompletní obchodní platforma.</p>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">&#128270;</div>
+                <h3>Lead Finder</h3>
+                <p>Automatické vyhledávání firem přes SerpAPI, Google Maps, Firmy.cz. AI analýza relevance s fit skóre 0-100.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#127978;</div>
+                <h3>Veletrhy</h3>
+                <p>Scraping katalogů vystavovatelů z BVV, PVA Expo a dalších. Automatické doplnění kontaktů z webů firem.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#128231;</div>
+                <h3>Email kampaně</h3>
+                <p>Hromadné odesílání s personalizací, tracking otevření, šablony s překladem do cizích jazyků.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#127912;</div>
+                <h3>Newsletter Builder</h3>
+                <p>Drag & drop editor (GrapeJS) pro tvorbu profesionálních emailových šablon. Open rate statistiky.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#129302;</div>
+                <h3>AI Enrichment</h3>
+                <p>Automatické doplnění emailů, telefonů a webů firem. Hunter.io, Apollo, scraping kontaktních stránek.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#128202;</div>
+                <h3>Caflou CRM</h3>
+                <p>Obousměrná integrace s Caflou. Push firem a kontaktů jedním klikem. Synchronizace statusů.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section">
+        <h2 class="section-title">Jak to funguje</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Přidejte veletrh</h3>
+                <p>Zadejte URL katalogu vystavovatelů. Systém automaticky stáhne všechny firmy s kontakty.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Enrichment</h3>
+                <p>AI doplní chybějící emaily a telefony prohledáním webů firem a veřejných databází.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Kampaň</h3>
+                <p>Vyberte kontakty, zvolte šablonu a odešlete personalizovaný email. Sledujte open rate.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h3>Follow-up</h3>
+                <p>Filtrujte kdo otevřel, odpověděl, má zájem. Pushněte do CRM a uzavřete obchod.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fairs -->
+    <section class="fairs-bg">
+        <div class="section">
+            <h2 class="section-title">Aktivní veletrhy</h2>
+            <p class="section-sub">Automatický scraping katalogů z největších českých veletrhů.</p>
+            <div class="fair-list">
+                <div class="fair-card">
+                    <h4>AMPER 2026</h4>
+                    <div class="fair-count">350 kontaktů</div>
+                    <div class="fair-meta">BVV Brno | Elektrotechnika</div>
+                </div>
+                <div class="fair-card">
+                    <h4>FOR PETS 2026</h4>
+                    <div class="fair-count">266 kontaktů</div>
+                    <div class="fair-meta">PVA Expo Praha | Chovatelství</div>
+                </div>
+                <div class="fair-card">
+                    <h4>AGRISHOW 2026</h4>
+                    <div class="fair-count">259 kontaktů</div>
+                    <div class="fair-meta">BVV Brno | Zemědělství</div>
+                </div>
+                <div class="fair-card">
+                    <h4>Stavební veletrh</h4>
+                    <div class="fair-count">236 kontaktů</div>
+                    <div class="fair-meta">BVV Brno | Stavebnictví</div>
+                </div>
+                <div class="fair-card">
+                    <h4>For Caravan 2026</h4>
+                    <div class="fair-count">134 kontaktů</div>
+                    <div class="fair-meta">PVA Expo Praha | Karavany</div>
+                </div>
+                <div class="fair-card">
+                    <h4>Silva Regina 2026</h4>
+                    <div class="fair-count">122 kontaktů</div>
+                    <div class="fair-meta">BVV Brno | Lesnictví</div>
+                </div>
+                <div class="fair-card">
+                    <h4>FOR DECOR 2026</h4>
+                    <div class="fair-count">120 kontaktů</div>
+                    <div class="fair-meta">PVA Expo Praha | Dekorace</div>
+                </div>
+                <div class="fair-card">
+                    <h4>LABOREXPO 2026</h4>
+                    <div class="fair-count">78 kontaktů</div>
+                    <div class="fair-meta">PVA Expo Praha | Laboratoře</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Začněte hledat nové zákazníky</h2>
+        <p>Registrace zdarma. Žádná kreditní karta.</p>
+        <a href="https://hofo-lead-finder.onrender.com" class="btn btn-primary">Spustit Lead Finder</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>HOFO Lead Finder | <a href="https://hofo.cz">HOFO Production s.r.o.</a> | 2026</p>
+    </footer>
+
+</body>
+</html>
