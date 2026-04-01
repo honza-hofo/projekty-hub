@@ -46,6 +46,16 @@ button{font-family:inherit;cursor:pointer}
 .nav-cats{display:flex;gap:0;border-top:1px solid var(--border-light)}
 .nav-cats a{padding:12px 18px;font-size:13px;font-weight:600;color:var(--text-light);transition:all .2s;border-bottom:2px solid transparent}
 .nav-cats a:hover,.nav-cats a.active{color:var(--red);border-bottom-color:var(--red)}
+.nav-cat-wrap{position:relative}
+.nav-cat-wrap>a{padding:12px 18px;font-size:13px;font-weight:600;color:var(--text-light);transition:all .2s;border-bottom:2px solid transparent;display:block}
+.nav-cat-wrap:hover>a{color:var(--red);border-bottom-color:var(--red)}
+.mega-menu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-top:2px solid var(--red);border-radius:0 0 12px 12px;box-shadow:0 12px 40px rgba(0,0,0,0.1);padding:24px;min-width:600px;z-index:1000;gap:24px}
+.nav-cat-wrap:hover .mega-menu{display:flex}
+.mega-col{min-width:140px}
+.mega-col h4{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:10px;font-weight:700}
+.mega-col a{display:block;font-size:13px;color:var(--text);padding:5px 0;font-weight:500;transition:color .15s;text-decoration:none}
+.mega-col a:hover{color:var(--red)}
+.mega-img{display:flex;flex-direction:column;align-items:center;min-width:160px;padding-left:16px;border-left:1px solid var(--border-light)}
 .nav-dropdown{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.08);padding:20px 60px;z-index:999}
 .nav-dropdown.open{display:flex;gap:12px;flex-wrap:wrap}
 .nav-dropdown a{padding:12px 20px;background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;font-size:13px;font-weight:600;color:var(--text);transition:all .2s;display:flex;align-items:center;gap:8px}
@@ -309,12 +319,73 @@ footer a:hover{color:var(--red)}
     </div>
   </div>
   <div class="nav-cats">
-    <a href="#">&#128054; Pro psy</a>
-    <a href="#">&#128014; Pro koně</a>
-    <a href="#">&#128694; Pro lidi</a>
-    <a href="#" class="nav-dropdown-trigger" onclick="event.preventDefault();document.querySelector('.nav-dropdown').classList.toggle('open')">&#127939; Dle aktivity <span style="font-size:9px;margin-left:2px">&#9660;</span></a>
-    <a href="manmat-konfigurator.html" style="color:var(--red);font-weight:700">&#10024; Sestav si SET</a>
-    <a href="#">&#129395; Výprodej</a>
+    <div class="nav-cat-wrap">
+      <a href="#">&#128054; Pro psy <span style="font-size:9px;margin-left:2px">&#9660;</span></a>
+      <div class="mega-menu">
+        <div class="mega-col">
+          <h4>Dle aktivity</h4>
+          <a href="manmat-kategorie.html">Canicross</a>
+          <a href="#">Mushing</a>
+          <a href="#">Bikejöring</a>
+          <a href="#">Skijöring</a>
+          <a href="#">Turistika</a>
+          <a href="#">Hobby / město</a>
+        </div>
+        <div class="mega-col">
+          <h4>Dle typu</h4>
+          <a href="#">Postroje</a>
+          <a href="#">Vodítka & bungee</a>
+          <a href="#">Opasky</a>
+          <a href="#">Obojky</a>
+          <a href="#">Oblečky</a>
+          <a href="#">Botičky</a>
+        </div>
+        <div class="mega-col">
+          <h4>Sety & akce</h4>
+          <a href="manmat-konfigurator.html" style="color:var(--red);font-weight:700">Sestav si SET</a>
+          <a href="#">Výprodej</a>
+          <a href="#">Novinky</a>
+          <a href="#">Bestsellery</a>
+        </div>
+        <div class="mega-col mega-img">
+          <img src="https://cdn.manmat.cz/images/0/dba8ca995780d281/2/postroj-smart-reflex-xs.jpg" alt="Postroj SMART" style="width:100%;border-radius:8px">
+          <span style="font-size:12px;color:var(--gray);margin-top:6px;display:block">Bestseller: Postroj SMART</span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cat-wrap">
+      <a href="#">&#128014; Pro koně <span style="font-size:9px;margin-left:2px">&#9660;</span></a>
+      <div class="mega-menu">
+        <div class="mega-col">
+          <h4>Produkty</h4>
+          <a href="#">Postroje</a>
+          <a href="#">Lonžovací podpěnky</a>
+          <a href="#">Vodítka</a>
+          <a href="#">Deky</a>
+          <a href="#">Doplňky</a>
+        </div>
+        <div class="mega-col">
+          <h4>Dle disciplíny</h4>
+          <a href="#">Práce s koněm</a>
+          <a href="#">Jezdecký sport</a>
+          <a href="#">Voltiž</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-cat-wrap">
+      <a href="#">&#128694; Pro lidi <span style="font-size:9px;margin-left:2px">&#9660;</span></a>
+      <div class="mega-menu">
+        <div class="mega-col">
+          <h4>Vybavení</h4>
+          <a href="#">Opasky</a>
+          <a href="#">Trekingové hole</a>
+          <a href="#">Batohy</a>
+          <a href="#">Oblečení</a>
+        </div>
+      </div>
+    </div>
+    <a href="manmat-konfigurator.html" style="color:var(--red);font-weight:700;padding:12px 18px;font-size:13px">&#10024; Sestav si SET</a>
+    <a href="#" style="padding:12px 18px;font-size:13px;font-weight:600;color:var(--text-light)">&#129395; Výprodej</a>
   </div>
   <div class="nav-dropdown">
     <a href="#">&#127939; Canicross</a>
