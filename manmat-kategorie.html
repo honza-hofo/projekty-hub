@@ -99,6 +99,24 @@ footer{background:var(--text);color:#fff;padding:40px 24px;margin-top:40px}
 .foot-col a:hover{color:#fff}
 .foot-bottom{max-width:1400px;margin:20px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);font-size:11px;color:rgba(255,255,255,0.4);display:flex;justify-content:space-between}
 
+/* MEGA MENU */
+.nav-cat-wrap{position:relative;display:flex;align-items:stretch}
+.nav-cat-wrap>a{padding:0 16px;font-size:13px;font-weight:600;color:var(--text);transition:all .2s;display:flex;align-items:center;text-decoration:none;cursor:pointer;height:100%;border-bottom:2px solid transparent}
+.nav-cat-wrap:hover>a{color:var(--red);border-bottom-color:var(--red)}
+.mega-menu{display:none;position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:0 0 12px 12px;box-shadow:0 12px 40px rgba(0,0,0,0.12);padding:28px;min-width:620px;z-index:9999;gap:28px;flex-wrap:wrap}
+.nav-cat-wrap:hover .mega-menu{display:flex}
+.mega-col{min-width:140px}
+.mega-col h4{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:10px;font-weight:700}
+.mega-col a{display:block;font-size:13px;color:var(--text);padding:5px 0;font-weight:500;transition:color .15s;text-decoration:none}
+.mega-col a:hover{color:var(--red)}
+.mega-img{display:flex;flex-direction:column;align-items:center;min-width:160px;padding-left:16px;border-left:1px solid var(--border)}
+.mega-top{display:flex;gap:8px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);width:100%}
+.mega-top a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;transition:all .2s}
+.mega-top .mega-set{background:var(--red);color:#fff}
+.mega-top .mega-set:hover{opacity:.9}
+.mega-top .mega-pack{background:var(--bg);color:var(--text);border:1px solid var(--border)}
+.mega-top .mega-pack:hover{border-color:var(--red);color:var(--red)}
+
 @media(max-width:1024px){.prod-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:768px){
   .page-layout{grid-template-columns:1fr}
@@ -115,13 +133,62 @@ footer{background:var(--text);color:#fff;padding:40px 24px;margin-top:40px}
 <header>
   <div class="header-inner">
     <a href="manmat-redesign-white.html" class="logo">MAN<span>MAT</span></a>
-    <nav>
-      <a href="#">Pro psy</a>
-      <a href="#" style="color:var(--red);border-bottom:2px solid var(--red);padding-bottom:2px">Canicross</a>
-      <a href="#">Mushing</a>
-      <a href="#">Bikejöring</a>
-      <a href="#">Koně</a>
-      <a href="#">B2B</a>
+    <nav style="display:flex;align-items:stretch;height:100%">
+      <div class="nav-cat-wrap">
+        <a href="#">&#128054; Pro psy &#9660;</a>
+        <div class="mega-menu">
+          <div class="mega-top">
+            <a href="manmat-konfigurator.html" class="mega-set">&#10024; Sestavte si vlastní SET</a>
+            <a href="#" class="mega-pack">&#128230; Canicross START — 1 890 Kč</a>
+            <a href="#" class="mega-pack">&#128230; Canicross PRO — 2 990 Kč</a>
+          </div>
+          <div class="mega-col">
+            <h4>Dle aktivity</h4>
+            <a href="manmat-kategorie.html" style="color:var(--red);font-weight:700">Canicross</a>
+            <a href="#">Mushing</a>
+            <a href="#">Bikejöring</a>
+            <a href="#">Skijöring</a>
+            <a href="#">Turistika</a>
+            <a href="#">Hobby / město</a>
+          </div>
+          <div class="mega-col">
+            <h4>Dle typu</h4>
+            <a href="#">Postroje</a>
+            <a href="#">Vodítka & bungee</a>
+            <a href="#">Opasky</a>
+            <a href="#">Obojky</a>
+            <a href="#">Oblečky</a>
+            <a href="#">Botičky</a>
+          </div>
+          <div class="mega-col">
+            <h4>Sety & akce</h4>
+            <a href="#">Výprodej</a>
+            <a href="#">Novinky</a>
+            <a href="#">Bestsellery</a>
+          </div>
+          <div class="mega-img">
+            <img src="https://cdn.manmat.cz/images/0/dba8ca995780d281/2/postroj-smart-reflex-xs.jpg" alt="Postroj SMART" style="width:100%;border-radius:8px">
+            <span style="font-size:12px;color:var(--gray);margin-top:6px;display:block">Bestseller: Postroj SMART</span>
+          </div>
+        </div>
+      </div>
+      <div class="nav-cat-wrap">
+        <a href="#">&#128014; Koně &#9660;</a>
+        <div class="mega-menu">
+          <div class="mega-top">
+            <a href="manmat-konfigurator.html" class="mega-set">&#10024; Sestavte si vlastní SET</a>
+            <a href="#" class="mega-pack">&#128230; Koňský balíček BASIC — 2 490 Kč</a>
+          </div>
+          <div class="mega-col">
+            <h4>Produkty</h4>
+            <a href="#">Postroje</a>
+            <a href="#">Lonžovací podpěnky</a>
+            <a href="#">Vodítka</a>
+            <a href="#">Deky</a>
+          </div>
+        </div>
+      </div>
+      <a href="#" style="padding:0 16px;font-size:13px;font-weight:600;color:var(--text);display:flex;align-items:center;text-decoration:none">B2B</a>
     </nav>
     <div class="header-icons">
       <a href="#">&#128269;</a>
