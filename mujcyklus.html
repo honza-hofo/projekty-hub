@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MůjCyklus - Menstruační kalendář s AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; background: #fff; }
+
+        .hero { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 30%, #e8577d 100%); color: #fff; padding: 80px 20px 100px; text-align: center; position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 80px; background: #fff; clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 100%); }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.1; }
+        .hero p { font-size: 1.25rem; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+        .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 14px 32px; border-radius: 10px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all 0.3s; display: inline-block; }
+        .btn-primary { background: #fff; color: #e8577d; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .btn-outline { border: 2px solid rgba(255,255,255,0.5); color: #fff; }
+        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+        .badge { display: inline-block; background: rgba(255,255,255,0.2); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }
+
+        .stats { display: flex; justify-content: center; gap: 60px; padding: 60px 20px; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 2.8rem; font-weight: 800; color: #e8577d; }
+        .stat-label { color: #666; font-size: 0.95rem; margin-top: 4px; }
+
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 12px; }
+        .section-sub { text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .feature { background: #fff5f7; border-radius: 16px; padding: 32px; border: 1px solid #fce4ec; transition: all 0.3s; }
+        .feature:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(232,87,125,0.12); border-color: #e8577d; }
+        .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+        .feature h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+        .feature p { color: #555; font-size: 0.95rem; line-height: 1.6; }
+
+        .privacy-section { background: #f8f9ff; }
+        .privacy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .privacy-card { background: #fff; border-radius: 12px; padding: 24px; border: 1px solid #eef0ff; text-align: center; }
+        .privacy-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .privacy-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+        .privacy-card p { color: #666; font-size: 0.9rem; }
+
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
+        .tech-badge { background: #fff5f7; border: 1px solid #fce4ec; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; color: #e8577d; font-weight: 600; }
+
+        .cta { background: linear-gradient(135deg, #e8577d, #c2185b); color: #fff; padding: 80px 20px; text-align: center; }
+        .cta h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; }
+        .cta p { color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 32px; }
+
+        footer { padding: 32px 20px; text-align: center; color: #999; font-size: 0.85rem; }
+        footer a { color: #e8577d; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .stats { gap: 30px; }
+            .stat-num { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="badge">Zdravotní appka pro ženy</div>
+        <h1>Tvůj cyklus pod kontrolou</h1>
+        <p>Menstruační kalendář s AI analýzou, predikcí plodných dnů, sdílením s partnerem a exportem dat pro gynekologa.</p>
+        <div class="hero-btns">
+            <a href="https://mujcyklus-preview.onrender.com" class="btn btn-primary">Vyzkoušet zdarma</a>
+            <a href="#funkce" class="btn btn-outline">Jak to funguje</a>
+        </div>
+    </section>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Soukromí dat</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">AI</div>
+            <div class="stat-label">Analýza cyklu</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">PDF</div>
+            <div class="stat-label">Export pro lékaře</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">GDPR</div>
+            <div class="stat-label">Plně v souladu</div>
+        </div>
+    </div>
+
+    <section class="section" id="funkce">
+        <h2 class="section-title">Co všechno umí</h2>
+        <p class="section-sub">Kompletní nástroj pro sledování menstruačního cyklu — bezpečný, chytrý a přehledný.</p>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">&#128197;</div>
+                <h3>Kalendář cyklu</h3>
+                <p>Přehledný měsíční kalendář s barevným označením menstruace, plodných dnů a ovulace. Predikce na základě tvých dat.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#129302;</div>
+                <h3>AI analýza</h3>
+                <p>Umělá inteligence analyzuje tvůj cyklus — pravidelnost, vzorce nálad a symptomů, upozornění na anomálie.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#128140;</div>
+                <h3>Sdílení s partnerem</h3>
+                <p>Vygeneruj kód a sdílej přehled svého cyklu s partnerem. Ty rozhoduješ co uvidí — menstruace, plodné dny, nálady.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#128200;</div>
+                <h3>Sledování symptomů</h3>
+                <p>Zaznamenávej nálady, bolesti, energie a další symptomy. Aplikace najde vzorce a pomůže ti jim porozumět.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#128196;</div>
+                <h3>Export pro gynekologa</h3>
+                <p>Vygeneruj přehledný PDF report s historií cyklu, symptomy a statistikami. Ideální podklad pro návštěvu lékaře.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#128276;</div>
+                <h3>Emailové upozornění</h3>
+                <p>Automatické upozornění 1-3 dny před očekávanou menstruací. Žádné překvapení.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="privacy-section">
+        <div class="section">
+            <h2 class="section-title">Tvoje soukromí na prvním místě</h2>
+            <p class="section-sub">Zdravotní data jsou citlivá. Proto bereme ochranu vážně.</p>
+            <div class="privacy-grid">
+                <div class="privacy-card">
+                    <div class="icon">&#128274;</div>
+                    <h4>Šifrovaná hesla</h4>
+                    <p>Bcrypt s cost 12 — průmyslový standard</p>
+                </div>
+                <div class="privacy-card">
+                    <div class="icon">&#127466;&#127482;</div>
+                    <h4>GDPR compliance</h4>
+                    <p>Plně v souladu s evropskou legislativou</p>
+                </div>
+                <div class="privacy-card">
+                    <div class="icon">&#128465;</div>
+                    <h4>Právo na výmaz</h4>
+                    <p>Smaž svůj účet a všechna data jedním klikem</p>
+                </div>
+                <div class="privacy-card">
+                    <div class="icon">&#128230;</div>
+                    <h4>Export dat</h4>
+                    <p>Stáhni si všechna svá data v JSON formátu</p>
+                </div>
+            </div>
+
+            <div class="tech-stack">
+                <span class="tech-badge">PHP 8</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">Claude AI</span>
+                <span class="tech-badge">PHPMailer</span>
+                <span class="tech-badge">HTTPS</span>
+                <span class="tech-badge">CSRF ochrana</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Začni sledovat svůj cyklus</h2>
+        <p>Registrace zdarma. Žádné reklamy. Tvoje data patří tobě.</p>
+        <a href="https://mujcyklus-preview.onrender.com" class="btn btn-primary">Spustit MůjCyklus</a>
+    </section>
+
+    <footer>
+        <p>MůjCyklus | <a href="https://hofo.cz">HOFO Production s.r.o.</a> | 2026</p>
+    </footer>
+
+</body>
+</html>
