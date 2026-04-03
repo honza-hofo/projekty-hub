@@ -67,7 +67,7 @@
 <div class="header">
   <a href="index.html" class="back-link">&larr; Zpět na Projekty Hub</a>
   <h1>API Monitor</h1>
-  <p class="subtitle">Poslední kontrola: 31.03.2026 13:28 &nbsp;·&nbsp; Auto-refresh každou hodinu</p>
+  <p class="subtitle">Poslední kontrola: 03.04.2026 16:39 &nbsp;·&nbsp; Auto-refresh každou hodinu</p>
   <div style="margin-top:12px;display:flex;gap:10px;justify-content:center">
     <button id="refreshBtn" onclick="doRefresh()" style="padding:10px 24px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer">&#9889; Refresh teď</button>
   </div>
@@ -105,10 +105,10 @@
 <div class="container">
 
   <div class="summary">
-    <div class="summary-card green clickable" onclick="showModal('ok')"><div class="num">8</div><div class="label">Aktivních</div></div>
-    <div class="summary-card red clickable" onclick="showModal('bad')"><div class="num">4</div><div class="label">Vyčerpaných</div></div>
+    <div class="summary-card green clickable" onclick="showModal('ok')"><div class="num">6</div><div class="label">Aktivních</div></div>
+    <div class="summary-card red clickable" onclick="showModal('bad')"><div class="num">7</div><div class="label">Vyčerpaných</div></div>
     <div class="summary-card orange clickable" onclick="showModal('warn')"><div class="num">5</div><div class="label">Varování</div></div>
-    <div class="summary-card"><div class="num">17</div><div class="label">Celkem API</div></div>
+    <div class="summary-card"><div class="num">18</div><div class="label">Celkem API</div></div>
   </div>
 
   <div class="legend">
@@ -123,20 +123,6 @@
             <div class="modal">
                 <h3>Aktivní API</h3>
                 <div class="modal-item ok">
-                <div class="icon">✓</div>
-                <div>
-                    <div class="name">SerpAPI</div>
-                    <div class="account">stehovaniformanek@gmail.com</div>
-                    <div class="detail">Funguje &middot; <a href="https://serpapi.com/manage-api-key" target="_blank" style="color:#667eea">Dashboard</a></div>
-                </div>
-            </div><div class="modal-item ok">
-                <div class="icon">✓</div>
-                <div>
-                    <div class="name">SerpAPI</div>
-                    <div class="account">honza@hofo.cz</div>
-                    <div class="detail">Funguje &middot; <a href="https://serpapi.com/manage-api-key" target="_blank" style="color:#667eea">Dashboard</a></div>
-                </div>
-            </div><div class="modal-item ok">
                 <div class="icon">✓</div>
                 <div>
                     <div class="name">Hunter.io</div>
@@ -194,16 +180,37 @@
             </div><div class="modal-item bad">
                 <div class="icon">✗</div>
                 <div>
-                    <div class="name">Apollo.io</div>
+                    <div class="name">SerpAPI</div>
+                    <div class="account">stehovaniformanek@gmail.com</div>
+                    <div class="detail">Vyčerpané kredity &middot; <a href="https://serpapi.com/manage-api-key" target="_blank" style="color:#667eea">Dashboard</a></div>
+                </div>
+            </div><div class="modal-item bad">
+                <div class="icon">✗</div>
+                <div>
+                    <div class="name">SerpAPI</div>
                     <div class="account">honza@hofo.cz</div>
-                    <div class="detail">Vyčerpané kredity &middot; <a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#667eea">Dashboard</a></div>
+                    <div class="detail">Vyčerpané kredity &middot; <a href="https://serpapi.com/manage-api-key" target="_blank" style="color:#667eea">Dashboard</a></div>
                 </div>
             </div><div class="modal-item bad">
                 <div class="icon">✗</div>
                 <div>
                     <div class="name">Apollo.io</div>
-                    <div class="account">stehovaniformanek@gmail.com (?)</div>
+                    <div class="account">honza@hofo.cz</div>
                     <div class="detail">Neplatný klíč &middot; <a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#667eea">Dashboard</a></div>
+                </div>
+            </div><div class="modal-item bad">
+                <div class="icon">✗</div>
+                <div>
+                    <div class="name">Apollo.io</div>
+                    <div class="account">stehovaniformanek@gmail.com (starý)</div>
+                    <div class="detail">Neplatný klíč &middot; <a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#667eea">Dashboard</a></div>
+                </div>
+            </div><div class="modal-item bad">
+                <div class="icon">✗</div>
+                <div>
+                    <div class="name">Apollo.io</div>
+                    <div class="account">stehovaniformanek@gmail.com (nový)</div>
+                    <div class="detail">Vyčerpané kredity &middot; <a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#667eea">Dashboard</a></div>
                 </div>
             </div><div class="modal-item bad">
                 <div class="icon">✗</div>
@@ -275,29 +282,29 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal();
                 <div style="background:#2a2a4a;border-radius:4px;height:8px;width:100%">
                     <div style="background:#f87171;height:8px;border-radius:4px;width:100%"></div>
                 </div></td>
-            <td>2026-04-08 <span style="color:#888">(8 dní)</span></td>
+            <td>?</td>
             <td><small>ManMat Leads, HOFO Lead Finder</small></td>
             <td><small></small></td>
-        </tr><tr class="status-ok">
+        </tr><tr class="status-bad">
             <td><strong>SerpAPI</strong><br><small>stehovaniformanek@gmail.com</small><br><a href="https://serpapi.com/manage-api-key" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
-            <td>✓ Aktivní</td>
+            <td>✗ Vyčerpáno</td>
             <td>Free Plan</td>
-            <td><div style="font-size:12px;margin-bottom:4px;color:#ccc">243 / 250</div>
+            <td><div style="font-size:12px;margin-bottom:4px;color:#ccc">250 / 250</div>
                 <div style="background:#2a2a4a;border-radius:4px;height:8px;width:100%">
-                    <div style="background:#f87171;height:8px;border-radius:4px;width:97%"></div>
+                    <div style="background:#f87171;height:8px;border-radius:4px;width:100%"></div>
                 </div></td>
-            <td>2026-04-30 <span style="color:#888">(30 dní)</span></td>
+            <td>?</td>
             <td><small>QuickSite</small></td>
             <td><small></small></td>
-        </tr><tr class="status-ok">
+        </tr><tr class="status-bad">
             <td><strong>SerpAPI</strong><br><small>honza@hofo.cz</small><br><a href="https://serpapi.com/manage-api-key" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
-            <td>✓ Aktivní</td>
+            <td>✗ Vyčerpáno</td>
             <td>Free Plan</td>
-            <td><div style="font-size:12px;margin-bottom:4px;color:#ccc">246 / 250</div>
+            <td><div style="font-size:12px;margin-bottom:4px;color:#ccc">250 / 250</div>
                 <div style="background:#2a2a4a;border-radius:4px;height:8px;width:100%">
-                    <div style="background:#f87171;height:8px;border-radius:4px;width:98%"></div>
+                    <div style="background:#f87171;height:8px;border-radius:4px;width:100%"></div>
                 </div></td>
-            <td>2026-04-13 <span style="color:#888">(13 dní)</span></td>
+            <td>?</td>
             <td><small>HOFO Lead Finder</small></td>
             <td><small></small></td>
         </tr><tr class="status-ok">
@@ -308,31 +315,39 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal();
                 <div style="background:#2a2a4a;border-radius:4px;height:8px;width:100%">
                     <div style="background:#34d399;height:8px;border-radius:4px;width:8%"></div>
                 </div></td>
-            <td>2026-04-18 <span style="color:#888">(18 dní)</span></td>
+            <td>2026-04-18 <span style="color:#888">(15 dní)</span></td>
             <td><small>HOFO Lead Finder</small></td>
             <td><small>Verifikace: 8/100</small></td>
         </tr><tr class="status-bad">
             <td><strong>Apollo.io</strong><br><small>honza@hofo.cz</small><br><a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
-            <td>✗ Vyčerpáno</td>
-            <td>Free</td>
-            <td>Zbývá: <strong>0</strong></td>
-            <td>2026-04-01 <span style="color:#FF9800;font-weight:600">(zítra)</span></td>
-            <td><small>HOFO Lead Finder</small></td>
-            <td><small>Vyčerpané kredity</small></td>
-        </tr><tr class="status-bad">
-            <td><strong>Apollo.io</strong><br><small>stehovaniformanek@gmail.com (?)</small><br><a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
             <td>✗ Expirováno</td>
             <td>?</td>
             <td></td>
-            <td>2026-04-01 <span style="color:#FF9800;font-weight:600">(zítra)</span></td>
+            <td>2026-04-11 <span style="color:#888">(8 dní)</span></td>
             <td><small>HOFO Lead Finder</small></td>
             <td><small>Neplatný klíč</small></td>
+        </tr><tr class="status-bad">
+            <td><strong>Apollo.io</strong><br><small>stehovaniformanek@gmail.com (starý)</small><br><a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
+            <td>✗ Expirováno</td>
+            <td>?</td>
+            <td></td>
+            <td>2026-04-01 <span style="color:#4CAF50;font-weight:600">(obnoveno!)</span></td>
+            <td><small>HOFO Lead Finder</small></td>
+            <td><small>Neplatný klíč</small></td>
+        </tr><tr class="status-bad">
+            <td><strong>Apollo.io</strong><br><small>stehovaniformanek@gmail.com (nový)</small><br><a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
+            <td>✗ Vyčerpáno</td>
+            <td>Free</td>
+            <td>Zbývá: <strong>0</strong></td>
+            <td>2026-04-30 <span style="color:#888">(27 dní)</span></td>
+            <td><small>QuickSite, Stěhování</small></td>
+            <td><small>Vyčerpané kredity</small></td>
         </tr><tr class="status-bad">
             <td><strong>Apollo.io</strong><br><small>podcastroomcz@gmail.com</small><br><a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
             <td>✗ Vyčerpáno</td>
             <td>Free</td>
             <td>Zbývá: <strong>0</strong></td>
-            <td>2026-04-12 <span style="color:#888">(12 dní)</span></td>
+            <td>2026-04-12 <span style="color:#888">(9 dní)</span></td>
             <td><small>HOFO Lead Finder, QuickSite</small></td>
             <td><small>Vyčerpané kredity</small></td>
         </tr><tr class="status-unknown">
@@ -358,7 +373,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal();
             <td><div style="font-size:16px;font-weight:700;color:#fbbf24">$1.97</div><div style="font-size:11px;color:#666">2026-03</div><div style="font-size:10px;color:#555">Z console.anthropic.com/settings/cost</div><div style="font-size:10px;color:#444">aktualizováno 2026-03-30</div></td>
             <td>?</td>
             <td><small>HOFO Lead Finder, ManMat Leads, ContentHub, RizzCoach, QuickSite, MůjCyklus</small></td>
-            <td><small>sonnet-4-6: 1,466,064 tok · sonnet-4: 189,314 tok · haiku-4-5: 107,148 tok · sonnet-4-5: 49,890 tok<br>💰 Sonnet: $3/$15 per 1M tok, Opus: $15/$75</small></td>
+            <td><small>Sonnet: $3/$15 per 1M tok, Opus: $15/$75<br>💰 Sonnet: $3/$15 per 1M tok, Opus: $15/$75</small></td>
         </tr><tr class="status-ok">
             <td><strong>OpenAI (GPT-4o)</strong><br><small>honza@hofo.cz</small><br><a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
             <td>✓ Aktivní</td>
@@ -399,7 +414,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal();
                 <div style="background:#2a2a4a;border-radius:4px;height:8px;width:100%">
                     <div style="background:#34d399;height:8px;border-radius:4px;width:0%"></div>
                 </div></td>
-            <td>2026-04-30 <span style="color:#888">(30 dní)</span></td>
+            <td>2026-04-30 <span style="color:#888">(27 dní)</span></td>
             <td><small>ContentHub</small></td>
             <td><small>Free: 10k chars/měs, Starter: $5/30k<br>💰 Free: 10k chars/měs, Starter: $5/30k</small></td>
         </tr><tr class="status-unknown">
