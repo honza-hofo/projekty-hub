@@ -67,7 +67,7 @@
 <div class="header">
   <a href="index.html" class="back-link">&larr; Zpět na Projekty Hub</a>
   <h1>API Monitor</h1>
-  <p class="subtitle">Poslední kontrola: 03.04.2026 16:39 &nbsp;·&nbsp; Auto-refresh každou hodinu</p>
+  <p class="subtitle">Poslední kontrola: 03.04.2026 19:34 &nbsp;·&nbsp; Auto-refresh každou hodinu</p>
   <div style="margin-top:12px;display:flex;gap:10px;justify-content:center">
     <button id="refreshBtn" onclick="doRefresh()" style="padding:10px 24px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer">&#9889; Refresh teď</button>
   </div>
@@ -195,8 +195,8 @@
                 <div class="icon">✗</div>
                 <div>
                     <div class="name">Apollo.io</div>
-                    <div class="account">honza@hofo.cz</div>
-                    <div class="detail">Neplatný klíč &middot; <a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#667eea">Dashboard</a></div>
+                    <div class="account">honza@hofo.cz (PAID)</div>
+                    <div class="detail">Vyčerpané kredity &middot; <a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#667eea">Dashboard</a></div>
                 </div>
             </div><div class="modal-item bad">
                 <div class="icon">✗</div>
@@ -319,14 +319,6 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal();
             <td><small>HOFO Lead Finder</small></td>
             <td><small>Verifikace: 8/100</small></td>
         </tr><tr class="status-bad">
-            <td><strong>Apollo.io</strong><br><small>honza@hofo.cz</small><br><a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
-            <td>✗ Expirováno</td>
-            <td>?</td>
-            <td></td>
-            <td>2026-04-11 <span style="color:#888">(8 dní)</span></td>
-            <td><small>HOFO Lead Finder</small></td>
-            <td><small>Neplatný klíč</small></td>
-        </tr><tr class="status-bad">
             <td><strong>Apollo.io</strong><br><small>stehovaniformanek@gmail.com (starý)</small><br><a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
             <td>✗ Expirováno</td>
             <td>?</td>
@@ -366,7 +358,15 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal();
     <thead><tr>
       <th>Služba</th><th>Status</th><th>Plán</th><th>Využití / Cena</th><th>Obnova</th><th>Projekty</th><th>Poznámky</th>
     </tr></thead>
-    <tbody><tr class="status-ok">
+    <tbody><tr class="status-bad">
+            <td><strong>Apollo.io</strong><br><small>honza@hofo.cz (PAID)</small><br><a href="https://app.apollo.io/#/settings/credits/current" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
+            <td>✗ Vyčerpáno</td>
+            <td>Free</td>
+            <td>Zbývá: <strong>0</strong></td>
+            <td>2026-04-11 <span style="color:#888">(8 dní)</span></td>
+            <td><small>Stěhování B2B, HOFO Lead Finder, QuickSite</small></td>
+            <td><small>Vyčerpané kredity<br>💰 Basic $59/měs, 2 500 kreditů/měs</small></td>
+        </tr><tr class="status-ok">
             <td><strong>Anthropic (Claude)</strong><br><small>honza@hofo.cz (HOFO Media Group)</small><br><a href="https://console.anthropic.com/settings/cost" target="_blank" style="color:#2196F3;font-size:11px">Dashboard →</a></td>
             <td>✓ Aktivní</td>
             <td>Pay-per-use</td>
