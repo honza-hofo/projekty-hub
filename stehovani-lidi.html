@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lidé – Stěhování Formánek</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f7fa; color: #333; padding: 20px; }
+h1 { text-align: center; color: #00A3B7; margin-bottom: 5px; font-size: 1.6rem; }
+.subtitle { text-align: center; color: #888; margin-bottom: 20px; font-size: 0.9rem; }
+
+.controls { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; justify-content: center; }
+.controls input { padding: 8px 14px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 0.9rem; width: 250px; }
+.controls input:focus { outline: none; border-color: #00A3B7; }
+.controls button { padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer; font-size: 0.9rem; font-weight: 600; }
+.btn-add { background: #00A3B7; color: #fff; }
+.btn-add:hover { background: #008a9a; }
+.btn-export { background: #e5e7eb; color: #333; }
+.btn-export:hover { background: #d1d5db; }
+
+.filter-row { display: flex; gap: 8px; margin-bottom: 15px; justify-content: center; flex-wrap: wrap; }
+.filter-btn { padding: 5px 12px; border-radius: 20px; border: 2px solid #e5e7eb; background: #fff; cursor: pointer; font-size: 0.8rem; }
+.filter-btn.active { border-color: #00A3B7; background: #e6f7f9; color: #00A3B7; font-weight: 600; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+th { background: #00A3B7; color: #fff; padding: 12px 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; cursor: pointer; user-select: none; white-space: nowrap; }
+th:hover { background: #008a9a; }
+td { padding: 10px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; }
+tr:hover { background: #f8fffe; }
+tr.inactive { opacity: 0.5; }
+
+.status-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; }
+.status-active { background: #c8e6c9; color: #2e7d32; }
+.status-inactive { background: #ffcdd2; color: #c62828; }
+
+.license-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; }
+.license-ce { background: #e3f2fd; color: #1565c0; }
+.license-b { background: #f3e5f5; color: #7b1fa2; }
+.license-none { color: #ccc; }
+
+.phone-link { color: #00A3B7; text-decoration: none; }
+.phone-link:hover { text-decoration: underline; }
+
+.action-btn { padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; margin: 0 2px; }
+.btn-edit { background: #fff3e0; color: #e65100; }
+.btn-delete { background: #ffebee; color: #c62828; }
+
+.count { text-align: center; color: #888; font-size: 0.85rem; margin-top: 10px; }
+
+/* Modal */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
+.modal-overlay.active { display: flex; }
+.modal { background: #fff; border-radius: 12px; padding: 30px; width: 450px; max-width: 95vw; box-shadow: 0 10px 40px rgba(0,0,0,0.2); position: relative; max-height: 90vh; overflow-y: auto; }
+.modal h2 { color: #00A3B7; margin-bottom: 20px; }
+.modal-close { position: absolute; top: 12px; right: 16px; font-size: 1.5rem; cursor: pointer; color: #888; background: none; border: none; }
+.field { margin-bottom: 12px; }
+.field label { display: block; font-size: 0.75rem; color: #888; text-transform: uppercase; margin-bottom: 4px; }
+.field input, .field select { width: 100%; padding: 8px 12px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 0.9rem; }
+.field input:focus, .field select:focus { outline: none; border-color: #00A3B7; }
+.modal-save { background: #00A3B7; color: #fff; border: none; padding: 10px 24px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer; width: 100%; margin-top: 10px; }
+.modal-save:hover { background: #008a9a; }
+
+@media print {
+  .controls, .filter-row, .action-btn, .modal-overlay, .btn-export, .btn-add { display: none !important; }
+  body { padding: 0; }
+}
+</style>
+</head>
+<body>
+
+<h1>Databaze lidi</h1>
+<p class="subtitle">Stehovani Formanek - Strahov</p>
+
+<div class="filter-row">
+  <button class="filter-btn active" onclick="setFilter('all')">Vsichni</button>
+  <button class="filter-btn" onclick="setFilter('active')">Aktivni</button>
+  <button class="filter-btn" onclick="setFilter('inactive')">Ukonceni</button>
+  <button class="filter-btn" onclick="setFilter('driver')">Ridici</button>
+</div>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Hledat jmeno, telefon..." oninput="renderTable()">
+  <button class="btn-add" onclick="openModal()">+ Pridat</button>
+  <button class="btn-export" onclick="exportCSV()">CSV export</button>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th onclick="sortBy('name')">Jmeno</th>
+        <th onclick="sortBy('phone')">Telefon</th>
+        <th onclick="sortBy('license')">Ridicak</th>
+        <th onclick="sortBy('rate')">Sazba</th>
+        <th onclick="sortBy('bankAccount')">Ucet</th>
+        <th onclick="sortBy('address')">Adresa</th>
+        <th onclick="sortBy('note')">Poznamka</th>
+        <th>Stav</th>
+        <th>Akce</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+<p class="count" id="count"></p>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h2 id="modalTitle">Pridat osobu</h2>
+    <input type="hidden" id="editId">
+    <div class="field"><label>Jmeno *</label><input id="f_name"></div>
+    <div class="field"><label>Telefon</label><input id="f_phone"></div>
+    <div class="field"><label>Ridicak</label>
+      <select id="f_license">
+        <option value="">---</option>
+        <option value="B">B</option>
+        <option value="CE">CE</option>
+      </select>
+    </div>
+    <div class="field"><label>Sazba (Kc/h)</label><input id="f_rate" type="number" value="200"></div>
+    <div class="field"><label>Bankovni ucet</label><input id="f_bank"></div>
+    <div class="field"><label>Adresa</label><input id="f_address"></div>
+    <div class="field"><label>Email</label><input id="f_email"></div>
+    <div class="field"><label>Poznamka</label><input id="f_note"></div>
+    <button class="modal-save" onclick="savePerson()">Ulozit</button>
+  </div>
+</div>
+
+<script>
+const STORAGE_KEY = 'stehovani_lidi_v2';
+
+const DEFAULT_PEOPLE = [
+  { id: 1, name: "Jarda Triska", phone: "777509575", license: "B", rate: 300, bankAccount: "4476811093/0800", address: "", email: "", note: "partak", active: true },
+  { id: 2, name: "Adam Majer", phone: "607408780", license: "", rate: 200, bankAccount: "279796551/0600", address: "Klobuky Kobylniky c.p. 5, 273 74", email: "", note: "", active: true },
+  { id: 3, name: "Filip Svatos", phone: "731064363", license: "", rate: 200, bankAccount: "7310642/0100", address: "Slunecni namesti 2580/13", email: "", note: "", active: true },
+  { id: 4, name: "Matej Sorm", phone: "606908693", license: "", rate: 200, bankAccount: "1744014143/0800", address: "Vratislavovo namesti 103, Nove Mesto na Morave", email: "", note: "", active: true },
+  { id: 5, name: "David Hauer", phone: "799912652", license: "", rate: 200, bankAccount: "2669645010/3030", address: "Orelska 8, 101 00", email: "rockac667@gmail.com", note: "", active: true },
+  { id: 7, name: "Pavol Goral", phone: "734297634", license: "", rate: 200, bankAccount: "", address: "K Zizkovu 8, Praha 9", email: "gothaj.pg@gmail.com", note: "", active: true },
+  { id: 10, name: "Maksym Karlashchuk", phone: "739573649", license: "", rate: 200, bankAccount: "35252309004/5500", address: "Nad Primaskou 895/43", email: "", note: "", active: true },
+  { id: 12, name: "David Baumgartl", phone: "734218678", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "faktura", active: true },
+  { id: 13, name: "Jakub Ott", phone: "773194664", license: "CE", rate: 300, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 14, name: "Tomas Rigo", phone: "602662872", license: "", rate: 200, bankAccount: "2709623028/3030", address: "Na Padestatem 868/8, Praha 10", email: "", note: "", active: true },
+  { id: 17, name: "Roman", phone: "", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 18, name: "Tomas Arnold", phone: "603377799", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 19, name: "Matous", phone: "775384568", license: "", rate: 300, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 20, name: "Elisky tata", phone: "775360155", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 21, name: "Marek Vostiar", phone: "604190194", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 22, name: "Lukas", phone: "721598830", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 23, name: "Mario", phone: "734489382", license: "CE", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 24, name: "Oliver", phone: "722707042", license: "B", rate: 300, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 25, name: "Kuba Novotny", phone: "728644566", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 26, name: "Lucie Jerabkova", phone: "777171731", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "ridicka", active: true },
+  { id: 6, name: "Michal Kolar", phone: "774054976", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "ukoncen 15.4.", active: false },
+  { id: 8, name: "Bohumil", phone: "", license: "", rate: 250, bankAccount: "", address: "", email: "", note: "ukoncen 13.4.", active: false },
+  { id: 9, name: "Jaroslav Uk", phone: "", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "ukoncen 15.4.", active: false },
+  { id: 11, name: "Tomas", phone: "734167001", license: "", rate: 250, bankAccount: "2884450021/3030", address: "", email: "", note: "ukoncen 16.4.", active: false },
+  { id: 15, name: "Jiri Sedina", phone: "739771454", license: "", rate: 200, bankAccount: "", address: "Druzstevni c.p. 385, Zakupy", email: "", note: "ukoncen 23.4.", active: false },
+  { id: 16, name: "Miloslav Nolden", phone: "730602087", license: "", rate: 200, bankAccount: "109955177/0100", address: "Havlickova 210/4, Liberec", email: "", note: "ukoncen 27.4.", active: false },
+];
+
+let people = [];
+let filter = 'all';
+let sortCol = 'name';
+let sortAsc = true;
+
+function load() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  people = saved ? JSON.parse(saved) : [...DEFAULT_PEOPLE];
+  renderTable();
+}
+
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(people));
+}
+
+function setFilter(f) {
+  filter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderTable();
+}
+
+function sortBy(col) {
+  if (sortCol === col) { sortAsc = !sortAsc; } else { sortCol = col; sortAsc = true; }
+  renderTable();
+}
+
+function renderTable() {
+  const q = document.getElementById('search').value.toLowerCase();
+  let list = people.filter(p => {
+    if (filter === 'active' && !p.active) return false;
+    if (filter === 'inactive' && p.active) return false;
+    if (filter === 'driver' && !p.license) return false;
+    if (q && !p.name.toLowerCase().includes(q) && !(p.phone || '').includes(q)) return false;
+    return true;
+  });
+
+  list.sort((a, b) => {
+    let va = (a[sortCol] || ''), vb = (b[sortCol] || '');
+    if (typeof va === 'number') return sortAsc ? va - vb : vb - va;
+    return sortAsc ? String(va).localeCompare(String(vb), 'cs') : String(vb).localeCompare(String(va), 'cs');
+  });
+
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = list.map(p => `
+    <tr class="${p.active ? '' : 'inactive'}">
+      <td style="font-weight:600">${esc(p.name)}</td>
+      <td>${p.phone ? '<a class="phone-link" href="tel:'+esc(p.phone)+'">'+esc(p.phone)+'</a>' : '\u2014'}</td>
+      <td>${p.license ? '<span class="license-badge '+(p.license==='CE'?'license-ce':'license-b')+'">'+p.license+'</span>' : '<span class="license-none">\u2014</span>'}</td>
+      <td>${p.rate} Kc/h</td>
+      <td style="font-size:0.8rem">${esc(p.bankAccount || '\u2014')}</td>
+      <td style="font-size:0.8rem;max-width:200px">${esc(p.address || '\u2014')}</td>
+      <td style="font-size:0.8rem">${esc(p.note || '\u2014')}</td>
+      <td><span class="status-badge ${p.active ? 'status-active' : 'status-inactive'}">${p.active ? 'aktivni' : 'ukoncen'}</span></td>
+      <td>
+        <button class="action-btn btn-edit" onclick="editPerson(${p.id})">E</button>
+        <button class="action-btn btn-delete" onclick="toggleActive(${p.id})">${p.active ? 'X' : 'O'}</button>
+      </td>
+    </tr>
+  `).join('');
+
+  const activeCount = list.filter(p => p.active).length;
+  const driverCount = list.filter(p => p.license).length;
+  document.getElementById('count').textContent = 'Zobrazeno: ' + list.length + ' | Aktivnich: ' + activeCount + ' | Ridicu: ' + driverCount;
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function openModal(id) {
+  document.getElementById('modal').classList.add('active');
+  if (id) {
+    const p = people.find(x => x.id === id);
+    document.getElementById('modalTitle').textContent = 'Upravit osobu';
+    document.getElementById('editId').value = id;
+    document.getElementById('f_name').value = p.name;
+    document.getElementById('f_phone').value = p.phone || '';
+    document.getElementById('f_license').value = p.license || '';
+    document.getElementById('f_rate').value = p.rate;
+    document.getElementById('f_bank').value = p.bankAccount || '';
+    document.getElementById('f_address').value = p.address || '';
+    document.getElementById('f_email').value = p.email || '';
+    document.getElementById('f_note').value = p.note || '';
+  } else {
+    document.getElementById('modalTitle').textContent = 'Pridat osobu';
+    document.getElementById('editId').value = '';
+    ['f_name','f_phone','f_bank','f_address','f_email','f_note'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('f_license').value = '';
+    document.getElementById('f_rate').value = 200;
+  }
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('active'); }
+
+function editPerson(id) { openModal(id); }
+
+function savePerson() {
+  const name = document.getElementById('f_name').value.trim();
+  if (!name) { alert('Jmeno je povinne'); return; }
+  const editId = document.getElementById('editId').value;
+  const data = {
+    name,
+    phone: document.getElementById('f_phone').value.trim(),
+    license: document.getElementById('f_license').value,
+    rate: parseInt(document.getElementById('f_rate').value) || 200,
+    bankAccount: document.getElementById('f_bank').value.trim(),
+    address: document.getElementById('f_address').value.trim(),
+    email: document.getElementById('f_email').value.trim(),
+    note: document.getElementById('f_note').value.trim(),
+  };
+
+  if (editId) {
+    const p = people.find(x => x.id === parseInt(editId));
+    Object.assign(p, data);
+  } else {
+    const maxId = Math.max(...people.map(p => p.id), 0);
+    people.push({ id: maxId + 1, ...data, active: true });
+  }
+
+  save();
+  closeModal();
+  renderTable();
+}
+
+function toggleActive(id) {
+  const p = people.find(x => x.id === id);
+  p.active = !p.active;
+  if (!p.active && !(p.note || '').includes('ukoncen')) {
+    const today = new Date().toLocaleDateString('cs-CZ');
+    p.note = (p.note ? p.note + ', ' : '') + 'ukoncen ' + today;
+  }
+  save();
+  renderTable();
+}
+
+function exportCSV() {
+  const rows = [['Jmeno','Telefon','Ridicak','Sazba','Ucet','Adresa','Email','Poznamka','Stav']];
+  people.forEach(p => {
+    rows.push([p.name, p.phone||'', p.license||'', p.rate, p.bankAccount||'', p.address||'', p.email||'', p.note||'', p.active?'aktivni':'ukoncen']);
+  });
+  const csv = rows.map(r => r.map(c => '"'+String(c).replace(/"/g,'""')+'"').join(';')).join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'stehovani-lidi.csv'; a.click();
+}
+
+load();
+</script>
+</body>
+</html>

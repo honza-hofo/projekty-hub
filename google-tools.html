@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Tools - SEO & Indexing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        .tab-active { background: #1a73e8; color: #fff; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+<div class="max-w-5xl mx-auto p-6">
+    <div class="flex items-center justify-between mb-6">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-900">Google Tools</h1>
+            <p class="text-sm text-gray-500">SEO, PageSpeed, Indexing, Search Console</p>
+        </div>
+        <div class="flex gap-2 items-center">
+            <span id="auth-status" class="text-xs text-red-500">Nepripojeno</span>
+            <button onclick="authenticate()" id="btn-auth" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700">Pripojit Google</button>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-1 bg-white rounded-xl p-1 shadow-sm border border-gray-200 mb-6 w-fit">
+        <button onclick="switchTab('pagespeed')" id="tab-pagespeed" class="tab-btn px-4 py-2 text-sm font-medium rounded-lg tab-active">PageSpeed</button>
+        <button onclick="switchTab('indexing')" id="tab-indexing" class="tab-btn px-4 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-100">Indexing</button>
+        <button onclick="switchTab('search')" id="tab-search" class="tab-btn px-4 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-100">Search Console</button>
+        <button onclick="switchTab('bulk')" id="tab-bulk" class="tab-btn px-4 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-100">Bulk Check</button>
+    </div>
+
+    <!-- PageSpeed Tab -->
+    <div id="panel-pagespeed">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <h2 class="text-lg font-bold mb-4">PageSpeed Insights</h2>
+            <div class="flex gap-3">
+                <input type="url" id="ps-url" placeholder="https://stehovaniformanek.cz" value="https://stehovaniformanek.cz"
+                    class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-sm">
+                <select id="ps-strategy" class="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                    <option value="mobile">Mobile</option>
+                    <option value="desktop">Desktop</option>
+                </select>
+                <button onclick="runPageSpeed()" id="btn-ps" class="px-5 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700">Analyzovat</button>
+            </div>
+            <div id="ps-result" class="mt-4 hidden">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4" id="ps-scores"></div>
+                <div id="ps-details" class="space-y-2"></div>
+            </div>
+            <div id="ps-loading" class="mt-4 text-center text-gray-400 hidden">Analyzuji... (trva 10-30s)</div>
+        </div>
+    </div>
+
+    <!-- Indexing Tab -->
+    <div id="panel-indexing" class="hidden">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <h2 class="text-lg font-bold mb-2">Google Indexing API</h2>
+            <p class="text-sm text-gray-500 mb-4">Odeslani URL k indexovani nebo odesilani aktualizace. Vyzaduje pripojeny Google ucet s pristupem k Search Console.</p>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-gray-500 mb-1">URL k indexovani (jedna na radek)</label>
+                    <textarea id="idx-urls" rows="5" placeholder="https://stehovaniformanek.cz/&#10;https://stehovaniformanek.cz/sluzby/&#10;https://stehovaniformanek.cz/cenik/"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono"></textarea>
+                </div>
+                <div class="flex gap-3">
+                    <select id="idx-type" class="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                        <option value="URL_UPDATED">Aktualizovano (URL_UPDATED)</option>
+                        <option value="URL_DELETED">Smazano (URL_DELETED)</option>
+                    </select>
+                    <button onclick="submitIndexing()" class="px-5 py-2 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700">Odeslat k indexovani</button>
+                </div>
+                <div id="idx-result" class="space-y-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Console Tab -->
+    <div id="panel-search" class="hidden">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <h2 class="text-lg font-bold mb-2">Search Console</h2>
+            <p class="text-sm text-gray-500 mb-4">SEO statistiky — kliknuti, imprese, pozice, dotazy. Vyzaduje pripojeny Google ucet.</p>
+
+            <div class="flex gap-3 mb-4">
+                <input type="text" id="sc-site" placeholder="https://stehovaniformanek.cz" value="https://stehovaniformanek.cz"
+                    class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                <select id="sc-period" class="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                    <option value="7">7 dni</option>
+                    <option value="28" selected>28 dni</option>
+                    <option value="90">90 dni</option>
+                </select>
+                <button onclick="loadSearchConsole()" class="px-5 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700">Nacist</button>
+            </div>
+
+            <div id="sc-stats" class="grid grid-cols-4 gap-4 mb-4 hidden"></div>
+            <div id="sc-queries" class="hidden">
+                <h3 class="text-sm font-bold text-gray-700 mb-2">Top dotazy</h3>
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50"><tr><th class="text-left px-3 py-2">Dotaz</th><th class="px-3 py-2">Kliknuti</th><th class="px-3 py-2">Imprese</th><th class="px-3 py-2">CTR</th><th class="px-3 py-2">Pozice</th></tr></thead>
+                    <tbody id="sc-queries-body"></tbody>
+                </table>
+            </div>
+            <div id="sc-noauth" class="text-center py-8 text-gray-400">Pripoj Google ucet pro zobrazeni dat.</div>
+        </div>
+    </div>
+
+    <!-- Bulk Check Tab -->
+    <div id="panel-bulk" class="hidden">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <h2 class="text-lg font-bold mb-2">Hromadny PageSpeed Check</h2>
+            <p class="text-sm text-gray-500 mb-4">Zkontroluj vice URL najednou.</p>
+
+            <div class="space-y-4">
+                <textarea id="bulk-urls" rows="6" placeholder="https://stehovaniformanek.cz&#10;https://makejsmanmatem.cz&#10;https://befitelis.cz"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono">https://stehovaniformanek.cz
+https://makejsmanmatem.cz
+https://befitelis.cz</textarea>
+                <button onclick="bulkCheck()" id="btn-bulk" class="px-5 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700">Spustit kontrolu</button>
+                <div id="bulk-result" class="space-y-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Google OAuth config
+const CLIENT_ID = '258348464854-9f2c44tcd34vt9cl2ep8e2haoqp6eisq.apps.googleusercontent.com';
+const SCOPES = 'https://www.googleapis.com/auth/webmasters.readonly https://www.googleapis.com/auth/indexing';
+const PAGESPEED_KEY = ''; // Optional API key for higher limits
+let accessToken = null;
+
+function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('tab-active'); b.classList.add('text-gray-600'); });
+    document.getElementById('tab-' + tab).classList.add('tab-active');
+    document.getElementById('tab-' + tab).classList.remove('text-gray-600');
+    ['pagespeed', 'indexing', 'search', 'bulk'].forEach(t => {
+        document.getElementById('panel-' + t).classList.toggle('hidden', t !== tab);
+    });
+}
+
+// ===== AUTH =====
+function authenticate() {
+    const redirect = window.location.origin + window.location.pathname;
+    const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(redirect)}&response_type=token&scope=${encodeURIComponent(SCOPES)}&prompt=consent`;
+    window.location.href = url;
+}
+
+function checkAuth() {
+    const hash = window.location.hash;
+    if (hash.includes('access_token')) {
+        const params = new URLSearchParams(hash.substring(1));
+        accessToken = params.get('access_token');
+        document.getElementById('auth-status').textContent = 'Pripojeno';
+        document.getElementById('auth-status').className = 'text-xs text-green-600 font-bold';
+        document.getElementById('btn-auth').textContent = 'Pripojeno';
+        document.getElementById('btn-auth').className = 'px-4 py-2 bg-green-600 text-white text-sm rounded-lg';
+        window.history.replaceState({}, '', window.location.pathname);
+    }
+}
+
+// ===== PAGESPEED =====
+async function runPageSpeed() {
+    const url = document.getElementById('ps-url').value.trim();
+    if (!url) return;
+    const strategy = document.getElementById('ps-strategy').value;
+    const btn = document.getElementById('btn-ps');
+    btn.disabled = true; btn.textContent = 'Analyzuji...';
+    document.getElementById('ps-loading').classList.remove('hidden');
+    document.getElementById('ps-result').classList.add('hidden');
+
+    try {
+        let apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=${strategy}&category=performance&category=accessibility&category=best-practices&category=seo`;
+        if (PAGESPEED_KEY) apiUrl += `&key=${PAGESPEED_KEY}`;
+
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+
+        if (data.error) {
+            document.getElementById('ps-scores').innerHTML = `<div class="col-span-4 text-red-500 text-sm">${data.error.message}</div>`;
+            document.getElementById('ps-result').classList.remove('hidden');
+            return;
+        }
+
+        const cats = data.lighthouseResult?.categories || {};
+        const scores = document.getElementById('ps-scores');
+        scores.innerHTML = '';
+
+        for (const [key, cat] of Object.entries(cats)) {
+            const score = Math.round((cat.score || 0) * 100);
+            const color = score >= 90 ? 'green' : score >= 50 ? 'orange' : 'red';
+            scores.innerHTML += `
+                <div class="bg-gray-50 rounded-xl p-4 text-center border border-gray-200">
+                    <div class="text-3xl font-bold" style="color:${color}">${score}</div>
+                    <div class="text-xs text-gray-500 mt-1">${cat.title}</div>
+                </div>`;
+        }
+
+        // Key metrics
+        const audits = data.lighthouseResult?.audits || {};
+        const metrics = ['first-contentful-paint', 'largest-contentful-paint', 'total-blocking-time', 'cumulative-layout-shift', 'speed-index'];
+        const details = document.getElementById('ps-details');
+        details.innerHTML = '<h3 class="text-sm font-bold text-gray-700 mt-4 mb-2">Klicove metriky</h3>';
+        metrics.forEach(m => {
+            const audit = audits[m];
+            if (audit) {
+                const color = audit.score >= 0.9 ? 'text-green-600' : audit.score >= 0.5 ? 'text-orange-500' : 'text-red-500';
+                details.innerHTML += `<div class="flex justify-between py-1 border-b border-gray-100"><span class="text-sm text-gray-600">${audit.title}</span><span class="text-sm font-bold ${color}">${audit.displayValue || '-'}</span></div>`;
+            }
+        });
+
+        document.getElementById('ps-result').classList.remove('hidden');
+    } catch (e) {
+        document.getElementById('ps-scores').innerHTML = `<div class="col-span-4 text-red-500 text-sm">Chyba: ${e.message}</div>`;
+        document.getElementById('ps-result').classList.remove('hidden');
+    }
+    btn.disabled = false; btn.textContent = 'Analyzovat';
+    document.getElementById('ps-loading').classList.add('hidden');
+}
+
+// ===== INDEXING =====
+async function submitIndexing() {
+    if (!accessToken) { alert('Nejdriv pripoj Google ucet.'); return; }
+    const urls = document.getElementById('idx-urls').value.trim().split('\n').filter(u => u.trim());
+    const type = document.getElementById('idx-type').value;
+    const result = document.getElementById('idx-result');
+    result.innerHTML = '';
+
+    for (const url of urls) {
+        try {
+            const res = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url: url.trim(), type }),
+            });
+            const data = await res.json();
+            if (data.error) {
+                result.innerHTML += `<div class="text-sm text-red-500">${esc(url.trim())} — ${data.error.message}</div>`;
+            } else {
+                result.innerHTML += `<div class="text-sm text-green-600">${esc(url.trim())} — OK (${data.urlNotificationMetadata?.latestUpdate?.type || type})</div>`;
+            }
+        } catch (e) {
+            result.innerHTML += `<div class="text-sm text-red-500">${esc(url.trim())} — ${e.message}</div>`;
+        }
+    }
+}
+
+// ===== SEARCH CONSOLE =====
+async function loadSearchConsole() {
+    if (!accessToken) { alert('Nejdriv pripoj Google ucet.'); return; }
+    const site = document.getElementById('sc-site').value.trim();
+    const days = parseInt(document.getElementById('sc-period').value);
+    const end = new Date(); end.setDate(end.getDate() - 1);
+    const start = new Date(); start.setDate(start.getDate() - days);
+    const fmt = d => d.toISOString().split('T')[0];
+
+    try {
+        const res = await fetch(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/searchAnalytics/query`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                startDate: fmt(start), endDate: fmt(end),
+                dimensions: ['query'], rowLimit: 20,
+            }),
+        });
+        const data = await res.json();
+
+        if (data.error) {
+            document.getElementById('sc-noauth').textContent = data.error.message;
+            return;
+        }
+
+        document.getElementById('sc-noauth').classList.add('hidden');
+
+        // Total stats
+        let totalClicks = 0, totalImpressions = 0, totalCtr = 0, totalPosition = 0;
+        (data.rows || []).forEach(r => {
+            totalClicks += r.clicks;
+            totalImpressions += r.impressions;
+        });
+        const avgCtr = totalImpressions > 0 ? (totalClicks / totalImpressions * 100).toFixed(1) : 0;
+        const avgPos = data.rows?.length > 0 ? (data.rows.reduce((s, r) => s + r.position, 0) / data.rows.length).toFixed(1) : 0;
+
+        const stats = document.getElementById('sc-stats');
+        stats.innerHTML = `
+            <div class="bg-blue-50 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-blue-700">${totalClicks}</div><div class="text-xs text-gray-500">Kliknuti</div></div>
+            <div class="bg-purple-50 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-purple-700">${totalImpressions}</div><div class="text-xs text-gray-500">Imprese</div></div>
+            <div class="bg-green-50 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-green-700">${avgCtr}%</div><div class="text-xs text-gray-500">CTR</div></div>
+            <div class="bg-orange-50 rounded-xl p-4 text-center"><div class="text-2xl font-bold text-orange-700">${avgPos}</div><div class="text-xs text-gray-500">Prumerna pozice</div></div>
+        `;
+        stats.classList.remove('hidden');
+
+        // Queries table
+        const tbody = document.getElementById('sc-queries-body');
+        tbody.innerHTML = '';
+        (data.rows || []).forEach(r => {
+            tbody.innerHTML += `<tr class="border-b border-gray-100"><td class="px-3 py-2">${esc(r.keys[0])}</td><td class="px-3 py-2 text-center font-bold">${r.clicks}</td><td class="px-3 py-2 text-center">${r.impressions}</td><td class="px-3 py-2 text-center">${(r.ctr * 100).toFixed(1)}%</td><td class="px-3 py-2 text-center">${r.position.toFixed(1)}</td></tr>`;
+        });
+        document.getElementById('sc-queries').classList.remove('hidden');
+
+    } catch (e) {
+        document.getElementById('sc-noauth').textContent = 'Chyba: ' + e.message;
+    }
+}
+
+// ===== BULK CHECK =====
+async function bulkCheck() {
+    const urls = document.getElementById('bulk-urls').value.trim().split('\n').filter(u => u.trim());
+    const result = document.getElementById('bulk-result');
+    const btn = document.getElementById('btn-bulk');
+    btn.disabled = true; btn.textContent = 'Kontroluji...';
+    result.innerHTML = '';
+
+    for (const url of urls) {
+        result.innerHTML += `<div id="bulk-${btoa(url)}" class="bg-gray-50 rounded-lg p-3 border border-gray-200 text-sm">Kontroluji ${esc(url.trim())}...</div>`;
+        try {
+            const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url.trim())}&strategy=mobile&category=performance&category=seo`;
+            const res = await fetch(apiUrl);
+            const data = await res.json();
+            const perf = Math.round((data.lighthouseResult?.categories?.performance?.score || 0) * 100);
+            const seo = Math.round((data.lighthouseResult?.categories?.seo?.score || 0) * 100);
+            const perfColor = perf >= 90 ? 'text-green-600' : perf >= 50 ? 'text-orange-500' : 'text-red-500';
+            const seoColor = seo >= 90 ? 'text-green-600' : seo >= 50 ? 'text-orange-500' : 'text-red-500';
+            document.getElementById('bulk-' + btoa(url)).innerHTML = `
+                <div class="flex justify-between items-center">
+                    <a href="${esc(url.trim())}" target="_blank" class="text-blue-600 hover:underline">${esc(url.trim())}</a>
+                    <div class="flex gap-4">
+                        <span>Performance: <strong class="${perfColor}">${perf}</strong></span>
+                        <span>SEO: <strong class="${seoColor}">${seo}</strong></span>
+                    </div>
+                </div>`;
+        } catch (e) {
+            document.getElementById('bulk-' + btoa(url)).innerHTML = `<span class="text-red-500">${esc(url.trim())} — chyba</span>`;
+        }
+    }
+    btn.disabled = false; btn.textContent = 'Spustit kontrolu';
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+// Init
+checkAuth();
+</script>
+
+</body>
+</html>
