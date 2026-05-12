@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Předávací protokol – Stěhování Formánek</title>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+:root {
+  --orange: #FF6B35;
+  --orange-dark: #E55A2B;
+  --orange-light: #FFE4D9;
+  --dark: #1F1F1F;
+  --gray: #555;
+  --gray-light: #E5E5E5;
+  --bg: #FAFAFA;
+  --white: #FFF;
+  --error: #DC2626;
+  --success: #16A34A;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 16px; }
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+  color: var(--white);
+  padding: 24px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(255,107,53,0.25);
+}
+.header h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; }
+.header .sub { font-size: 14px; opacity: 0.9; margin-top: 4px; }
+
+/* SECTION */
+.section {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.section h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section h2 .num {
+  background: var(--orange);
+  color: var(--white);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.section h2 .ic { font-size: 18px; }
+
+/* GRID */
+.grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.grid-2 { grid-template-columns: 1fr 1fr; gap: 8px; }
+.grid-3 { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+@media (min-width: 600px) {
+  .grid-md-2 { grid-template-columns: 1fr 1fr; gap: 12px; }
+}
+
+/* INPUT */
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--gray-light);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  background: var(--white);
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 44px;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+.field textarea { resize: vertical; min-height: 80px; }
+.field .hint { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+/* CHECKBOX inline */
+.check-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 2px solid var(--gray-light);
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 44px;
+  font-size: 14px;
+  transition: all 0.15s;
+}
+.check-inline input { width: 18px; height: 18px; accent-color: var(--orange); flex-shrink: 0; cursor: pointer; }
+.check-inline:has(input:checked) { border-color: var(--orange); background: var(--orange-light); }
+
+/* DAMAGE */
+.damage-section { display: none; margin-top: 12px; }
+.damage-section.show { display: block; }
+
+/* CALC */
+.calc {
+  background: var(--orange-light);
+  border: 2px solid var(--orange);
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 12px;
+}
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,107,53,0.2);
+  font-size: 14px;
+}
+.calc-row:last-of-type { border-bottom: none; }
+.calc-name { color: var(--gray); }
+.calc-amount { font-weight: 600; }
+.calc-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 2px solid var(--orange);
+}
+.calc-total-label { font-size: 14px; font-weight: 600; }
+.calc-total-amount { font-size: 22px; font-weight: 800; color: var(--orange); }
+
+/* SIGNATURE */
+.sig-wrap { margin-top: 8px; }
+.sig-pad-container {
+  border: 2px solid var(--gray-light);
+  border-radius: 8px;
+  background: var(--white);
+  position: relative;
+  touch-action: none;
+}
+.sig-pad-container.signed { border-color: var(--success); }
+canvas.sig-pad {
+  display: block;
+  width: 100%;
+  height: 160px;
+  border-radius: 6px;
+  cursor: crosshair;
+  touch-action: none;
+}
+.sig-clear {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--gray);
+}
+.sig-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gray-light);
+  font-size: 14px;
+  pointer-events: none;
+  font-weight: 600;
+}
+
+/* BUTTONS */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+@media (min-width: 600px) {
+  .actions { grid-template-columns: 1fr 1fr; }
+}
+.btn {
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-primary { background: var(--orange); color: var(--white); }
+.btn-primary:hover { background: var(--orange-dark); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-secondary { background: var(--white); color: var(--orange); border: 2px solid var(--orange); }
+.btn-secondary:hover { background: var(--orange-light); }
+.btn-link {
+  background: transparent;
+  color: var(--orange);
+  text-decoration: underline;
+  text-align: center;
+  padding: 8px;
+}
+
+/* PRINT optimizace */
+@media print {
+  body { background: var(--white); font-size: 11pt; }
+  .header { box-shadow: none; }
+  .actions, .btn, .sig-clear { display: none !important; }
+  .section { box-shadow: none; page-break-inside: avoid; border: 1px solid #ddd; }
+  .calc { page-break-inside: avoid; }
+}
+
+/* utility */
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.text-small { font-size: 12px; color: var(--gray); }
+.spacing-md { margin-top: 12px; }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--white);
+  color: var(--orange);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--orange-light);
+  margin-bottom: 12px;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="protokol-container">
+  <a href="https://stehovaniformanek.cz/" class="back-link no-print">← Zpět</a>
+
+  <header class="header">
+    <h1>Předávací protokol</h1>
+    <div class="sub">Stěhování Formánek · Hops s.r.o.</div>
+  </header>
+
+  <!-- 1. ÚDAJE -->
+  <div class="section">
+    <h2><span class="num">1</span><span class="ic">📋</span> Údaje o stěhování</h2>
+    <div class="grid grid-md-2">
+      <div class="field">
+        <label>Číslo protokolu</label>
+        <input type="text" id="cislo" placeholder="auto">
+      </div>
+      <div class="field">
+        <label>Datum stěhování</label>
+        <input type="date" id="datum">
+      </div>
+    </div>
+    <div class="grid grid-md-2 spacing-md">
+      <div class="field">
+        <label>Vedoucí posádky</label>
+        <input type="text" id="vedouci" placeholder="Jméno a příjmení">
+      </div>
+      <div class="field">
+        <label>SPZ vozidla</label>
+        <input type="text" id="spz" placeholder="1A2 3456">
+      </div>
+    </div>
+    <div class="field spacing-md">
+      <label>Posádka (jména)</label>
+      <input type="text" id="posadka" placeholder="Jan Novák, Petr Svoboda">
+      <span class="hint">Oddělené čárkami</span>
+    </div>
+  </div>
+
+  <!-- 2. KLIENT -->
+  <div class="section">
+    <h2><span class="num">2</span><span class="ic">👤</span> Klient</h2>
+    <div class="grid grid-md-2">
+      <div class="field">
+        <label>Jméno a příjmení</label>
+        <input type="text" id="klient-jmeno">
+      </div>
+      <div class="field">
+        <label>Telefon</label>
+        <input type="tel" id="klient-tel" placeholder="+420">
+      </div>
+    </div>
+    <div class="field spacing-md">
+      <label>Email</label>
+      <input type="email" id="klient-email">
+    </div>
+  </div>
+
+  <!-- 3. ADRESY -->
+  <div class="section">
+    <h2><span class="num">3</span><span class="ic">📍</span> Z adresy</h2>
+    <div class="grid">
+      <div class="field">
+        <label>Ulice a č.p.</label>
+        <input type="text" id="z-ulice">
+      </div>
+      <div class="grid grid-2">
+        <div class="field">
+          <label>Město</label>
+          <input type="text" id="z-mesto">
+        </div>
+        <div class="field">
+          <label>PSČ</label>
+          <input type="text" id="z-psc" inputmode="numeric">
+        </div>
+      </div>
+      <div class="grid grid-2">
+        <div class="field">
+          <label>Patro</label>
+          <input type="text" id="z-patro" placeholder="přízemí, 3.">
+        </div>
+        <div class="field">
+          <label>Výtah</label>
+          <select id="z-vytah">
+            <option value="ano">Ano</option>
+            <option value="ne">Ne (+25 %)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">4</span><span class="ic">🏠</span> Na adresu</h2>
+    <div class="grid">
+      <div class="field">
+        <label>Ulice a č.p.</label>
+        <input type="text" id="na-ulice">
+      </div>
+      <div class="grid grid-2">
+        <div class="field">
+          <label>Město</label>
+          <input type="text" id="na-mesto">
+        </div>
+        <div class="field">
+          <label>PSČ</label>
+          <input type="text" id="na-psc" inputmode="numeric">
+        </div>
+      </div>
+      <div class="grid grid-2">
+        <div class="field">
+          <label>Patro</label>
+          <input type="text" id="na-patro">
+        </div>
+        <div class="field">
+          <label>Výtah</label>
+          <select id="na-vytah">
+            <option value="ano">Ano</option>
+            <option value="ne">Ne (+25 %)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. STĚHOVANO -->
+  <div class="section">
+    <h2><span class="num">5</span><span class="ic">📦</span> Stěhované věci</h2>
+    <div class="field">
+      <label>Seznam věcí</label>
+      <textarea id="veci" rows="4" placeholder="Pračka, lednice, gauč, postel, krabice (×15), …"></textarea>
+    </div>
+  </div>
+
+  <!-- 6. CAS A KM -->
+  <div class="section">
+    <h2><span class="num">6</span><span class="ic">⏱️</span> Práce</h2>
+    <div class="grid grid-2">
+      <div class="field">
+        <label>Začátek</label>
+        <input type="time" id="cas-od">
+      </div>
+      <div class="field">
+        <label>Konec</label>
+        <input type="time" id="cas-do">
+      </div>
+    </div>
+    <div class="grid grid-2 spacing-md">
+      <div class="field">
+        <label>Hodin celkem</label>
+        <input type="number" id="hodin" step="0.25" min="0" placeholder="auto z času">
+      </div>
+      <div class="field">
+        <label>Počet stěhováků</label>
+        <input type="number" id="lidi" min="1" value="2">
+      </div>
+    </div>
+    <div class="grid grid-2 spacing-md">
+      <div class="field">
+        <label>Najeto km</label>
+        <input type="number" id="km" min="0" placeholder="0">
+      </div>
+      <div class="field">
+        <label>Sazba Kč/hod (1 stěhovák)</label>
+        <input type="number" id="sazba" min="0" value="450">
+      </div>
+    </div>
+    <div class="grid grid-2 spacing-md">
+      <label class="check-inline">
+        <input type="checkbox" id="prip-vytah">
+        <span>Bez výtahu (+25 %)</span>
+      </label>
+      <label class="check-inline">
+        <input type="checkbox" id="prip-montaz">
+        <span>Montáž/demontáž (+20 %)</span>
+      </label>
+    </div>
+    <label class="check-inline spacing-md">
+      <input type="checkbox" id="dph">
+      <span>Účtovat DPH 21 %</span>
+    </label>
+  </div>
+
+  <!-- 7. CENA -->
+  <div class="section">
+    <h2><span class="num">7</span><span class="ic">💰</span> Cena</h2>
+    <div class="calc" id="calc">
+      <div class="calc-row"><span class="calc-name">Práce (× hodiny × stěhováci)</span><span class="calc-amount" id="c-prace">0 Kč</span></div>
+      <div class="calc-row"><span class="calc-name">Doprava (km × 20 Kč)</span><span class="calc-amount" id="c-doprava">0 Kč</span></div>
+      <div class="calc-row" id="r-vytah" style="display:none"><span class="calc-name">Příplatek bez výtahu (+25 %)</span><span class="calc-amount" id="c-vytah">0 Kč</span></div>
+      <div class="calc-row" id="r-montaz" style="display:none"><span class="calc-name">Příplatek montáž (+20 %)</span><span class="calc-amount" id="c-montaz">0 Kč</span></div>
+      <div class="calc-row" id="r-dph" style="display:none"><span class="calc-name">DPH 21 %</span><span class="calc-amount" id="c-dph">0 Kč</span></div>
+      <div class="calc-total">
+        <div class="calc-total-label">Celkem k úhradě</div>
+        <div class="calc-total-amount"><span id="c-total">0</span> Kč</div>
+      </div>
+    </div>
+    <div class="grid grid-md-2 spacing-md">
+      <div class="field">
+        <label>Forma úhrady</label>
+        <select id="uhrada">
+          <option>Hotově</option>
+          <option>Převodem</option>
+          <option>QR platba</option>
+          <option>Faktura</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Záloha (Kč)</label>
+        <input type="number" id="zaloha" min="0" value="0">
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. STAV VECI -->
+  <div class="section">
+    <h2><span class="num">8</span><span class="ic">✅</span> Stav věcí při převzetí</h2>
+    <label class="check-inline">
+      <input type="radio" name="stav" value="ok" id="stav-ok" checked>
+      <span>Bez závad – vše v pořádku</span>
+    </label>
+    <label class="check-inline spacing-md">
+      <input type="radio" name="stav" value="poskozeno" id="stav-poskozeno">
+      <span>Drobné poškození / reklamace</span>
+    </label>
+
+    <div class="damage-section" id="damage-section">
+      <div class="field spacing-md">
+        <label>Popis poškození</label>
+        <textarea id="poskozeni-popis" rows="3" placeholder="Co bylo poškozeno, jak, na čí straně…"></textarea>
+      </div>
+      <div class="field spacing-md">
+        <label>Foto poškození (volitelné)</label>
+        <input type="file" id="poskozeni-foto" accept="image/*" capture="environment" multiple>
+        <span class="hint">Můžeš vyfotit přímo z mobilu (více fotek)</span>
+      </div>
+      <div id="foto-preview" class="grid grid-3" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <!-- 9. PODPISY -->
+  <div class="section">
+    <h2><span class="num">9</span><span class="ic">✍️</span> Podpisy</h2>
+
+    <div class="sig-wrap">
+      <label style="font-weight:600;font-size:13px;color:var(--gray);text-transform:uppercase;letter-spacing:0.3px">Klient</label>
+      <div class="sig-pad-container" id="sig-klient-c">
+        <span class="sig-hint" id="sig-klient-hint">Podepište prstem zde</span>
+        <button type="button" class="sig-clear" onclick="clearSig('klient')">Vymazat</button>
+        <canvas class="sig-pad" id="sig-klient"></canvas>
+      </div>
+    </div>
+
+    <div class="sig-wrap spacing-md">
+      <label style="font-weight:600;font-size:13px;color:var(--gray);text-transform:uppercase;letter-spacing:0.3px">Vedoucí posádky</label>
+      <div class="sig-pad-container" id="sig-vedouci-c">
+        <span class="sig-hint" id="sig-vedouci-hint">Podepište prstem zde</span>
+        <button type="button" class="sig-clear" onclick="clearSig('vedouci')">Vymazat</button>
+        <canvas class="sig-pad" id="sig-vedouci"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- AKCE -->
+  <div class="actions no-print">
+    <button class="btn btn-primary" onclick="generatePDF()">📄 Stáhnout jako PDF</button>
+    <button class="btn btn-secondary" onclick="sharePdf()">📲 Sdílet / poslat</button>
+  </div>
+  <button class="btn-link" onclick="window.print()" style="display:block;margin:8px auto;background:none;border:none;cursor:pointer;color:var(--orange)">🖨️ Vytisknout</button>
+  <button class="btn-link" onclick="if(confirm('Opravdu vymazat všechna data?')) resetForm()" style="display:block;margin:0 auto 16px auto;background:none;border:none;cursor:pointer;color:var(--gray)">Vymazat vše</button>
+</div>
+
+<script>
+// ====== AUTO PROTOCOL NUMBER ======
+function genProtoNumber() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}-${String(d.getHours()).padStart(2,'0')}${String(d.getMinutes()).padStart(2,'0')}`;
+}
+document.getElementById('cislo').value = genProtoNumber();
+document.getElementById('datum').value = new Date().toISOString().slice(0,10);
+
+// ====== TIME -> HOURS AUTO ======
+function calcHours() {
+  const od = document.getElementById('cas-od').value;
+  const doo = document.getElementById('cas-do').value;
+  if (!od || !doo) return;
+  const [oH, oM] = od.split(':').map(Number);
+  const [dH, dM] = doo.split(':').map(Number);
+  let mins = (dH * 60 + dM) - (oH * 60 + oM);
+  if (mins < 0) mins += 24 * 60;
+  const hours = Math.round((mins / 60) * 4) / 4; // round to 0.25
+  document.getElementById('hodin').value = hours;
+  recalc();
+}
+document.getElementById('cas-od').addEventListener('change', calcHours);
+document.getElementById('cas-do').addEventListener('change', calcHours);
+
+// ====== AUTO TICK VYTAH IF Z OR NA HAS NO ELEVATOR ======
+function syncVytah() {
+  const noLift = document.getElementById('z-vytah').value === 'ne' || document.getElementById('na-vytah').value === 'ne';
+  document.getElementById('prip-vytah').checked = noLift;
+  recalc();
+}
+document.getElementById('z-vytah').addEventListener('change', syncVytah);
+document.getElementById('na-vytah').addEventListener('change', syncVytah);
+
+// ====== CALCULATOR ======
+function n(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function f(num) { return Math.round(num).toLocaleString('cs-CZ') + ' Kč'; }
+
+function recalc() {
+  const hod = n('hodin');
+  const lidi = n('lidi') || 1;
+  const sazba = n('sazba');
+  const km = n('km');
+  const dph = document.getElementById('dph').checked;
+
+  const prace = hod * lidi * sazba;
+  const doprava = km * 20;
+  let zaklad = prace + doprava;
+
+  const vytahActive = document.getElementById('prip-vytah').checked;
+  const montazActive = document.getElementById('prip-montaz').checked;
+
+  const vytahFee = vytahActive ? prace * 0.25 : 0;
+  const montazFee = montazActive ? prace * 0.20 : 0;
+
+  let beforeDph = zaklad + vytahFee + montazFee;
+  let dphFee = dph ? beforeDph * 0.21 : 0;
+  let total = beforeDph + dphFee;
+
+  document.getElementById('c-prace').textContent = f(prace);
+  document.getElementById('c-doprava').textContent = f(doprava);
+  document.getElementById('c-vytah').textContent = f(vytahFee);
+  document.getElementById('c-montaz').textContent = f(montazFee);
+  document.getElementById('c-dph').textContent = f(dphFee);
+  document.getElementById('r-vytah').style.display = vytahActive ? 'flex' : 'none';
+  document.getElementById('r-montaz').style.display = montazActive ? 'flex' : 'none';
+  document.getElementById('r-dph').style.display = dph ? 'flex' : 'none';
+  document.getElementById('c-total').textContent = Math.round(total).toLocaleString('cs-CZ');
+}
+
+['hodin','lidi','sazba','km','prip-vytah','prip-montaz','dph'].forEach(id => {
+  document.getElementById(id).addEventListener('input', recalc);
+  document.getElementById(id).addEventListener('change', recalc);
+});
+
+// ====== DAMAGE TOGGLE ======
+document.querySelectorAll('input[name="stav"]').forEach(r => {
+  r.addEventListener('change', () => {
+    document.getElementById('damage-section').classList.toggle('show',
+      document.getElementById('stav-poskozeno').checked);
+  });
+});
+
+// ====== PHOTO PREVIEW ======
+document.getElementById('poskozeni-foto').addEventListener('change', (e) => {
+  const wrap = document.getElementById('foto-preview');
+  wrap.innerHTML = '';
+  Array.from(e.target.files).forEach(f => {
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(f);
+    img.style.width = '100%';
+    img.style.borderRadius = '6px';
+    img.style.aspectRatio = '1';
+    img.style.objectFit = 'cover';
+    wrap.appendChild(img);
+  });
+});
+
+// ====== SIGNATURE PADS ======
+const sigPads = {};
+function setupSig(name) {
+  const canvas = document.getElementById('sig-' + name);
+  const container = document.getElementById('sig-' + name + '-c');
+  const hint = document.getElementById('sig-' + name + '-hint');
+  function resize() {
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext('2d').scale(ratio, ratio);
+  }
+  resize();
+  const pad = new SignaturePad(canvas, { minWidth: 1, maxWidth: 2.5, penColor: '#1F1F1F' });
+  pad.addEventListener('beginStroke', () => {
+    hint.style.display = 'none';
+    container.classList.add('signed');
+  });
+  sigPads[name] = pad;
+  window.addEventListener('resize', () => { const data = pad.toData(); resize(); pad.fromData(data); });
+}
+setupSig('klient');
+setupSig('vedouci');
+
+function clearSig(name) {
+  sigPads[name].clear();
+  document.getElementById('sig-' + name + '-hint').style.display = 'block';
+  document.getElementById('sig-' + name + '-c').classList.remove('signed');
+}
+
+// ====== PDF GENERATION ======
+async function generatePDF() {
+  const cislo = document.getElementById('cislo').value || 'protokol';
+  const klient = document.getElementById('klient-jmeno').value || '';
+  const filename = `Predavaci-protokol_${cislo}${klient ? '_' + klient.replace(/\s+/g, '-') : ''}.pdf`;
+
+  const el = document.getElementById('protokol-container');
+  // Hide buttons during PDF
+  document.querySelectorAll('.no-print').forEach(e => e.style.display = 'none');
+
+  try {
+    await html2pdf().set({
+      margin: [10, 8, 10, 8],
+      filename,
+      image: { type: 'jpeg', quality: 0.92 },
+      html2canvas: { scale: 2, useCORS: true, letterRendering: true, backgroundColor: '#FAFAFA' },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['avoid-all', 'css'] }
+    }).from(el).save();
+  } finally {
+    document.querySelectorAll('.no-print').forEach(e => e.style.display = '');
+  }
+}
+
+async function sharePdf() {
+  const el = document.getElementById('protokol-container');
+  document.querySelectorAll('.no-print').forEach(e => e.style.display = 'none');
+  try {
+    const blob = await html2pdf().set({
+      margin: [10, 8, 10, 8],
+      image: { type: 'jpeg', quality: 0.92 },
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: '#FAFAFA' },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    }).from(el).outputPdf('blob');
+
+    const cislo = document.getElementById('cislo').value || 'protokol';
+    const file = new File([blob], `Protokol_${cislo}.pdf`, { type: 'application/pdf' });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ title: 'Předávací protokol', files: [file] });
+    } else {
+      // fallback: download
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = file.name; a.click();
+      URL.revokeObjectURL(url);
+      alert('Tvé zařízení neumí přímo sdílet PDF. Soubor byl stažen.');
+    }
+  } finally {
+    document.querySelectorAll('.no-print').forEach(e => e.style.display = '');
+  }
+}
+
+// ====== RESET ======
+function resetForm() {
+  document.querySelectorAll('input, textarea, select').forEach(el => {
+    if (el.type === 'checkbox' || el.type === 'radio') el.checked = el.id === 'stav-ok';
+    else el.value = '';
+  });
+  document.getElementById('cislo').value = genProtoNumber();
+  document.getElementById('datum').value = new Date().toISOString().slice(0,10);
+  document.getElementById('lidi').value = 2;
+  document.getElementById('sazba').value = 450;
+  document.getElementById('zaloha').value = 0;
+  clearSig('klient');
+  clearSig('vedouci');
+  document.getElementById('foto-preview').innerHTML = '';
+  document.getElementById('damage-section').classList.remove('show');
+  recalc();
+}
+
+// init
+recalc();
+</script>
+
+</body>
+</html>
