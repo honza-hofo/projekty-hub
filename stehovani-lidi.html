@@ -131,21 +131,21 @@ tr.inactive { opacity: 0.5; }
 </div>
 
 <script>
-const STORAGE_KEY = 'stehovani_lidi_v2';
+const STORAGE_KEY = 'stehovani_lidi_v3';
 
 const DEFAULT_PEOPLE = [
   { id: 1, name: "Jarda Triska", phone: "777509575", license: "B", rate: 300, bankAccount: "4476811093/0800", address: "", email: "", note: "partak", active: true },
   { id: 2, name: "Adam Majer", phone: "607408780", license: "", rate: 200, bankAccount: "279796551/0600", address: "Klobuky Kobylniky c.p. 5, 273 74", email: "", note: "", active: true },
   { id: 3, name: "Filip Svatos", phone: "731064363", license: "", rate: 200, bankAccount: "7310642/0100", address: "Slunecni namesti 2580/13", email: "", note: "", active: true },
   { id: 4, name: "Matej Sorm", phone: "606908693", license: "", rate: 200, bankAccount: "1744014143/0800", address: "Vratislavovo namesti 103, Nove Mesto na Morave", email: "", note: "", active: true },
-  { id: 5, name: "David Hauer", phone: "799912652", license: "", rate: 200, bankAccount: "2669645010/3030", address: "Orelska 8, 101 00", email: "rockac667@gmail.com", note: "", active: true },
+  { id: 5, name: "David Hauer", phone: "799912652", license: "", rate: 200, bankAccount: "2669645010/3030", address: "Orelska 8, 101 00", email: "rockac667@gmail.com", note: "ukoncen 30.4.", active: false },
   { id: 7, name: "Pavol Goral", phone: "734297634", license: "", rate: 200, bankAccount: "", address: "K Zizkovu 8, Praha 9", email: "gothaj.pg@gmail.com", note: "", active: true },
   { id: 10, name: "Maksym Karlashchuk", phone: "739573649", license: "", rate: 200, bankAccount: "35252309004/5500", address: "Nad Primaskou 895/43", email: "", note: "", active: true },
   { id: 12, name: "David Baumgartl", phone: "734218678", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "faktura", active: true },
   { id: 13, name: "Jakub Ott", phone: "773194664", license: "CE", rate: 300, bankAccount: "", address: "", email: "", note: "", active: true },
   { id: 14, name: "Tomas Rigo", phone: "602662872", license: "", rate: 200, bankAccount: "2709623028/3030", address: "Na Padestatem 868/8, Praha 10", email: "", note: "", active: true },
   { id: 17, name: "Roman", phone: "", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
-  { id: 18, name: "Tomas Arnold", phone: "603377799", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 18, name: "Tomas Arnold", phone: "603377799", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "ridic", active: true },
   { id: 19, name: "Matous", phone: "775384568", license: "", rate: 300, bankAccount: "", address: "", email: "", note: "", active: true },
   { id: 20, name: "Elisky tata", phone: "775360155", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
   { id: 21, name: "Marek Vostiar", phone: "604190194", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
@@ -154,10 +154,15 @@ const DEFAULT_PEOPLE = [
   { id: 24, name: "Oliver", phone: "722707042", license: "B", rate: 300, bankAccount: "", address: "", email: "", note: "", active: true },
   { id: 25, name: "Kuba Novotny", phone: "728644566", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
   { id: 26, name: "Lucie Jerabkova", phone: "777171731", license: "B", rate: 200, bankAccount: "", address: "", email: "", note: "ridicka", active: true },
+  { id: 27, name: "Ales", phone: "", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 28, name: "David 3", phone: "", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "od Filipa", active: true },
+  { id: 29, name: "Smradoch", phone: "", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "kamos Alese/Davida 3", active: true },
+  { id: 30, name: "Gabriel Novy", phone: "", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
+  { id: 31, name: "Pavel Novy", phone: "", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "", active: true },
   { id: 6, name: "Michal Kolar", phone: "774054976", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "ukoncen 15.4.", active: false },
   { id: 8, name: "Bohumil", phone: "", license: "", rate: 250, bankAccount: "", address: "", email: "", note: "ukoncen 13.4.", active: false },
   { id: 9, name: "Jaroslav Uk", phone: "", license: "", rate: 200, bankAccount: "", address: "", email: "", note: "ukoncen 15.4.", active: false },
-  { id: 11, name: "Tomas", phone: "734167001", license: "", rate: 250, bankAccount: "2884450021/3030", address: "", email: "", note: "ukoncen 16.4.", active: false },
+  { id: 11, name: "Tomas", phone: "734167001", license: "", rate: 250, bankAccount: "2884450021/3030", address: "", email: "", note: "", active: true },
   { id: 15, name: "Jiri Sedina", phone: "739771454", license: "", rate: 200, bankAccount: "", address: "Druzstevni c.p. 385, Zakupy", email: "", note: "ukoncen 23.4.", active: false },
   { id: 16, name: "Miloslav Nolden", phone: "730602087", license: "", rate: 200, bankAccount: "109955177/0100", address: "Havlickova 210/4, Liberec", email: "", note: "ukoncen 27.4.", active: false },
 ];
