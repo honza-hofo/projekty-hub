@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DATART 2026 – Doporučení režisérů | HOFO</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+@media print { .no-print { display: none; } @page { margin: 0; size: 1440px 900px landscape; } }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: #f8f7f4; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+
+/* ---- SLIDE BASE ---- */
+.slide { width: 100%; min-height: 100vh; padding: 56px 72px; page-break-after: always; position: relative; display: flex; flex-direction: column; }
+
+/* ---- COVER ---- */
+.cover { background: #f8f7f4; justify-content: center; align-items: center; text-align: center; }
+.cover .eyebrow { font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: #c0392b; font-weight: 700; margin-bottom: 28px; }
+.cover h1 { font-family: 'Playfair Display', serif; font-size: 3.6rem; font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
+.cover h1 .red { color: #c0392b; }
+.cover .sub { font-size: 1rem; color: #999; font-weight: 400; margin-bottom: 48px; letter-spacing: 0.3px; }
+.cover .line { width: 60px; height: 3px; background: #c0392b; margin: 0 auto 32px; }
+.cover .brand-row { display: flex; justify-content: center; align-items: center; gap: 20px; }
+.cover .brand { font-size: 1rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; }
+.cover .brand-sep { color: #ddd; font-weight: 300; }
+
+/* ---- DIRECTOR SLIDE ---- */
+.dir { background: #fff; }
+.dir-top { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+.dir-badge { width: 44px; height: 44px; background: #c0392b; color: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 900; flex-shrink: 0; }
+.dir-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; }
+.dir-pick { background: #c0392b; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-left: auto; }
+
+.dir-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; flex: 1; }
+
+/* Left col */
+.dir-meta { display: flex; flex-direction: column; }
+.meta-label { font-size: 0.6rem; letter-spacing: 2.5px; text-transform: uppercase; color: #bbb; font-weight: 700; margin-bottom: 6px; margin-top: 18px; }
+.meta-label:first-child { margin-top: 0; }
+.meta-text { font-size: 0.88rem; line-height: 1.7; color: #555; }
+.meta-text strong { color: #1a1a1a; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+.pill { padding: 4px 11px; border-radius: 6px; font-size: 0.68rem; font-weight: 600; background: #f4f3f0; color: #888; }
+.pill-r { background: #fdf0ef; color: #c0392b; }
+
+.reason { background: #fdf8f7; border-left: 3px solid #c0392b; padding: 14px 18px; border-radius: 0 10px 10px 0; margin-top: 20px; }
+.reason-title { font-size: 0.6rem; letter-spacing: 2.5px; text-transform: uppercase; color: #c0392b; font-weight: 700; margin-bottom: 4px; }
+.reason p { font-size: 0.82rem; line-height: 1.65; color: #666; }
+
+.web-link { margin-top: auto; padding-top: 16px; }
+.web-link a { font-size: 0.82rem; color: #c0392b; text-decoration: none; font-weight: 600; }
+
+/* Right col — videos */
+.dir-videos { display: flex; flex-direction: column; gap: 14px; }
+.vid-label { font-size: 0.6rem; letter-spacing: 2.5px; text-transform: uppercase; color: #bbb; font-weight: 700; margin-bottom: 2px; }
+.vid-wrap { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.06); background: #000; }
+.vid-wrap iframe { display: block; width: 100%; height: 210px; }
+.vid-caption { font-size: 0.7rem; color: #aaa; margin-top: 4px; text-align: right; }
+.vid-caption a { color: #c0392b; text-decoration: none; font-weight: 600; }
+
+.style-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+
+/* ---- SUMMARY ---- */
+.sum { background: #1a1a1a; color: #fff; justify-content: center; }
+.sum h2 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; margin-bottom: 36px; }
+.sum table { width: 100%; border-collapse: collapse; }
+.sum th { text-align: left; padding: 10px 16px; font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase; color: #555; border-bottom: 1px solid #2a2a2a; }
+.sum td { padding: 16px; border-bottom: 1px solid #222; font-size: 0.88rem; color: #aaa; vertical-align: middle; }
+.sum .hi td { background: rgba(192,57,43,0.08); }
+.sum .hi td:first-child { border-left: 3px solid #c0392b; }
+.sum .num { color: #c0392b; font-weight: 900; font-size: 1.15rem; }
+.sum td strong { color: #eee; }
+.sum a { color: #c0392b; text-decoration: none; }
+
+/* Footer */
+.ft { position: absolute; bottom: 20px; left: 72px; right: 72px; display: flex; justify-content: space-between; font-size: 0.6rem; color: #ccc; letter-spacing: 1px; text-transform: uppercase; }
+.ft-dark { color: #333; }
+
+.no-print { text-align: center; padding: 12px; background: #f0efec; }
+.no-print button { background: #c0392b; color: #fff; border: none; padding: 10px 28px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; cursor: pointer; font-family: 'Inter'; }
+</style>
+</head>
+<body>
+
+<div class="no-print"><button onclick="window.print()">Uložit PDF</button></div>
+
+<!-- ============ COVER ============ -->
+<div class="slide cover">
+    <div class="eyebrow">Produkční návrh</div>
+    <div class="line"></div>
+    <h1>Doporučení režisérů<br><span class="red">DATART 2026</span></h1>
+    <p class="sub">Klikák · Pysk · Boxy · Trofej — TV spoty s Lukášem Pavláskem</p>
+    <div class="brand-row">
+        <span class="brand">HOFO</span>
+        <span class="brand-sep">|</span>
+        <span class="brand" style="color:#c0392b">DATART</span>
+    </div>
+</div>
+
+<!-- ============ 01 SOUKUP ============ -->
+<div class="slide dir">
+    <div class="dir-top">
+        <div class="dir-badge">01</div>
+        <div class="dir-title">Pavel Soukup</div>
+        <div class="dir-pick">Naše 1. volba</div>
+    </div>
+    <div class="dir-grid">
+        <div class="dir-meta">
+            <div class="meta-label">Profil</div>
+            <p class="meta-text">Režisér a editor, Praha (1990). Intrigující vizuál s překvapivým punch line. Experimentuje se speciálními efekty a FX makeup.</p>
+            <div class="meta-label">Ocenění</div>
+            <p class="meta-text"><strong>Emmy Award 2020</strong> — #martyisdead<br>Cena AČK — #annaismissing</p>
+            <div class="meta-label">Klienti</div>
+            <div class="pills"><span class="pill">Gambrinus</span><span class="pill">Škoda</span><span class="pill">Kaufland</span><span class="pill">McDonald's</span><span class="pill">Albert</span><span class="pill">Glami</span><span class="pill">Notino</span><span class="pill">VZP</span><span class="pill">Slevomat</span></div>
+            <div class="reason">
+                <div class="reason-title">Proč pro Datart</div>
+                <p>Nejlepší volba — umí komedii s vizuálním puncem, má zkušenosti s výraznými talenty. Emmy oceněný režisér přinese prestiž i kreativní jistotu.</p>
+            </div>
+            <div class="web-link"><a href="https://pavelsoukup.com/showreel" target="_blank">pavelsoukup.com →</a></div>
+        </div>
+        <div class="dir-videos">
+            <div class="style-row"><span class="pill pill-r">Komedie</span><span class="pill pill-r">Vizuální efekty</span><span class="pill pill-r">Punch line</span><span class="pill pill-r">Práce s talenty</span></div>
+            <div class="vid-label">Showreel</div>
+            <div class="vid-wrap"><iframe src="https://player.vimeo.com/video/1175846686?title=0&byline=0&portrait=0&color=c0392b" frameborder="0" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
+            <div class="vid-wrap"><iframe src="https://player.vimeo.com/video/906992419?title=0&byline=0&portrait=0&color=c0392b" frameborder="0" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
+            <div class="vid-caption"><a href="https://vimeo.com/pavelsoukup" target="_blank">Celé portfolio na Vimeo →</a></div>
+        </div>
+    </div>
+    <div class="ft ft-dark"><span>HOFO / DATART 2026</span><span>Důvěrné</span></div>
+</div>
+
+<!-- ============ 02 PLOUHAR ============ -->
+<div class="slide dir">
+    <div class="dir-top">
+        <div class="dir-badge">02</div>
+        <div class="dir-title">Jarek Plouhar</div>
+    </div>
+    <div class="dir-grid">
+        <div class="dir-meta">
+            <div class="meta-label">Profil</div>
+            <p class="meta-text">Komerční režisér s výraznou narativní a komediální složkou. Zaměřuje se na běžné situace a lidský humor.</p>
+            <div class="meta-label">Klienti</div>
+            <div class="pills"><span class="pill">Zonky</span><span class="pill">Becherovka</span><span class="pill">Škoda</span><span class="pill">Tesco</span><span class="pill">Müller Riso</span><span class="pill">Mentos</span><span class="pill">CHIO</span></div>
+            <div class="reason">
+                <div class="reason-title">Proč pro Datart</div>
+                <p>Osvědčený cit pro humor. Série spotů pro Zonky ukazuje konzistentní komediální kvalitu — klíčové pro sérii 3 spotů se stejným talentem.</p>
+            </div>
+            <div class="web-link"><a href="https://jarekplouhar.com/" target="_blank">jarekplouhar.com →</a></div>
+        </div>
+        <div class="dir-videos">
+            <div class="style-row"><span class="pill pill-r">Situační humor</span><span class="pill pill-r">Narativní spoty</span><span class="pill pill-r">Série kampaní</span><span class="pill pill-r">FMCG</span></div>
+            <div class="vid-label">Ukázky</div>
+            <div class="vid-wrap"><iframe src="https://player.vimeo.com/video/1175176089?title=0&byline=0&portrait=0&color=c0392b" frameborder="0" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
+            <div class="vid-wrap"><iframe src="https://player.vimeo.com/video/1147594575?title=0&byline=0&portrait=0&color=c0392b" frameborder="0" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
+            <div class="vid-caption"><a href="https://jarekplouhar.com/" target="_blank">Celé portfolio →</a></div>
+        </div>
+    </div>
+    <div class="ft ft-dark"><span>HOFO / DATART 2026</span><span>Důvěrné</span></div>
+</div>
+
+<!-- ============ 03 ŽÍDEK ============ -->
+<div class="slide dir">
+    <div class="dir-top">
+        <div class="dir-badge">03</div>
+        <div class="dir-title">Jakub Žídek</div>
+    </div>
+    <div class="dir-grid">
+        <div class="dir-meta">
+            <div class="meta-label">Profil</div>
+            <p class="meta-text">Režisér a ideamaker. Široké portfolio od bankovních spotů přes retailové kampaně až po charitativní projekty.</p>
+            <div class="meta-label">Klienti</div>
+            <div class="pills"><span class="pill">Raiffeisenbank</span><span class="pill">Komerční banka</span><span class="pill">Samsung</span><span class="pill">Albert</span><span class="pill">Rohlik.cz</span><span class="pill">E.ON</span><span class="pill">UNICEF</span></div>
+            <div class="reason">
+                <div class="reason-title">Proč pro Datart</div>
+                <p>Retailové kampaně (Albert, Rohlik.cz) jsou přímá paralela. Jako ideamaker přinese kreativní input ke skriptům.</p>
+            </div>
+            <div class="web-link"><a href="https://zidekjakub.cz/" target="_blank">zidekjakub.cz →</a></div>
+        </div>
+        <div class="dir-videos">
+            <div class="style-row"><span class="pill pill-r">Retail</span><span class="pill pill-r">Čistá produkce</span><span class="pill pill-r">Ideamaker</span><span class="pill pill-r">Versatilní</span></div>
+            <div class="vid-label">Ukázky</div>
+            <div class="vid-wrap"><iframe src="https://player.vimeo.com/video/1166600066?title=0&byline=0&portrait=0&color=c0392b" frameborder="0" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
+            <div class="vid-wrap"><iframe src="https://player.vimeo.com/video/1166499793?title=0&byline=0&portrait=0&color=c0392b" frameborder="0" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
+            <div class="vid-caption"><a href="https://zidekjakub.cz/" target="_blank">Celé portfolio →</a></div>
+        </div>
+    </div>
+    <div class="ft ft-dark"><span>HOFO / DATART 2026</span><span>Důvěrné</span></div>
+</div>
+
+<!-- ============ 04 VOPIČKA ============ -->
+<div class="slide dir">
+    <div class="dir-top">
+        <div class="dir-badge">04</div>
+        <div class="dir-title">Adam Vopička</div>
+    </div>
+    <div class="dir-grid">
+        <div class="dir-meta">
+            <div class="meta-label">Profil</div>
+            <p class="meta-text">Režisér s 20+ lety zkušeností. Původně muzikant (Calm Season, Fake Tapes), přešel k režii videoklipů a reklam.</p>
+            <div class="meta-label">Přístup</div>
+            <p class="meta-text"><em>"Love my job & love to laugh."</em></p>
+            <div class="reason">
+                <div class="reason-title">Proč pro Datart</div>
+                <p>Muzikální background pro spoty s rytmickými elementy. Energetický přístup a smysl pro humor — klíčové pro 20" formát.</p>
+            </div>
+            <div class="web-link"><a href="https://vimeo.com/adamvopicka" target="_blank">vimeo.com/adamvopicka →</a></div>
+        </div>
+        <div class="dir-videos">
+            <div class="style-row"><span class="pill pill-r">Muzikální cit</span><span class="pill pill-r">Tempo & energie</span><span class="pill pill-r">Videoklipy</span><span class="pill pill-r">Dynamický střih</span></div>
+            <div class="vid-label">Ukázka — Škoda Auto SK</div>
+            <div class="vid-wrap"><iframe src="https://player.vimeo.com/video/1160284690?title=0&byline=0&portrait=0&color=c0392b" frameborder="0" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
+            <div class="vid-caption"><a href="https://vimeo.com/adamvopicka" target="_blank">Celé portfolio na Vimeo →</a></div>
+        </div>
+    </div>
+    <div class="ft ft-dark"><span>HOFO / DATART 2026</span><span>Důvěrné</span></div>
+</div>
+
+<!-- ============ 05 MEDEK ============ -->
+<div class="slide dir">
+    <div class="dir-top">
+        <div class="dir-badge">05</div>
+        <div class="dir-title">Tomáš Medek</div>
+    </div>
+    <div class="dir-grid">
+        <div class="dir-meta">
+            <div class="meta-label">Profil</div>
+            <p class="meta-text">Režisér komerčních spotů, promo a kampaní. Rozsáhlé zkušenosti s velkoformátovou TV produkcí — Survivor, MasterChef, Eurovision.</p>
+            <div class="meta-label">Klienti</div>
+            <div class="pills"><span class="pill">Škoda</span><span class="pill">Voyo</span><span class="pill">Livesport</span><span class="pill">J&T</span><span class="pill">TV Nova</span><span class="pill">ČOV</span><span class="pill">Survivor</span><span class="pill">MasterChef</span></div>
+            <div class="reason">
+                <div class="reason-title">Proč pro Datart</div>
+                <p>Entertainment formáty (Survivor, TVÁŘ) jsou ideální pro gaming/e-sport estetiku. Umí velký cast a dynamické skupinové scény.</p>
+            </div>
+            <div class="web-link"><a href="https://www.tomasmedek.com/" target="_blank">tomasmedek.com →</a></div>
+        </div>
+        <div class="dir-videos">
+            <div class="style-row"><span class="pill pill-r">Entertainment</span><span class="pill pill-r">Velký cast</span><span class="pill pill-r">TV show</span><span class="pill pill-r">Dynamické scény</span></div>
+            <div class="vid-label">Showreel</div>
+            <div class="vid-wrap" style="height:440px"><iframe src="https://www.tomasmedek.com/" width="100%" height="440" frameborder="0" style="border:none"></iframe></div>
+        </div>
+    </div>
+    <div class="ft ft-dark"><span>HOFO / DATART 2026</span><span>Důvěrné</span></div>
+</div>
+
+<!-- ============ SUMMARY ============ -->
+<div class="slide sum">
+    <h2>Shrnutí doporučení</h2>
+    <table>
+        <tr><th></th><th>Režisér</th><th>Silné stránky</th><th>Portfolio</th></tr>
+        <tr class="hi"><td class="num">1.</td><td><strong>Pavel Soukup</strong></td><td>Emmy winner, komedie, vizuální punch, práce s talenty</td><td><a href="https://pavelsoukup.com">pavelsoukup.com</a></td></tr>
+        <tr><td class="num">2.</td><td><strong>Jarek Plouhar</strong></td><td>Situační humor, série kampaní (Zonky), spolehlivost</td><td><a href="https://jarekplouhar.com">jarekplouhar.com</a></td></tr>
+        <tr><td class="num">3.</td><td><strong>Jakub Žídek</strong></td><td>Retail zkušenost, ideamaker, čistá exekuce</td><td><a href="https://zidekjakub.cz">zidekjakub.cz</a></td></tr>
+        <tr><td class="num">4.</td><td><strong>Adam Vopička</strong></td><td>Tempo, energie, muzikální cit</td><td><a href="https://vimeo.com/adamvopicka">vimeo.com</a></td></tr>
+        <tr><td class="num">5.</td><td><strong>Tomáš Medek</strong></td><td>Entertainment, velký cast, gaming/show</td><td><a href="https://tomasmedek.com">tomasmedek.com</a></td></tr>
+    </table>
+    <div class="ft"><span>HOFO / DATART 2026</span><span>Důvěrné</span></div>
+</div>
+
+</body>
+</html>
