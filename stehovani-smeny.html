@@ -177,7 +177,8 @@ function getWeekDates(friday) {
 }
 
 async function loadData() {
-    const r = await fetch(API + '/api/data');
+    // Static: load from local JSON (GitHub Pages nemá backend)
+    const r = await fetch('./stehovani-data.json');
     DATA = await r.json();
 }
 
