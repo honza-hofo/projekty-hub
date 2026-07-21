@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T21:57:15",
+  "updated": "2026-07-21T22:55:27",
   "summary": {
     "total_contacts": 13282,
     "total_sent": 14428,
@@ -7,6 +7,63 @@
     "sent_today": 146,
     "daily_limit": 150,
     "days_to_finish": 20
+  },
+  "bounced": {
+    "count": 286,
+    "pct": 2.0
+  },
+  "poptavky": {
+    "count": 5,
+    "schvaleno": 1,
+    "potvrzeno": 0,
+    "sum_max_price": 36400,
+    "recent": [
+      {
+        "jmeno": "Ondrej Mlynarik",
+        "termin": "2. 7. 2026",
+        "cena": "5 600 - 7 000 Kč",
+        "vytvoreno": "2026-07-02",
+        "schvaleno": false,
+        "odkud": "U lihovaru 3398/7, Praha",
+        "kam": "Rostislavova 1747/14, Praha"
+      },
+      {
+        "jmeno": "Marketa Zahradnik",
+        "termin": "31. 7. 2026",
+        "cena": "7 000 - 8 400 Kč",
+        "vytvoreno": "2026-07-02",
+        "schvaleno": false,
+        "odkud": "Zalmanova, Praha",
+        "kam": "Slikova, Praha"
+      },
+      {
+        "jmeno": "Marketa Zahradnik",
+        "termin": "31. 7. 2026",
+        "cena": "7 000 - 8 400 Kč",
+        "vytvoreno": "2026-07-02",
+        "schvaleno": false,
+        "odkud": "Zalmanova, Praha",
+        "kam": "Slikova, Praha"
+      },
+      {
+        "jmeno": "Marketa Zahradnik",
+        "termin": "31. 7. 2026",
+        "cena": "5 600 - 7 000 Kč",
+        "vytvoreno": "2026-07-02",
+        "schvaleno": false,
+        "odkud": "Zalmanova, Praha",
+        "kam": "Slikova, Praha"
+      },
+      {
+        "jmeno": "Petra Nosková",
+        "termin": "1.5.2026",
+        "cena": "4 200 - 5 600 Kč",
+        "vytvoreno": "2026-04-17",
+        "schvaleno": true,
+        "odkud": "Sartoriova 11/5",
+        "kam": "Nad Kajetánkou 36/8"
+      }
+    ]
   },
   "by_category": [
     {
@@ -1282,6 +1339,258 @@
       "count": 146
     }
   ],
+  "segment_history": {
+    "dates": [
+      "2026-06-22",
+      "2026-06-23",
+      "2026-06-24",
+      "2026-06-25",
+      "2026-06-26",
+      "2026-06-27",
+      "2026-06-28",
+      "2026-06-29",
+      "2026-06-30",
+      "2026-07-01",
+      "2026-07-02",
+      "2026-07-03",
+      "2026-07-04",
+      "2026-07-05",
+      "2026-07-06",
+      "2026-07-07",
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-10",
+      "2026-07-11",
+      "2026-07-12",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-19",
+      "2026-07-20",
+      "2026-07-21"
+    ],
+    "series": [
+      {
+        "typ": "realitka",
+        "label": "Realitní kanceláře",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "typ": "spravce",
+        "label": "Správci nemovitostí",
+        "data": [
+          0,
+          24,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "typ": "interier",
+        "label": "Interiéroví designéři",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "typ": "senior",
+        "label": "Senior projekty",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "typ": "event",
+        "label": "Event agentury",
+        "data": [
+          0,
+          0,
+          60,
+          0,
+          0,
+          0,
+          0,
+          0,
+          22,
+          0,
+          0,
+          60,
+          0,
+          0,
+          0,
+          0,
+          150,
+          53,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "typ": "exekutor",
+        "label": "Exekutorské úřady",
+        "data": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
   "regions_sent": [
     {
       "region": "Praha",
@@ -1393,5 +1702,22 @@
         "count": 1
       }
     ]
+  },
+  "hofo": {
+    "counts": {
+      "Newsletter": 1097,
+      "DIGI": 718,
+      "AMPER": 1451,
+      "TO-DO": 287,
+      "Nové": 61566,
+      "Contacts": 41818,
+      "LinkedIn leads": 0,
+      "Veletrhy": 7
+    },
+    "newsletter_by_status": {
+      "k_odeslani": 908,
+      "neposilat": 188,
+      "poslano": 1
+    }
   }
 }
