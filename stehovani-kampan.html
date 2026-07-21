@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stěhování — Email kampaň dashboard</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiByeD0iNiIgZmlsbD0iIzIyYzU1ZSIvPjx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1zaXplPSIxNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZpbGw9IndoaXRlIiBmb250LXdlaWdodD0iYm9sZCI+U0Y8L3RleHQ+PC9zdmc+">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+       background:#0f0f1a; color:#e0e0e0; min-height:100vh; }
+.header { text-align:center; padding:32px 20px 12px; }
+.header h1 { font-size:2rem; font-weight:700;
+             background:linear-gradient(135deg,#22c55e,#0ea5e9);
+             -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+             margin-bottom:6px; }
+.header p { color:#888; font-size:.95rem; }
+.container { max-width:1400px; margin:0 auto; padding:0 20px 40px; }
+.updated { text-align:center; color:#666; font-size:.85rem; margin-bottom:24px; }
+.updated .refresh-btn { margin-left:12px; background:transparent; border:1px solid #333;
+                        color:#888; padding:4px 10px; border-radius:6px; cursor:pointer;
+                        font-size:.85rem; }
+.updated .refresh-btn:hover { background:#222; color:#eee; }
+
+.kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:16px; margin-bottom:28px; }
+.kpi { background:#1a1a2e; border-radius:12px; padding:20px; border:1px solid #2a2a3e; }
+.kpi-label { color:#888; font-size:.85rem; margin-bottom:8px; text-transform:uppercase;
+             letter-spacing:.5px; }
+.kpi-value { font-size:2.2rem; font-weight:700; color:#fff; }
+.kpi-sub { color:#666; font-size:.85rem; margin-top:4px; }
+.kpi.green .kpi-value { color:#22c55e; }
+.kpi.blue .kpi-value { color:#0ea5e9; }
+.kpi.orange .kpi-value { color:#f97316; }
+.kpi.purple .kpi-value { color:#a855f7; }
+
+.grid-2 { display:grid; grid-template-columns:2fr 1fr; gap:20px; margin-bottom:24px; }
+@media (max-width:900px) { .grid-2 { grid-template-columns:1fr; } }
+
+.card { background:#1a1a2e; border-radius:12px; padding:20px; border:1px solid #2a2a3e; }
+.card h2 { font-size:1.1rem; margin-bottom:16px; color:#fff;
+           display:flex; align-items:center; gap:8px; }
+.card h2 .emoji { font-size:1.2rem; }
+
+.chart-wrap { height:260px; position:relative; }
+
+table { width:100%; border-collapse:collapse; font-size:.9rem; }
+table th { text-align:left; padding:10px 8px; color:#888; font-weight:500;
+           border-bottom:1px solid #2a2a3e; font-size:.75rem;
+           text-transform:uppercase; letter-spacing:.5px; }
+table td { padding:10px 8px; border-bottom:1px solid #22223a; }
+table tbody tr:hover { background:#20203a; }
+table .num { text-align:right; font-variant-numeric:tabular-nums; }
+.pill { display:inline-block; padding:2px 8px; border-radius:10px; font-size:.75rem;
+        font-weight:600; }
+.pill.done { background:#22c55e22; color:#22c55e; }
+.pill.progress { background:#0ea5e922; color:#0ea5e9; }
+.pill.fresh { background:#f9731622; color:#f97316; }
+.pill.zero { background:#33334a; color:#888; }
+
+.progress-bar { display:inline-block; width:80px; height:8px; background:#2a2a3e;
+                border-radius:4px; overflow:hidden; margin-right:8px; vertical-align:middle; }
+.progress-bar-fill { height:100%; background:linear-gradient(90deg,#22c55e,#0ea5e9);
+                     border-radius:4px; transition:width .3s; }
+
+.filter-bar { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+.filter-btn { padding:6px 12px; background:#22223a; border:1px solid #33334a;
+              color:#aaa; border-radius:8px; cursor:pointer; font-size:.85rem; }
+.filter-btn.active { background:#22c55e22; border-color:#22c55e; color:#22c55e; }
+.filter-btn:hover { background:#2a2a4a; }
+
+.category-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+                 gap:12px; margin-bottom:24px; }
+.category-card { background:#1a1a2e; border-radius:10px; padding:14px; border:1px solid #2a2a3e; }
+.category-name { color:#aaa; font-size:.8rem; margin-bottom:6px; text-transform:uppercase; }
+.category-nums { display:flex; align-items:baseline; gap:6px; }
+.category-nums .big { font-size:1.4rem; font-weight:700; color:#fff; }
+.category-nums .small { font-size:.85rem; color:#666; }
+.category-bar { margin-top:10px; }
+
+.back-link { display:inline-block; margin-top:16px; padding:8px 16px;
+             background:#22223a; border-radius:8px; color:#aaa;
+             text-decoration:none; font-size:.9rem; }
+.back-link:hover { background:#33334a; color:#eee; }
+
+.next-batch { margin-top:12px; }
+.next-batch .item { display:flex; justify-content:space-between; padding:6px 0;
+                    border-bottom:1px solid #22223a; }
+.next-batch .item:last-child { border-bottom:none; }
+.next-batch .label { color:#ccc; }
+.next-batch .count { color:#22c55e; font-weight:600; }
+
+.loading { text-align:center; padding:60px 20px; color:#666; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>&#128231; Stěhování Formánek — Email kampaň</h1>
+    <p>Přehled stavu rozesílek a segmentů</p>
+</div>
+
+<div class="container">
+    <div class="updated">
+        <span id="updated-text">Načítám…</span>
+        <button class="refresh-btn" onclick="loadData()">&#128260; Refresh</button>
+    </div>
+
+    <div id="content" class="loading">Načítám data…</div>
+</div>
+
+<script>
+let CHART_DAILY = null, CHART_CATEGORY = null;
+
+async function loadData() {
+    try {
+        const r = await fetch('stehovani-kampan-data.json?t=' + Date.now());
+        const data = await r.json();
+        render(data);
+    } catch (e) {
+        document.getElementById('content').innerHTML =
+            '<div style="color:#f97316;padding:40px;text-align:center;">Chyba: ' + e + '</div>';
+    }
+}
+
+function render(d) {
+    document.getElementById('updated-text').textContent =
+        'Poslední aktualizace: ' + new Date(d.updated).toLocaleString('cs-CZ');
+
+    const s = d.summary;
+    const html = `
+        <div class="kpi-grid">
+            <div class="kpi green">
+                <div class="kpi-label">Odesláno celkem</div>
+                <div class="kpi-value">${s.total_sent.toLocaleString('cs-CZ')}</div>
+                <div class="kpi-sub">za celou dobu kampaně</div>
+            </div>
+            <div class="kpi blue">
+                <div class="kpi-label">Čeká k odeslání</div>
+                <div class="kpi-value">${s.pending.toLocaleString('cs-CZ')}</div>
+                <div class="kpi-sub">při ${s.daily_limit}/den ≈ ${s.days_to_finish} dní</div>
+            </div>
+            <div class="kpi orange">
+                <div class="kpi-label">Dnes odesláno</div>
+                <div class="kpi-value">${s.sent_today}</div>
+                <div class="kpi-sub">z denního limitu ${s.daily_limit}</div>
+            </div>
+            <div class="kpi purple">
+                <div class="kpi-label">V databázi</div>
+                <div class="kpi-value">${s.total_contacts.toLocaleString('cs-CZ')}</div>
+                <div class="kpi-sub">unikátních kontaktů</div>
+            </div>
+        </div>
+
+        <h2 style="margin:24px 0 12px; color:#ccc; font-size:1rem;">&#128200; Kategorie</h2>
+        <div class="category-grid">
+            ${d.by_category.map(c => `
+                <div class="category-card">
+                    <div class="category-name">${c.category}</div>
+                    <div class="category-nums">
+                        <span class="big">${c.pending}</span>
+                        <span class="small">čeká / ${c.csv} celkem</span>
+                    </div>
+                    <div class="category-bar">
+                        <div class="progress-bar"><div class="progress-bar-fill" style="width:${c.pct}%"></div></div>
+                        <span style="color:#888; font-size:.8rem;">${c.pct}%</span>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h2><span class="emoji">&#128202;</span> Rozesílky (posledních 60 dní)</h2>
+                <div class="chart-wrap"><canvas id="chartDaily"></canvas></div>
+            </div>
+            <div class="card">
+                <h2><span class="emoji">&#128225;</span> Příští rozeslání</h2>
+                <div style="color:#888; font-size:.85rem; margin-bottom:10px;">
+                    Bot pošle max ${s.daily_limit} emailů. Aktuálně by šlo ${d.next_batch.total}:
+                </div>
+                <div class="next-batch">
+                    ${d.next_batch.typ_breakdown.slice(0,12).map(x => `
+                        <div class="item">
+                            <span class="label">${x.label}</span>
+                            <span class="count">${x.count}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-bottom:24px;">
+            <h2><span class="emoji">&#128203;</span> Detaily podle segmentů</h2>
+            <div class="filter-bar" id="filter-bar"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>Kategorie</th>
+                        <th class="num">V CSV</th>
+                        <th class="num">Odesláno</th>
+                        <th class="num">Čeká</th>
+                        <th>Postup</th>
+                        <th>Šablona</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-segments">
+                    ${renderTypeRows(d.by_type)}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h2><span class="emoji">&#127760;</span> Top regiony (kam jsme odeslali)</h2>
+                <table>
+                    <thead><tr><th>Region</th><th class="num">Odesláno</th></tr></thead>
+                    <tbody>
+                        ${d.regions_sent.map(r => `
+                            <tr><td>${r.region || '(nespecifikováno)'}</td>
+                            <td class="num">${r.count}</td></tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2><span class="emoji">&#128200;</span> Kategorie</h2>
+                <div class="chart-wrap"><canvas id="chartCategory"></canvas></div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Zpět na Projekty Hub</a>
+    `;
+    document.getElementById('content').innerHTML = html;
+    document.getElementById('content').classList.remove('loading');
+
+    renderCharts(d);
+    renderFilters(d);
+}
+
+function renderTypeRows(rows) {
+    return rows.map(r => {
+        let pillClass = r.pct === 100 ? 'done' : r.sent === 0 ? 'fresh' : 'progress';
+        return `
+        <tr data-category="${r.category}">
+            <td><strong>${r.label}</strong> <small style="color:#666">${r.typ}</small></td>
+            <td>${r.category}</td>
+            <td class="num">${r.csv.toLocaleString('cs-CZ')}</td>
+            <td class="num">${r.sent.toLocaleString('cs-CZ')}</td>
+            <td class="num"><span class="pill ${r.pending === 0 ? 'zero' : 'fresh'}">${r.pending}</span></td>
+            <td>
+                <div class="progress-bar"><div class="progress-bar-fill" style="width:${r.pct}%"></div></div>
+                <span class="pill ${pillClass}">${r.pct}%</span>
+            </td>
+            <td style="color:#888; font-size:.8rem;">${r.subject}</td>
+        </tr>`;
+    }).join('');
+}
+
+function renderFilters(d) {
+    const cats = [...new Set(d.by_type.map(r => r.category))];
+    const bar = document.getElementById('filter-bar');
+    bar.innerHTML = '<button class="filter-btn active" onclick="filterCat(null,this)">Vše</button>' +
+        cats.map(c => `<button class="filter-btn" onclick="filterCat('${c}',this)">${c}</button>`).join('');
+}
+
+function filterCat(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#tbody-segments tr').forEach(tr => {
+        tr.style.display = (!cat || tr.dataset.category === cat) ? '' : 'none';
+    });
+}
+
+function renderCharts(d) {
+    if (CHART_DAILY) CHART_DAILY.destroy();
+    if (CHART_CATEGORY) CHART_CATEGORY.destroy();
+
+    const ctx1 = document.getElementById('chartDaily');
+    CHART_DAILY = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: d.daily_history.map(x => x.date.slice(5)),
+            datasets: [{
+                label: 'Odeslaných emailů',
+                data: d.daily_history.map(x => x.count),
+                backgroundColor: '#22c55e',
+                borderRadius: 3,
+            }],
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { color: '#888', maxRotation: 45 }, grid: { display: false } },
+                y: { ticks: { color: '#888' }, grid: { color: '#22223a' } },
+            },
+        },
+    });
+
+    const ctx2 = document.getElementById('chartCategory');
+    const cats = d.by_category;
+    CHART_CATEGORY = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: cats.map(c => c.category),
+            datasets: [{
+                data: cats.map(c => c.pending),
+                backgroundColor: [
+                    '#22c55e','#0ea5e9','#f97316','#a855f7','#ec4899',
+                    '#eab308','#14b8a6','#f43f5e','#8b5cf6','#06b6d4',
+                    '#84cc16','#f59e0b',
+                ],
+                borderWidth: 0,
+            }],
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'right', labels: { color: '#aaa', font: { size: 11 } } },
+            },
+        },
+    });
+}
+
+loadData();
+setInterval(loadData, 60000);  // auto-refresh každou minutu
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1397 @@
+{
+  "updated": "2026-07-21T21:57:15",
+  "summary": {
+    "total_contacts": 13282,
+    "total_sent": 14428,
+    "pending": 2943,
+    "sent_today": 146,
+    "daily_limit": 150,
+    "days_to_finish": 20
+  },
+  "by_category": [
+    {
+      "category": "Přeprava",
+      "csv": 1125,
+      "sent": 300,
+      "pending": 825,
+      "pct": 27
+    },
+    {
+      "category": "Chlazená",
+      "csv": 847,
+      "sent": 233,
+      "pending": 614,
+      "pct": 28
+    },
+    {
+      "category": "FMCG",
+      "csv": 656,
+      "sent": 252,
+      "pending": 404,
+      "pct": 38
+    },
+    {
+      "category": "Montáž",
+      "csv": 667,
+      "sent": 295,
+      "pending": 372,
+      "pct": 44
+    },
+    {
+      "category": "Hotely",
+      "csv": 282,
+      "sent": 103,
+      "pending": 179,
+      "pct": 37
+    },
+    {
+      "category": "DE Montáž",
+      "csv": 174,
+      "sent": 0,
+      "pending": 174,
+      "pct": 0
+    },
+    {
+      "category": "Interiér",
+      "csv": 688,
+      "sent": 610,
+      "pending": 78,
+      "pct": 89
+    },
+    {
+      "category": "Reality",
+      "csv": 7999,
+      "sent": 7927,
+      "pending": 72,
+      "pct": 99
+    },
+    {
+      "category": "Ostatní",
+      "csv": 63,
+      "sent": 0,
+      "pending": 63,
+      "pct": 0
+    },
+    {
+      "category": "Právní",
+      "csv": 338,
+      "sent": 289,
+      "pending": 49,
+      "pct": 86
+    },
+    {
+      "category": "Sociální",
+      "csv": 51,
+      "sent": 2,
+      "pending": 49,
+      "pct": 4
+    },
+    {
+      "category": "DE Přeprava",
+      "csv": 46,
+      "sent": 0,
+      "pending": 46,
+      "pct": 0
+    },
+    {
+      "category": "Kanceláře",
+      "csv": 58,
+      "sent": 40,
+      "pending": 18,
+      "pct": 69
+    },
+    {
+      "category": "Event",
+      "csv": 288,
+      "sent": 288,
+      "pending": 0,
+      "pct": 100
+    }
+  ],
+  "by_type": [
+    {
+      "typ": "preprava",
+      "label": "Přeprava a manipulace",
+      "category": "Přeprava",
+      "subject": "Dovoz a montáž nábytku",
+      "csv": 1125,
+      "sent": 300,
+      "pending": 825,
+      "pct": 27
+    },
+    {
+      "typ": "catering",
+      "label": "Catering",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 334,
+      "sent": 34,
+      "pending": 300,
+      "pct": 10
+    },
+    {
+      "typ": "potraviny",
+      "label": "Potraviny",
+      "category": "FMCG",
+      "subject": "Přeprava potravin",
+      "csv": 270,
+      "sent": 49,
+      "pending": 221,
+      "pct": 18
+    },
+    {
+      "typ": "kuchyne",
+      "label": "Kuchyňská studia",
+      "category": "Montáž",
+      "subject": "Montážní tým + doprava",
+      "csv": 240,
+      "sent": 41,
+      "pending": 199,
+      "pct": 17
+    },
+    {
+      "typ": "hotel",
+      "label": "Hotely",
+      "category": "Hotely",
+      "subject": "Stěhování a přeprava vybavení",
+      "csv": 282,
+      "sent": 103,
+      "pending": 179,
+      "pct": 37
+    },
+    {
+      "typ": "vyrobce_nabytku",
+      "label": "Výrobci nábytku",
+      "category": "Montáž",
+      "subject": "Montážní tým + doprava",
+      "csv": 361,
+      "sent": 224,
+      "pending": 137,
+      "pct": 62
+    },
+    {
+      "typ": "moebelmontage",
+      "label": "DE: Möbelmontage",
+      "category": "DE Montáž",
+      "subject": "Angebot: Montageteam",
+      "csv": 109,
+      "sent": 0,
+      "pending": 109,
+      "pct": 0
+    },
+    {
+      "typ": "stavebniny",
+      "label": "Stavebniny",
+      "category": "FMCG",
+      "subject": "Přeprava",
+      "csv": 138,
+      "sent": 54,
+      "pending": 84,
+      "pct": 39
+    },
+    {
+      "typ": "eshop",
+      "label": "E-shopy",
+      "category": "FMCG",
+      "subject": "Přeprava zboží",
+      "csv": 70,
+      "sent": 3,
+      "pending": 67,
+      "pct": 4
+    },
+    {
+      "typ": "interier",
+      "label": "Interiéroví designéři",
+      "category": "Interiér",
+      "subject": "Přeprava a montáž nábytku",
+      "csv": 613,
+      "sent": 560,
+      "pending": 53,
+      "pct": 91
+    },
+    {
+      "typ": "exekutor",
+      "label": "Exekutorské úřady",
+      "category": "Právní",
+      "subject": "Vyklízení při exekučních řízeních",
+      "csv": 293,
+      "sent": 244,
+      "pending": 49,
+      "pct": 83
+    },
+    {
+      "typ": "senior",
+      "label": "Senior projekty",
+      "category": "Sociální",
+      "subject": "Šetrné stěhování seniorů",
+      "csv": 51,
+      "sent": 2,
+      "pending": 49,
+      "pct": 4
+    },
+    {
+      "typ": "mlekarna",
+      "label": "Mlékárny",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 52,
+      "sent": 6,
+      "pending": 46,
+      "pct": 12
+    },
+    {
+      "typ": "vinarna",
+      "label": "Vinárny",
+      "category": "Chlazená",
+      "subject": "Přeprava",
+      "csv": 62,
+      "sent": 22,
+      "pending": 40,
+      "pct": 35
+    },
+    {
+      "typ": "zmrzlina",
+      "label": "Zmrzlina",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 53,
+      "sent": 16,
+      "pending": 37,
+      "pct": 30
+    },
+    {
+      "typ": "pekarna",
+      "label": "Pekárny",
+      "category": "Chlazená",
+      "subject": "Přeprava pečiva",
+      "csv": 40,
+      "sent": 3,
+      "pending": 37,
+      "pct": 8
+    },
+    {
+      "typ": "lahudky",
+      "label": "Lahůdky",
+      "category": "Chlazená",
+      "subject": "Přeprava lahůdek",
+      "csv": 41,
+      "sent": 5,
+      "pending": 36,
+      "pct": 12
+    },
+    {
+      "typ": "montaz_nabytek",
+      "label": "Montáž nábytku",
+      "category": "Montáž",
+      "subject": "Montážní tým + doprava",
+      "csv": 66,
+      "sent": 30,
+      "pending": 36,
+      "pct": 45
+    },
+    {
+      "typ": "kuechenmontage",
+      "label": "DE: Küchenmontage",
+      "category": "DE Montáž",
+      "subject": "Angebot: Montageteam",
+      "csv": 36,
+      "sent": 0,
+      "pending": 36,
+      "pct": 0
+    },
+    {
+      "typ": "umzug",
+      "label": "DE: Umzug",
+      "category": "DE Přeprava",
+      "subject": "Angebot: Umzug",
+      "csv": 35,
+      "sent": 0,
+      "pending": 35,
+      "pct": 0
+    },
+    {
+      "typ": "kvetiny",
+      "label": "Květinářství",
+      "category": "Chlazená",
+      "subject": "Přeprava květin",
+      "csv": 62,
+      "sent": 28,
+      "pending": 34,
+      "pct": 45
+    },
+    {
+      "typ": "spravce",
+      "label": "Správci nemovitostí",
+      "category": "Reality",
+      "subject": "Stěhování pro nájemníky",
+      "csv": 220,
+      "sent": 187,
+      "pending": 33,
+      "pct": 85
+    },
+    {
+      "typ": "ryby",
+      "label": "Ryby",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 37,
+      "sent": 5,
+      "pending": 32,
+      "pct": 14
+    },
+    {
+      "typ": "tiskarna",
+      "label": "Tiskárny",
+      "category": "FMCG",
+      "subject": "Přeprava",
+      "csv": 65,
+      "sent": 33,
+      "pending": 32,
+      "pct": 51
+    },
+    {
+      "typ": "realitka",
+      "label": "Realitní kanceláře",
+      "category": "Reality",
+      "subject": "Spolupráce: Stěhovací služby pro vaše klienty",
+      "csv": 7326,
+      "sent": 7300,
+      "pending": 26,
+      "pct": 100
+    },
+    {
+      "typ": "fitout",
+      "label": "Fit-out",
+      "category": "Interiér",
+      "subject": "Montážní tým + doprava",
+      "csv": 25,
+      "sent": 0,
+      "pending": 25,
+      "pct": 0
+    },
+    {
+      "typ": "reznictvi",
+      "label": "Řeznictví",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 36,
+      "sent": 14,
+      "pending": 22,
+      "pct": 39
+    },
+    {
+      "typ": "pivovary",
+      "label": "Pivovary",
+      "category": "Chlazená",
+      "subject": "Přeprava nápojů",
+      "csv": 113,
+      "sent": 93,
+      "pending": 20,
+      "pct": 82
+    },
+    {
+      "typ": "coworking",
+      "label": "Coworkingy",
+      "category": "Kanceláře",
+      "subject": "Stěhování kanceláří",
+      "csv": 58,
+      "sent": 40,
+      "pending": 18,
+      "pct": 69
+    },
+    {
+      "typ": "pivovar obchodní oddělení",
+      "label": "Pivovar Obchodní Oddělení",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 15,
+      "sent": 0,
+      "pending": 15,
+      "pct": 0
+    },
+    {
+      "typ": "ladenbau",
+      "label": "DE: Ladenbau",
+      "category": "DE Montáž",
+      "subject": "Angebot: Montageteam",
+      "csv": 14,
+      "sent": 0,
+      "pending": 14,
+      "pct": 0
+    },
+    {
+      "typ": "developer",
+      "label": "Developeři",
+      "category": "Reality",
+      "subject": "Stěhování nových majitelů",
+      "csv": 60,
+      "sent": 47,
+      "pending": 13,
+      "pct": 78
+    },
+    {
+      "typ": "messebau",
+      "label": "DE: Messebau",
+      "category": "DE Montáž",
+      "subject": "Angebot: Montageteam",
+      "csv": 12,
+      "sent": 0,
+      "pending": 12,
+      "pct": 0
+    },
+    {
+      "typ": "logistik",
+      "label": "DE: Logistik",
+      "category": "DE Přeprava",
+      "subject": "Angebot: Umzug",
+      "csv": 11,
+      "sent": 0,
+      "pending": 11,
+      "pct": 0
+    },
+    {
+      "typ": "pharma_logistika",
+      "label": "Pharma logistika",
+      "category": "Chlazená",
+      "subject": "Chlazená",
+      "csv": 10,
+      "sent": 0,
+      "pending": 10,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce piva / pivovar",
+      "label": "Výrobce Piva / Pivovar",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 3,
+      "sent": 0,
+      "pending": 3,
+      "pct": 0
+    },
+    {
+      "typ": "regalmontage",
+      "label": "DE: Regalmontage",
+      "category": "DE Montáž",
+      "subject": "Angebot: Montageteam",
+      "csv": 3,
+      "sent": 0,
+      "pending": 3,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce jogurtů / mléčné výrobky",
+      "label": "Výrobce Jogurtů / Mléčné Výrobky",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 2,
+      "sent": 0,
+      "pending": 2,
+      "pct": 0
+    },
+    {
+      "typ": "mlékárna / sýry / mléko",
+      "label": "Mlékárna / Sýry / Mléko",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 2,
+      "sent": 0,
+      "pending": 2,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce džusů / ovocných nápojů",
+      "label": "Výrobce Džusů / Ovocných Nápojů",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 2,
+      "sent": 0,
+      "pending": 2,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce jogurtů / máslo / tvaroh",
+      "label": "Výrobce Jogurtů / Máslo / Tvaroh",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce tvarohu / máslo",
+      "label": "Výrobce Tvarohu / Máslo",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce mléčných výrobků / máslo / sýry",
+      "label": "Výrobce Mléčných Výrobků / Máslo / Sýry",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "mlékárna / sýry / tvaroh",
+      "label": "Mlékárna / Sýry / Tvaroh",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "mlékárna / sýry / odbyt",
+      "label": "Mlékárna / Sýry / Odbyt",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "mlékárna obchod",
+      "label": "Mlékárna Obchod",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "mlékárna prodejna / objednávky",
+      "label": "Mlékárna Prodejna / Objednávky",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce sýrů / kozí farma",
+      "label": "Výrobce Sýrů / Kozí Farma",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce omáček / kečupu / koření / hořčice",
+      "label": "Výrobce Omáček / Kečupu / Koření / Hořčice",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "rodinná konzervárna / paštiky / lahůdky",
+      "label": "Rodinná Konzervárna / Paštiky / Lahůdky",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce paštik / polévek / masných výrobků",
+      "label": "Výrobce Paštik / Polévek / Masných Výrobků",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce paštik / eshop objednávky",
+      "label": "Výrobce Paštik / Eshop Objednávky",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce paštik / management",
+      "label": "Výrobce Paštik / Management",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce uzenin / šunky / salámů",
+      "label": "Výrobce Uzenin / Šunky / Salámů",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce uzenin / lahůdek / masných výrobků",
+      "label": "Výrobce Uzenin / Lahůdek / Masných Výrobků",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce uzenin / masných výrobků",
+      "label": "Výrobce Uzenin / Masných Výrobků",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce uzenin / šunka / paštiky",
+      "label": "Výrobce Uzenin / Šunka / Paštiky",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce uzenin / salámů / masných výrobků",
+      "label": "Výrobce Uzenin / Salámů / Masných Výrobků",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce octu",
+      "label": "Výrobce Octu",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce minerální vody / nápojů",
+      "label": "Výrobce Minerální Vody / Nápojů",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce minerální vody / distribuce",
+      "label": "Výrobce Minerální Vody / Distribuce",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce minerálních vod / limonád",
+      "label": "Výrobce Minerálních Vod / Limonád",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "distribuce nápojů / džusy / limonády (Relax Caprio Kubík)",
+      "label": "Distribuce Nápojů / Džusy / Limonády (Relax Caprio Kubík)",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "velkoobchod nápojů / alkohol / nealko",
+      "label": "Velkoobchod Nápojů / Alkohol / Nealko",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "velkoobchod nápojů / objednávky",
+      "label": "Velkoobchod Nápojů / Objednávky",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce piva (Pilsner Urquell / Kozel / Gambrinus)",
+      "label": "Výrobce Piva (Pilsner Urquell / Kozel / Gambrinus)",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce piva (Staropramen / Braník / Ostravar)",
+      "label": "Výrobce Piva (Staropramen / Braník / Ostravar)",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce piva",
+      "label": "Výrobce Piva",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce krmiv pro psy / kočky",
+      "label": "Výrobce Krmiv Pro Psy / Kočky",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce krmiv pro zvířata / suché / konzervy",
+      "label": "Výrobce Krmiv Pro Zvířata / Suché / Konzervy",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "krmiva pro zvířata / prodej / distribuce",
+      "label": "Krmiva Pro Zvířata / Prodej / Distribuce",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce dětské výživy / baby food / ovocné pyré",
+      "label": "Výrobce Dětské Výživy / Baby Food / Ovocné Pyré",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "velkoobchod / distribuce nápojů alkohol / nealko",
+      "label": "Velkoobchod / Distribuce Nápojů Alkohol / Nealko",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "velkoobchod nápojů / alkohol / potraviny",
+      "label": "Velkoobchod Nápojů / Alkohol / Potraviny",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "velkoobchod nápojů / potraviny / tabák",
+      "label": "Velkoobchod Nápojů / Potraviny / Tabák",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "velkoobchod potravin / nápojů",
+      "label": "Velkoobchod Potravin / Nápojů",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "velkoobchod registrace",
+      "label": "Velkoobchod Registrace",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce paštik / kompotů / polévek / džemů",
+      "label": "Výrobce Paštik / Kompotů / Polévek / Džemů",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "výrobce konzerv / personalizovaných konzerv",
+      "label": "Výrobce Konzerv / Personalizovaných Konzerv",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 1,
+      "sent": 0,
+      "pending": 1,
+      "pct": 0
+    },
+    {
+      "typ": "homestaging",
+      "label": "Home staging",
+      "category": "Reality",
+      "subject": "Stěhování a vyklízení pro homestaging",
+      "csv": 128,
+      "sent": 128,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "hypo",
+      "label": "Hypoteční poradci",
+      "category": "Reality",
+      "subject": "Stěhování s novou hypotékou",
+      "csv": 117,
+      "sent": 117,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "uklid",
+      "label": "Úklidové firmy",
+      "category": "Reality",
+      "subject": "Stěhování + úklid",
+      "csv": 124,
+      "sent": 124,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "advokat",
+      "label": "Advokáti",
+      "category": "Právní",
+      "subject": "Stěhování při převodech nemovitostí",
+      "csv": 41,
+      "sent": 41,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "relokace",
+      "label": "Relokace",
+      "category": "Reality",
+      "subject": "Stěhování relokovaných klientů",
+      "csv": 12,
+      "sent": 12,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "notar",
+      "label": "Notáři",
+      "category": "Právní",
+      "subject": "Stěhování při dědických řízeních",
+      "csv": 4,
+      "sent": 4,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "pojisteni",
+      "label": "Pojišťovny",
+      "category": "Reality",
+      "subject": "Stěhování při likvidaci",
+      "csv": 12,
+      "sent": 12,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "event",
+      "label": "Event agentury",
+      "category": "Event",
+      "subject": "Přeprava a montáž pro eventy",
+      "csv": 288,
+      "sent": 288,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "cukrarna",
+      "label": "Cukrárny",
+      "category": "Chlazená",
+      "subject": "Přeprava pečiva",
+      "csv": 4,
+      "sent": 4,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "farma",
+      "label": "Farmy",
+      "category": "Chlazená",
+      "subject": "Přeprava farmářských produktů",
+      "csv": 3,
+      "sent": 3,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "autodily",
+      "label": "Autodíly",
+      "category": "FMCG",
+      "subject": "Přeprava",
+      "csv": 4,
+      "sent": 4,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "gastro",
+      "label": "Gastro",
+      "category": "Interiér",
+      "subject": "Fit-out",
+      "csv": 50,
+      "sent": 50,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "fitness",
+      "label": "Fitness",
+      "category": "FMCG",
+      "subject": "Přeprava",
+      "csv": 60,
+      "sent": 60,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "zahradnictvi",
+      "label": "Zahradnictví",
+      "category": "FMCG",
+      "subject": "Přeprava",
+      "csv": 49,
+      "sent": 49,
+      "pending": 0,
+      "pct": 100
+    }
+  ],
+  "daily_history": [
+    {
+      "date": "2026-05-23",
+      "count": 0
+    },
+    {
+      "date": "2026-05-24",
+      "count": 0
+    },
+    {
+      "date": "2026-05-25",
+      "count": 0
+    },
+    {
+      "date": "2026-05-26",
+      "count": 149
+    },
+    {
+      "date": "2026-05-27",
+      "count": 149
+    },
+    {
+      "date": "2026-05-28",
+      "count": 0
+    },
+    {
+      "date": "2026-05-29",
+      "count": 0
+    },
+    {
+      "date": "2026-05-30",
+      "count": 149
+    },
+    {
+      "date": "2026-05-31",
+      "count": 0
+    },
+    {
+      "date": "2026-06-01",
+      "count": 149
+    },
+    {
+      "date": "2026-06-02",
+      "count": 149
+    },
+    {
+      "date": "2026-06-03",
+      "count": 149
+    },
+    {
+      "date": "2026-06-04",
+      "count": 0
+    },
+    {
+      "date": "2026-06-05",
+      "count": 0
+    },
+    {
+      "date": "2026-06-06",
+      "count": 0
+    },
+    {
+      "date": "2026-06-07",
+      "count": 0
+    },
+    {
+      "date": "2026-06-08",
+      "count": 299
+    },
+    {
+      "date": "2026-06-09",
+      "count": 295
+    },
+    {
+      "date": "2026-06-10",
+      "count": 237
+    },
+    {
+      "date": "2026-06-11",
+      "count": 105
+    },
+    {
+      "date": "2026-06-12",
+      "count": 0
+    },
+    {
+      "date": "2026-06-13",
+      "count": 151
+    },
+    {
+      "date": "2026-06-14",
+      "count": 0
+    },
+    {
+      "date": "2026-06-15",
+      "count": 0
+    },
+    {
+      "date": "2026-06-16",
+      "count": 149
+    },
+    {
+      "date": "2026-06-17",
+      "count": 149
+    },
+    {
+      "date": "2026-06-18",
+      "count": 149
+    },
+    {
+      "date": "2026-06-19",
+      "count": 118
+    },
+    {
+      "date": "2026-06-20",
+      "count": 41
+    },
+    {
+      "date": "2026-06-21",
+      "count": 0
+    },
+    {
+      "date": "2026-06-22",
+      "count": 0
+    },
+    {
+      "date": "2026-06-23",
+      "count": 234
+    },
+    {
+      "date": "2026-06-24",
+      "count": 137
+    },
+    {
+      "date": "2026-06-25",
+      "count": 155
+    },
+    {
+      "date": "2026-06-26",
+      "count": 26
+    },
+    {
+      "date": "2026-06-27",
+      "count": 0
+    },
+    {
+      "date": "2026-06-28",
+      "count": 0
+    },
+    {
+      "date": "2026-06-29",
+      "count": 1
+    },
+    {
+      "date": "2026-06-30",
+      "count": 299
+    },
+    {
+      "date": "2026-07-01",
+      "count": 35
+    },
+    {
+      "date": "2026-07-02",
+      "count": 174
+    },
+    {
+      "date": "2026-07-03",
+      "count": 149
+    },
+    {
+      "date": "2026-07-04",
+      "count": 0
+    },
+    {
+      "date": "2026-07-05",
+      "count": 0
+    },
+    {
+      "date": "2026-07-06",
+      "count": 0
+    },
+    {
+      "date": "2026-07-07",
+      "count": 0
+    },
+    {
+      "date": "2026-07-08",
+      "count": 150
+    },
+    {
+      "date": "2026-07-09",
+      "count": 149
+    },
+    {
+      "date": "2026-07-10",
+      "count": 149
+    },
+    {
+      "date": "2026-07-11",
+      "count": 0
+    },
+    {
+      "date": "2026-07-12",
+      "count": 0
+    },
+    {
+      "date": "2026-07-13",
+      "count": 0
+    },
+    {
+      "date": "2026-07-14",
+      "count": 0
+    },
+    {
+      "date": "2026-07-15",
+      "count": 0
+    },
+    {
+      "date": "2026-07-16",
+      "count": 150
+    },
+    {
+      "date": "2026-07-17",
+      "count": 149
+    },
+    {
+      "date": "2026-07-18",
+      "count": 0
+    },
+    {
+      "date": "2026-07-19",
+      "count": 0
+    },
+    {
+      "date": "2026-07-20",
+      "count": 0
+    },
+    {
+      "date": "2026-07-21",
+      "count": 146
+    }
+  ],
+  "regions_sent": [
+    {
+      "region": "Praha",
+      "count": 3527
+    },
+    {
+      "region": "Středočeský kraj",
+      "count": 609
+    },
+    {
+      "region": "Prague",
+      "count": 282
+    },
+    {
+      "region": "HK kraj",
+      "count": 242
+    },
+    {
+      "region": "Pardubický kraj",
+      "count": 220
+    },
+    {
+      "region": "Brno",
+      "count": 98
+    },
+    {
+      "region": "Středočeský",
+      "count": 90
+    },
+    {
+      "region": "Královéhradecký",
+      "count": 84
+    },
+    {
+      "region": "Liberec",
+      "count": 70
+    },
+    {
+      "region": "Plzeňský",
+      "count": 68
+    },
+    {
+      "region": "Hradec Králové",
+      "count": 64
+    },
+    {
+      "region": "Ostrava",
+      "count": 60
+    },
+    {
+      "region": "Královéhradecký kraj",
+      "count": 60
+    },
+    {
+      "region": "Pardubice",
+      "count": 53
+    },
+    {
+      "region": "Olomouc",
+      "count": 44
+    },
+    {
+      "region": "Pardubický",
+      "count": 41
+    },
+    {
+      "region": "Hradec Kralove",
+      "count": 37
+    },
+    {
+      "region": "Stredocesky",
+      "count": 34
+    },
+    {
+      "region": "Pilsen",
+      "count": 34
+    },
+    {
+      "region": "Plzeňský kraj",
+      "count": 33
+    }
+  ],
+  "next_batch": {
+    "total": 150,
+    "typ_breakdown": [
+      {
+        "typ": "eshop",
+        "label": "E-shopy",
+        "count": 64
+      },
+      {
+        "typ": "preprava",
+        "label": "Přeprava a manipulace",
+        "count": 51
+      },
+      {
+        "typ": "tiskarna",
+        "label": "Tiskárny",
+        "count": 32
+      },
+      {
+        "typ": "realitka",
+        "label": "Realitní kanceláře",
+        "count": 2
+      },
+      {
+        "typ": "exekutor",
+        "label": "Exekutorské úřady",
+        "count": 1
+      }
+    ]
+  }
+}
