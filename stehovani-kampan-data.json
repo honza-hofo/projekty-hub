@@ -1,12 +1,12 @@
 {
-  "updated": "2026-07-21T22:55:27",
+  "updated": "2026-07-23T19:17:52",
   "summary": {
-    "total_contacts": 13282,
+    "total_contacts": 13425,
     "total_sent": 14428,
-    "pending": 2943,
-    "sent_today": 146,
+    "pending": 3083,
+    "sent_today": 0,
     "daily_limit": 150,
-    "days_to_finish": 20
+    "days_to_finish": 21
   },
   "bounced": {
     "count": 286,
@@ -95,6 +95,13 @@
       "pct": 44
     },
     {
+      "category": "Ostatní",
+      "csv": 206,
+      "sent": 3,
+      "pending": 203,
+      "pct": 1
+    },
+    {
       "category": "Hotely",
       "csv": 282,
       "sent": 103,
@@ -121,13 +128,6 @@
       "sent": 7927,
       "pending": 72,
       "pct": 99
-    },
-    {
-      "category": "Ostatní",
-      "csv": 63,
-      "sent": 0,
-      "pending": 63,
-      "pct": 0
     },
     {
       "category": "Právní",
@@ -237,6 +237,16 @@
       "pct": 0
     },
     {
+      "typ": "snack",
+      "label": "Snack",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 93,
+      "sent": 3,
+      "pending": 90,
+      "pct": 3
+    },
+    {
       "typ": "stavebniny",
       "label": "Stavebniny",
       "category": "FMCG",
@@ -265,6 +275,16 @@
       "sent": 560,
       "pending": 53,
       "pct": 91
+    },
+    {
+      "typ": "koberce",
+      "label": "Koberce",
+      "category": "Ostatní",
+      "subject": "",
+      "csv": 50,
+      "sent": 0,
+      "pending": 50,
+      "pct": 0
     },
     {
       "typ": "exekutor",
@@ -1099,14 +1119,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-05-23",
-      "count": 0
-    },
-    {
-      "date": "2026-05-24",
-      "count": 0
-    },
-    {
       "date": "2026-05-25",
       "count": 0
     },
@@ -1337,12 +1349,18 @@
     {
       "date": "2026-07-21",
       "count": 146
+    },
+    {
+      "date": "2026-07-22",
+      "count": 0
+    },
+    {
+      "date": "2026-07-23",
+      "count": 0
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-06-22",
-      "2026-06-23",
       "2026-06-24",
       "2026-06-25",
       "2026-06-26",
@@ -1370,7 +1388,9 @@
       "2026-07-18",
       "2026-07-19",
       "2026-07-20",
-      "2026-07-21"
+      "2026-07-21",
+      "2026-07-22",
+      "2026-07-23"
     ],
     "series": [
       {
@@ -1414,7 +1434,7 @@
         "label": "Správci nemovitostí",
         "data": [
           0,
-          24,
+          0,
           0,
           0,
           0,
@@ -1521,8 +1541,6 @@
         "typ": "event",
         "label": "Event agentury",
         "data": [
-          0,
-          0,
           60,
           0,
           0,
@@ -1550,6 +1568,8 @@
           0,
           0,
           0,
+          0,
+          0,
           0
         ]
       },
@@ -1558,7 +1578,7 @@
         "label": "Exekutorské úřady",
         "data": [
           0,
-          1,
+          0,
           0,
           0,
           0,
