@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-23T19:17:52",
+  "updated": "2026-07-23T19:18:14",
   "summary": {
     "total_contacts": 13425,
     "total_sent": 14428,
@@ -68,10 +68,10 @@
   "by_category": [
     {
       "category": "Přeprava",
-      "csv": 1125,
+      "csv": 1175,
       "sent": 300,
-      "pending": 825,
-      "pct": 27
+      "pending": 875,
+      "pct": 26
     },
     {
       "category": "Chlazená",
@@ -82,10 +82,10 @@
     },
     {
       "category": "FMCG",
-      "csv": 656,
-      "sent": 252,
-      "pending": 404,
-      "pct": 38
+      "csv": 749,
+      "sent": 255,
+      "pending": 494,
+      "pct": 34
     },
     {
       "category": "Montáž",
@@ -93,13 +93,6 @@
       "sent": 295,
       "pending": 372,
       "pct": 44
-    },
-    {
-      "category": "Ostatní",
-      "csv": 206,
-      "sent": 3,
-      "pending": 203,
-      "pct": 1
     },
     {
       "category": "Hotely",
@@ -128,6 +121,13 @@
       "sent": 7927,
       "pending": 72,
       "pct": 99
+    },
+    {
+      "category": "Ostatní",
+      "csv": 63,
+      "sent": 0,
+      "pending": 63,
+      "pct": 0
     },
     {
       "category": "Právní",
@@ -238,9 +238,9 @@
     },
     {
       "typ": "snack",
-      "label": "Snack",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Pochutiny / snack",
+      "category": "FMCG",
+      "subject": "Přeprava zboží",
       "csv": 93,
       "sent": 3,
       "pending": 90,
@@ -278,9 +278,9 @@
     },
     {
       "typ": "koberce",
-      "label": "Koberce",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Koberce a podlahy",
+      "category": "Přeprava",
+      "subject": "Dovoz a montáž nábytku",
       "csv": 50,
       "sent": 0,
       "pending": 50,
