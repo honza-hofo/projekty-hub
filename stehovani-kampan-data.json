@@ -1,12 +1,12 @@
 {
-  "updated": "2026-07-23T19:18:14",
+  "updated": "2026-07-23T21:56:44",
   "summary": {
-    "total_contacts": 13425,
+    "total_contacts": 13568,
     "total_sent": 14428,
-    "pending": 3083,
+    "pending": 3225,
     "sent_today": 0,
     "daily_limit": 150,
-    "days_to_finish": 21
+    "days_to_finish": 22
   },
   "bounced": {
     "count": 286,
@@ -68,10 +68,10 @@
   "by_category": [
     {
       "category": "Přeprava",
-      "csv": 1175,
+      "csv": 1203,
       "sent": 300,
-      "pending": 875,
-      "pct": 26
+      "pending": 903,
+      "pct": 25
     },
     {
       "category": "Chlazená",
@@ -82,10 +82,10 @@
     },
     {
       "category": "FMCG",
-      "csv": 749,
-      "sent": 255,
-      "pending": 494,
-      "pct": 34
+      "csv": 864,
+      "sent": 256,
+      "pending": 608,
+      "pct": 30
     },
     {
       "category": "Montáž",
@@ -197,6 +197,16 @@
       "pct": 18
     },
     {
+      "typ": "snack",
+      "label": "Pochutiny / snack",
+      "category": "FMCG",
+      "subject": "Přeprava zboží",
+      "csv": 208,
+      "sent": 4,
+      "pending": 204,
+      "pct": 2
+    },
+    {
       "typ": "kuchyne",
       "label": "Kuchyňská studia",
       "category": "Montáž",
@@ -237,16 +247,6 @@
       "pct": 0
     },
     {
-      "typ": "snack",
-      "label": "Pochutiny / snack",
-      "category": "FMCG",
-      "subject": "Přeprava zboží",
-      "csv": 93,
-      "sent": 3,
-      "pending": 90,
-      "pct": 3
-    },
-    {
       "typ": "stavebniny",
       "label": "Stavebniny",
       "category": "FMCG",
@@ -255,6 +255,16 @@
       "sent": 54,
       "pending": 84,
       "pct": 39
+    },
+    {
+      "typ": "koberce",
+      "label": "Koberce a podlahy",
+      "category": "Přeprava",
+      "subject": "Dovoz a montáž nábytku",
+      "csv": 78,
+      "sent": 0,
+      "pending": 78,
+      "pct": 0
     },
     {
       "typ": "eshop",
@@ -275,16 +285,6 @@
       "sent": 560,
       "pending": 53,
       "pct": 91
-    },
-    {
-      "typ": "koberce",
-      "label": "Koberce a podlahy",
-      "category": "Přeprava",
-      "subject": "Dovoz a montáž nábytku",
-      "csv": 50,
-      "sent": 0,
-      "pending": 50,
-      "pct": 0
     },
     {
       "typ": "exekutor",
