@@ -1,12 +1,12 @@
 {
-  "updated": "2026-07-23T21:56:44",
+  "updated": "2026-07-24T12:20:36",
   "summary": {
-    "total_contacts": 13568,
-    "total_sent": 14428,
-    "pending": 3225,
-    "sent_today": 0,
+    "total_contacts": 13570,
+    "total_sent": 14577,
+    "pending": 3078,
+    "sent_today": 149,
     "daily_limit": 150,
-    "days_to_finish": 22
+    "days_to_finish": 21
   },
   "bounced": {
     "count": 286,
@@ -69,9 +69,9 @@
     {
       "category": "Přeprava",
       "csv": 1203,
-      "sent": 300,
-      "pending": 903,
-      "pct": 25
+      "sent": 350,
+      "pending": 853,
+      "pct": 29
     },
     {
       "category": "Chlazená",
@@ -83,9 +83,9 @@
     {
       "category": "FMCG",
       "csv": 864,
-      "sent": 256,
-      "pending": 608,
-      "pct": 30
+      "sent": 355,
+      "pending": 509,
+      "pct": 41
     },
     {
       "category": "Montáž",
@@ -117,9 +117,9 @@
     },
     {
       "category": "Reality",
-      "csv": 7999,
+      "csv": 8001,
       "sent": 7927,
-      "pending": 72,
+      "pending": 74,
       "pct": 99
     },
     {
@@ -172,9 +172,9 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 300,
-      "pending": 825,
-      "pct": 27
+      "sent": 350,
+      "pending": 775,
+      "pct": 31
     },
     {
       "typ": "catering",
@@ -265,16 +265,6 @@
       "sent": 0,
       "pending": 78,
       "pct": 0
-    },
-    {
-      "typ": "eshop",
-      "label": "E-shopy",
-      "category": "FMCG",
-      "subject": "Přeprava zboží",
-      "csv": 70,
-      "sent": 3,
-      "pending": 67,
-      "pct": 4
     },
     {
       "typ": "interier",
@@ -417,23 +407,13 @@
       "pct": 14
     },
     {
-      "typ": "tiskarna",
-      "label": "Tiskárny",
-      "category": "FMCG",
-      "subject": "Přeprava",
-      "csv": 65,
-      "sent": 33,
-      "pending": 32,
-      "pct": 51
-    },
-    {
       "typ": "realitka",
       "label": "Realitní kanceláře",
       "category": "Reality",
       "subject": "Spolupráce: Stěhovací služby pro vaše klienty",
-      "csv": 7326,
+      "csv": 7327,
       "sent": 7300,
-      "pending": 26,
+      "pending": 27,
       "pct": 100
     },
     {
@@ -487,6 +467,16 @@
       "pct": 0
     },
     {
+      "typ": "developer",
+      "label": "Developeři",
+      "category": "Reality",
+      "subject": "Stěhování nových majitelů",
+      "csv": 61,
+      "sent": 47,
+      "pending": 14,
+      "pct": 77
+    },
+    {
       "typ": "ladenbau",
       "label": "DE: Ladenbau",
       "category": "DE Montáž",
@@ -495,16 +485,6 @@
       "sent": 0,
       "pending": 14,
       "pct": 0
-    },
-    {
-      "typ": "developer",
-      "label": "Developeři",
-      "category": "Reality",
-      "subject": "Stěhování nových majitelů",
-      "csv": 60,
-      "sent": 47,
-      "pending": 13,
-      "pct": 78
     },
     {
       "typ": "messebau",
@@ -1107,6 +1087,16 @@
       "pct": 100
     },
     {
+      "typ": "eshop",
+      "label": "E-shopy",
+      "category": "FMCG",
+      "subject": "Přeprava zboží",
+      "csv": 70,
+      "sent": 70,
+      "pending": 0,
+      "pct": 100
+    },
+    {
       "typ": "zahradnictvi",
       "label": "Zahradnictví",
       "category": "FMCG",
@@ -1115,13 +1105,19 @@
       "sent": 49,
       "pending": 0,
       "pct": 100
+    },
+    {
+      "typ": "tiskarna",
+      "label": "Tiskárny",
+      "category": "FMCG",
+      "subject": "Přeprava",
+      "csv": 65,
+      "sent": 65,
+      "pending": 0,
+      "pct": 100
     }
   ],
   "daily_history": [
-    {
-      "date": "2026-05-25",
-      "count": 0
-    },
     {
       "date": "2026-05-26",
       "count": 149
@@ -1357,11 +1353,14 @@
     {
       "date": "2026-07-23",
       "count": 0
+    },
+    {
+      "date": "2026-07-24",
+      "count": 149
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-06-24",
       "2026-06-25",
       "2026-06-26",
       "2026-06-27",
@@ -1390,7 +1389,8 @@
       "2026-07-20",
       "2026-07-21",
       "2026-07-22",
-      "2026-07-23"
+      "2026-07-23",
+      "2026-07-24"
     ],
     "series": [
       {
@@ -1541,7 +1541,6 @@
         "typ": "event",
         "label": "Event agentury",
         "data": [
-          60,
           0,
           0,
           0,
@@ -1570,17 +1569,36 @@
           0,
           0,
           0,
+          0,
           0
         ]
       },
       {
-        "typ": "exekutor",
-        "label": "Exekutorské úřady",
+        "typ": "preprava",
+        "label": "Přeprava a manipulace",
         "data": [
           0,
           0,
           0,
           0,
+          1,
+          36,
+          15,
+          87,
+          11,
+          0,
+          0,
+          0,
+          0,
+          0,
+          64,
+          57,
+          0,
+          0,
+          0,
+          0,
+          0,
+          12,
           0,
           0,
           0,
@@ -1588,25 +1606,7 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
+          50
         ]
       }
     ]
@@ -1614,11 +1614,11 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3527
+      "count": 3537
     },
     {
       "region": "Středočeský kraj",
-      "count": 609
+      "count": 620
     },
     {
       "region": "Prague",
@@ -1630,11 +1630,11 @@
     },
     {
       "region": "Pardubický kraj",
-      "count": 220
+      "count": 228
     },
     {
       "region": "Brno",
-      "count": 98
+      "count": 99
     },
     {
       "region": "Středočeský",
@@ -1649,11 +1649,15 @@
       "count": 70
     },
     {
+      "region": "Hradec Králové",
+      "count": 68
+    },
+    {
       "region": "Plzeňský",
       "count": 68
     },
     {
-      "region": "Hradec Králové",
+      "region": "Královéhradecký kraj",
       "count": 64
     },
     {
@@ -1661,16 +1665,20 @@
       "count": 60
     },
     {
-      "region": "Královéhradecký kraj",
-      "count": 60
+      "region": "Pardubice",
+      "count": 54
     },
     {
-      "region": "Pardubice",
-      "count": 53
+      "region": "CZ",
+      "count": 45
     },
     {
       "region": "Olomouc",
       "count": 44
+    },
+    {
+      "region": "Plzeňský kraj",
+      "count": 42
     },
     {
       "region": "Pardubický",
@@ -1683,33 +1691,25 @@
     {
       "region": "Stredocesky",
       "count": 34
-    },
-    {
-      "region": "Pilsen",
-      "count": 34
-    },
-    {
-      "region": "Plzeňský kraj",
-      "count": 33
     }
   ],
   "next_batch": {
     "total": 150,
     "typ_breakdown": [
       {
-        "typ": "eshop",
-        "label": "E-shopy",
-        "count": 64
-      },
-      {
         "typ": "preprava",
         "label": "Přeprava a manipulace",
-        "count": 51
+        "count": 96
       },
       {
-        "typ": "tiskarna",
-        "label": "Tiskárny",
-        "count": 32
+        "typ": "interier",
+        "label": "Interiéroví designéři",
+        "count": 36
+      },
+      {
+        "typ": "senior",
+        "label": "Senior projekty",
+        "count": 15
       },
       {
         "typ": "realitka",
