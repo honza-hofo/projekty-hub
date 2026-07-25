@@ -1,16 +1,16 @@
 {
-  "updated": "2026-07-24T12:20:36",
+  "updated": "2026-07-25T17:54:16",
   "summary": {
     "total_contacts": 13570,
-    "total_sent": 14577,
-    "pending": 3078,
+    "total_sent": 14726,
+    "pending": 2929,
     "sent_today": 149,
     "daily_limit": 150,
-    "days_to_finish": 21
+    "days_to_finish": 20
   },
   "bounced": {
     "count": 286,
-    "pct": 2.0
+    "pct": 1.9
   },
   "poptavky": {
     "count": 5,
@@ -74,18 +74,18 @@
       "pct": 29
     },
     {
-      "category": "Chlazená",
-      "csv": 847,
-      "sent": 233,
-      "pending": 614,
-      "pct": 28
-    },
-    {
       "category": "FMCG",
       "csv": 864,
       "sent": 355,
       "pending": 509,
       "pct": 41
+    },
+    {
+      "category": "Chlazená",
+      "csv": 847,
+      "sent": 382,
+      "pending": 465,
+      "pct": 45
     },
     {
       "category": "Montáž",
@@ -177,16 +177,6 @@
       "pct": 31
     },
     {
-      "typ": "catering",
-      "label": "Catering",
-      "category": "Chlazená",
-      "subject": "Chlazená přeprava",
-      "csv": 334,
-      "sent": 34,
-      "pending": 300,
-      "pct": 10
-    },
-    {
       "typ": "potraviny",
       "label": "Potraviny",
       "category": "FMCG",
@@ -195,6 +185,16 @@
       "sent": 49,
       "pending": 221,
       "pct": 18
+    },
+    {
+      "typ": "catering",
+      "label": "Catering",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 334,
+      "sent": 128,
+      "pending": 206,
+      "pct": 38
     },
     {
       "typ": "snack",
@@ -307,16 +307,6 @@
       "pct": 12
     },
     {
-      "typ": "vinarna",
-      "label": "Vinárny",
-      "category": "Chlazená",
-      "subject": "Přeprava",
-      "csv": 62,
-      "sent": 22,
-      "pending": 40,
-      "pct": 35
-    },
-    {
       "typ": "zmrzlina",
       "label": "Zmrzlina",
       "category": "Chlazená",
@@ -325,16 +315,6 @@
       "sent": 16,
       "pending": 37,
       "pct": 30
-    },
-    {
-      "typ": "pekarna",
-      "label": "Pekárny",
-      "category": "Chlazená",
-      "subject": "Přeprava pečiva",
-      "csv": 40,
-      "sent": 3,
-      "pending": 37,
-      "pct": 8
     },
     {
       "typ": "lahudky",
@@ -377,16 +357,6 @@
       "pct": 0
     },
     {
-      "typ": "kvetiny",
-      "label": "Květinářství",
-      "category": "Chlazená",
-      "subject": "Přeprava květin",
-      "csv": 62,
-      "sent": 28,
-      "pending": 34,
-      "pct": 45
-    },
-    {
       "typ": "spravce",
       "label": "Správci nemovitostí",
       "category": "Reality",
@@ -405,6 +375,26 @@
       "sent": 5,
       "pending": 32,
       "pct": 14
+    },
+    {
+      "typ": "kvetiny",
+      "label": "Květinářství",
+      "category": "Chlazená",
+      "subject": "Přeprava květin",
+      "csv": 62,
+      "sent": 33,
+      "pending": 29,
+      "pct": 53
+    },
+    {
+      "typ": "vinarna",
+      "label": "Vinárny",
+      "category": "Chlazená",
+      "subject": "Přeprava",
+      "csv": 62,
+      "sent": 34,
+      "pending": 28,
+      "pct": 55
     },
     {
       "typ": "realitka",
@@ -437,16 +427,6 @@
       "pct": 39
     },
     {
-      "typ": "pivovary",
-      "label": "Pivovary",
-      "category": "Chlazená",
-      "subject": "Přeprava nápojů",
-      "csv": 113,
-      "sent": 93,
-      "pending": 20,
-      "pct": 82
-    },
-    {
       "typ": "coworking",
       "label": "Coworkingy",
       "category": "Kanceláře",
@@ -455,6 +435,16 @@
       "sent": 40,
       "pending": 18,
       "pct": 69
+    },
+    {
+      "typ": "pivovary",
+      "label": "Pivovary",
+      "category": "Chlazená",
+      "subject": "Přeprava nápojů",
+      "csv": 113,
+      "sent": 95,
+      "pending": 18,
+      "pct": 84
     },
     {
       "typ": "pivovar obchodní oddělení",
@@ -565,6 +555,16 @@
       "sent": 0,
       "pending": 2,
       "pct": 0
+    },
+    {
+      "typ": "pekarna",
+      "label": "Pekárny",
+      "category": "Chlazená",
+      "subject": "Přeprava pečiva",
+      "csv": 40,
+      "sent": 39,
+      "pending": 1,
+      "pct": 98
     },
     {
       "typ": "výrobce jogurtů / máslo / tvaroh",
@@ -1119,10 +1119,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-05-26",
-      "count": 149
-    },
-    {
       "date": "2026-05-27",
       "count": 149
     },
@@ -1357,11 +1353,14 @@
     {
       "date": "2026-07-24",
       "count": 149
+    },
+    {
+      "date": "2026-07-25",
+      "count": 149
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-06-25",
       "2026-06-26",
       "2026-06-27",
       "2026-06-28",
@@ -1390,7 +1389,8 @@
       "2026-07-21",
       "2026-07-22",
       "2026-07-23",
-      "2026-07-24"
+      "2026-07-24",
+      "2026-07-25"
     ],
     "series": [
       {
@@ -1545,7 +1545,6 @@
           0,
           0,
           0,
-          0,
           22,
           0,
           0,
@@ -1570,6 +1569,7 @@
           0,
           0,
           0,
+          0,
           0
         ]
       },
@@ -1577,7 +1577,6 @@
         "typ": "preprava",
         "label": "Přeprava a manipulace",
         "data": [
-          0,
           0,
           0,
           0,
@@ -1606,7 +1605,8 @@
           0,
           0,
           0,
-          50
+          50,
+          0
         ]
       }
     ]
@@ -1614,11 +1614,11 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3537
+      "count": 3563
     },
     {
       "region": "Středočeský kraj",
-      "count": 620
+      "count": 638
     },
     {
       "region": "Prague",
@@ -1638,27 +1638,27 @@
     },
     {
       "region": "Středočeský",
-      "count": 90
+      "count": 97
     },
     {
       "region": "Královéhradecký",
-      "count": 84
+      "count": 86
+    },
+    {
+      "region": "Hradec Králové",
+      "count": 80
+    },
+    {
+      "region": "Plzeňský",
+      "count": 70
     },
     {
       "region": "Liberec",
       "count": 70
     },
     {
-      "region": "Hradec Králové",
-      "count": 68
-    },
-    {
-      "region": "Plzeňský",
-      "count": 68
-    },
-    {
       "region": "Královéhradecký kraj",
-      "count": 64
+      "count": 66
     },
     {
       "region": "Ostrava",
@@ -1667,6 +1667,10 @@
     {
       "region": "Pardubice",
       "count": 54
+    },
+    {
+      "region": "Pardubický",
+      "count": 45
     },
     {
       "region": "CZ",
@@ -1679,10 +1683,6 @@
     {
       "region": "Plzeňský kraj",
       "count": 42
-    },
-    {
-      "region": "Pardubický",
-      "count": 41
     },
     {
       "region": "Hradec Kralove",
