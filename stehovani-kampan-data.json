@@ -1,12 +1,12 @@
 {
-  "updated": "2026-07-25T17:54:16",
+  "updated": "2026-07-28T20:49:17",
   "summary": {
     "total_contacts": 13570,
-    "total_sent": 14726,
-    "pending": 2929,
+    "total_sent": 14875,
+    "pending": 2780,
     "sent_today": 149,
     "daily_limit": 150,
-    "days_to_finish": 20
+    "days_to_finish": 19
   },
   "bounced": {
     "count": 286,
@@ -69,9 +69,9 @@
     {
       "category": "Přeprava",
       "csv": 1203,
-      "sent": 350,
-      "pending": 853,
-      "pct": 29
+      "sent": 448,
+      "pending": 755,
+      "pct": 37
     },
     {
       "category": "FMCG",
@@ -109,13 +109,6 @@
       "pct": 0
     },
     {
-      "category": "Interiér",
-      "csv": 688,
-      "sent": 610,
-      "pending": 78,
-      "pct": 89
-    },
-    {
       "category": "Reality",
       "csv": 8001,
       "sent": 7927,
@@ -137,18 +130,25 @@
       "pct": 86
     },
     {
-      "category": "Sociální",
-      "csv": 51,
-      "sent": 2,
-      "pending": 49,
-      "pct": 4
-    },
-    {
       "category": "DE Přeprava",
       "csv": 46,
       "sent": 0,
       "pending": 46,
       "pct": 0
+    },
+    {
+      "category": "Interiér",
+      "csv": 688,
+      "sent": 646,
+      "pending": 42,
+      "pct": 94
+    },
+    {
+      "category": "Sociální",
+      "csv": 51,
+      "sent": 17,
+      "pending": 34,
+      "pct": 33
     },
     {
       "category": "Kanceláře",
@@ -172,9 +172,9 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 350,
-      "pending": 775,
-      "pct": 31
+      "sent": 448,
+      "pending": 677,
+      "pct": 40
     },
     {
       "typ": "potraviny",
@@ -267,16 +267,6 @@
       "pct": 0
     },
     {
-      "typ": "interier",
-      "label": "Interiéroví designéři",
-      "category": "Interiér",
-      "subject": "Přeprava a montáž nábytku",
-      "csv": 613,
-      "sent": 560,
-      "pending": 53,
-      "pct": 91
-    },
-    {
       "typ": "exekutor",
       "label": "Exekutorské úřady",
       "category": "Právní",
@@ -285,16 +275,6 @@
       "sent": 244,
       "pending": 49,
       "pct": 83
-    },
-    {
-      "typ": "senior",
-      "label": "Senior projekty",
-      "category": "Sociální",
-      "subject": "Šetrné stěhování seniorů",
-      "csv": 51,
-      "sent": 2,
-      "pending": 49,
-      "pct": 4
     },
     {
       "typ": "mlekarna",
@@ -355,6 +335,16 @@
       "sent": 0,
       "pending": 35,
       "pct": 0
+    },
+    {
+      "typ": "senior",
+      "label": "Senior projekty",
+      "category": "Sociální",
+      "subject": "Šetrné stěhování seniorů",
+      "csv": 51,
+      "sent": 17,
+      "pending": 34,
+      "pct": 33
     },
     {
       "typ": "spravce",
@@ -445,6 +435,16 @@
       "sent": 95,
       "pending": 18,
       "pct": 84
+    },
+    {
+      "typ": "interier",
+      "label": "Interiéroví designéři",
+      "category": "Interiér",
+      "subject": "Přeprava a montáž nábytku",
+      "csv": 613,
+      "sent": 596,
+      "pending": 17,
+      "pct": 97
     },
     {
       "typ": "pivovar obchodní oddělení",
@@ -1119,18 +1119,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-05-27",
-      "count": 149
-    },
-    {
-      "date": "2026-05-28",
-      "count": 0
-    },
-    {
-      "date": "2026-05-29",
-      "count": 0
-    },
-    {
       "date": "2026-05-30",
       "count": 149
     },
@@ -1357,13 +1345,22 @@
     {
       "date": "2026-07-25",
       "count": 149
+    },
+    {
+      "date": "2026-07-26",
+      "count": 0
+    },
+    {
+      "date": "2026-07-27",
+      "count": 0
+    },
+    {
+      "date": "2026-07-28",
+      "count": 149
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-06-26",
-      "2026-06-27",
-      "2026-06-28",
       "2026-06-29",
       "2026-06-30",
       "2026-07-01",
@@ -1390,7 +1387,10 @@
       "2026-07-22",
       "2026-07-23",
       "2026-07-24",
-      "2026-07-25"
+      "2026-07-25",
+      "2026-07-26",
+      "2026-07-27",
+      "2026-07-28"
     ],
     "series": [
       {
@@ -1498,7 +1498,7 @@
           0,
           0,
           0,
-          0
+          36
         ]
       },
       {
@@ -1534,52 +1534,13 @@
           0,
           0,
           0,
-          0
-        ]
-      },
-      {
-        "typ": "event",
-        "label": "Event agentury",
-        "data": [
-          0,
-          0,
-          0,
-          0,
-          22,
-          0,
-          0,
-          60,
-          0,
-          0,
-          0,
-          0,
-          150,
-          53,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
+          15
         ]
       },
       {
         "typ": "preprava",
         "label": "Přeprava a manipulace",
         "data": [
-          0,
-          0,
-          0,
           1,
           36,
           15,
@@ -1606,6 +1567,45 @@
           0,
           0,
           50,
+          0,
+          0,
+          0,
+          98
+        ]
+      },
+      {
+        "typ": "event",
+        "label": "Event agentury",
+        "data": [
+          0,
+          22,
+          0,
+          0,
+          60,
+          0,
+          0,
+          0,
+          0,
+          150,
+          53,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0
         ]
       }
@@ -1614,11 +1614,11 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3563
+      "count": 3642
     },
     {
       "region": "Středočeský kraj",
-      "count": 638
+      "count": 642
     },
     {
       "region": "Prague",
@@ -1630,19 +1630,23 @@
     },
     {
       "region": "Pardubický kraj",
-      "count": 228
+      "count": 239
+    },
+    {
+      "region": "Středočeský",
+      "count": 105
     },
     {
       "region": "Brno",
       "count": 99
     },
     {
-      "region": "Středočeský",
-      "count": 97
+      "region": "Královéhradecký",
+      "count": 91
     },
     {
-      "region": "Královéhradecký",
-      "count": 86
+      "region": "Královéhradecký kraj",
+      "count": 84
     },
     {
       "region": "Hradec Králové",
@@ -1650,15 +1654,11 @@
     },
     {
       "region": "Plzeňský",
-      "count": 70
+      "count": 78
     },
     {
       "region": "Liberec",
       "count": 70
-    },
-    {
-      "region": "Královéhradecký kraj",
-      "count": 66
     },
     {
       "region": "Ostrava",
@@ -1669,8 +1669,12 @@
       "count": 54
     },
     {
+      "region": "Plzeňský kraj",
+      "count": 53
+    },
+    {
       "region": "Pardubický",
-      "count": 45
+      "count": 50
     },
     {
       "region": "CZ",
@@ -1679,10 +1683,6 @@
     {
       "region": "Olomouc",
       "count": 44
-    },
-    {
-      "region": "Plzeňský kraj",
-      "count": 42
     },
     {
       "region": "Hradec Kralove",
@@ -1699,17 +1699,7 @@
       {
         "typ": "preprava",
         "label": "Přeprava a manipulace",
-        "count": 96
-      },
-      {
-        "typ": "interier",
-        "label": "Interiéroví designéři",
-        "count": 36
-      },
-      {
-        "typ": "senior",
-        "label": "Senior projekty",
-        "count": 15
+        "count": 147
       },
       {
         "typ": "realitka",
