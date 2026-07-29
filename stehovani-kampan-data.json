@@ -1,12 +1,12 @@
 {
-  "updated": "2026-07-28T20:49:17",
+  "updated": "2026-07-29T11:43:25",
   "summary": {
     "total_contacts": 13570,
-    "total_sent": 14875,
-    "pending": 2780,
+    "total_sent": 15024,
+    "pending": 2631,
     "sent_today": 149,
     "daily_limit": 150,
-    "days_to_finish": 19
+    "days_to_finish": 18
   },
   "bounced": {
     "count": 286,
@@ -69,9 +69,9 @@
     {
       "category": "Přeprava",
       "csv": 1203,
-      "sent": 448,
-      "pending": 755,
-      "pct": 37
+      "sent": 597,
+      "pending": 606,
+      "pct": 50
     },
     {
       "category": "FMCG",
@@ -172,9 +172,9 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 448,
-      "pending": 677,
-      "pct": 40
+      "sent": 597,
+      "pending": 528,
+      "pct": 53
     },
     {
       "typ": "potraviny",
@@ -1119,10 +1119,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-05-30",
-      "count": 149
-    },
-    {
       "date": "2026-05-31",
       "count": 0
     },
@@ -1357,11 +1353,14 @@
     {
       "date": "2026-07-28",
       "count": 149
+    },
+    {
+      "date": "2026-07-29",
+      "count": 149
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-06-29",
       "2026-06-30",
       "2026-07-01",
       "2026-07-02",
@@ -1390,7 +1389,8 @@
       "2026-07-25",
       "2026-07-26",
       "2026-07-27",
-      "2026-07-28"
+      "2026-07-28",
+      "2026-07-29"
     ],
     "series": [
       {
@@ -1497,8 +1497,8 @@
           0,
           0,
           0,
-          0,
-          36
+          36,
+          0
         ]
       },
       {
@@ -1533,15 +1533,14 @@
           0,
           0,
           0,
-          0,
-          15
+          15,
+          0
         ]
       },
       {
         "typ": "preprava",
         "label": "Přeprava a manipulace",
         "data": [
-          1,
           36,
           15,
           87,
@@ -1570,14 +1569,14 @@
           0,
           0,
           0,
-          98
+          98,
+          149
         ]
       },
       {
         "typ": "event",
         "label": "Event agentury",
         "data": [
-          0,
           22,
           0,
           0,
@@ -1606,6 +1605,7 @@
           0,
           0,
           0,
+          0,
           0
         ]
       }
@@ -1614,47 +1614,47 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3642
+      "count": 3742
     },
     {
       "region": "Středočeský kraj",
-      "count": 642
+      "count": 652
     },
     {
       "region": "Prague",
       "count": 282
     },
     {
+      "region": "Pardubický kraj",
+      "count": 245
+    },
+    {
       "region": "HK kraj",
       "count": 242
     },
     {
-      "region": "Pardubický kraj",
-      "count": 239
+      "region": "Středočeský",
+      "count": 106
     },
     {
-      "region": "Středočeský",
-      "count": 105
+      "region": "Královéhradecký",
+      "count": 103
     },
     {
       "region": "Brno",
       "count": 99
     },
     {
-      "region": "Královéhradecký",
-      "count": 91
+      "region": "Královéhradecký kraj",
+      "count": 94
     },
     {
-      "region": "Královéhradecký kraj",
-      "count": 84
+      "region": "Plzeňský",
+      "count": 82
     },
     {
       "region": "Hradec Králové",
       "count": 80
-    },
-    {
-      "region": "Plzeňský",
-      "count": 78
     },
     {
       "region": "Liberec",
@@ -1665,12 +1665,12 @@
       "count": 60
     },
     {
-      "region": "Pardubice",
-      "count": 54
+      "region": "Plzeňský kraj",
+      "count": 59
     },
     {
-      "region": "Plzeňský kraj",
-      "count": 53
+      "region": "Pardubice",
+      "count": 54
     },
     {
       "region": "Pardubický",
@@ -1697,9 +1697,14 @@
     "total": 150,
     "typ_breakdown": [
       {
+        "typ": "potraviny",
+        "label": "Potraviny",
+        "count": 113
+      },
+      {
         "typ": "preprava",
         "label": "Přeprava a manipulace",
-        "count": 147
+        "count": 34
       },
       {
         "typ": "realitka",
