@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-29T23:45:21",
+  "updated": "2026-07-29T23:45:40",
   "summary": {
     "total_contacts": 14299,
     "total_sent": 15024,
@@ -67,18 +67,18 @@
   },
   "by_category": [
     {
-      "category": "Ostatní",
-      "csv": 792,
-      "sent": 3,
-      "pending": 789,
-      "pct": 0
-    },
-    {
       "category": "Přeprava",
       "csv": 1203,
       "sent": 597,
       "pending": 606,
       "pct": 50
+    },
+    {
+      "category": "Školy",
+      "csv": 547,
+      "sent": 1,
+      "pending": 546,
+      "pct": 0
     },
     {
       "category": "FMCG",
@@ -102,6 +102,13 @@
       "pct": 44
     },
     {
+      "category": "Veř. správa",
+      "csv": 182,
+      "sent": 2,
+      "pending": 180,
+      "pct": 1
+    },
+    {
       "category": "Hotely",
       "csv": 282,
       "sent": 103,
@@ -121,6 +128,13 @@
       "sent": 7927,
       "pending": 74,
       "pct": 99
+    },
+    {
+      "category": "Ostatní",
+      "csv": 63,
+      "sent": 0,
+      "pending": 63,
+      "pct": 0
     },
     {
       "category": "Právní",
@@ -218,9 +232,9 @@
     },
     {
       "typ": "skola_zs",
-      "label": "Skola Zs",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Základní školy",
+      "category": "Školy",
+      "subject": "Stěhování pro školy",
       "csv": 181,
       "sent": 0,
       "pending": 181,
@@ -238,9 +252,9 @@
     },
     {
       "typ": "skola_ss",
-      "label": "Skola Ss",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Střední školy / gymnázia",
+      "category": "Školy",
+      "subject": "Stěhování pro školy",
       "csv": 152,
       "sent": 0,
       "pending": 152,
@@ -258,9 +272,9 @@
     },
     {
       "typ": "skola_ms",
-      "label": "Skola Ms",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Mateřské školy",
+      "category": "Školy",
+      "subject": "Stěhování pro školy",
       "csv": 133,
       "sent": 1,
       "pending": 132,
@@ -298,9 +312,9 @@
     },
     {
       "typ": "mesto_urad",
-      "label": "Mesto Urad",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Magistráty / MěÚ",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
       "csv": 77,
       "sent": 2,
       "pending": 75,
@@ -308,9 +322,9 @@
     },
     {
       "typ": "obec",
-      "label": "Obec",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Obecní úřady",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
       "csv": 52,
       "sent": 0,
       "pending": 52,
@@ -328,9 +342,9 @@
     },
     {
       "typ": "zus",
-      "label": "Zus",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "ZUŠ",
+      "category": "Školy",
+      "subject": "Stěhování pro školy",
       "csv": 49,
       "sent": 0,
       "pending": 49,
@@ -348,9 +362,9 @@
     },
     {
       "typ": "kraj_urad",
-      "label": "Kraj Urad",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Krajské úřady",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
       "csv": 44,
       "sent": 0,
       "pending": 44,
@@ -438,9 +452,9 @@
     },
     {
       "typ": "univerzita",
-      "label": "Univerzita",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Univerzity / fakulty",
+      "category": "Školy",
+      "subject": "Stěhování pro školy",
       "csv": 32,
       "sent": 0,
       "pending": 32,
@@ -588,9 +602,9 @@
     },
     {
       "typ": "ministerstvo",
-      "label": "Ministerstvo",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Ministerstva",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
       "csv": 6,
       "sent": 0,
       "pending": 6,
@@ -618,9 +632,9 @@
     },
     {
       "typ": "stat_inst",
-      "label": "Stat Inst",
-      "category": "Ostatní",
-      "subject": "",
+      "label": "Státní instituce",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
       "csv": 3,
       "sent": 0,
       "pending": 3,
