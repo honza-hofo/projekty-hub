@@ -1,12 +1,12 @@
 {
-  "updated": "2026-07-29T23:45:40",
+  "updated": "2026-07-30T14:10:04",
   "summary": {
     "total_contacts": 14299,
-    "total_sent": 15024,
-    "pending": 3357,
+    "total_sent": 15173,
+    "pending": 3208,
     "sent_today": 149,
     "daily_limit": 150,
-    "days_to_finish": 23
+    "days_to_finish": 22
   },
   "bounced": {
     "count": 286,
@@ -69,9 +69,9 @@
     {
       "category": "Přeprava",
       "csv": 1203,
-      "sent": 597,
-      "pending": 606,
-      "pct": 50
+      "sent": 630,
+      "pending": 573,
+      "pct": 52
     },
     {
       "category": "Školy",
@@ -81,18 +81,18 @@
       "pct": 0
     },
     {
-      "category": "FMCG",
-      "csv": 864,
-      "sent": 355,
-      "pending": 509,
-      "pct": 41
-    },
-    {
       "category": "Chlazená",
       "csv": 847,
       "sent": 382,
       "pending": 465,
       "pct": 45
+    },
+    {
+      "category": "FMCG",
+      "csv": 864,
+      "sent": 471,
+      "pending": 393,
+      "pct": 55
     },
     {
       "category": "Montáž",
@@ -186,19 +186,9 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 597,
-      "pending": 528,
-      "pct": 53
-    },
-    {
-      "typ": "potraviny",
-      "label": "Potraviny",
-      "category": "FMCG",
-      "subject": "Přeprava potravin",
-      "csv": 270,
-      "sent": 49,
-      "pending": 221,
-      "pct": 18
+      "sent": 630,
+      "pending": 495,
+      "pct": 56
     },
     {
       "typ": "catering",
@@ -289,6 +279,16 @@
       "sent": 0,
       "pending": 109,
       "pct": 0
+    },
+    {
+      "typ": "potraviny",
+      "label": "Potraviny",
+      "category": "FMCG",
+      "subject": "Přeprava potravin",
+      "csv": 270,
+      "sent": 165,
+      "pending": 105,
+      "pct": 61
     },
     {
       "typ": "stavebniny",
@@ -1233,10 +1233,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-05-31",
-      "count": 0
-    },
-    {
       "date": "2026-06-01",
       "count": 149
     },
@@ -1471,11 +1467,14 @@
     {
       "date": "2026-07-29",
       "count": 149
+    },
+    {
+      "date": "2026-07-30",
+      "count": 149
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-06-30",
       "2026-07-01",
       "2026-07-02",
       "2026-07-03",
@@ -1504,7 +1503,8 @@
       "2026-07-26",
       "2026-07-27",
       "2026-07-28",
-      "2026-07-29"
+      "2026-07-29",
+      "2026-07-30"
     ],
     "series": [
       {
@@ -1610,9 +1610,45 @@
           0,
           0,
           0,
-          0,
           36,
+          0,
           0
+        ]
+      },
+      {
+        "typ": "preprava",
+        "label": "Přeprava a manipulace",
+        "data": [
+          15,
+          87,
+          11,
+          0,
+          0,
+          0,
+          0,
+          0,
+          64,
+          57,
+          0,
+          0,
+          0,
+          0,
+          0,
+          12,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          50,
+          0,
+          0,
+          0,
+          98,
+          149,
+          33
         ]
       },
       {
@@ -1646,52 +1682,15 @@
           0,
           0,
           0,
-          0,
           15,
+          0,
           0
-        ]
-      },
-      {
-        "typ": "preprava",
-        "label": "Přeprava a manipulace",
-        "data": [
-          36,
-          15,
-          87,
-          11,
-          0,
-          0,
-          0,
-          0,
-          0,
-          64,
-          57,
-          0,
-          0,
-          0,
-          0,
-          0,
-          12,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          50,
-          0,
-          0,
-          0,
-          98,
-          149
         ]
       },
       {
         "typ": "event",
         "label": "Event agentury",
         "data": [
-          22,
           0,
           0,
           60,
@@ -1720,6 +1719,7 @@
           0,
           0,
           0,
+          0,
           0
         ]
       }
@@ -1728,11 +1728,11 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3744
+      "count": 3759
     },
     {
       "region": "Středočeský kraj",
-      "count": 652
+      "count": 666
     },
     {
       "region": "Prague",
@@ -1740,7 +1740,7 @@
     },
     {
       "region": "Pardubický kraj",
-      "count": 245
+      "count": 249
     },
     {
       "region": "HK kraj",
@@ -1755,12 +1755,12 @@
       "count": 103
     },
     {
-      "region": "Brno",
-      "count": 99
+      "region": "Královéhradecký kraj",
+      "count": 101
     },
     {
-      "region": "Královéhradecký kraj",
-      "count": 94
+      "region": "Brno",
+      "count": 99
     },
     {
       "region": "Plzeňský",
@@ -1772,19 +1772,19 @@
     },
     {
       "region": "Liberec",
-      "count": 70
-    },
-    {
-      "region": "Ostrava",
-      "count": 60
+      "count": 71
     },
     {
       "region": "Plzeňský kraj",
-      "count": 59
+      "count": 67
+    },
+    {
+      "region": "Ostrava",
+      "count": 61
     },
     {
       "region": "Pardubice",
-      "count": 54
+      "count": 55
     },
     {
       "region": "Pardubický",
@@ -1803,22 +1803,32 @@
       "count": 37
     },
     {
-      "region": "Stredocesky",
-      "count": 34
+      "region": "Česko",
+      "count": 35
     }
   ],
   "next_batch": {
     "total": 150,
     "typ_breakdown": [
       {
-        "typ": "potraviny",
-        "label": "Potraviny",
-        "count": 113
+        "typ": "hotel",
+        "label": "Hotely",
+        "count": 64
       },
       {
         "typ": "preprava",
         "label": "Přeprava a manipulace",
-        "count": 34
+        "count": 51
+      },
+      {
+        "typ": "potraviny",
+        "label": "Potraviny",
+        "count": 18
+      },
+      {
+        "typ": "senior",
+        "label": "Senior projekty",
+        "count": 13
       },
       {
         "typ": "realitka",
@@ -1828,6 +1838,11 @@
       {
         "typ": "exekutor",
         "label": "Exekutorské úřady",
+        "count": 1
+      },
+      {
+        "typ": "pekarna",
+        "label": "Pekárny",
         "count": 1
       }
     ]
