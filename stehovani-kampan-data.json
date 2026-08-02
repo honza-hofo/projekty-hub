@@ -1,10 +1,10 @@
 {
-  "updated": "2026-07-30T14:10:04",
+  "updated": "2026-08-02T10:58:49",
   "summary": {
-    "total_contacts": 14299,
-    "total_sent": 15173,
-    "pending": 3208,
-    "sent_today": 149,
+    "total_contacts": 14385,
+    "total_sent": 15276,
+    "pending": 3181,
+    "sent_today": 0,
     "daily_limit": 150,
     "days_to_finish": 22
   },
@@ -67,18 +67,18 @@
   },
   "by_category": [
     {
-      "category": "Přeprava",
-      "csv": 1203,
-      "sent": 630,
-      "pending": 573,
-      "pct": 52
-    },
-    {
       "category": "Školy",
       "csv": 547,
       "sent": 1,
       "pending": 546,
       "pct": 0
+    },
+    {
+      "category": "Přeprava",
+      "csv": 1203,
+      "sent": 680,
+      "pending": 523,
+      "pct": 57
     },
     {
       "category": "Chlazená",
@@ -90,9 +90,9 @@
     {
       "category": "FMCG",
       "csv": 864,
-      "sent": 471,
-      "pending": 393,
-      "pct": 55
+      "sent": 489,
+      "pending": 375,
+      "pct": 57
     },
     {
       "category": "Montáž",
@@ -109,13 +109,6 @@
       "pct": 1
     },
     {
-      "category": "Hotely",
-      "csv": 282,
-      "sent": 103,
-      "pending": 179,
-      "pct": 37
-    },
-    {
       "category": "DE Montáž",
       "csv": 174,
       "sent": 0,
@@ -123,11 +116,18 @@
       "pct": 0
     },
     {
+      "category": "Hotely",
+      "csv": 282,
+      "sent": 125,
+      "pending": 157,
+      "pct": 44
+    },
+    {
       "category": "Reality",
-      "csv": 8001,
-      "sent": 7927,
-      "pending": 74,
-      "pct": 99
+      "csv": 8087,
+      "sent": 7937,
+      "pending": 150,
+      "pct": 98
     },
     {
       "category": "Ostatní",
@@ -160,9 +160,9 @@
     {
       "category": "Sociální",
       "csv": 51,
-      "sent": 17,
-      "pending": 34,
-      "pct": 33
+      "sent": 30,
+      "pending": 21,
+      "pct": 59
     },
     {
       "category": "Kanceláře",
@@ -186,9 +186,9 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 630,
-      "pending": 495,
-      "pct": 56
+      "sent": 680,
+      "pending": 445,
+      "pct": 60
     },
     {
       "typ": "catering",
@@ -236,9 +236,9 @@
       "category": "Hotely",
       "subject": "Stěhování a přeprava vybavení",
       "csv": 282,
-      "sent": 103,
-      "pending": 179,
-      "pct": 37
+      "sent": 125,
+      "pending": 157,
+      "pct": 44
     },
     {
       "typ": "skola_ss",
@@ -281,14 +281,24 @@
       "pct": 0
     },
     {
+      "typ": "realitka",
+      "label": "Realitní kanceláře",
+      "category": "Reality",
+      "subject": "Spolupráce: Stěhovací služby pro vaše klienty",
+      "csv": 7413,
+      "sent": 7310,
+      "pending": 103,
+      "pct": 99
+    },
+    {
       "typ": "potraviny",
       "label": "Potraviny",
       "category": "FMCG",
       "subject": "Přeprava potravin",
       "csv": 270,
-      "sent": 165,
-      "pending": 105,
-      "pct": 61
+      "sent": 183,
+      "pending": 87,
+      "pct": 68
     },
     {
       "typ": "stavebniny",
@@ -421,16 +431,6 @@
       "pct": 0
     },
     {
-      "typ": "senior",
-      "label": "Senior projekty",
-      "category": "Sociální",
-      "subject": "Šetrné stěhování seniorů",
-      "csv": 51,
-      "sent": 17,
-      "pending": 34,
-      "pct": 33
-    },
-    {
       "typ": "spravce",
       "label": "Správci nemovitostí",
       "category": "Reality",
@@ -481,16 +481,6 @@
       "pct": 55
     },
     {
-      "typ": "realitka",
-      "label": "Realitní kanceláře",
-      "category": "Reality",
-      "subject": "Spolupráce: Stěhovací služby pro vaše klienty",
-      "csv": 7327,
-      "sent": 7300,
-      "pending": 27,
-      "pct": 100
-    },
-    {
       "typ": "fitout",
       "label": "Fit-out",
       "category": "Interiér",
@@ -509,6 +499,16 @@
       "sent": 14,
       "pending": 22,
       "pct": 39
+    },
+    {
+      "typ": "senior",
+      "label": "Senior projekty",
+      "category": "Sociální",
+      "subject": "Šetrné stěhování seniorů",
+      "csv": 51,
+      "sent": 30,
+      "pending": 21,
+      "pct": 59
     },
     {
       "typ": "coworking",
@@ -1233,18 +1233,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-06-01",
-      "count": 149
-    },
-    {
-      "date": "2026-06-02",
-      "count": 149
-    },
-    {
-      "date": "2026-06-03",
-      "count": 149
-    },
-    {
       "date": "2026-06-04",
       "count": 0
     },
@@ -1471,13 +1459,22 @@
     {
       "date": "2026-07-30",
       "count": 149
+    },
+    {
+      "date": "2026-07-31",
+      "count": 103
+    },
+    {
+      "date": "2026-08-01",
+      "count": 0
+    },
+    {
+      "date": "2026-08-02",
+      "count": 0
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-07-01",
-      "2026-07-02",
-      "2026-07-03",
       "2026-07-04",
       "2026-07-05",
       "2026-07-06",
@@ -1504,7 +1501,10 @@
       "2026-07-27",
       "2026-07-28",
       "2026-07-29",
-      "2026-07-30"
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-01",
+      "2026-08-02"
     ],
     "series": [
       {
@@ -1580,6 +1580,42 @@
         ]
       },
       {
+        "typ": "preprava",
+        "label": "Přeprava a manipulace",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          64,
+          57,
+          0,
+          0,
+          0,
+          0,
+          0,
+          12,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          50,
+          0,
+          0,
+          0,
+          98,
+          149,
+          33,
+          50,
+          0,
+          0
+        ]
+      },
+      {
         "typ": "interier",
         "label": "Interiéroví designéři",
         "data": [
@@ -1607,48 +1643,12 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
           36,
           0,
+          0,
+          0,
+          0,
           0
-        ]
-      },
-      {
-        "typ": "preprava",
-        "label": "Přeprava a manipulace",
-        "data": [
-          15,
-          87,
-          11,
-          0,
-          0,
-          0,
-          0,
-          0,
-          64,
-          57,
-          0,
-          0,
-          0,
-          0,
-          0,
-          12,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          50,
-          0,
-          0,
-          0,
-          98,
-          149,
-          33
         ]
       },
       {
@@ -1679,10 +1679,10 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
           15,
+          0,
+          0,
+          13,
           0,
           0
         ]
@@ -1693,13 +1693,13 @@
         "data": [
           0,
           0,
-          60,
-          0,
-          0,
           0,
           0,
           150,
           53,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -1728,11 +1728,11 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3759
+      "count": 3766
     },
     {
       "region": "Středočeský kraj",
-      "count": 666
+      "count": 669
     },
     {
       "region": "Prague",
@@ -1791,6 +1791,10 @@
       "count": 50
     },
     {
+      "region": "Česko",
+      "count": 46
+    },
+    {
       "region": "CZ",
       "count": 45
     },
@@ -1801,10 +1805,6 @@
     {
       "region": "Hradec Kralove",
       "count": 37
-    },
-    {
-      "region": "Česko",
-      "count": 35
     }
   ],
   "next_batch": {
@@ -1813,22 +1813,17 @@
       {
         "typ": "hotel",
         "label": "Hotely",
-        "count": 64
+        "count": 93
       },
       {
-        "typ": "preprava",
-        "label": "Přeprava a manipulace",
-        "count": 51
+        "typ": "catering",
+        "label": "Catering",
+        "count": 44
       },
       {
-        "typ": "potraviny",
-        "label": "Potraviny",
-        "count": 18
-      },
-      {
-        "typ": "senior",
-        "label": "Senior projekty",
-        "count": 13
+        "typ": "lahudky",
+        "label": "Lahůdky",
+        "count": 8
       },
       {
         "typ": "realitka",
@@ -1838,6 +1833,11 @@
       {
         "typ": "exekutor",
         "label": "Exekutorské úřady",
+        "count": 1
+      },
+      {
+        "typ": "preprava",
+        "label": "Přeprava a manipulace",
         "count": 1
       },
       {
