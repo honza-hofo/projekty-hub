@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-06 18:28",
+  "updated": "2026-08-06 21:23",
   "summary": {
     "total_sent": 6181,
     "today": 49,
     "campaigns": 3,
-    "responses": 2,
+    "responses": 3,
     "drafts_pending": 32,
     "pool_remaining": 3537
   },
@@ -184,6 +184,12 @@
       "firma": "Amenity Restaurace Blue Lipno",
       "kontakt": "Ing. Petra van Gorp Adamová, Sales & Marketing Manager",
       "chce": "organizace + finance",
+      "stav": "pitch hotový"
+    },
+    {
+      "firma": "Bistro Poke Vibe",
+      "kontakt": "Petr (petr@pokevibe.cz)",
+      "chce": "prezentace / nápady",
       "stav": "pitch hotový"
     }
   ]
