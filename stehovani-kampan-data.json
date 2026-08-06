@@ -1,12 +1,12 @@
 {
-  "updated": "2026-08-02T10:58:49",
+  "updated": "2026-08-06T17:59:54",
   "summary": {
     "total_contacts": 14385,
-    "total_sent": 15276,
-    "pending": 3181,
-    "sent_today": 0,
+    "total_sent": 15377,
+    "pending": 3080,
+    "sent_today": 101,
     "daily_limit": 150,
-    "days_to_finish": 22
+    "days_to_finish": 21
   },
   "bounced": {
     "count": 286,
@@ -123,13 +123,6 @@
       "pct": 44
     },
     {
-      "category": "Reality",
-      "csv": 8087,
-      "sent": 7937,
-      "pending": 150,
-      "pct": 98
-    },
-    {
       "category": "Ostatní",
       "csv": 63,
       "sent": 0,
@@ -142,6 +135,13 @@
       "sent": 289,
       "pending": 49,
       "pct": 86
+    },
+    {
+      "category": "Reality",
+      "csv": 8087,
+      "sent": 8038,
+      "pending": 49,
+      "pct": 99
     },
     {
       "category": "DE Přeprava",
@@ -279,16 +279,6 @@
       "sent": 0,
       "pending": 109,
       "pct": 0
-    },
-    {
-      "typ": "realitka",
-      "label": "Realitní kanceláře",
-      "category": "Reality",
-      "subject": "Spolupráce: Stěhovací služby pro vaše klienty",
-      "csv": 7413,
-      "sent": 7310,
-      "pending": 103,
-      "pct": 99
     },
     {
       "typ": "potraviny",
@@ -639,6 +629,16 @@
       "sent": 0,
       "pending": 3,
       "pct": 0
+    },
+    {
+      "typ": "realitka",
+      "label": "Realitní kanceláře",
+      "category": "Reality",
+      "subject": "Spolupráce: Stěhovací služby pro vaše klienty",
+      "csv": 7413,
+      "sent": 7411,
+      "pending": 2,
+      "pct": 100
     },
     {
       "typ": "výrobce jogurtů / mléčné výrobky",
@@ -1233,22 +1233,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-06-04",
-      "count": 0
-    },
-    {
-      "date": "2026-06-05",
-      "count": 0
-    },
-    {
-      "date": "2026-06-06",
-      "count": 0
-    },
-    {
-      "date": "2026-06-07",
-      "count": 0
-    },
-    {
       "date": "2026-06-08",
       "count": 299
     },
@@ -1471,14 +1455,26 @@
     {
       "date": "2026-08-02",
       "count": 0
+    },
+    {
+      "date": "2026-08-03",
+      "count": 0
+    },
+    {
+      "date": "2026-08-04",
+      "count": 0
+    },
+    {
+      "date": "2026-08-05",
+      "count": 0
+    },
+    {
+      "date": "2026-08-06",
+      "count": 101
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-07-04",
-      "2026-07-05",
-      "2026-07-06",
-      "2026-07-07",
       "2026-07-08",
       "2026-07-09",
       "2026-07-10",
@@ -1504,7 +1500,11 @@
       "2026-07-30",
       "2026-07-31",
       "2026-08-01",
-      "2026-08-02"
+      "2026-08-02",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
     ],
     "series": [
       {
@@ -1540,7 +1540,7 @@
           0,
           0,
           0,
-          0
+          101
         ]
       },
       {
@@ -1584,10 +1584,6 @@
         "label": "Přeprava a manipulace",
         "data": [
           0,
-          0,
-          0,
-          0,
-          0,
           64,
           57,
           0,
@@ -1611,6 +1607,10 @@
           149,
           33,
           50,
+          0,
+          0,
+          0,
+          0,
           0,
           0
         ]
@@ -1639,11 +1639,11 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
           36,
+          0,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -1675,14 +1675,14 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
           15,
           0,
           0,
           13,
+          0,
+          0,
+          0,
+          0,
           0,
           0
         ]
@@ -1691,12 +1691,12 @@
         "typ": "event",
         "label": "Event agentury",
         "data": [
-          0,
-          0,
-          0,
-          0,
           150,
           53,
+          0,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -1728,7 +1728,7 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3766
+      "count": 3767
     },
     {
       "region": "Středočeský kraj",
@@ -1784,7 +1784,7 @@
     },
     {
       "region": "Pardubice",
-      "count": 55
+      "count": 57
     },
     {
       "region": "Pardubický",
@@ -1804,7 +1804,7 @@
     },
     {
       "region": "Hradec Kralove",
-      "count": 37
+      "count": 41
     }
   ],
   "next_batch": {
