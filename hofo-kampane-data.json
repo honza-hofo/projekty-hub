@@ -1,0 +1,190 @@
+{
+  "updated": "2026-08-06 18:28",
+  "summary": {
+    "total_sent": 6181,
+    "today": 49,
+    "campaigns": 3,
+    "responses": 2,
+    "drafts_pending": 32,
+    "pool_remaining": 3537
+  },
+  "campaigns": [
+    {
+      "name": "Gastro — studený outreach",
+      "sent": 172,
+      "today": 49,
+      "period": "5.–6. 8. 2026",
+      "status": "aktivní",
+      "detail": "restaurace, personalizované AI drafty"
+    },
+    {
+      "name": "Outreach bot — video produkce",
+      "sent": 6004,
+      "today": 0,
+      "period": "2026-04-15 – 2026-06-25",
+      "status": "pauza",
+      "detail": "10 162 kontaktů, SMTP bot"
+    },
+    {
+      "name": "Hofo Obchod — multi-agent",
+      "sent": 5,
+      "today": 0,
+      "period": "3. 8. 2026",
+      "status": "drafty čekají",
+      "detail": "12 draftů ke schválení"
+    },
+    {
+      "name": "Gmail — „Hofo produkce - nový kontakt“",
+      "sent": "stovky",
+      "today": 0,
+      "period": "1. a 15. 7. 2026",
+      "status": "mimo lokální log",
+      "detail": "ručně z Gmailu, přesný počet jen v odeslané poště"
+    },
+    {
+      "name": "Newsletter (Lead Finder / Render)",
+      "sent": "1097 kontaktů",
+      "today": 0,
+      "period": "živě na Renderu",
+      "status": "nečitelné odsud",
+      "detail": "hofo-lead-finder.onrender.com, chráněné loginem"
+    }
+  ],
+  "daily_history": [
+    {
+      "date": "2026-04-15",
+      "count": 300
+    },
+    {
+      "date": "2026-04-16",
+      "count": 300
+    },
+    {
+      "date": "2026-04-17",
+      "count": 300
+    },
+    {
+      "date": "2026-04-20",
+      "count": 149
+    },
+    {
+      "date": "2026-04-21",
+      "count": 155
+    },
+    {
+      "date": "2026-04-24",
+      "count": 600
+    },
+    {
+      "date": "2026-04-27",
+      "count": 20
+    },
+    {
+      "date": "2026-04-28",
+      "count": 121
+    },
+    {
+      "date": "2026-04-29",
+      "count": 142
+    },
+    {
+      "date": "2026-05-03",
+      "count": 92
+    },
+    {
+      "date": "2026-05-04",
+      "count": 600
+    },
+    {
+      "date": "2026-05-05",
+      "count": 36
+    },
+    {
+      "date": "2026-05-12",
+      "count": 600
+    },
+    {
+      "date": "2026-05-13",
+      "count": 209
+    },
+    {
+      "date": "2026-05-22",
+      "count": 29
+    },
+    {
+      "date": "2026-05-28",
+      "count": 121
+    },
+    {
+      "date": "2026-06-01",
+      "count": 600
+    },
+    {
+      "date": "2026-06-02",
+      "count": 600
+    },
+    {
+      "date": "2026-06-16",
+      "count": 76
+    },
+    {
+      "date": "2026-06-17",
+      "count": 527
+    },
+    {
+      "date": "2026-06-19",
+      "count": 40
+    },
+    {
+      "date": "2026-06-23",
+      "count": 106
+    },
+    {
+      "date": "2026-06-24",
+      "count": 66
+    },
+    {
+      "date": "2026-06-25",
+      "count": 215
+    },
+    {
+      "date": "2026-08-05",
+      "count": 123
+    },
+    {
+      "date": "2026-08-06",
+      "count": 49
+    }
+  ],
+  "gastro": {
+    "sent": 172,
+    "queue": 20,
+    "vip": 6,
+    "bad_email": 5,
+    "by_day": [
+      {
+        "date": "2026-08-05",
+        "count": 123
+      },
+      {
+        "date": "2026-08-06",
+        "count": 49
+      }
+    ],
+    "pool_remaining": 3537
+  },
+  "responses": [
+    {
+      "firma": "Allure Hotel & Residence (bar B21)",
+      "kontakt": "Veronika Dalekorejová, Director of Sales & Marketing",
+      "chce": "cenová nabídka",
+      "stav": "pitch hotový"
+    },
+    {
+      "firma": "Amenity Restaurace Blue Lipno",
+      "kontakt": "Ing. Petra van Gorp Adamová, Sales & Marketing Manager",
+      "chce": "organizace + finance",
+      "stav": "pitch hotový"
+    }
+  ]
+}
