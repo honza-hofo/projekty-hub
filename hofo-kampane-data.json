@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-06 21:23",
+  "updated": "2026-08-07 10:00",
   "summary": {
     "total_sent": 6181,
-    "today": 49,
+    "today": 0,
     "campaigns": 3,
     "responses": 3,
     "drafts_pending": 32,
@@ -12,7 +12,7 @@
     {
       "name": "Gastro — studený outreach",
       "sent": 172,
-      "today": 49,
+      "today": 0,
       "period": "5.–6. 8. 2026",
       "status": "aktivní",
       "detail": "restaurace, personalizované AI drafty"
@@ -178,19 +178,19 @@
       "firma": "Allure Hotel & Residence (bar B21)",
       "kontakt": "Veronika Dalekorejová, Director of Sales & Marketing",
       "chce": "cenová nabídka",
-      "stav": "pitch hotový"
+      "stav": "nabídka odeslána 7.8."
     },
     {
       "firma": "Amenity Restaurace Blue Lipno",
       "kontakt": "Ing. Petra van Gorp Adamová, Sales & Marketing Manager",
       "chce": "organizace + finance",
-      "stav": "pitch hotový"
+      "stav": "nabídka odeslána 7.8."
     },
     {
       "firma": "Bistro Poke Vibe",
       "kontakt": "Petr (petr@pokevibe.cz)",
       "chce": "prezentace / nápady",
-      "stav": "pitch hotový"
+      "stav": "nabídka odeslána 7.8."
     }
   ]
 }
