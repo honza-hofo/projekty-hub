@@ -1,17 +1,17 @@
 {
-  "updated": "2026-08-07 13:49",
+  "updated": "2026-08-10 12:17",
   "summary": {
-    "total_sent": 6263,
-    "today": 82,
+    "total_sent": 6345,
+    "today": 38,
     "campaigns": 4,
-    "responses": 3,
-    "drafts_pending": 32,
-    "pool_remaining": 3537
+    "responses": 4,
+    "drafts_pending": 37,
+    "pool_remaining": 3485
   },
   "campaigns": [
     {
       "name": "Gastro — studený outreach",
-      "sent": 172,
+      "sent": 216,
       "today": 0,
       "period": "5.–6. 8. 2026",
       "status": "aktivní",
@@ -19,8 +19,8 @@
     },
     {
       "name": "Kliniky — studený outreach",
-      "sent": 82,
-      "today": 82,
+      "sent": 120,
+      "today": 38,
       "period": "7. 8. 2026",
       "status": "aktivní",
       "detail": "estetika, zubní, plastika, oční (bez veteriny)"
@@ -165,12 +165,20 @@
     },
     {
       "date": "2026-08-07",
-      "count": 82
+      "count": 120
+    },
+    {
+      "date": "2026-08-08",
+      "count": 6
+    },
+    {
+      "date": "2026-08-10",
+      "count": 38
     }
   ],
   "gastro": {
-    "sent": 172,
-    "queue": 20,
+    "sent": 216,
+    "queue": 25,
     "vip": 6,
     "bad_email": 5,
     "by_day": [
@@ -181,9 +189,17 @@
       {
         "date": "2026-08-06",
         "count": 49
+      },
+      {
+        "date": "2026-08-07",
+        "count": 38
+      },
+      {
+        "date": "2026-08-08",
+        "count": 6
       }
     ],
-    "pool_remaining": 3537
+    "pool_remaining": 3485
   },
   "responses": [
     {
@@ -203,6 +219,12 @@
       "kontakt": "Petr (petr@pokevibe.cz)",
       "chce": "prezentace / nápady",
       "stav": "nabídka odeslána 7.8."
+    },
+    {
+      "firma": "Centrum jednodenní chirurgie",
+      "kontakt": "info@1chirurgie.cz",
+      "chce": "cenová nabídka",
+      "stav": "nabídka odeslána 10.8."
     }
   ]
 }
