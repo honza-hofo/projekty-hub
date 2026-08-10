@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-10 12:17",
+  "updated": "2026-08-10 20:41",
   "summary": {
-    "total_sent": 6345,
-    "today": 38,
+    "total_sent": 6386,
+    "today": 79,
     "campaigns": 4,
     "responses": 4,
     "drafts_pending": 37,
@@ -19,8 +19,8 @@
     },
     {
       "name": "Kliniky — studený outreach",
-      "sent": 120,
-      "today": 38,
+      "sent": 161,
+      "today": 79,
       "period": "7. 8. 2026",
       "status": "aktivní",
       "detail": "estetika, zubní, plastika, oční (bez veteriny)"
@@ -173,7 +173,7 @@
     },
     {
       "date": "2026-08-10",
-      "count": 38
+      "count": 79
     }
   ],
   "gastro": {
