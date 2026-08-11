@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-11 11:35",
+  "updated": "2026-08-11 14:39",
   "summary": {
     "total_sent": 6581,
     "today": 155,
     "campaigns": 6,
-    "responses": 4,
+    "responses": 6,
     "drafts_pending": 37,
     "pool_remaining": 3485
   },
@@ -245,6 +245,18 @@
       "kontakt": "info@1chirurgie.cz",
       "chce": "cenová nabídka",
       "stav": "nabídka odeslána 10.8."
+    },
+    {
+      "firma": "Bead Store s.r.o. (korálky)",
+      "kontakt": "Josef Duňka, sales@beadstorecz.com",
+      "chce": "nápady na video (odpověď „ok“)",
+      "stav": "prezentace odeslána 11.8."
+    },
+    {
+      "firma": "Aldrov Resort (Krkonoše)",
+      "kontakt": "PhDr. Michal Sroka → Adéla Stárková",
+      "chce": "nasměroval na kolegyni",
+      "stav": "poděkováno 11.8., kontaktovat A. Stárkovou"
     }
   ]
 }
