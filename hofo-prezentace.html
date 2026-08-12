@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOFO — Odeslané prezentace</title>
+<style>
+  :root { --bg:#0f1115; --card:#181b22; --line:#2a2f3a; --txt:#e6e6e6; --mut:#8891a0; --acc:#57d6c9; --ok:#3ecf8e; --wait:#f0ب; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); padding:24px 16px; max-width:1100px; margin:0 auto; }
+  header { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px; margin-bottom:6px; }
+  h1 { font-size:22px; font-weight:800; letter-spacing:-.3px; }
+  h1 .acc { color:var(--acc); }
+  .sub { color:var(--mut); font-size:13px; margin-bottom:18px; }
+  .stats { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 16px; }
+  .stat b { font-size:20px; display:block; }
+  .stat span { color:var(--mut); font-size:12px; }
+  .wrap { overflow-x:auto; border:1px solid var(--line); border-radius:12px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; min-width:760px; }
+  th { text-align:left; padding:11px 14px; background:#20242e; color:var(--mut); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.5px; position:sticky; top:0; }
+  td { padding:12px 14px; border-top:1px solid var(--line); vertical-align:top; }
+  tr:hover td { background:#1c2029; }
+  .firma { font-weight:700; }
+  .kontakt { color:#cdd6de; }
+  .funkce { color:var(--mut); font-size:12px; }
+  a { color:var(--acc); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .badge { display:inline-block; padding:3px 9px; border-radius:20px; font-size:11px; font-weight:700; }
+  .b-ok { background:rgba(62,207,142,.15); color:#3ecf8e; }
+  .b-wait { background:rgba(240,180,60,.15); color:#f0b43c; }
+  .b-hot { background:rgba(255,90,60,.18); color:#ff6f52; }
+  .b-dead { background:rgba(140,150,160,.15); color:#8891a0; }
+  .pozn { color:var(--mut); font-size:12px; max-width:260px; }
+  .muted { color:var(--mut); }
+  footer { color:var(--mut); font-size:12px; margin-top:16px; text-align:center; }
+  .dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--ok); margin-right:6px; animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>🎬 HOFO <span class="acc">Leady & prezentace</span></h1>
+  </div>
+  <div class="sub" id="updated"><span class="dot"></span>načítám…</div>
+</header>
+<div class="sub">Kdo má zájem, komu šla prezentace, kdy, a kontakt na proklik. Horké leady jsou nahoře, ať se dá hned ozvat a doladit zakázku.</div>
+
+<div class="stats" id="stats"></div>
+
+<div class="wrap">
+  <table>
+    <thead><tr>
+      <th>Firma</th><th>Kontakt</th><th>Kontakt na proklik</th><th>Odesláno</th><th>Předmět</th><th>Stav</th><th>Poznámka</th>
+    </tr></thead>
+    <tbody id="rows"><tr><td colspan="7" class="muted">Načítám data…</td></tr></tbody>
+  </table>
+</div>
+
+<footer id="foot"></footer>
+
+<script>
+const MONTHS = ["led","úno","bře","dub","kvě","čvn","čvc","srp","zář","říj","lis","pro"];
+function fmtDate(s){ if(!s) return "—"; const d=new Date(s+"T00:00:00"); return d.getDate()+". "+MONTHS[d.getMonth()]+" "+d.getFullYear(); }
+function esc(s){ return (s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+
+async function load(){
+  try {
+    const r = await fetch("hofo-prezentace-data.json?t="+Date.now());
+    const data = await r.json();
+    const items = data.items || [];
+    const ORDER = { horky:0, pripraveno:1, odeslano:2, odmitnuto:3 };
+    const BADGE = {
+      horky:      ['b-hot','🔥 má zájem'],
+      pripraveno: ['b-wait','připraveno'],
+      odeslano:   ['b-ok','odesláno'],
+      odmitnuto:  ['b-dead','odmítnuto'],
+    };
+    // řazení: horké nahoře, pak dle stavu, uvnitř nejnovější
+    items.sort((a,b)=> (ORDER[a.stav]??9)-(ORDER[b.stav]??9) || (b.datum||"").localeCompare(a.datum||""));
+
+    const c = s => items.filter(i=>i.stav===s).length;
+    document.getElementById("stats").innerHTML =
+      `<div class="stat"><b>${c('horky')}</b><span>🔥 má zájem</span></div>`+
+      `<div class="stat"><b>${c('odeslano')}</b><span>odesláno</span></div>`+
+      `<div class="stat"><b>${c('pripraveno')}</b><span>připraveno</span></div>`+
+      `<div class="stat"><b>${c('odmitnuto')}</b><span>odmítnuto</span></div>`;
+
+    document.getElementById("rows").innerHTML = items.map(i=>{
+      const mail = i.email ? `<a href="mailto:${esc(i.email)}">${esc(i.email)}</a>` : "";
+      const tel = i.telefon ? `<a href="tel:${esc(i.telefon).replace(/\\s/g,'')}">${esc(i.telefon)}</a>` : "";
+      const kontaktLink = [mail, tel].filter(Boolean).join("<br>") || '<span class="muted">—</span>';
+      const bd = BADGE[i.stav] || ['b-wait', esc(i.stav)];
+      const badge = `<span class="badge ${bd[0]}">${bd[1]}</span>`;
+      const funkce = i.funkce ? `<div class="funkce">${esc(i.funkce)}</div>` : "";
+      return `<tr>
+        <td class="firma">${esc(i.firma)}</td>
+        <td class="kontakt">${esc(i.kontakt)||'<span class="muted">—</span>'}${funkce}</td>
+        <td>${kontaktLink}</td>
+        <td>${fmtDate(i.datum)}</td>
+        <td>${esc(i.predmet)}</td>
+        <td>${badge}</td>
+        <td class="pozn">${esc(i.poznamka)}</td>
+      </tr>`;
+    }).join("");
+
+    document.getElementById("updated").innerHTML = '<span class="dot"></span>Aktualizováno '+(data.updated||"");
+    document.getElementById("foot").textContent = "Automaticky se obnovuje každou minutu · HOFO Production";
+  } catch(e){
+    document.getElementById("rows").innerHTML = '<tr><td colspan="7" class="muted">Data se zatím nenačetla (obnov za chvíli).</td></tr>';
+  }
+}
+load();
+setInterval(load, 60000);
+</script>
+</body>
+</html>
