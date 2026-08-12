@@ -52,9 +52,9 @@
 <div class="wrap">
   <table>
     <thead><tr>
-      <th>Firma</th><th>Kontakt</th><th>Kontakt na proklik</th><th>Odesláno</th><th>Předmět</th><th>Stav</th><th>Poznámka</th>
+      <th>Firma</th><th>Kontakt</th><th>Kontakt na proklik</th><th>Prezentace</th><th>Odesláno</th><th>Předmět</th><th>Stav</th><th>Poznámka</th>
     </tr></thead>
-    <tbody id="rows"><tr><td colspan="7" class="muted">Načítám data…</td></tr></tbody>
+    <tbody id="rows"><tr><td colspan="8" class="muted">Načítám data…</td></tr></tbody>
   </table>
 </div>
 
@@ -93,11 +93,15 @@ async function load(){
       const kontaktLink = [mail, tel].filter(Boolean).join("<br>") || '<span class="muted">—</span>';
       const bd = BADGE[i.stav] || ['b-wait', esc(i.stav)];
       const badge = `<span class="badge ${bd[0]}">${bd[1]}</span>`;
+      const prez = i.pdf
+        ? '<span class="badge b-ok">📄 posláno</span>'
+        : (i.stav==='odmitnuto' ? '<span class="muted">—</span>' : '<span class="muted">jen nabídka</span>');
       const funkce = i.funkce ? `<div class="funkce">${esc(i.funkce)}</div>` : "";
       return `<tr>
         <td class="firma">${esc(i.firma)}</td>
         <td class="kontakt">${esc(i.kontakt)||'<span class="muted">—</span>'}${funkce}</td>
         <td>${kontaktLink}</td>
+        <td>${prez}</td>
         <td>${fmtDate(i.datum)}</td>
         <td>${esc(i.predmet)}</td>
         <td>${badge}</td>
@@ -108,7 +112,7 @@ async function load(){
     document.getElementById("updated").innerHTML = '<span class="dot"></span>Aktualizováno '+(data.updated||"");
     document.getElementById("foot").textContent = "Automaticky se obnovuje každou minutu · HOFO Production";
   } catch(e){
-    document.getElementById("rows").innerHTML = '<tr><td colspan="7" class="muted">Data se zatím nenačetla (obnov za chvíli).</td></tr>';
+    document.getElementById("rows").innerHTML = '<tr><td colspan="8" class="muted">Data se zatím nenačetla (obnov za chvíli).</td></tr>';
   }
 }
 load();
