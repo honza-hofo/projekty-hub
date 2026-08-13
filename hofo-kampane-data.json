@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11 14:39",
+  "updated": "2026-08-13 09:43",
   "summary": {
-    "total_sent": 6581,
-    "today": 155,
+    "total_sent": 6761,
+    "today": 93,
     "campaigns": 6,
     "responses": 6,
     "drafts_pending": 37,
@@ -20,7 +20,7 @@
     {
       "name": "Kliniky — studený outreach",
       "sent": 198,
-      "today": 37,
+      "today": 0,
       "period": "7. 8. 2026",
       "status": "aktivní",
       "detail": "estetika, zubní, plastika, oční (bez veteriny)"
@@ -28,15 +28,15 @@
     {
       "name": "Hotely — studený outreach",
       "sent": 76,
-      "today": 76,
+      "today": 0,
       "period": "11. 8. 2026",
       "status": "aktivní",
       "detail": "hotely + Apollo verified maily na ředitele"
     },
     {
       "name": "E-shopy — studený outreach",
-      "sent": 82,
-      "today": 42,
+      "sent": 132,
+      "today": 50,
       "period": "10.–11. 8. 2026",
       "status": "aktivní",
       "detail": "produktová videa, reels, unboxing"
@@ -194,6 +194,14 @@
     {
       "date": "2026-08-11",
       "count": 155
+    },
+    {
+      "date": "2026-08-12",
+      "count": 87
+    },
+    {
+      "date": "2026-08-13",
+      "count": 93
     }
   ],
   "gastro": {
