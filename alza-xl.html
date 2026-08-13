@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alza XL — informace pro dopravce</title>
+<meta name="description" content="Linka XL Alza — rozvoz velkých spotřebičů. Informace pro poptávaného dopravce.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1857C4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%A6%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<style>
+  :root{
+    --bg:#F4F6F9; --panel:#FFFFFF; --raise:#EEF1F6; --ink:#161C24; --ink-dim:#4E5A68;
+    --ink-faint:#8593A2; --line:#DCE2EA; --line-soft:#E8ECF2;
+    --accent:#1857C4; --accent-soft:#E4ECFA; --accent-ink:#0E3C8C;
+    --money:#127A54; --money-soft:#E0F1E9; --warn:#B4560E; --warn-soft:#FBEBDD;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --bg:#11151B; --panel:#171D25; --raise:#1E2530; --ink:#EAEEF3; --ink-dim:#A7B2BF;
+    --ink-faint:#6E7B8A; --line:#28303B; --line-soft:#212832;
+    --accent:#5B93F2; --accent-soft:#17243B; --accent-ink:#9CC0FA;
+    --money:#4FC08A; --money-soft:#13271F; --warn:#E39152; --warn-soft:#2A1E12;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#11151B; --panel:#171D25; --raise:#1E2530; --ink:#EAEEF3; --ink-dim:#A7B2BF;
+    --ink-faint:#6E7B8A; --line:#28303B; --line-soft:#212832;
+    --accent:#5B93F2; --accent-soft:#17243B; --accent-ink:#9CC0FA;
+    --money:#4FC08A; --money-soft:#13271F; --warn:#E39152; --warn-soft:#2A1E12;
+  }
+  :root[data-theme="light"]{
+    --bg:#F4F6F9; --panel:#FFFFFF; --raise:#EEF1F6; --ink:#161C24; --ink-dim:#4E5A68;
+    --ink-faint:#8593A2; --line:#DCE2EA; --line-soft:#E8ECF2;
+    --accent:#1857C4; --accent-soft:#E4ECFA; --accent-ink:#0E3C8C;
+    --money:#127A54; --money-soft:#E0F1E9; --warn:#B4560E; --warn-soft:#FBEBDD;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.1;letter-spacing:-.02em;font-weight:800;text-wrap:balance}
+  h1{font-size:clamp(2rem,5vw,3.2rem)}
+  h2{font-size:clamp(1.45rem,3vw,2rem);letter-spacing:-.025em}
+  h3{font-size:1.05rem}
+  p{color:var(--ink-dim)}
+  strong{color:var(--ink);font-weight:700}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+
+  header.hero{background:var(--panel);border-bottom:1px solid var(--line);padding:54px 0 42px}
+  .hero .eyebrow{margin-bottom:14px}
+  .hero p.lead{max-width:600px;margin-top:16px;font-size:1.1rem}
+  .hero .tag{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--ink-faint);border:1px solid var(--line);border-radius:20px;padding:5px 12px;margin-top:22px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+  .stat{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .stat .n{font-size:1.6rem;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+  .stat .l{font-family:var(--mono);font-size:.63rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px;line-height:1.35}
+
+  section{padding:48px 0;border-top:1px solid var(--line-soft)}
+  .sec-head{margin-bottom:24px}
+  .sec-head .eyebrow{display:block;margin-bottom:10px}
+  .sec-head p{margin-top:8px;max-width:640px}
+
+  .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:460px}
+  caption{text-align:left;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);padding:14px 18px 0;font-weight:600}
+  th{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:left;font-weight:600;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--raise)}
+  td{padding:12px 18px;border-bottom:1px solid var(--line-soft);color:var(--ink-dim);vertical-align:top}
+  tbody tr:last-child td{border-bottom:0}
+  td.key{color:var(--ink);font-weight:600;white-space:nowrap;width:32%}
+  td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap;text-align:right}
+  .price td.num{color:var(--money);font-weight:700}
+  .stack{margin-top:16px}
+
+  .levels{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .level{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--panel)}
+  .level.pro{border-color:var(--accent);background:linear-gradient(180deg,var(--accent-soft),transparent)}
+  .level .badge{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:4px;background:var(--raise);color:var(--ink-dim)}
+  .level.pro .badge{background:var(--accent);color:#fff}
+  .level h3{margin:12px 0 8px}
+  .level p{font-size:.9rem}
+
+  /* denní timeline */
+  .day{display:flex;flex-direction:column;gap:2px}
+  .slot{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid var(--line-soft)}
+  .slot:last-child{border-bottom:0}
+  .slot .t{font-family:var(--mono);font-size:.78rem;color:var(--accent);min-width:96px;font-weight:600;padding-top:2px}
+  .slot p{font-size:.94rem}
+  .slot p b{color:var(--ink)}
+
+  .parts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .part{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .part .no{font-family:var(--mono);font-weight:700;color:var(--accent);font-size:.78rem}
+  .part h3{margin:8px 0;font-size:1rem}
+  .part p{font-size:.85rem}
+  .part .hl{display:inline-block;margin-top:12px;background:var(--accent-soft);color:var(--accent-ink);font-family:var(--mono);font-size:.7rem;padding:6px 10px;border-radius:6px;font-weight:600;line-height:1.4}
+
+  .note{border-left:3px solid var(--warn);background:var(--warn-soft);border-radius:0 8px 8px 0;padding:14px 18px;margin-top:16px;font-size:.9rem;color:var(--ink)}
+  .note b{color:var(--warn)}
+  .verify{background:var(--warn-soft);border:1px solid var(--warn);border-radius:12px;padding:22px 24px}
+  .verify h3{color:var(--warn);margin-bottom:12px}
+  .verify ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .verify ul li{padding-left:22px;position:relative;font-size:.92rem;color:var(--ink-dim)}
+  .verify ul li::before{content:"?";position:absolute;left:0;top:0;color:var(--warn);font-weight:800;font-family:var(--mono)}
+  .verify ul li b{color:var(--ink)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+
+  footer{background:var(--panel);border-top:1px solid var(--line);padding:34px 0}
+  footer .f{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase}
+  footer b{color:var(--accent)}
+
+  @media (max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.levels,.parts,.two{grid-template-columns:1fr}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Informace pro dopravce · Alza — linka XL</span>
+    <h1>XL — doručení velkých spotřebičů na adresu</h1>
+    <p class="lead">Hledáme dopravce pro linku XL — rozvoz velkých spotřebičů (lednice, pračky, sušičky) na adresu vč.&nbsp;instalace a&nbsp;odvozu starého kusu. Posádka řidič&nbsp;+&nbsp;závozník, jen Praha a&nbsp;Středočeský kraj. Níže je, co spolupráce obnáší.</p>
+    <span class="tag">Poptávka spolupráce · srpen 2026</span>
+    <div class="stats">
+      <div class="stat"><div class="n">20–24</div><div class="l">zakázek / zastávek<br>na trasu</div></div>
+      <div class="stat"><div class="n">~350</div><div class="l">km / den<br>průměrný nájezd</div></div>
+      <div class="stat"><div class="n">~97 kg</div><div class="l">průměr<br>jedné zásilky</div></div>
+      <div class="stat"><div class="n">450 Kč</div><div class="l">základní cena<br>za doručenou zakázku</div></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">01 · Provoz</span><h2>Jak linka funguje</h2></div>
+    <div class="tbl-scroll">
+      <table>
+        <tbody>
+          <tr><td class="key">Zboží</td><td>Velké spotřebiče — lednice, pračky, sušičky. Katalog smluvních produktů. Průměr zásilky ~97 kg.</td></tr>
+          <tr><td class="key">Zastávek / zakázek</td><td>20–24 na trasu.</td></tr>
+          <tr><td class="key">Nájezd</td><td>Průměr 350 km / den.</td></tr>
+          <tr><td class="key">Posádka</td><td>Řidič + závozník.</td></tr>
+          <tr><td class="key">Směny</td><td>Až do večera, poslední hodina do 20:00. Krátký / dlouhý týden, jezdí se 7 dní v týdnu.</td></tr>
+          <tr><td class="key">Pracovní doba</td><td>Cca 10–12 h denně.</td></tr>
+          <tr><td class="key">Dispečink</td><td>Dispečeři z Úžic — telefonicky. Plánování dělá Alza (Praha). Řidič má aplikaci, podle které jezdí — <strong>nutný Android; telefon se SIM kartou dodáme</strong>.</td></tr>
+          <tr><td class="key">Komunikace</td><td>WhatsApp skupina, kde se vše řeší.</td></tr>
+          <tr><td class="key">Kvalita</td><td>Alza hlídá kvalitu doručení — trénuje se doručení „do slotu".</td></tr>
+          <tr><td class="key">Region</td><td>Pouze Praha a Středočeský kraj.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">02 · Den řidiče</span><h2>Nakládka a průběh dne</h2>
+      <p>XL Praha — jezdí se buď jedno, nebo dvě kolečka denně (možnost nakládat vícekrát za den).</p></div>
+    <div class="day">
+      <div class="slot"><div class="t">05:00–22:00</div><p><b>Depo otevřené.</b> Sběrný dvůr už není v depu, ale je po cestě. Při večerním příjezdu se skládá až ráno.</p></div>
+      <div class="slot"><div class="t">06:00–08:00</div><p><b>Nakládka ráno na depu.</b> Na skladě je ve frontách nachystané zboží pro danou trasu — řidič vezme čtečku, dostane papíry, zkontroluje a nakládá. <b>Na naložení má řidič 30 min.</b></p></div>
+      <div class="slot"><div class="t">dopoledne</div><p><b>1. kolečko</b> — rozvoz zakázek, sběr vratek / starých spotřebičů.</p></div>
+      <div class="slot"><div class="t">12:00–13:00</div><p><b>Druhá nakládka</b> pro 2. kolečko.</p></div>
+      <div class="slot"><div class="t">do 20:00</div><p><b>Poslední doručovací hodina.</b></p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">03 · Rozsah služby</span><h2>Úrovně doručení &amp; odvoz starých</h2></div>
+    <div class="levels">
+      <div class="level"><span class="badge">Basic</span><h3>Za první dveře</h3><p>Doručení za první uzamykatelné dveře. Bez instalace.</p></div>
+      <div class="level pro"><span class="badge">Complete</span><h3>Doručení + základní připojení</h3><p>Doručení a základní připojení — napojení na vodu apod. <strong>Bez instalace vestavěného spotřebiče</strong>; vestavby a montáže jsou samostatná placená zakázka (viz ceník). <strong>Slot na vyložení: 20–30 min.</strong></p></div>
+    </div>
+    <div class="note"><b>Odvoz starých spotřebičů</b> — součást služby. Starý kus se veze zpět na depo nebo do sběrného dvora; v ulicích jsou přímo kontejnery.</div>
+    <div class="note" style="border-color:var(--accent);background:var(--accent-soft)"><b style="color:var(--accent-ink)">Nadrozměr / náklaďák (Úžice)</b> — pro největší kusy. Nakládka 6:00–8:30 (na nakládku 30 min), každý den jiná trasa. Nutné čelo (čelní plošina), možnost zapůjčit schodolez. <em>„Sarine" — větší produkty, vnitřní výška vozu 220 cm.</em></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">04 · Ceník</span><h2>Ceník zakázek</h2>
+      <p>Základní cena za doručení + samostatné sazby za instalační (vestavbové) zakázky, které nejsou součástí Complete.</p></div>
+    <div class="tbl-scroll price">
+      <table><caption>Doručení (Basic / Complete)</caption>
+        <thead><tr><th>Položka</th><th style="text-align:right">Cena</th></tr></thead>
+        <tbody>
+          <tr><td>Doručená zakázka (spotřebič)</td><td class="num">450 Kč</td></tr>
+          <tr><td>Bonus „komplet" 101–149 kg</td><td class="num">+250 Kč</td></tr>
+          <tr><td>Bonus: 4+ balíky a zásilka nad 150 kg</td><td class="num">460 Kč</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-scroll price stack">
+      <table><caption>Instalační / vestavbová zakázka — samostatně (mimo Complete)</caption>
+        <thead><tr><th>Položka</th><th style="text-align:right">Cena</th></tr></thead>
+        <tbody>
+          <tr><td>Vestavěný spotřebič — 1 ks</td><td class="num">950 Kč</td></tr>
+          <tr><td>Vestavěný spotřebič — 2 ks (u téže zakázky)</td><td class="num">1 700 Kč</td></tr>
+          <tr><td>Vestavěný spotřebič — 3 ks (u téže zakázky)</td><td class="num">2 200 Kč</td></tr>
+          <tr><td>Instalace sporáku</td><td class="num">980 Kč</td></tr>
+          <tr><td>TV na zeď</td><td class="num">950 Kč</td></tr>
+          <tr><td>Montáž stolu AlzaEnergo</td><td class="num">980 Kč</td></tr>
+          <tr><td>Robotická sekačka</td><td class="num">2 500 Kč</td></tr>
+          <tr><td>Otočení dveří u lednice</td><td class="num">280 Kč</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><b>K upřesnění:</b> položka „balík od 150 kg / 450 kg" z poznámek — přesná sazba i hmotnostní hranice zatím nejasné.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">05 · Kapacita &amp; smlouva</span><h2>Auta, posádky, podmínky</h2></div>
+    <div class="two">
+      <div class="tbl-scroll">
+        <table><caption>Kapacita &amp; vozový park</caption>
+          <tbody>
+            <tr><td class="key">Posádky (Praha)</td><td>Teď stačí 3 posádky.</td></tr>
+            <tr><td class="key">Vzhled aut</td><td>Preferují bílá, bez polepu na dveřích. Logo přepravce nevadí.</td></tr>
+            <tr><td class="key">Stav aut</td><td>Formální směrnice není, ale nechtějí vraky.</td></tr>
+            <tr><td class="key">GPS</td><td>GPS se nesdílí.</td></tr>
+            <tr><td class="key">Školení</td><td>V Praze, pro skupinu najednou. Není placené.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tbl-scroll">
+        <table><caption>Smlouva</caption>
+          <tbody>
+            <tr><td class="key">Typ</td><td>Rámcová smlouva na dobu neurčitou.</td></tr>
+            <tr><td class="key">Výpověď</td><td>Ze strany dopravce 6 měsíců.</td></tr>
+            <tr><td class="key">Sankce</td><td>Škodní faktura (splatnost 30 dní), následně zápočet.</td></tr>
+            <tr><td class="key">Start</td><td>Cca 1–2 měsíce po podpisu.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tbl-scroll stack" style="margin-top:24px">
+      <table><caption style="color:var(--warn)">Pokuty (sankce)</caption>
+        <thead><tr><th>Prohřešek</th><th style="text-align:right">Sazba</th></tr></thead>
+        <tbody>
+          <tr><td>Nepřistavení vozu</td><td class="num" style="color:var(--warn)">20 000 Kč</td></tr>
+          <tr><td>Zpoždění</td><td class="num" style="color:var(--warn)">5 000 Kč / každou hodinu</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">06 · K dojednání</span><h2>Otevřené body</h2>
+      <p>Co doladíme při jednání o spolupráci.</p></div>
+    <div class="verify">
+      <h3>K upřesnění</h3>
+      <ul>
+        <li><b>Počet aut / posádek</b> — pro Prahu teď stačí 3 posádky; cílový stav a případný růst linky upřesníme.</li>
+        <li><b>Nadrozměr / náklaďák (Úžice)</b> — způsob ocenění této části.</li>
+        <li><b>Zásilky nad 150 kg</b> — přesná sazba a hmotnostní hranice v ceníku.</li>
+        <li><b>Sklady</b> — potřeba případné skladové plochy a kdo ji zajišťuje.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><div class="f">
+    <div>Alza · Linka XL — informace pro dopravce</div>
+    <div>Připravil <b>HOFO</b> · srpen 2026</div>
+  </div></div>
+</footer>
+
+<script>
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const els=document.querySelectorAll('section, .part, .level, .slot');
+    els.forEach(e=>{e.style.opacity=0;e.style.transform='translateY(9px)';e.style.transition='opacity .45s ease, transform .45s ease'});
+    const io=new IntersectionObserver((en)=>{en.forEach(x=>{if(x.isIntersecting){x.target.style.opacity=1;x.target.style.transform='none';io.unobserve(x.target)}})},{threshold:.08});
+    els.forEach(e=>io.observe(e));
+  }
+</script>
+
+</body>
+</html>
