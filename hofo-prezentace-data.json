@@ -1,6 +1,30 @@
 {
-  "updated": "2026-08-14 13:36",
+  "updated": "2026-08-14 21:00",
   "items": [
+    {
+      "firma": "Umělecká výroba (5osé CNC, Mašek)",
+      "kontakt": "Mikuláš Mašek",
+      "funkce": "",
+      "email": "masek.mikulas@umeleckavyroba.cz",
+      "telefon": "",
+      "datum": "2026-08-14",
+      "predmet": "Video vaší 5osé výroby",
+      "pdf": "",
+      "stav": "horky",
+      "poznamka": "Chce video z výroby, které by nabízel zákazníkům. Cena 50–100 tis. odeslána do vlákna."
+    },
+    {
+      "firma": "Jóga Vratislavice (Katka Bachmanová)",
+      "kontakt": "Kateřina Bachmanová",
+      "funkce": "",
+      "email": "katka.bachmanova@gmail.com",
+      "telefon": "",
+      "datum": "2026-08-14",
+      "predmet": "Video z vašich lekcí jógy",
+      "pdf": "",
+      "stav": "horky",
+      "poznamka": "Nabídku využije, ale je po úrazu zápěstí. Ozve se koncem září, natáčení venku v parku. Počkáme."
+    },
     {
       "firma": "AMETALTOP s.r.o. (laser, CNC, kovovýroba)",
       "kontakt": "Michal Amešný",
