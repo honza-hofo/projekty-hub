@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-14 21:00",
+  "updated": "2026-08-17 15:58",
   "summary": {
-    "total_sent": 6955,
-    "today": 144,
+    "total_sent": 7047,
+    "today": 92,
     "campaigns": 6,
     "responses": 6,
     "drafts_pending": 37,
@@ -35,8 +35,8 @@
     },
     {
       "name": "E-shopy — studený outreach",
-      "sent": 232,
-      "today": 50,
+      "sent": 245,
+      "today": 13,
       "period": "10.–11. 8. 2026",
       "status": "aktivní",
       "detail": "produktová videa, reels, unboxing"
@@ -206,6 +206,10 @@
     {
       "date": "2026-08-14",
       "count": 144
+    },
+    {
+      "date": "2026-08-17",
+      "count": 92
     }
   ],
   "gastro": {
