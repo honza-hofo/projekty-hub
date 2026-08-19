@@ -31,6 +31,8 @@
   .b-wait { background:rgba(240,180,60,.15); color:#f0b43c; }
   .b-hot { background:rgba(255,90,60,.18); color:#ff6f52; }
   .b-dead { background:rgba(140,150,160,.15); color:#8891a0; }
+  .b-rem { background:rgba(87,214,201,.15); color:#57d6c9; }
+  .b-due { background:rgba(255,90,60,.2); color:#ff6f52; }
   .pozn { color:var(--mut); font-size:12px; max-width:260px; }
   .muted { color:var(--mut); }
   footer { color:var(--mut); font-size:12px; margin-top:16px; text-align:center; }
@@ -52,9 +54,9 @@
 <div class="wrap">
   <table>
     <thead><tr>
-      <th>Firma</th><th>Kontakt</th><th>Kontakt na proklik</th><th>Prezentace</th><th>Odesláno</th><th>Předmět</th><th>Stav</th><th>Poznámka</th>
+      <th>Firma</th><th>Kontakt</th><th>Kontakt na proklik</th><th>Prezentace</th><th>Odesláno</th><th>Reminder</th><th>Stav</th><th>Poznámka</th>
     </tr></thead>
-    <tbody id="rows"><tr><td colspan="8" class="muted">Načítám data…</td></tr></tbody>
+    <tbody id="rows"><tr><td colspan="9" class="muted">Načítám data…</td></tr></tbody>
   </table>
 </div>
 
@@ -85,7 +87,8 @@ async function load(){
       `<div class="stat"><b>${c('horky')}</b><span>🔥 má zájem</span></div>`+
       `<div class="stat"><b>${c('odeslano')}</b><span>odesláno</span></div>`+
       `<div class="stat"><b>${c('pripraveno')}</b><span>připraveno</span></div>`+
-      `<div class="stat"><b>${c('odmitnuto')}</b><span>odmítnuto</span></div>`;
+      `<div class="stat"><b>${c('odmitnuto')}</b><span>odmítnuto</span></div>`+
+      `<div class="stat"><b>${items.filter(i=>i.reminder && i.stav!=='odmitnuto').length}</b><span>čeká reminder</span></div>`;
 
     document.getElementById("rows").innerHTML = items.map(i=>{
       const mail = i.email ? `<a href="mailto:${esc(i.email)}">${esc(i.email)}</a>` : "";
@@ -93,6 +96,12 @@ async function load(){
       const kontaktLink = [mail, tel].filter(Boolean).join("<br>") || '<span class="muted">—</span>';
       const bd = BADGE[i.stav] || ['b-wait', esc(i.stav)];
       const badge = `<span class="badge ${bd[0]}">${bd[1]}</span>`;
+      const today = new Date().toISOString().slice(0,10);
+      let rem = '<span class="muted">—</span>';
+      if (i.reminder && i.stav!=='odmitnuto') {
+        const due = i.reminder <= today;
+        rem = `<span class="badge ${due?'b-due':'b-rem'}">${due?'⏰ pošli teď':fmtDate(i.reminder)}</span>`;
+      }
       const prez = i.pdf
         ? '<span class="badge b-ok">📄 posláno</span>'
         : (i.stav==='odmitnuto' ? '<span class="muted">—</span>' : '<span class="muted">jen nabídka</span>');
@@ -103,6 +112,7 @@ async function load(){
         <td>${kontaktLink}</td>
         <td>${prez}</td>
         <td>${fmtDate(i.datum)}</td>
+        <td>${rem}</td>
         <td>${esc(i.predmet)}</td>
         <td>${badge}</td>
         <td class="pozn">${esc(i.poznamka)}</td>
@@ -112,7 +122,7 @@ async function load(){
     document.getElementById("updated").innerHTML = '<span class="dot"></span>Aktualizováno '+(data.updated||"");
     document.getElementById("foot").textContent = "Automaticky se obnovuje každou minutu · HOFO Production";
   } catch(e){
-    document.getElementById("rows").innerHTML = '<tr><td colspan="8" class="muted">Data se zatím nenačetla (obnov za chvíli).</td></tr>';
+    document.getElementById("rows").innerHTML = '<tr><td colspan="9" class="muted">Data se zatím nenačetla (obnov za chvíli).</td></tr>';
   }
 }
 load();
