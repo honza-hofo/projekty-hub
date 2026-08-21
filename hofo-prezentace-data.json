@@ -1,6 +1,19 @@
 {
-  "updated": "2026-08-21 15:38",
+  "updated": "2026-08-21 16:18",
   "items": [
+    {
+      "firma": "Model-servis (CNC obrábění, jednoúčelové stroje)",
+      "kontakt": "Kamil Berka",
+      "funkce": "Jednatel",
+      "email": "kamil@model-servis.cz",
+      "telefon": "777 176 445",
+      "datum": "2026-08-21",
+      "predmet": "Video z vaší dílny",
+      "pdf": "",
+      "stav": "horky",
+      "reminder": "2026-08-26",
+      "poznamka": "HOT: 'Něco takového by se mi líbilo.' Odpověď do vlákna (video z výroby + reelska, bez cen) odeslána. Nabídnut hovor + konkrétní nápady na záběry."
+    },
     {
       "firma": "Automat Matuška (Jiřák, pivovar Matuška)",
       "kontakt": "Lukáš Ercoli",
