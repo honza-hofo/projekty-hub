@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21 19:04",
+  "updated": "2026-08-22 18:05",
   "items": [
     {
       "firma": "Model-servis (CNC obrábění, jednoúčelové stroje)",
@@ -36,7 +36,7 @@
       "datum": "2026-08-18",
       "predmet": "Produktová videa pro Plastikovemodely.cz",
       "pdf": "plastikovemodely.pdf",
-      "stav": "horky",
+      "stav": "odeslano",
       "poznamka": "HOT: chce poslat stavebnice a začít stavět. Prezentace + ceník (22/45/75 tis., časosběr stavby) odeslána do vlákna.",
       "reminder": "2026-08-24"
     },
@@ -49,7 +49,7 @@
       "datum": "2026-08-18",
       "predmet": "Video na italské kožené kabelky",
       "pdf": "novakabelka.pdf",
-      "stav": "horky",
+      "stav": "odeslano",
       "poznamka": "Chce představu + cenu. Prezentace + ceník (24/48/78 tis., kabelky v pohybu) odeslána do vlákna.",
       "reminder": "2026-08-24"
     },
@@ -75,7 +75,7 @@
       "datum": "2026-08-14",
       "predmet": "Video vaší 5osé výroby",
       "pdf": "",
-      "stav": "horky",
+      "stav": "odeslano",
       "poznamka": "Chce video z výroby, které by nabízel zákazníkům. Cena 50–100 tis. odeslána do vlákna.",
       "reminder": "2026-08-24"
     },
@@ -101,7 +101,7 @@
       "datum": "2026-08-14",
       "predmet": "Video vaší laserové výroby",
       "pdf": "",
-      "stav": "horky",
+      "stav": "odeslano",
       "poznamka": "Dlouho přemýšlí o firemním videu, jde o image firmy (ne zakázky). Cena 100–200 tis. odeslána do vlákna, nabídnut hovor + nápady.",
       "reminder": "2026-08-24"
     },
