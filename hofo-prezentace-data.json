@@ -1,6 +1,19 @@
 {
-  "updated": "2026-08-23 14:40",
+  "updated": "2026-08-24 12:48",
   "items": [
+    {
+      "firma": "NOEL – PLUS CV (elektro + strojírna, Chomutov)",
+      "kontakt": "Monika Kursteinová Maurová",
+      "funkce": "Sekretariát",
+      "email": "sekretariat@npcv.cz",
+      "telefon": "",
+      "datum": "2026-08-24",
+      "predmet": "Video z vaší strojírenské výroby",
+      "pdf": "noel-celyretez-cena.pdf",
+      "stav": "odeslano",
+      "reminder": "2026-08-28",
+      "poznamka": "Zájem, sama chtěla cenové rozpětí. Deck 'Celý řetěz' + ceny (30/48 tis., bez DPH) ODESLÁN do vlákna. Nabídnut hovor."
+    },
     {
       "firma": "Model-servis (CNC obrábění, jednoúčelové stroje)",
       "kontakt": "Kamil Berka",
@@ -12,7 +25,7 @@
       "pdf": "model-servis-zkovu.pdf",
       "stav": "odeslano",
       "reminder": "2026-08-26",
-      "poznamka": "HOT: 'Něco takového by se mi líbilo.' Deck 'Z kusu kovu' (bez cen, video z výroby + reelska) ODESLÁN do vlákna. Nabídnuta schůzka v dílně (Chrastava)."
+      "poznamka": "Deck 'Z kusu kovu' + CENA (A 16 / B 26 tis., doprava 20 Kč/km) odeslány do vlákna. Odepsal 'kolik to bude stát', cena poslána. Čeká výběr varianty + termín."
     },
     {
       "firma": "Automat Matuška (Jiřák, pivovar Matuška)",
