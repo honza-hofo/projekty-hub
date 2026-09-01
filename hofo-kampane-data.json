@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-17 15:58",
+  "updated": "2026-09-01 08:52",
   "summary": {
-    "total_sent": 7047,
-    "today": 92,
+    "total_sent": 9569,
+    "today": 0,
     "campaigns": 6,
     "responses": 6,
     "drafts_pending": 37,
@@ -19,7 +19,7 @@
     },
     {
       "name": "Kliniky — studený outreach",
-      "sent": 198,
+      "sent": 207,
       "today": 0,
       "period": "7. 8. 2026",
       "status": "aktivní",
@@ -35,8 +35,8 @@
     },
     {
       "name": "E-shopy — studený outreach",
-      "sent": 245,
-      "today": 13,
+      "sent": 498,
+      "today": 0,
       "period": "10.–11. 8. 2026",
       "status": "aktivní",
       "detail": "produktová videa, reels, unboxing"
@@ -209,7 +209,39 @@
     },
     {
       "date": "2026-08-17",
-      "count": 92
+      "count": 342
+    },
+    {
+      "date": "2026-08-19",
+      "count": 32
+    },
+    {
+      "date": "2026-08-20",
+      "count": 221
+    },
+    {
+      "date": "2026-08-21",
+      "count": 225
+    },
+    {
+      "date": "2026-08-24",
+      "count": 250
+    },
+    {
+      "date": "2026-08-25",
+      "count": 392
+    },
+    {
+      "date": "2026-08-26",
+      "count": 380
+    },
+    {
+      "date": "2026-08-27",
+      "count": 360
+    },
+    {
+      "date": "2026-08-31",
+      "count": 412
     }
   ],
   "gastro": {
