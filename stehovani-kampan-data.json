@@ -1,16 +1,16 @@
 {
-  "updated": "2026-08-12T13:28:28",
+  "updated": "2026-09-17T16:16:34",
   "summary": {
     "total_contacts": 14385,
-    "total_sent": 15532,
-    "pending": 3079,
-    "sent_today": 142,
+    "total_sent": 16742,
+    "pending": 1988,
+    "sent_today": 0,
     "daily_limit": 150,
-    "days_to_finish": 21
+    "days_to_finish": 14
   },
   "bounced": {
     "count": 313,
-    "pct": 2.0
+    "pct": 1.9
   },
   "poptavky": {
     "count": 5,
@@ -67,17 +67,10 @@
   },
   "by_category": [
     {
-      "category": "Školy",
-      "csv": 547,
-      "sent": 1,
-      "pending": 546,
-      "pct": 0
-    },
-    {
       "category": "Přeprava",
       "csv": 1203,
-      "sent": 681,
-      "pending": 522,
+      "sent": 682,
+      "pending": 521,
       "pct": 57
     },
     {
@@ -93,20 +86,6 @@
       "sent": 489,
       "pending": 375,
       "pct": 57
-    },
-    {
-      "category": "Montáž",
-      "csv": 667,
-      "sent": 295,
-      "pending": 372,
-      "pct": 44
-    },
-    {
-      "category": "Veř. správa",
-      "csv": 182,
-      "sent": 2,
-      "pending": 180,
-      "pct": 1
     },
     {
       "category": "DE Montáž",
@@ -130,20 +109,6 @@
       "pct": 0
     },
     {
-      "category": "Právní",
-      "csv": 338,
-      "sent": 289,
-      "pending": 49,
-      "pct": 86
-    },
-    {
-      "category": "Reality",
-      "csv": 8087,
-      "sent": 8038,
-      "pending": 49,
-      "pct": 99
-    },
-    {
       "category": "DE Přeprava",
       "csv": 46,
       "sent": 0,
@@ -151,11 +116,32 @@
       "pct": 0
     },
     {
+      "category": "Reality",
+      "csv": 8087,
+      "sent": 8041,
+      "pending": 46,
+      "pct": 99
+    },
+    {
+      "category": "Montáž",
+      "csv": 667,
+      "sent": 627,
+      "pending": 40,
+      "pct": 94
+    },
+    {
+      "category": "Školy",
+      "csv": 547,
+      "sent": 513,
+      "pending": 34,
+      "pct": 94
+    },
+    {
       "category": "Interiér",
       "csv": 688,
-      "sent": 646,
-      "pending": 42,
-      "pct": 94
+      "sent": 663,
+      "pending": 25,
+      "pct": 96
     },
     {
       "category": "Sociální",
@@ -172,6 +158,20 @@
       "pct": 69
     },
     {
+      "category": "Veř. správa",
+      "csv": 182,
+      "sent": 180,
+      "pending": 2,
+      "pct": 99
+    },
+    {
+      "category": "Právní",
+      "csv": 338,
+      "sent": 337,
+      "pending": 1,
+      "pct": 100
+    },
+    {
       "category": "Event",
       "csv": 288,
       "sent": 288,
@@ -186,8 +186,8 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 681,
-      "pending": 444,
+      "sent": 682,
+      "pending": 443,
       "pct": 61
     },
     {
@@ -211,26 +211,6 @@
       "pct": 2
     },
     {
-      "typ": "kuchyne",
-      "label": "Kuchyňská studia",
-      "category": "Montáž",
-      "subject": "Montážní tým + doprava",
-      "csv": 240,
-      "sent": 41,
-      "pending": 199,
-      "pct": 17
-    },
-    {
-      "typ": "skola_zs",
-      "label": "Základní školy",
-      "category": "Školy",
-      "subject": "Stěhování pro školy",
-      "csv": 181,
-      "sent": 0,
-      "pending": 181,
-      "pct": 0
-    },
-    {
       "typ": "hotel",
       "label": "Hotely",
       "category": "Hotely",
@@ -239,36 +219,6 @@
       "sent": 125,
       "pending": 157,
       "pct": 44
-    },
-    {
-      "typ": "skola_ss",
-      "label": "Střední školy / gymnázia",
-      "category": "Školy",
-      "subject": "Stěhování pro školy",
-      "csv": 152,
-      "sent": 0,
-      "pending": 152,
-      "pct": 0
-    },
-    {
-      "typ": "vyrobce_nabytku",
-      "label": "Výrobci nábytku",
-      "category": "Montáž",
-      "subject": "Montážní tým + doprava",
-      "csv": 361,
-      "sent": 224,
-      "pending": 137,
-      "pct": 62
-    },
-    {
-      "typ": "skola_ms",
-      "label": "Mateřské školy",
-      "category": "Školy",
-      "subject": "Stěhování pro školy",
-      "csv": 133,
-      "sent": 1,
-      "pending": 132,
-      "pct": 1
     },
     {
       "typ": "moebelmontage",
@@ -311,46 +261,6 @@
       "pct": 0
     },
     {
-      "typ": "mesto_urad",
-      "label": "Magistráty / MěÚ",
-      "category": "Veř. správa",
-      "subject": "Stěhování pro veřejnou správu",
-      "csv": 77,
-      "sent": 2,
-      "pending": 75,
-      "pct": 3
-    },
-    {
-      "typ": "obec",
-      "label": "Obecní úřady",
-      "category": "Veř. správa",
-      "subject": "Stěhování pro veřejnou správu",
-      "csv": 52,
-      "sent": 0,
-      "pending": 52,
-      "pct": 0
-    },
-    {
-      "typ": "exekutor",
-      "label": "Exekutorské úřady",
-      "category": "Právní",
-      "subject": "Vyklízení při exekučních řízeních",
-      "csv": 293,
-      "sent": 244,
-      "pending": 49,
-      "pct": 83
-    },
-    {
-      "typ": "zus",
-      "label": "ZUŠ",
-      "category": "Školy",
-      "subject": "Stěhování pro školy",
-      "csv": 49,
-      "sent": 0,
-      "pending": 49,
-      "pct": 0
-    },
-    {
       "typ": "mlekarna",
       "label": "Mlékárny",
       "category": "Chlazená",
@@ -359,16 +269,6 @@
       "sent": 6,
       "pending": 46,
       "pct": 12
-    },
-    {
-      "typ": "kraj_urad",
-      "label": "Krajské úřady",
-      "category": "Veř. správa",
-      "subject": "Stěhování pro veřejnou správu",
-      "csv": 44,
-      "sent": 0,
-      "pending": 44,
-      "pct": 0
     },
     {
       "typ": "zmrzlina",
@@ -421,16 +321,6 @@
       "pct": 0
     },
     {
-      "typ": "spravce",
-      "label": "Správci nemovitostí",
-      "category": "Reality",
-      "subject": "Stěhování pro nájemníky",
-      "csv": 220,
-      "sent": 187,
-      "pending": 33,
-      "pct": 85
-    },
-    {
       "typ": "ryby",
       "label": "Ryby",
       "category": "Chlazená",
@@ -449,6 +339,16 @@
       "sent": 0,
       "pending": 32,
       "pct": 0
+    },
+    {
+      "typ": "spravce",
+      "label": "Správci nemovitostí",
+      "category": "Reality",
+      "subject": "Stěhování pro nájemníky",
+      "csv": 220,
+      "sent": 190,
+      "pending": 30,
+      "pct": 86
     },
     {
       "typ": "kvetiny",
@@ -521,16 +421,6 @@
       "pct": 84
     },
     {
-      "typ": "interier",
-      "label": "Interiéroví designéři",
-      "category": "Interiér",
-      "subject": "Přeprava a montáž nábytku",
-      "csv": 613,
-      "sent": 596,
-      "pending": 17,
-      "pct": 97
-    },
-    {
       "typ": "pivovar obchodní oddělení",
       "label": "Pivovar Obchodní Oddělení",
       "category": "Ostatní",
@@ -591,14 +481,14 @@
       "pct": 0
     },
     {
-      "typ": "ministerstvo",
-      "label": "Ministerstva",
-      "category": "Veř. správa",
-      "subject": "Stěhování pro veřejnou správu",
-      "csv": 6,
-      "sent": 0,
-      "pending": 6,
-      "pct": 0
+      "typ": "vyrobce_nabytku",
+      "label": "Výrobci nábytku",
+      "category": "Montáž",
+      "subject": "Montážní tým + doprava",
+      "csv": 361,
+      "sent": 357,
+      "pending": 4,
+      "pct": 99
     },
     {
       "typ": "výrobce piva / pivovar",
@@ -615,16 +505,6 @@
       "label": "DE: Regalmontage",
       "category": "DE Montáž",
       "subject": "Angebot: Montageteam",
-      "csv": 3,
-      "sent": 0,
-      "pending": 3,
-      "pct": 0
-    },
-    {
-      "typ": "stat_inst",
-      "label": "Státní instituce",
-      "category": "Veř. správa",
-      "subject": "Stěhování pro veřejnou správu",
       "csv": 3,
       "sent": 0,
       "pending": 3,
@@ -669,6 +549,26 @@
       "sent": 0,
       "pending": 2,
       "pct": 0
+    },
+    {
+      "typ": "zus",
+      "label": "ZUŠ",
+      "category": "Školy",
+      "subject": "Stěhování pro školy",
+      "csv": 49,
+      "sent": 47,
+      "pending": 2,
+      "pct": 96
+    },
+    {
+      "typ": "exekutor",
+      "label": "Exekutorské úřady",
+      "category": "Právní",
+      "subject": "Vyklízení při exekučních řízeních",
+      "csv": 293,
+      "sent": 292,
+      "pending": 1,
+      "pct": 100
     },
     {
       "typ": "pekarna",
@@ -1071,6 +971,26 @@
       "pct": 0
     },
     {
+      "typ": "ministerstvo",
+      "label": "Ministerstva",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
+      "csv": 6,
+      "sent": 5,
+      "pending": 1,
+      "pct": 83
+    },
+    {
+      "typ": "mesto_urad",
+      "label": "Magistráty / MěÚ",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
+      "csv": 77,
+      "sent": 76,
+      "pending": 1,
+      "pct": 99
+    },
+    {
       "typ": "homestaging",
       "label": "Home staging",
       "category": "Reality",
@@ -1087,6 +1007,16 @@
       "subject": "Stěhování s novou hypotékou",
       "csv": 117,
       "sent": 117,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "interier",
+      "label": "Interiéroví designéři",
+      "category": "Interiér",
+      "subject": "Přeprava a montáž nábytku",
+      "csv": 613,
+      "sent": 613,
       "pending": 0,
       "pct": 100
     },
@@ -1229,153 +1159,79 @@
       "sent": 65,
       "pending": 0,
       "pct": 100
+    },
+    {
+      "typ": "kuchyne",
+      "label": "Kuchyňská studia",
+      "category": "Montáž",
+      "subject": "Montážní tým + doprava",
+      "csv": 240,
+      "sent": 240,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "kraj_urad",
+      "label": "Krajské úřady",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
+      "csv": 44,
+      "sent": 44,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "obec",
+      "label": "Obecní úřady",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
+      "csv": 52,
+      "sent": 52,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "stat_inst",
+      "label": "Státní instituce",
+      "category": "Veř. správa",
+      "subject": "Stěhování pro veřejnou správu",
+      "csv": 3,
+      "sent": 3,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "skola_zs",
+      "label": "Základní školy",
+      "category": "Školy",
+      "subject": "Stěhování pro školy",
+      "csv": 181,
+      "sent": 181,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "skola_ms",
+      "label": "Mateřské školy",
+      "category": "Školy",
+      "subject": "Stěhování pro školy",
+      "csv": 133,
+      "sent": 133,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "skola_ss",
+      "label": "Střední školy / gymnázia",
+      "category": "Školy",
+      "subject": "Stěhování pro školy",
+      "csv": 152,
+      "sent": 152,
+      "pending": 0,
+      "pct": 100
     }
   ],
   "daily_history": [
-    {
-      "date": "2026-06-14",
-      "count": 0
-    },
-    {
-      "date": "2026-06-15",
-      "count": 0
-    },
-    {
-      "date": "2026-06-16",
-      "count": 149
-    },
-    {
-      "date": "2026-06-17",
-      "count": 149
-    },
-    {
-      "date": "2026-06-18",
-      "count": 149
-    },
-    {
-      "date": "2026-06-19",
-      "count": 118
-    },
-    {
-      "date": "2026-06-20",
-      "count": 41
-    },
-    {
-      "date": "2026-06-21",
-      "count": 0
-    },
-    {
-      "date": "2026-06-22",
-      "count": 0
-    },
-    {
-      "date": "2026-06-23",
-      "count": 234
-    },
-    {
-      "date": "2026-06-24",
-      "count": 137
-    },
-    {
-      "date": "2026-06-25",
-      "count": 155
-    },
-    {
-      "date": "2026-06-26",
-      "count": 26
-    },
-    {
-      "date": "2026-06-27",
-      "count": 0
-    },
-    {
-      "date": "2026-06-28",
-      "count": 0
-    },
-    {
-      "date": "2026-06-29",
-      "count": 1
-    },
-    {
-      "date": "2026-06-30",
-      "count": 299
-    },
-    {
-      "date": "2026-07-01",
-      "count": 35
-    },
-    {
-      "date": "2026-07-02",
-      "count": 174
-    },
-    {
-      "date": "2026-07-03",
-      "count": 149
-    },
-    {
-      "date": "2026-07-04",
-      "count": 0
-    },
-    {
-      "date": "2026-07-05",
-      "count": 0
-    },
-    {
-      "date": "2026-07-06",
-      "count": 0
-    },
-    {
-      "date": "2026-07-07",
-      "count": 0
-    },
-    {
-      "date": "2026-07-08",
-      "count": 150
-    },
-    {
-      "date": "2026-07-09",
-      "count": 149
-    },
-    {
-      "date": "2026-07-10",
-      "count": 149
-    },
-    {
-      "date": "2026-07-11",
-      "count": 0
-    },
-    {
-      "date": "2026-07-12",
-      "count": 0
-    },
-    {
-      "date": "2026-07-13",
-      "count": 0
-    },
-    {
-      "date": "2026-07-14",
-      "count": 0
-    },
-    {
-      "date": "2026-07-15",
-      "count": 0
-    },
-    {
-      "date": "2026-07-16",
-      "count": 150
-    },
-    {
-      "date": "2026-07-17",
-      "count": 149
-    },
-    {
-      "date": "2026-07-18",
-      "count": 0
-    },
-    {
-      "date": "2026-07-19",
-      "count": 0
-    },
     {
       "date": "2026-07-20",
       "count": 0
@@ -1471,40 +1327,184 @@
     {
       "date": "2026-08-12",
       "count": 142
+    },
+    {
+      "date": "2026-08-13",
+      "count": 148
+    },
+    {
+      "date": "2026-08-14",
+      "count": 148
+    },
+    {
+      "date": "2026-08-15",
+      "count": 0
+    },
+    {
+      "date": "2026-08-16",
+      "count": 0
+    },
+    {
+      "date": "2026-08-17",
+      "count": 139
+    },
+    {
+      "date": "2026-08-18",
+      "count": 147
+    },
+    {
+      "date": "2026-08-19",
+      "count": 134
+    },
+    {
+      "date": "2026-08-20",
+      "count": 91
+    },
+    {
+      "date": "2026-08-21",
+      "count": 0
+    },
+    {
+      "date": "2026-08-22",
+      "count": 0
+    },
+    {
+      "date": "2026-08-23",
+      "count": 0
+    },
+    {
+      "date": "2026-08-24",
+      "count": 78
+    },
+    {
+      "date": "2026-08-25",
+      "count": 77
+    },
+    {
+      "date": "2026-08-26",
+      "count": 78
+    },
+    {
+      "date": "2026-08-27",
+      "count": 0
+    },
+    {
+      "date": "2026-08-28",
+      "count": 47
+    },
+    {
+      "date": "2026-08-29",
+      "count": 0
+    },
+    {
+      "date": "2026-08-30",
+      "count": 0
+    },
+    {
+      "date": "2026-08-31",
+      "count": 123
+    },
+    {
+      "date": "2026-09-01",
+      "count": 0
+    },
+    {
+      "date": "2026-09-02",
+      "count": 0
+    },
+    {
+      "date": "2026-09-03",
+      "count": 0
+    },
+    {
+      "date": "2026-09-04",
+      "count": 0
+    },
+    {
+      "date": "2026-09-05",
+      "count": 0
+    },
+    {
+      "date": "2026-09-06",
+      "count": 0
+    },
+    {
+      "date": "2026-09-07",
+      "count": 0
+    },
+    {
+      "date": "2026-09-08",
+      "count": 0
+    },
+    {
+      "date": "2026-09-09",
+      "count": 0
+    },
+    {
+      "date": "2026-09-10",
+      "count": 0
+    },
+    {
+      "date": "2026-09-11",
+      "count": 0
+    },
+    {
+      "date": "2026-09-12",
+      "count": 0
+    },
+    {
+      "date": "2026-09-13",
+      "count": 0
+    },
+    {
+      "date": "2026-09-14",
+      "count": 0
+    },
+    {
+      "date": "2026-09-15",
+      "count": 0
+    },
+    {
+      "date": "2026-09-16",
+      "count": 0
+    },
+    {
+      "date": "2026-09-17",
+      "count": 0
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-07-14",
-      "2026-07-15",
-      "2026-07-16",
-      "2026-07-17",
-      "2026-07-18",
-      "2026-07-19",
-      "2026-07-20",
-      "2026-07-21",
-      "2026-07-22",
-      "2026-07-23",
-      "2026-07-24",
-      "2026-07-25",
-      "2026-07-26",
-      "2026-07-27",
-      "2026-07-28",
-      "2026-07-29",
-      "2026-07-30",
-      "2026-07-31",
-      "2026-08-01",
-      "2026-08-02",
-      "2026-08-03",
-      "2026-08-04",
-      "2026-08-05",
-      "2026-08-06",
-      "2026-08-07",
-      "2026-08-08",
-      "2026-08-09",
-      "2026-08-10",
-      "2026-08-11",
-      "2026-08-12"
+      "2026-08-19",
+      "2026-08-20",
+      "2026-08-21",
+      "2026-08-22",
+      "2026-08-23",
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-29",
+      "2026-08-30",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04",
+      "2026-09-05",
+      "2026-09-06",
+      "2026-09-07",
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11",
+      "2026-09-12",
+      "2026-09-13",
+      "2026-09-14",
+      "2026-09-15",
+      "2026-09-16",
+      "2026-09-17"
     ],
     "series": [
       {
@@ -1534,13 +1534,13 @@
           0,
           0,
           0,
-          101,
           0,
           0,
           0,
           0,
-          12,
-          142
+          0,
+          0,
+          0
         ]
       },
       {
@@ -1559,7 +1559,7 @@
           0,
           0,
           0,
-          0,
+          3,
           0,
           0,
           0,
@@ -1585,22 +1585,6 @@
         "data": [
           0,
           0,
-          12,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          50,
-          0,
-          0,
-          0,
-          98,
-          149,
-          33,
-          50,
           0,
           0,
           0,
@@ -1612,6 +1596,22 @@
           0,
           0,
           1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0
         ]
       },
@@ -1619,6 +1619,8 @@
         "typ": "interier",
         "label": "Interiéroví designéři",
         "data": [
+          13,
+          4,
           0,
           0,
           0,
@@ -1632,8 +1634,6 @@
           0,
           0,
           0,
-          0,
-          36,
           0,
           0,
           0,
@@ -1669,10 +1669,10 @@
           0,
           0,
           0,
-          15,
           0,
           0,
-          13,
+          0,
+          0,
           0,
           0,
           0,
@@ -1688,19 +1688,19 @@
         ]
       },
       {
-        "typ": "event",
-        "label": "Event agentury",
+        "typ": "vyrobce_nabytku",
+        "label": "Výrobci nábytku",
         "data": [
+          11,
+          48,
           0,
           0,
           0,
           0,
+          43,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
+          31,
           0,
           0,
           0,
@@ -1728,7 +1728,7 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3768
+      "count": 3835
     },
     {
       "region": "Středočeský kraj",
@@ -1747,64 +1747,64 @@
       "count": 242
     },
     {
+      "region": "Brno",
+      "count": 158
+    },
+    {
+      "region": "Liberec",
+      "count": 124
+    },
+    {
+      "region": "Pardubice",
+      "count": 120
+    },
+    {
+      "region": "Královéhradecký",
+      "count": 108
+    },
+    {
       "region": "Středočeský",
       "count": 106
     },
     {
-      "region": "Královéhradecký",
-      "count": 103
-    },
-    {
       "region": "Královéhradecký kraj",
-      "count": 101
+      "count": 102
     },
     {
-      "region": "Brno",
-      "count": 99
+      "region": "Olomouc",
+      "count": 100
+    },
+    {
+      "region": "Ostrava",
+      "count": 93
+    },
+    {
+      "region": "Hradec Kralove",
+      "count": 88
     },
     {
       "region": "Plzeňský",
-      "count": 82
+      "count": 84
     },
     {
       "region": "Hradec Králové",
       "count": 80
     },
     {
-      "region": "Liberec",
-      "count": 71
+      "region": "Plzen",
+      "count": 73
+    },
+    {
+      "region": "Ceske Budejovice",
+      "count": 69
     },
     {
       "region": "Plzeňský kraj",
       "count": 67
     },
     {
-      "region": "Ostrava",
-      "count": 61
-    },
-    {
-      "region": "Pardubice",
-      "count": 57
-    },
-    {
-      "region": "Pardubický",
-      "count": 50
-    },
-    {
-      "region": "Česko",
-      "count": 46
-    },
-    {
-      "region": "CZ",
-      "count": 45
-    },
-    {
-      "region": "Olomouc",
-      "count": 44
-    },
-    {
-      "region": "Hradec Kralove",
-      "count": 41
+      "region": "Jihlava",
+      "count": 62
     }
   ],
   "next_batch": {
