@@ -129,7 +129,23 @@ function render(d) {
         'Poslední aktualizace: ' + new Date(d.updated).toLocaleString('cs-CZ');
 
     const s = d.summary;
-    const html = `
+    const ek = d.email_kampane || {kampane:[],celkem:0,dnes:0};
+    const hk = d.hofo_kampane || {segmenty:[],odeslano:0,drafty:0,zbyva:0,dnes:0};
+    const ekRows = (ek.kampane||[]).map(k =>
+        `<tr><td>${k.kampan}</td><td style="text-align:right;font-weight:700">${k.celkem.toLocaleString('cs-CZ')}</td><td style="text-align:right;color:#22c55e">${k.dnes||0}</td></tr>`).join('');
+    const hkRows = (hk.segmenty||[]).map(x =>
+        `<tr><td>${x.segment}</td><td style="text-align:right">${x.odeslano.toLocaleString('cs-CZ')}</td><td style="text-align:right">${x.drafty.toLocaleString('cs-CZ')}</td><td style="text-align:right;font-weight:700;color:#3b82f6">${x.zbyva.toLocaleString('cs-CZ')}</td></tr>`).join('');
+    const kampSekce = `
+        <h2 style="margin:20px 0 10px;font-size:1.05rem;">&#128231; Stěhování – e-mailové kampaně (${ek.celkem.toLocaleString('cs-CZ')} odesláno${ek.dnes?`, dnes ${ek.dnes}`:''})</h2>
+        <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+            <thead><tr style="text-align:left;color:#94a3b8"><th>Kampaň</th><th style="text-align:right">Celkem</th><th style="text-align:right">Dnes</th></tr></thead>
+            <tbody>${ekRows}</tbody></table></div>
+        <h2 style="margin:24px 0 10px;font-size:1.05rem;">&#127916; HOFO – video outreach (${hk.odeslano.toLocaleString('cs-CZ')} / ${hk.drafty.toLocaleString('cs-CZ')} draftů, zbývá ${hk.zbyva.toLocaleString('cs-CZ')})</h2>
+        <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+            <thead><tr style="text-align:left;color:#94a3b8"><th>Segment</th><th style="text-align:right">Odesláno</th><th style="text-align:right">Draftů</th><th style="text-align:right">Zbývá</th></tr></thead>
+            <tbody>${hkRows}</tbody></table></div>
+    `;
+    const html = kampSekce + `
         <div class="kpi-grid">
             <div class="kpi green">
                 <div class="kpi-label">Odesláno celkem</div>

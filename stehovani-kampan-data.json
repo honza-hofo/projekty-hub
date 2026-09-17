@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17T16:16:34",
+  "updated": "2026-09-17T17:48:45",
   "summary": {
     "total_contacts": 14385,
     "total_sent": 16742,
@@ -1863,5 +1863,124 @@
       "neposilat": 188,
       "poslano": 1
     }
+  },
+  "email_kampane": {
+    "kampane": [
+      {
+        "kampan": "Chlazená přeprava (chlaďáci)",
+        "celkem": 426,
+        "dnes": 0
+      },
+      {
+        "kampan": "Realitky / makléři",
+        "celkem": 212,
+        "dnes": 0
+      },
+      {
+        "kampan": "Expresní přeprava (výroba/strojírny)",
+        "celkem": 108,
+        "dnes": 0
+      },
+      {
+        "kampan": "Doprava – rozhodovatelé (velké firmy)",
+        "celkem": 90,
+        "dnes": 0
+      },
+      {
+        "kampan": "Montáže-partneři (fit-out/interiér)",
+        "celkem": 76,
+        "dnes": 0
+      },
+      {
+        "kampan": "Rozvoz do prodejen (výrobci)",
+        "celkem": 19,
+        "dnes": 0
+      },
+      {
+        "kampan": "Follow-up (po domluvě)",
+        "celkem": 5,
+        "dnes": 0
+      }
+    ],
+    "celkem": 936,
+    "dnes": 0
+  },
+  "hofo_kampane": {
+    "segmenty": [
+      {
+        "segment": "klinika",
+        "drafty": 1559,
+        "odeslano": 281,
+        "zbyva": 1278,
+        "dnes": 0
+      },
+      {
+        "segment": "ecommerce",
+        "drafty": 1729,
+        "odeslano": 761,
+        "zbyva": 968,
+        "dnes": 42
+      },
+      {
+        "segment": "strojirenstvi",
+        "drafty": 2634,
+        "odeslano": 2505,
+        "zbyva": 129,
+        "dnes": 0
+      },
+      {
+        "segment": "agentury",
+        "drafty": 67,
+        "odeslano": 0,
+        "zbyva": 67,
+        "dnes": 0
+      },
+      {
+        "segment": "gastro",
+        "drafty": 241,
+        "odeslano": 216,
+        "zbyva": 25,
+        "dnes": 0
+      },
+      {
+        "segment": "fitness",
+        "drafty": 50,
+        "odeslano": 41,
+        "zbyva": 9,
+        "dnes": 0
+      },
+      {
+        "segment": "hotely",
+        "drafty": 84,
+        "odeslano": 76,
+        "zbyva": 8,
+        "dnes": 0
+      },
+      {
+        "segment": "beauty",
+        "drafty": 49,
+        "odeslano": 43,
+        "zbyva": 6,
+        "dnes": 0
+      },
+      {
+        "segment": "wellness",
+        "drafty": 50,
+        "odeslano": 46,
+        "zbyva": 4,
+        "dnes": 0
+      },
+      {
+        "segment": "food",
+        "drafty": 44,
+        "odeslano": 44,
+        "zbyva": 0,
+        "dnes": 0
+      }
+    ],
+    "odeslano": 4013,
+    "drafty": 6507,
+    "zbyva": 2494,
+    "dnes": 42
   }
 }
