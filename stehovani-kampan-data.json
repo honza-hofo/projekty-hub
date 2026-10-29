@@ -1,12 +1,12 @@
 {
-  "updated": "2026-09-17T17:48:45",
+  "updated": "2026-10-29T09:25:22",
   "summary": {
     "total_contacts": 14385,
-    "total_sent": 16742,
-    "pending": 1988,
-    "sent_today": 0,
+    "total_sent": 16890,
+    "pending": 1840,
+    "sent_today": 148,
     "daily_limit": 150,
-    "days_to_finish": 14
+    "days_to_finish": 13
   },
   "bounced": {
     "count": 313,
@@ -76,9 +76,9 @@
     {
       "category": "Chlazená",
       "csv": 847,
-      "sent": 382,
-      "pending": 465,
-      "pct": 45
+      "sent": 437,
+      "pending": 410,
+      "pct": 52
     },
     {
       "category": "FMCG",
@@ -97,9 +97,9 @@
     {
       "category": "Hotely",
       "csv": 282,
-      "sent": 125,
-      "pending": 157,
-      "pct": 44
+      "sent": 218,
+      "pending": 64,
+      "pct": 77
     },
     {
       "category": "Ostatní",
@@ -191,16 +191,6 @@
       "pct": 61
     },
     {
-      "typ": "catering",
-      "label": "Catering",
-      "category": "Chlazená",
-      "subject": "Chlazená přeprava",
-      "csv": 334,
-      "sent": 128,
-      "pending": 206,
-      "pct": 38
-    },
-    {
       "typ": "snack",
       "label": "Pochutiny / snack",
       "category": "FMCG",
@@ -211,14 +201,14 @@
       "pct": 2
     },
     {
-      "typ": "hotel",
-      "label": "Hotely",
-      "category": "Hotely",
-      "subject": "Stěhování a přeprava vybavení",
-      "csv": 282,
-      "sent": 125,
-      "pending": 157,
-      "pct": 44
+      "typ": "catering",
+      "label": "Catering",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 334,
+      "sent": 172,
+      "pending": 162,
+      "pct": 51
     },
     {
       "typ": "moebelmontage",
@@ -261,14 +251,24 @@
       "pct": 0
     },
     {
+      "typ": "hotel",
+      "label": "Hotely",
+      "category": "Hotely",
+      "subject": "Stěhování a přeprava vybavení",
+      "csv": 282,
+      "sent": 218,
+      "pending": 64,
+      "pct": 77
+    },
+    {
       "typ": "mlekarna",
       "label": "Mlékárny",
       "category": "Chlazená",
       "subject": "Chlazená přeprava",
       "csv": 52,
-      "sent": 6,
-      "pending": 46,
-      "pct": 12
+      "sent": 8,
+      "pending": 44,
+      "pct": 15
     },
     {
       "typ": "zmrzlina",
@@ -279,16 +279,6 @@
       "sent": 16,
       "pending": 37,
       "pct": 30
-    },
-    {
-      "typ": "lahudky",
-      "label": "Lahůdky",
-      "category": "Chlazená",
-      "subject": "Přeprava lahůdek",
-      "csv": 41,
-      "sent": 5,
-      "pending": 36,
-      "pct": 12
     },
     {
       "typ": "montaz_nabytek",
@@ -369,6 +359,16 @@
       "sent": 34,
       "pending": 28,
       "pct": 55
+    },
+    {
+      "typ": "lahudky",
+      "label": "Lahůdky",
+      "category": "Chlazená",
+      "subject": "Přeprava lahůdek",
+      "csv": 41,
+      "sent": 14,
+      "pending": 27,
+      "pct": 34
     },
     {
       "typ": "fitout",
@@ -1233,174 +1233,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-07-20",
-      "count": 0
-    },
-    {
-      "date": "2026-07-21",
-      "count": 146
-    },
-    {
-      "date": "2026-07-22",
-      "count": 0
-    },
-    {
-      "date": "2026-07-23",
-      "count": 0
-    },
-    {
-      "date": "2026-07-24",
-      "count": 149
-    },
-    {
-      "date": "2026-07-25",
-      "count": 149
-    },
-    {
-      "date": "2026-07-26",
-      "count": 0
-    },
-    {
-      "date": "2026-07-27",
-      "count": 0
-    },
-    {
-      "date": "2026-07-28",
-      "count": 149
-    },
-    {
-      "date": "2026-07-29",
-      "count": 149
-    },
-    {
-      "date": "2026-07-30",
-      "count": 149
-    },
-    {
-      "date": "2026-07-31",
-      "count": 103
-    },
-    {
-      "date": "2026-08-01",
-      "count": 0
-    },
-    {
-      "date": "2026-08-02",
-      "count": 0
-    },
-    {
-      "date": "2026-08-03",
-      "count": 0
-    },
-    {
-      "date": "2026-08-04",
-      "count": 0
-    },
-    {
-      "date": "2026-08-05",
-      "count": 0
-    },
-    {
-      "date": "2026-08-06",
-      "count": 101
-    },
-    {
-      "date": "2026-08-07",
-      "count": 0
-    },
-    {
-      "date": "2026-08-08",
-      "count": 0
-    },
-    {
-      "date": "2026-08-09",
-      "count": 0
-    },
-    {
-      "date": "2026-08-10",
-      "count": 0
-    },
-    {
-      "date": "2026-08-11",
-      "count": 13
-    },
-    {
-      "date": "2026-08-12",
-      "count": 142
-    },
-    {
-      "date": "2026-08-13",
-      "count": 148
-    },
-    {
-      "date": "2026-08-14",
-      "count": 148
-    },
-    {
-      "date": "2026-08-15",
-      "count": 0
-    },
-    {
-      "date": "2026-08-16",
-      "count": 0
-    },
-    {
-      "date": "2026-08-17",
-      "count": 139
-    },
-    {
-      "date": "2026-08-18",
-      "count": 147
-    },
-    {
-      "date": "2026-08-19",
-      "count": 134
-    },
-    {
-      "date": "2026-08-20",
-      "count": 91
-    },
-    {
-      "date": "2026-08-21",
-      "count": 0
-    },
-    {
-      "date": "2026-08-22",
-      "count": 0
-    },
-    {
-      "date": "2026-08-23",
-      "count": 0
-    },
-    {
-      "date": "2026-08-24",
-      "count": 78
-    },
-    {
-      "date": "2026-08-25",
-      "count": 77
-    },
-    {
-      "date": "2026-08-26",
-      "count": 78
-    },
-    {
-      "date": "2026-08-27",
-      "count": 0
-    },
-    {
-      "date": "2026-08-28",
-      "count": 47
-    },
-    {
-      "date": "2026-08-29",
-      "count": 0
-    },
-    {
-      "date": "2026-08-30",
-      "count": 0
-    },
-    {
       "date": "2026-08-31",
       "count": 123
     },
@@ -1471,40 +1303,208 @@
     {
       "date": "2026-09-17",
       "count": 0
+    },
+    {
+      "date": "2026-09-18",
+      "count": 0
+    },
+    {
+      "date": "2026-09-19",
+      "count": 0
+    },
+    {
+      "date": "2026-09-20",
+      "count": 0
+    },
+    {
+      "date": "2026-09-21",
+      "count": 0
+    },
+    {
+      "date": "2026-09-22",
+      "count": 0
+    },
+    {
+      "date": "2026-09-23",
+      "count": 0
+    },
+    {
+      "date": "2026-09-24",
+      "count": 0
+    },
+    {
+      "date": "2026-09-25",
+      "count": 0
+    },
+    {
+      "date": "2026-09-26",
+      "count": 0
+    },
+    {
+      "date": "2026-09-27",
+      "count": 0
+    },
+    {
+      "date": "2026-09-28",
+      "count": 0
+    },
+    {
+      "date": "2026-09-29",
+      "count": 0
+    },
+    {
+      "date": "2026-09-30",
+      "count": 0
+    },
+    {
+      "date": "2026-10-01",
+      "count": 0
+    },
+    {
+      "date": "2026-10-02",
+      "count": 0
+    },
+    {
+      "date": "2026-10-03",
+      "count": 0
+    },
+    {
+      "date": "2026-10-04",
+      "count": 0
+    },
+    {
+      "date": "2026-10-05",
+      "count": 0
+    },
+    {
+      "date": "2026-10-06",
+      "count": 0
+    },
+    {
+      "date": "2026-10-07",
+      "count": 0
+    },
+    {
+      "date": "2026-10-08",
+      "count": 0
+    },
+    {
+      "date": "2026-10-09",
+      "count": 0
+    },
+    {
+      "date": "2026-10-10",
+      "count": 0
+    },
+    {
+      "date": "2026-10-11",
+      "count": 0
+    },
+    {
+      "date": "2026-10-12",
+      "count": 0
+    },
+    {
+      "date": "2026-10-13",
+      "count": 0
+    },
+    {
+      "date": "2026-10-14",
+      "count": 0
+    },
+    {
+      "date": "2026-10-15",
+      "count": 0
+    },
+    {
+      "date": "2026-10-16",
+      "count": 0
+    },
+    {
+      "date": "2026-10-17",
+      "count": 0
+    },
+    {
+      "date": "2026-10-18",
+      "count": 0
+    },
+    {
+      "date": "2026-10-19",
+      "count": 0
+    },
+    {
+      "date": "2026-10-20",
+      "count": 0
+    },
+    {
+      "date": "2026-10-21",
+      "count": 0
+    },
+    {
+      "date": "2026-10-22",
+      "count": 0
+    },
+    {
+      "date": "2026-10-23",
+      "count": 0
+    },
+    {
+      "date": "2026-10-24",
+      "count": 0
+    },
+    {
+      "date": "2026-10-25",
+      "count": 0
+    },
+    {
+      "date": "2026-10-26",
+      "count": 0
+    },
+    {
+      "date": "2026-10-27",
+      "count": 0
+    },
+    {
+      "date": "2026-10-28",
+      "count": 0
+    },
+    {
+      "date": "2026-10-29",
+      "count": 148
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-08-19",
-      "2026-08-20",
-      "2026-08-21",
-      "2026-08-22",
-      "2026-08-23",
-      "2026-08-24",
-      "2026-08-25",
-      "2026-08-26",
-      "2026-08-27",
-      "2026-08-28",
-      "2026-08-29",
-      "2026-08-30",
-      "2026-08-31",
-      "2026-09-01",
-      "2026-09-02",
-      "2026-09-03",
-      "2026-09-04",
-      "2026-09-05",
-      "2026-09-06",
-      "2026-09-07",
-      "2026-09-08",
-      "2026-09-09",
-      "2026-09-10",
-      "2026-09-11",
-      "2026-09-12",
-      "2026-09-13",
-      "2026-09-14",
-      "2026-09-15",
-      "2026-09-16",
-      "2026-09-17"
+      "2026-09-30",
+      "2026-10-01",
+      "2026-10-02",
+      "2026-10-03",
+      "2026-10-04",
+      "2026-10-05",
+      "2026-10-06",
+      "2026-10-07",
+      "2026-10-08",
+      "2026-10-09",
+      "2026-10-10",
+      "2026-10-11",
+      "2026-10-12",
+      "2026-10-13",
+      "2026-10-14",
+      "2026-10-15",
+      "2026-10-16",
+      "2026-10-17",
+      "2026-10-18",
+      "2026-10-19",
+      "2026-10-20",
+      "2026-10-21",
+      "2026-10-22",
+      "2026-10-23",
+      "2026-10-24",
+      "2026-10-25",
+      "2026-10-26",
+      "2026-10-27",
+      "2026-10-28",
+      "2026-10-29"
     ],
     "series": [
       {
@@ -1559,7 +1559,7 @@
           0,
           0,
           0,
-          3,
+          0,
           0,
           0,
           0,
@@ -1595,7 +1595,7 @@
           0,
           0,
           0,
-          1,
+          0,
           0,
           0,
           0,
@@ -1619,8 +1619,8 @@
         "typ": "interier",
         "label": "Interiéroví designéři",
         "data": [
-          13,
-          4,
+          0,
+          0,
           0,
           0,
           0,
@@ -1691,16 +1691,16 @@
         "typ": "vyrobce_nabytku",
         "label": "Výrobci nábytku",
         "data": [
-          11,
-          48,
           0,
           0,
           0,
           0,
-          43,
           0,
           0,
-          31,
+          0,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -1728,7 +1728,7 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3835
+      "count": 3840
     },
     {
       "region": "Středočeský kraj",
@@ -1740,7 +1740,7 @@
     },
     {
       "region": "Pardubický kraj",
-      "count": 249
+      "count": 255
     },
     {
       "region": "HK kraj",
@@ -1748,11 +1748,11 @@
     },
     {
       "region": "Brno",
-      "count": 158
+      "count": 162
     },
     {
       "region": "Liberec",
-      "count": 124
+      "count": 125
     },
     {
       "region": "Pardubice",
@@ -1768,11 +1768,11 @@
     },
     {
       "region": "Královéhradecký kraj",
-      "count": 102
+      "count": 104
     },
     {
       "region": "Olomouc",
-      "count": 100
+      "count": 102
     },
     {
       "region": "Ostrava",
@@ -1795,12 +1795,12 @@
       "count": 73
     },
     {
-      "region": "Ceske Budejovice",
-      "count": 69
+      "region": "Plzeňský kraj",
+      "count": 72
     },
     {
-      "region": "Plzeňský kraj",
-      "count": 67
+      "region": "Ceske Budejovice",
+      "count": 69
     },
     {
       "region": "Jihlava",
@@ -1811,23 +1811,58 @@
     "total": 150,
     "typ_breakdown": [
       {
-        "typ": "hotel",
-        "label": "Hotely",
-        "count": 93
+        "typ": "mlekarna",
+        "label": "Mlékárny",
+        "count": 43
       },
       {
-        "typ": "catering",
-        "label": "Catering",
-        "count": 44
+        "typ": "potraviny",
+        "label": "Potraviny",
+        "count": 23
       },
       {
-        "typ": "lahudky",
-        "label": "Lahůdky",
-        "count": 8
+        "typ": "pivovar obchodní oddělení",
+        "label": "pivovar obchodní oddělení",
+        "count": 15
+      },
+      {
+        "typ": "vinarna",
+        "label": "Vinárny",
+        "count": 11
+      },
+      {
+        "typ": "pivovary",
+        "label": "Pivovary",
+        "count": 4
+      },
+      {
+        "typ": "výrobce piva / pivovar",
+        "label": "výrobce piva / pivovar",
+        "count": 3
       },
       {
         "typ": "realitka",
         "label": "Realitní kanceláře",
+        "count": 2
+      },
+      {
+        "typ": "preprava",
+        "label": "Přeprava a manipulace",
+        "count": 2
+      },
+      {
+        "typ": "výrobce jogurtů / mléčné výrobky",
+        "label": "výrobce jogurtů / mléčné výrobky",
+        "count": 2
+      },
+      {
+        "typ": "mlékárna / sýry / mléko",
+        "label": "mlékárna / sýry / mléko",
+        "count": 2
+      },
+      {
+        "typ": "výrobce džusů / ovocných nápojů",
+        "label": "výrobce džusů / ovocných nápojů",
         "count": 2
       },
       {
@@ -1836,13 +1871,203 @@
         "count": 1
       },
       {
-        "typ": "preprava",
-        "label": "Přeprava a manipulace",
+        "typ": "pekarna",
+        "label": "Pekárny",
         "count": 1
       },
       {
-        "typ": "pekarna",
-        "label": "Pekárny",
+        "typ": "výrobce jogurtů / máslo / tvaroh",
+        "label": "výrobce jogurtů / máslo / tvaroh",
+        "count": 1
+      },
+      {
+        "typ": "výrobce tvarohu / máslo",
+        "label": "výrobce tvarohu / máslo",
+        "count": 1
+      },
+      {
+        "typ": "výrobce mléčných výrobků / máslo / sýry",
+        "label": "výrobce mléčných výrobků / máslo / sýry",
+        "count": 1
+      },
+      {
+        "typ": "mlékárna / sýry / tvaroh",
+        "label": "mlékárna / sýry / tvaroh",
+        "count": 1
+      },
+      {
+        "typ": "mlékárna / sýry / odbyt",
+        "label": "mlékárna / sýry / odbyt",
+        "count": 1
+      },
+      {
+        "typ": "mlékárna obchod",
+        "label": "mlékárna obchod",
+        "count": 1
+      },
+      {
+        "typ": "mlékárna prodejna / objednávky",
+        "label": "mlékárna prodejna / objednávky",
+        "count": 1
+      },
+      {
+        "typ": "výrobce sýrů / kozí farma",
+        "label": "výrobce sýrů / kozí farma",
+        "count": 1
+      },
+      {
+        "typ": "výrobce omáček / kečupu / koření / hořčice",
+        "label": "výrobce omáček / kečupu / koření / hořčice",
+        "count": 1
+      },
+      {
+        "typ": "rodinná konzervárna / paštiky / lahůdky",
+        "label": "rodinná konzervárna / paštiky / lahůdky",
+        "count": 1
+      },
+      {
+        "typ": "výrobce paštik / polévek / masných výrobků",
+        "label": "výrobce paštik / polévek / masných výrobků",
+        "count": 1
+      },
+      {
+        "typ": "výrobce paštik / eshop objednávky",
+        "label": "výrobce paštik / eshop objednávky",
+        "count": 1
+      },
+      {
+        "typ": "výrobce paštik / management",
+        "label": "výrobce paštik / management",
+        "count": 1
+      },
+      {
+        "typ": "výrobce uzenin / šunky / salámů",
+        "label": "výrobce uzenin / šunky / salámů",
+        "count": 1
+      },
+      {
+        "typ": "výrobce uzenin / lahůdek / masných výrobků",
+        "label": "výrobce uzenin / lahůdek / masných výrobků",
+        "count": 1
+      },
+      {
+        "typ": "výrobce uzenin / masných výrobků",
+        "label": "výrobce uzenin / masných výrobků",
+        "count": 1
+      },
+      {
+        "typ": "výrobce uzenin / šunka / paštiky",
+        "label": "výrobce uzenin / šunka / paštiky",
+        "count": 1
+      },
+      {
+        "typ": "výrobce uzenin / salámů / masných výrobků",
+        "label": "výrobce uzenin / salámů / masných výrobků",
+        "count": 1
+      },
+      {
+        "typ": "výrobce octu",
+        "label": "výrobce octu",
+        "count": 1
+      },
+      {
+        "typ": "výrobce minerální vody / nápojů",
+        "label": "výrobce minerální vody / nápojů",
+        "count": 1
+      },
+      {
+        "typ": "výrobce minerální vody / distribuce",
+        "label": "výrobce minerální vody / distribuce",
+        "count": 1
+      },
+      {
+        "typ": "výrobce minerálních vod / limonád",
+        "label": "výrobce minerálních vod / limonád",
+        "count": 1
+      },
+      {
+        "typ": "distribuce nápojů / džusy / limonády (Relax Caprio Kubík)",
+        "label": "distribuce nápojů / džusy / limonády (Relax Caprio Kubík)",
+        "count": 1
+      },
+      {
+        "typ": "velkoobchod nápojů / alkohol / nealko",
+        "label": "velkoobchod nápojů / alkohol / nealko",
+        "count": 1
+      },
+      {
+        "typ": "velkoobchod nápojů / objednávky",
+        "label": "velkoobchod nápojů / objednávky",
+        "count": 1
+      },
+      {
+        "typ": "výrobce piva (Pilsner Urquell / Kozel / Gambrinus)",
+        "label": "výrobce piva (Pilsner Urquell / Kozel / Gambrinus)",
+        "count": 1
+      },
+      {
+        "typ": "výrobce piva (Staropramen / Braník / Ostravar)",
+        "label": "výrobce piva (Staropramen / Braník / Ostravar)",
+        "count": 1
+      },
+      {
+        "typ": "výrobce piva",
+        "label": "výrobce piva",
+        "count": 1
+      },
+      {
+        "typ": "výrobce krmiv pro psy / kočky",
+        "label": "výrobce krmiv pro psy / kočky",
+        "count": 1
+      },
+      {
+        "typ": "výrobce krmiv pro zvířata / suché / konzervy",
+        "label": "výrobce krmiv pro zvířata / suché / konzervy",
+        "count": 1
+      },
+      {
+        "typ": "krmiva pro zvířata / prodej / distribuce",
+        "label": "krmiva pro zvířata / prodej / distribuce",
+        "count": 1
+      },
+      {
+        "typ": "výrobce dětské výživy / baby food / ovocné pyré",
+        "label": "výrobce dětské výživy / baby food / ovocné pyré",
+        "count": 1
+      },
+      {
+        "typ": "velkoobchod / distribuce nápojů alkohol / nealko",
+        "label": "velkoobchod / distribuce nápojů alkohol / nealko",
+        "count": 1
+      },
+      {
+        "typ": "velkoobchod nápojů / alkohol / potraviny",
+        "label": "velkoobchod nápojů / alkohol / potraviny",
+        "count": 1
+      },
+      {
+        "typ": "velkoobchod nápojů / potraviny / tabák",
+        "label": "velkoobchod nápojů / potraviny / tabák",
+        "count": 1
+      },
+      {
+        "typ": "velkoobchod potravin / nápojů",
+        "label": "velkoobchod potravin / nápojů",
+        "count": 1
+      },
+      {
+        "typ": "velkoobchod registrace",
+        "label": "velkoobchod registrace",
+        "count": 1
+      },
+      {
+        "typ": "výrobce paštik / kompotů / polévek / džemů",
+        "label": "výrobce paštik / kompotů / polévek / džemů",
+        "count": 1
+      },
+      {
+        "typ": "výrobce konzerv / personalizovaných konzerv",
+        "label": "výrobce konzerv / personalizovaných konzerv",
         "count": 1
       }
     ]
@@ -1867,13 +2092,13 @@
   "email_kampane": {
     "kampane": [
       {
-        "kampan": "Chlazená přeprava (chlaďáci)",
-        "celkem": 426,
+        "kampan": "Realitky / makléři",
+        "celkem": 881,
         "dnes": 0
       },
       {
-        "kampan": "Realitky / makléři",
-        "celkem": 212,
+        "kampan": "Chlazená přeprava (chlaďáci)",
+        "celkem": 710,
         "dnes": 0
       },
       {
@@ -1902,7 +2127,7 @@
         "dnes": 0
       }
     ],
-    "celkem": 936,
+    "celkem": 1889,
     "dnes": 0
   },
   "hofo_kampane": {
@@ -1910,29 +2135,29 @@
       {
         "segment": "klinika",
         "drafty": 1559,
-        "odeslano": 281,
-        "zbyva": 1278,
+        "odeslano": 414,
+        "zbyva": 1145,
         "dnes": 0
       },
       {
         "segment": "ecommerce",
         "drafty": 1729,
-        "odeslano": 761,
-        "zbyva": 968,
-        "dnes": 42
+        "odeslano": 1073,
+        "zbyva": 656,
+        "dnes": 0
       },
       {
         "segment": "strojirenstvi",
         "drafty": 2634,
-        "odeslano": 2505,
-        "zbyva": 129,
+        "odeslano": 2565,
+        "zbyva": 69,
         "dnes": 0
       },
       {
         "segment": "agentury",
         "drafty": 67,
-        "odeslano": 0,
-        "zbyva": 67,
+        "odeslano": 20,
+        "zbyva": 47,
         "dnes": 0
       },
       {
@@ -1978,9 +2203,9 @@
         "dnes": 0
       }
     ],
-    "odeslano": 4013,
+    "odeslano": 4538,
     "drafty": 6507,
-    "zbyva": 2494,
-    "dnes": 42
+    "zbyva": 1969,
+    "dnes": 0
   }
 }
