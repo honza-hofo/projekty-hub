@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-29T09:25:22",
+  "updated": "2026-10-30T09:25:18",
   "summary": {
     "total_contacts": 14385,
-    "total_sent": 16890,
-    "pending": 1840,
+    "total_sent": 17038,
+    "pending": 1692,
     "sent_today": 148,
     "daily_limit": 150,
-    "days_to_finish": 13
+    "days_to_finish": 12
   },
   "bounced": {
     "count": 313,
-    "pct": 1.9
+    "pct": 1.8
   },
   "poptavky": {
     "count": 5,
@@ -69,23 +69,23 @@
     {
       "category": "Přeprava",
       "csv": 1203,
-      "sent": 682,
-      "pending": 521,
-      "pct": 57
-    },
-    {
-      "category": "Chlazená",
-      "csv": 847,
-      "sent": 437,
-      "pending": 410,
-      "pct": 52
+      "sent": 749,
+      "pending": 454,
+      "pct": 62
     },
     {
       "category": "FMCG",
       "csv": 864,
-      "sent": 489,
-      "pending": 375,
-      "pct": 57
+      "sent": 512,
+      "pending": 352,
+      "pct": 59
+    },
+    {
+      "category": "Chlazená",
+      "csv": 847,
+      "sent": 495,
+      "pending": 352,
+      "pct": 58
     },
     {
       "category": "DE Montáž",
@@ -186,9 +186,9 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 682,
-      "pending": 443,
-      "pct": 61
+      "sent": 749,
+      "pending": 376,
+      "pct": 67
     },
     {
       "typ": "snack",
@@ -221,16 +221,6 @@
       "pct": 0
     },
     {
-      "typ": "potraviny",
-      "label": "Potraviny",
-      "category": "FMCG",
-      "subject": "Přeprava potravin",
-      "csv": 270,
-      "sent": 183,
-      "pending": 87,
-      "pct": 68
-    },
-    {
       "typ": "stavebniny",
       "label": "Stavebniny",
       "category": "FMCG",
@@ -261,14 +251,14 @@
       "pct": 77
     },
     {
-      "typ": "mlekarna",
-      "label": "Mlékárny",
-      "category": "Chlazená",
-      "subject": "Chlazená přeprava",
-      "csv": 52,
-      "sent": 8,
-      "pending": 44,
-      "pct": 15
+      "typ": "potraviny",
+      "label": "Potraviny",
+      "category": "FMCG",
+      "subject": "Přeprava potravin",
+      "csv": 270,
+      "sent": 206,
+      "pending": 64,
+      "pct": 76
     },
     {
       "typ": "zmrzlina",
@@ -351,16 +341,6 @@
       "pct": 53
     },
     {
-      "typ": "vinarna",
-      "label": "Vinárny",
-      "category": "Chlazená",
-      "subject": "Přeprava",
-      "csv": 62,
-      "sent": 34,
-      "pending": 28,
-      "pct": 55
-    },
-    {
       "typ": "lahudky",
       "label": "Lahůdky",
       "category": "Chlazená",
@@ -411,14 +391,14 @@
       "pct": 69
     },
     {
-      "typ": "pivovary",
-      "label": "Pivovary",
+      "typ": "vinarna",
+      "label": "Vinárny",
       "category": "Chlazená",
-      "subject": "Přeprava nápojů",
-      "csv": 113,
-      "sent": 95,
-      "pending": 18,
-      "pct": 84
+      "subject": "Přeprava",
+      "csv": 62,
+      "sent": 45,
+      "pending": 17,
+      "pct": 73
     },
     {
       "typ": "pivovar obchodní oddělení",
@@ -439,6 +419,16 @@
       "sent": 47,
       "pending": 14,
       "pct": 77
+    },
+    {
+      "typ": "pivovary",
+      "label": "Pivovary",
+      "category": "Chlazená",
+      "subject": "Přeprava nápojů",
+      "csv": 113,
+      "sent": 99,
+      "pending": 14,
+      "pct": 88
     },
     {
       "typ": "ladenbau",
@@ -569,6 +559,16 @@
       "sent": 292,
       "pending": 1,
       "pct": 100
+    },
+    {
+      "typ": "mlekarna",
+      "label": "Mlékárny",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 52,
+      "sent": 51,
+      "pending": 1,
+      "pct": 98
     },
     {
       "typ": "pekarna",
@@ -1233,10 +1233,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-08-31",
-      "count": 123
-    },
-    {
       "date": "2026-09-01",
       "count": 0
     },
@@ -1471,11 +1467,14 @@
     {
       "date": "2026-10-29",
       "count": 148
+    },
+    {
+      "date": "2026-10-30",
+      "count": 148
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-09-30",
       "2026-10-01",
       "2026-10-02",
       "2026-10-03",
@@ -1504,7 +1503,8 @@
       "2026-10-26",
       "2026-10-27",
       "2026-10-28",
-      "2026-10-29"
+      "2026-10-29",
+      "2026-10-30"
     ],
     "series": [
       {
@@ -1612,7 +1612,7 @@
           0,
           0,
           0,
-          0
+          67
         ]
       },
       {
@@ -1728,11 +1728,11 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3840
+      "count": 3890
     },
     {
       "region": "Středočeský kraj",
-      "count": 669
+      "count": 675
     },
     {
       "region": "Prague",
@@ -1748,7 +1748,7 @@
     },
     {
       "region": "Brno",
-      "count": 162
+      "count": 163
     },
     {
       "region": "Liberec",
@@ -1760,11 +1760,11 @@
     },
     {
       "region": "Královéhradecký",
-      "count": 108
+      "count": 111
     },
     {
       "region": "Středočeský",
-      "count": 106
+      "count": 108
     },
     {
       "region": "Královéhradecký kraj",
@@ -1772,19 +1772,19 @@
     },
     {
       "region": "Olomouc",
-      "count": 102
+      "count": 103
     },
     {
       "region": "Ostrava",
       "count": 93
     },
     {
-      "region": "Hradec Kralove",
+      "region": "Plzeňský",
       "count": 88
     },
     {
-      "region": "Plzeňský",
-      "count": 84
+      "region": "Hradec Kralove",
+      "count": 88
     },
     {
       "region": "Hradec Králové",
@@ -1804,21 +1804,16 @@
     },
     {
       "region": "Jihlava",
-      "count": 62
+      "count": 65
     }
   ],
   "next_batch": {
     "total": 150,
     "typ_breakdown": [
       {
-        "typ": "mlekarna",
-        "label": "Mlékárny",
-        "count": 43
-      },
-      {
-        "typ": "potraviny",
-        "label": "Potraviny",
-        "count": 23
+        "typ": "preprava",
+        "label": "Přeprava a manipulace",
+        "count": 71
       },
       {
         "typ": "pivovar obchodní oddělení",
@@ -1826,14 +1821,9 @@
         "count": 15
       },
       {
-        "typ": "vinarna",
-        "label": "Vinárny",
-        "count": 11
-      },
-      {
-        "typ": "pivovary",
-        "label": "Pivovary",
-        "count": 4
+        "typ": "potraviny",
+        "label": "Potraviny",
+        "count": 12
       },
       {
         "typ": "výrobce piva / pivovar",
@@ -1843,11 +1833,6 @@
       {
         "typ": "realitka",
         "label": "Realitní kanceláře",
-        "count": 2
-      },
-      {
-        "typ": "preprava",
-        "label": "Přeprava a manipulace",
         "count": 2
       },
       {
