@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-30T09:25:18",
+  "updated": "2026-11-03T10:00:03",
   "summary": {
     "total_contacts": 14385,
-    "total_sent": 17038,
-    "pending": 1692,
-    "sent_today": 148,
+    "total_sent": 17185,
+    "pending": 1545,
+    "sent_today": 147,
     "daily_limit": 150,
-    "days_to_finish": 12
+    "days_to_finish": 11
   },
   "bounced": {
     "count": 313,
@@ -67,25 +67,25 @@
   },
   "by_category": [
     {
-      "category": "Přeprava",
-      "csv": 1203,
-      "sent": 749,
-      "pending": 454,
-      "pct": 62
-    },
-    {
-      "category": "FMCG",
-      "csv": 864,
-      "sent": 512,
-      "pending": 352,
-      "pct": 59
-    },
-    {
       "category": "Chlazená",
       "csv": 847,
       "sent": 495,
       "pending": 352,
       "pct": 58
+    },
+    {
+      "category": "FMCG",
+      "csv": 864,
+      "sent": 524,
+      "pending": 340,
+      "pct": 61
+    },
+    {
+      "category": "Přeprava",
+      "csv": 1203,
+      "sent": 884,
+      "pending": 319,
+      "pct": 73
     },
     {
       "category": "DE Montáž",
@@ -186,9 +186,9 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 749,
-      "pending": 376,
-      "pct": 67
+      "sent": 884,
+      "pending": 241,
+      "pct": 79
     },
     {
       "typ": "snack",
@@ -256,9 +256,9 @@
       "category": "FMCG",
       "subject": "Přeprava potravin",
       "csv": 270,
-      "sent": 206,
-      "pending": 64,
-      "pct": 76
+      "sent": 218,
+      "pending": 52,
+      "pct": 81
     },
     {
       "typ": "zmrzlina",
@@ -1233,22 +1233,6 @@
   ],
   "daily_history": [
     {
-      "date": "2026-09-01",
-      "count": 0
-    },
-    {
-      "date": "2026-09-02",
-      "count": 0
-    },
-    {
-      "date": "2026-09-03",
-      "count": 0
-    },
-    {
-      "date": "2026-09-04",
-      "count": 0
-    },
-    {
       "date": "2026-09-05",
       "count": 0
     },
@@ -1471,14 +1455,26 @@
     {
       "date": "2026-10-30",
       "count": 148
+    },
+    {
+      "date": "2026-10-31",
+      "count": 0
+    },
+    {
+      "date": "2026-11-01",
+      "count": 0
+    },
+    {
+      "date": "2026-11-02",
+      "count": 0
+    },
+    {
+      "date": "2026-11-03",
+      "count": 147
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-10-01",
-      "2026-10-02",
-      "2026-10-03",
-      "2026-10-04",
       "2026-10-05",
       "2026-10-06",
       "2026-10-07",
@@ -1504,7 +1500,11 @@
       "2026-10-27",
       "2026-10-28",
       "2026-10-29",
-      "2026-10-30"
+      "2026-10-30",
+      "2026-10-31",
+      "2026-11-01",
+      "2026-11-02",
+      "2026-11-03"
     ],
     "series": [
       {
@@ -1608,11 +1608,11 @@
           0,
           0,
           0,
+          67,
           0,
           0,
           0,
-          0,
-          67
+          135
         ]
       },
       {
@@ -1728,11 +1728,11 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3890
+      "count": 3974
     },
     {
       "region": "Středočeský kraj",
-      "count": 675
+      "count": 677
     },
     {
       "region": "Prague",
@@ -1740,7 +1740,7 @@
     },
     {
       "region": "Pardubický kraj",
-      "count": 255
+      "count": 263
     },
     {
       "region": "HK kraj",
@@ -1755,32 +1755,32 @@
       "count": 125
     },
     {
+      "region": "Královéhradecký",
+      "count": 124
+    },
+    {
       "region": "Pardubice",
       "count": 120
     },
     {
-      "region": "Královéhradecký",
-      "count": 111
-    },
-    {
       "region": "Středočeský",
-      "count": 108
+      "count": 113
     },
     {
       "region": "Královéhradecký kraj",
-      "count": 104
+      "count": 110
     },
     {
       "region": "Olomouc",
       "count": 103
     },
     {
-      "region": "Ostrava",
-      "count": 93
+      "region": "Plzeňský",
+      "count": 97
     },
     {
-      "region": "Plzeňský",
-      "count": 88
+      "region": "Ostrava",
+      "count": 93
     },
     {
       "region": "Hradec Kralove",
@@ -1791,20 +1791,20 @@
       "count": 80
     },
     {
-      "region": "Plzen",
-      "count": 73
+      "region": "Plzeňský kraj",
+      "count": 76
     },
     {
-      "region": "Plzeňský kraj",
-      "count": 72
+      "region": "Plzen",
+      "count": 73
     },
     {
       "region": "Ceske Budejovice",
       "count": 69
     },
     {
-      "region": "Jihlava",
-      "count": 65
+      "region": "Pardubický",
+      "count": 68
     }
   ],
   "next_batch": {
@@ -1813,7 +1813,17 @@
       {
         "typ": "preprava",
         "label": "Přeprava a manipulace",
-        "count": 71
+        "count": 23
+      },
+      {
+        "typ": "reznictvi",
+        "label": "Řeznictví",
+        "count": 22
+      },
+      {
+        "typ": "kvetiny",
+        "label": "Květinářství",
+        "count": 17
       },
       {
         "typ": "pivovar obchodní oddělení",
@@ -1821,9 +1831,14 @@
         "count": 15
       },
       {
-        "typ": "potraviny",
-        "label": "Potraviny",
-        "count": 12
+        "typ": "lahudky",
+        "label": "Lahůdky",
+        "count": 14
+      },
+      {
+        "typ": "ryby",
+        "label": "Ryby",
+        "count": 5
       },
       {
         "typ": "výrobce piva / pivovar",
@@ -1848,6 +1863,11 @@
       {
         "typ": "výrobce džusů / ovocných nápojů",
         "label": "výrobce džusů / ovocných nápojů",
+        "count": 2
+      },
+      {
+        "typ": "potraviny",
+        "label": "Potraviny",
         "count": 2
       },
       {
@@ -2103,7 +2123,7 @@
       },
       {
         "kampan": "Rozvoz do prodejen (výrobci)",
-        "celkem": 19,
+        "celkem": 69,
         "dnes": 0
       },
       {
@@ -2112,7 +2132,7 @@
         "dnes": 0
       }
     ],
-    "celkem": 1889,
+    "celkem": 1939,
     "dnes": 0
   },
   "hofo_kampane": {
@@ -2120,8 +2140,8 @@
       {
         "segment": "klinika",
         "drafty": 1559,
-        "odeslano": 414,
-        "zbyva": 1145,
+        "odeslano": 434,
+        "zbyva": 1125,
         "dnes": 0
       },
       {
@@ -2134,8 +2154,8 @@
       {
         "segment": "strojirenstvi",
         "drafty": 2634,
-        "odeslano": 2565,
-        "zbyva": 69,
+        "odeslano": 2575,
+        "zbyva": 59,
         "dnes": 0
       },
       {
@@ -2188,9 +2208,9 @@
         "dnes": 0
       }
     ],
-    "odeslano": 4538,
+    "odeslano": 4568,
     "drafty": 6507,
-    "zbyva": 1969,
+    "zbyva": 1939,
     "dnes": 0
   }
 }
