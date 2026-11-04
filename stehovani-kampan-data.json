@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-03T10:00:03",
+  "updated": "2026-11-04T09:25:10",
   "summary": {
     "total_contacts": 14385,
-    "total_sent": 17185,
-    "pending": 1545,
+    "total_sent": 17332,
+    "pending": 1398,
     "sent_today": 147,
     "daily_limit": 150,
-    "days_to_finish": 11
+    "days_to_finish": 10
   },
   "bounced": {
     "count": 313,
@@ -67,24 +67,24 @@
   },
   "by_category": [
     {
-      "category": "Chlazená",
-      "csv": 847,
-      "sent": 495,
-      "pending": 352,
-      "pct": 58
-    },
-    {
       "category": "FMCG",
       "csv": 864,
-      "sent": 524,
-      "pending": 340,
+      "sent": 526,
+      "pending": 338,
       "pct": 61
     },
     {
       "category": "Přeprava",
       "csv": 1203,
-      "sent": 884,
-      "pending": 319,
+      "sent": 906,
+      "pending": 297,
+      "pct": 75
+    },
+    {
+      "category": "Chlazená",
+      "csv": 847,
+      "sent": 618,
+      "pending": 229,
       "pct": 73
     },
     {
@@ -186,9 +186,9 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 884,
-      "pending": 241,
-      "pct": 79
+      "sent": 906,
+      "pending": 219,
+      "pct": 81
     },
     {
       "typ": "snack",
@@ -206,9 +206,9 @@
       "category": "Chlazená",
       "subject": "Chlazená přeprava",
       "csv": 334,
-      "sent": 172,
-      "pending": 162,
-      "pct": 51
+      "sent": 189,
+      "pending": 145,
+      "pct": 57
     },
     {
       "typ": "moebelmontage",
@@ -256,19 +256,9 @@
       "category": "FMCG",
       "subject": "Přeprava potravin",
       "csv": 270,
-      "sent": 218,
-      "pending": 52,
+      "sent": 220,
+      "pending": 50,
       "pct": 81
-    },
-    {
-      "typ": "zmrzlina",
-      "label": "Zmrzlina",
-      "category": "Chlazená",
-      "subject": "Chlazená přeprava",
-      "csv": 53,
-      "sent": 16,
-      "pending": 37,
-      "pct": 30
     },
     {
       "typ": "montaz_nabytek",
@@ -301,16 +291,6 @@
       "pct": 0
     },
     {
-      "typ": "ryby",
-      "label": "Ryby",
-      "category": "Chlazená",
-      "subject": "Chlazená přeprava",
-      "csv": 37,
-      "sent": 5,
-      "pending": 32,
-      "pct": 14
-    },
-    {
       "typ": "univerzita",
       "label": "Univerzity / fakulty",
       "category": "Školy",
@@ -331,24 +311,14 @@
       "pct": 86
     },
     {
-      "typ": "kvetiny",
-      "label": "Květinářství",
+      "typ": "ryby",
+      "label": "Ryby",
       "category": "Chlazená",
-      "subject": "Přeprava květin",
-      "csv": 62,
-      "sent": 33,
-      "pending": 29,
-      "pct": 53
-    },
-    {
-      "typ": "lahudky",
-      "label": "Lahůdky",
-      "category": "Chlazená",
-      "subject": "Přeprava lahůdek",
-      "csv": 41,
-      "sent": 14,
+      "subject": "Chlazená přeprava",
+      "csv": 37,
+      "sent": 10,
       "pending": 27,
-      "pct": 34
+      "pct": 27
     },
     {
       "typ": "fitout",
@@ -359,16 +329,6 @@
       "sent": 0,
       "pending": 25,
       "pct": 0
-    },
-    {
-      "typ": "reznictvi",
-      "label": "Řeznictví",
-      "category": "Chlazená",
-      "subject": "Chlazená přeprava",
-      "csv": 36,
-      "sent": 14,
-      "pending": 22,
-      "pct": 39
     },
     {
       "typ": "senior",
@@ -439,6 +399,16 @@
       "sent": 0,
       "pending": 14,
       "pct": 0
+    },
+    {
+      "typ": "lahudky",
+      "label": "Lahůdky",
+      "category": "Chlazená",
+      "subject": "Přeprava lahůdek",
+      "csv": 41,
+      "sent": 28,
+      "pending": 13,
+      "pct": 68
     },
     {
       "typ": "messebau",
@@ -569,6 +539,16 @@
       "sent": 51,
       "pending": 1,
       "pct": 98
+    },
+    {
+      "typ": "reznictvi",
+      "label": "Řeznictví",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 36,
+      "sent": 35,
+      "pending": 1,
+      "pct": 97
     },
     {
       "typ": "pekarna",
@@ -1081,6 +1061,16 @@
       "pct": 100
     },
     {
+      "typ": "zmrzlina",
+      "label": "Zmrzlina",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 53,
+      "sent": 53,
+      "pending": 0,
+      "pct": 100
+    },
+    {
       "typ": "cukrarna",
       "label": "Cukrárny",
       "category": "Chlazená",
@@ -1097,6 +1087,16 @@
       "subject": "Přeprava farmářských produktů",
       "csv": 3,
       "sent": 3,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "kvetiny",
+      "label": "Květinářství",
+      "category": "Chlazená",
+      "subject": "Přeprava květin",
+      "csv": 62,
+      "sent": 62,
       "pending": 0,
       "pct": 100
     },
@@ -1232,10 +1232,6 @@
     }
   ],
   "daily_history": [
-    {
-      "date": "2026-09-05",
-      "count": 0
-    },
     {
       "date": "2026-09-06",
       "count": 0
@@ -1471,11 +1467,14 @@
     {
       "date": "2026-11-03",
       "count": 147
+    },
+    {
+      "date": "2026-11-04",
+      "count": 147
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-10-05",
       "2026-10-06",
       "2026-10-07",
       "2026-10-08",
@@ -1504,48 +1503,13 @@
       "2026-10-31",
       "2026-11-01",
       "2026-11-02",
-      "2026-11-03"
+      "2026-11-03",
+      "2026-11-04"
     ],
     "series": [
       {
         "typ": "realitka",
         "label": "Realitní kanceláře",
-        "data": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "typ": "spravce",
-        "label": "Správci nemovitostí",
         "data": [
           0,
           0,
@@ -1607,12 +1571,48 @@
           0,
           0,
           0,
-          0,
           67,
           0,
           0,
           0,
-          135
+          135,
+          22
+        ]
+      },
+      {
+        "typ": "spravce",
+        "label": "Správci nemovitostí",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
         ]
       },
       {
@@ -1728,11 +1728,11 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 3974
+      "count": 4020
     },
     {
       "region": "Středočeský kraj",
-      "count": 677
+      "count": 678
     },
     {
       "region": "Prague",
@@ -1740,7 +1740,7 @@
     },
     {
       "region": "Pardubický kraj",
-      "count": 263
+      "count": 269
     },
     {
       "region": "HK kraj",
@@ -1748,35 +1748,35 @@
     },
     {
       "region": "Brno",
-      "count": 163
-    },
-    {
-      "region": "Liberec",
-      "count": 125
+      "count": 167
     },
     {
       "region": "Královéhradecký",
+      "count": 127
+    },
+    {
+      "region": "Liberec",
+      "count": 127
+    },
+    {
+      "region": "Středočeský",
       "count": 124
     },
     {
       "region": "Pardubice",
-      "count": 120
-    },
-    {
-      "region": "Středočeský",
-      "count": 113
+      "count": 122
     },
     {
       "region": "Královéhradecký kraj",
-      "count": 110
+      "count": 115
     },
     {
       "region": "Olomouc",
-      "count": 103
+      "count": 107
     },
     {
       "region": "Plzeňský",
-      "count": 97
+      "count": 102
     },
     {
       "region": "Ostrava",
@@ -1788,42 +1788,37 @@
     },
     {
       "region": "Hradec Králové",
-      "count": 80
+      "count": 83
     },
     {
       "region": "Plzeňský kraj",
-      "count": 76
+      "count": 81
     },
     {
       "region": "Plzen",
       "count": 73
     },
     {
-      "region": "Ceske Budejovice",
-      "count": 69
+      "region": "Pardubický",
+      "count": 70
     },
     {
-      "region": "Pardubický",
-      "count": 68
+      "region": "Ceske Budejovice",
+      "count": 69
     }
   ],
   "next_batch": {
     "total": 150,
     "typ_breakdown": [
       {
-        "typ": "preprava",
-        "label": "Přeprava a manipulace",
-        "count": 23
+        "typ": "potraviny",
+        "label": "Potraviny",
+        "count": 36
       },
       {
-        "typ": "reznictvi",
-        "label": "Řeznictví",
-        "count": 22
-      },
-      {
-        "typ": "kvetiny",
-        "label": "Květinářství",
-        "count": 17
+        "typ": "catering",
+        "label": "Catering",
+        "count": 20
       },
       {
         "typ": "pivovar obchodní oddělení",
@@ -1833,12 +1828,12 @@
       {
         "typ": "lahudky",
         "label": "Lahůdky",
-        "count": 14
+        "count": 13
       },
       {
-        "typ": "ryby",
-        "label": "Ryby",
-        "count": 5
+        "typ": "pharma_logistika",
+        "label": "Pharma logistika",
+        "count": 10
       },
       {
         "typ": "výrobce piva / pivovar",
@@ -1866,13 +1861,18 @@
         "count": 2
       },
       {
-        "typ": "potraviny",
-        "label": "Potraviny",
+        "typ": "ryby",
+        "label": "Ryby",
         "count": 2
       },
       {
         "typ": "exekutor",
         "label": "Exekutorské úřady",
+        "count": 1
+      },
+      {
+        "typ": "preprava",
+        "label": "Přeprava a manipulace",
         "count": 1
       },
       {
@@ -2074,6 +2074,11 @@
         "typ": "výrobce konzerv / personalizovaných konzerv",
         "label": "výrobce konzerv / personalizovaných konzerv",
         "count": 1
+      },
+      {
+        "typ": "reznictvi",
+        "label": "Řeznictví",
+        "count": 1
       }
     ]
   },
@@ -2117,13 +2122,13 @@
         "dnes": 0
       },
       {
-        "kampan": "Montáže-partneři (fit-out/interiér)",
-        "celkem": 76,
-        "dnes": 0
+        "kampan": "Rozvoz do prodejen (výrobci)",
+        "celkem": 77,
+        "dnes": 8
       },
       {
-        "kampan": "Rozvoz do prodejen (výrobci)",
-        "celkem": 69,
+        "kampan": "Montáže-partneři (fit-out/interiér)",
+        "celkem": 76,
         "dnes": 0
       },
       {
@@ -2132,8 +2137,8 @@
         "dnes": 0
       }
     ],
-    "celkem": 1939,
-    "dnes": 0
+    "celkem": 1947,
+    "dnes": 8
   },
   "hofo_kampane": {
     "segmenty": [
@@ -2154,9 +2159,9 @@
       {
         "segment": "strojirenstvi",
         "drafty": 2634,
-        "odeslano": 2575,
-        "zbyva": 59,
-        "dnes": 0
+        "odeslano": 2583,
+        "zbyva": 51,
+        "dnes": 8
       },
       {
         "segment": "agentury",
@@ -2208,9 +2213,9 @@
         "dnes": 0
       }
     ],
-    "odeslano": 4568,
+    "odeslano": 4576,
     "drafty": 6507,
-    "zbyva": 1939,
-    "dnes": 0
+    "zbyva": 1931,
+    "dnes": 8
   }
 }
