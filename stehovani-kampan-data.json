@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-04T09:25:10",
+  "updated": "2026-11-06T09:25:17",
   "summary": {
     "total_contacts": 14385,
-    "total_sent": 17332,
-    "pending": 1398,
+    "total_sent": 17491,
+    "pending": 1239,
     "sent_today": 147,
     "daily_limit": 150,
-    "days_to_finish": 10
+    "days_to_finish": 9
   },
   "bounced": {
     "count": 313,
@@ -69,23 +69,16 @@
     {
       "category": "FMCG",
       "csv": 864,
-      "sent": 526,
-      "pending": 338,
-      "pct": 61
+      "sent": 565,
+      "pending": 299,
+      "pct": 65
     },
     {
       "category": "Přeprava",
       "csv": 1203,
-      "sent": 906,
-      "pending": 297,
+      "sent": 908,
+      "pending": 295,
       "pct": 75
-    },
-    {
-      "category": "Chlazená",
-      "csv": 847,
-      "sent": 618,
-      "pending": 229,
-      "pct": 73
     },
     {
       "category": "DE Montáž",
@@ -93,6 +86,13 @@
       "sent": 0,
       "pending": 174,
       "pct": 0
+    },
+    {
+      "category": "Chlazená",
+      "csv": 847,
+      "sent": 736,
+      "pending": 111,
+      "pct": 87
     },
     {
       "category": "Hotely",
@@ -186,8 +186,8 @@
       "category": "Přeprava",
       "subject": "Dovoz a montáž nábytku",
       "csv": 1125,
-      "sent": 906,
-      "pending": 219,
+      "sent": 908,
+      "pending": 217,
       "pct": 81
     },
     {
@@ -201,16 +201,6 @@
       "pct": 2
     },
     {
-      "typ": "catering",
-      "label": "Catering",
-      "category": "Chlazená",
-      "subject": "Chlazená přeprava",
-      "csv": 334,
-      "sent": 189,
-      "pending": 145,
-      "pct": 57
-    },
-    {
       "typ": "moebelmontage",
       "label": "DE: Möbelmontage",
       "category": "DE Montáž",
@@ -219,6 +209,16 @@
       "sent": 0,
       "pending": 109,
       "pct": 0
+    },
+    {
+      "typ": "catering",
+      "label": "Catering",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 334,
+      "sent": 240,
+      "pending": 94,
+      "pct": 72
     },
     {
       "typ": "stavebniny",
@@ -249,16 +249,6 @@
       "sent": 218,
       "pending": 64,
       "pct": 77
-    },
-    {
-      "typ": "potraviny",
-      "label": "Potraviny",
-      "category": "FMCG",
-      "subject": "Přeprava potravin",
-      "csv": 270,
-      "sent": 220,
-      "pending": 50,
-      "pct": 81
     },
     {
       "typ": "montaz_nabytek",
@@ -311,16 +301,6 @@
       "pct": 86
     },
     {
-      "typ": "ryby",
-      "label": "Ryby",
-      "category": "Chlazená",
-      "subject": "Chlazená přeprava",
-      "csv": 37,
-      "sent": 10,
-      "pending": 27,
-      "pct": 27
-    },
-    {
       "typ": "fitout",
       "label": "Fit-out",
       "category": "Interiér",
@@ -349,16 +329,6 @@
       "sent": 40,
       "pending": 18,
       "pct": 69
-    },
-    {
-      "typ": "vinarna",
-      "label": "Vinárny",
-      "category": "Chlazená",
-      "subject": "Přeprava",
-      "csv": 62,
-      "sent": 45,
-      "pending": 17,
-      "pct": 73
     },
     {
       "typ": "pivovar obchodní oddělení",
@@ -401,16 +371,6 @@
       "pct": 0
     },
     {
-      "typ": "lahudky",
-      "label": "Lahůdky",
-      "category": "Chlazená",
-      "subject": "Přeprava lahůdek",
-      "csv": 41,
-      "sent": 28,
-      "pending": 13,
-      "pct": 68
-    },
-    {
       "typ": "messebau",
       "label": "DE: Messebau",
       "category": "DE Montáž",
@@ -421,6 +381,16 @@
       "pct": 0
     },
     {
+      "typ": "potraviny",
+      "label": "Potraviny",
+      "category": "FMCG",
+      "subject": "Přeprava potravin",
+      "csv": 270,
+      "sent": 259,
+      "pending": 11,
+      "pct": 96
+    },
+    {
       "typ": "logistik",
       "label": "DE: Logistik",
       "category": "DE Přeprava",
@@ -428,16 +398,6 @@
       "csv": 11,
       "sent": 0,
       "pending": 11,
-      "pct": 0
-    },
-    {
-      "typ": "pharma_logistika",
-      "label": "Pharma logistika",
-      "category": "Chlazená",
-      "subject": "Chlazená",
-      "csv": 10,
-      "sent": 0,
-      "pending": 10,
       "pct": 0
     },
     {
@@ -1061,12 +1021,42 @@
       "pct": 100
     },
     {
+      "typ": "ryby",
+      "label": "Ryby",
+      "category": "Chlazená",
+      "subject": "Chlazená přeprava",
+      "csv": 37,
+      "sent": 37,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "lahudky",
+      "label": "Lahůdky",
+      "category": "Chlazená",
+      "subject": "Přeprava lahůdek",
+      "csv": 41,
+      "sent": 41,
+      "pending": 0,
+      "pct": 100
+    },
+    {
       "typ": "zmrzlina",
       "label": "Zmrzlina",
       "category": "Chlazená",
       "subject": "Chlazená přeprava",
       "csv": 53,
       "sent": 53,
+      "pending": 0,
+      "pct": 100
+    },
+    {
+      "typ": "vinarna",
+      "label": "Vinárny",
+      "category": "Chlazená",
+      "subject": "Přeprava",
+      "csv": 62,
+      "sent": 62,
       "pending": 0,
       "pct": 100
     },
@@ -1161,6 +1151,16 @@
       "pct": 100
     },
     {
+      "typ": "pharma_logistika",
+      "label": "Pharma logistika",
+      "category": "Chlazená",
+      "subject": "Chlazená",
+      "csv": 10,
+      "sent": 10,
+      "pending": 0,
+      "pct": 100
+    },
+    {
       "typ": "kuchyne",
       "label": "Kuchyňská studia",
       "category": "Montáž",
@@ -1232,14 +1232,6 @@
     }
   ],
   "daily_history": [
-    {
-      "date": "2026-09-06",
-      "count": 0
-    },
-    {
-      "date": "2026-09-07",
-      "count": 0
-    },
     {
       "date": "2026-09-08",
       "count": 0
@@ -1471,12 +1463,18 @@
     {
       "date": "2026-11-04",
       "count": 147
+    },
+    {
+      "date": "2026-11-05",
+      "count": 12
+    },
+    {
+      "date": "2026-11-06",
+      "count": 147
     }
   ],
   "segment_history": {
     "dates": [
-      "2026-10-06",
-      "2026-10-07",
       "2026-10-08",
       "2026-10-09",
       "2026-10-10",
@@ -1504,7 +1502,9 @@
       "2026-11-01",
       "2026-11-02",
       "2026-11-03",
-      "2026-11-04"
+      "2026-11-04",
+      "2026-11-05",
+      "2026-11-06"
     ],
     "series": [
       {
@@ -1569,14 +1569,14 @@
           0,
           0,
           0,
-          0,
-          0,
           67,
           0,
           0,
           0,
           135,
-          22
+          22,
+          0,
+          2
         ]
       },
       {
@@ -1728,7 +1728,7 @@
   "regions_sent": [
     {
       "region": "Praha",
-      "count": 4020
+      "count": 4058
     },
     {
       "region": "Středočeský kraj",
@@ -1748,7 +1748,11 @@
     },
     {
       "region": "Brno",
-      "count": 167
+      "count": 170
+    },
+    {
+      "region": "Středočeský",
+      "count": 130
     },
     {
       "region": "Královéhradecký",
@@ -1759,12 +1763,8 @@
       "count": 127
     },
     {
-      "region": "Středočeský",
-      "count": 124
-    },
-    {
       "region": "Pardubice",
-      "count": 122
+      "count": 123
     },
     {
       "region": "Královéhradecký kraj",
@@ -1772,7 +1772,7 @@
     },
     {
       "region": "Olomouc",
-      "count": 107
+      "count": 112
     },
     {
       "region": "Plzeňský",
@@ -1780,7 +1780,7 @@
     },
     {
       "region": "Ostrava",
-      "count": 93
+      "count": 94
     },
     {
       "region": "Hradec Kralove",
@@ -1788,19 +1788,19 @@
     },
     {
       "region": "Hradec Králové",
-      "count": 83
+      "count": 86
     },
     {
       "region": "Plzeňský kraj",
       "count": 81
     },
     {
-      "region": "Plzen",
-      "count": 73
+      "region": "Pardubický",
+      "count": 74
     },
     {
-      "region": "Pardubický",
-      "count": 70
+      "region": "Plzen",
+      "count": 73
     },
     {
       "region": "Ceske Budejovice",
@@ -1811,14 +1811,14 @@
     "total": 150,
     "typ_breakdown": [
       {
-        "typ": "potraviny",
-        "label": "Potraviny",
-        "count": 36
+        "typ": "moebelmontage",
+        "label": "DE: Möbelmontage",
+        "count": 23
       },
       {
-        "typ": "catering",
-        "label": "Catering",
-        "count": 20
+        "typ": "kuechenmontage",
+        "label": "DE: Küchenmontage",
+        "count": 19
       },
       {
         "typ": "pivovar obchodní oddělení",
@@ -1826,18 +1826,33 @@
         "count": 15
       },
       {
-        "typ": "lahudky",
-        "label": "Lahůdky",
-        "count": 13
+        "typ": "catering",
+        "label": "Catering",
+        "count": 14
       },
       {
-        "typ": "pharma_logistika",
-        "label": "Pharma logistika",
+        "typ": "messebau",
+        "label": "DE: Messebau",
         "count": 10
+      },
+      {
+        "typ": "ladenbau",
+        "label": "DE: Ladenbau",
+        "count": 7
+      },
+      {
+        "typ": "preprava",
+        "label": "Přeprava a manipulace",
+        "count": 6
       },
       {
         "typ": "výrobce piva / pivovar",
         "label": "výrobce piva / pivovar",
+        "count": 3
+      },
+      {
+        "typ": "regalmontage",
+        "label": "DE: Regalmontage",
         "count": 3
       },
       {
@@ -1861,18 +1876,8 @@
         "count": 2
       },
       {
-        "typ": "ryby",
-        "label": "Ryby",
-        "count": 2
-      },
-      {
         "typ": "exekutor",
         "label": "Exekutorské úřady",
-        "count": 1
-      },
-      {
-        "typ": "preprava",
-        "label": "Přeprava a manipulace",
         "count": 1
       },
       {
@@ -2112,6 +2117,11 @@
         "dnes": 0
       },
       {
+        "kampan": "Rozvoz do prodejen (výrobci)",
+        "celkem": 119,
+        "dnes": 0
+      },
+      {
         "kampan": "Expresní přeprava (výroba/strojírny)",
         "celkem": 108,
         "dnes": 0
@@ -2120,11 +2130,6 @@
         "kampan": "Doprava – rozhodovatelé (velké firmy)",
         "celkem": 90,
         "dnes": 0
-      },
-      {
-        "kampan": "Rozvoz do prodejen (výrobci)",
-        "celkem": 77,
-        "dnes": 8
       },
       {
         "kampan": "Montáže-partneři (fit-out/interiér)",
@@ -2137,16 +2142,16 @@
         "dnes": 0
       }
     ],
-    "celkem": 1947,
-    "dnes": 8
+    "celkem": 1989,
+    "dnes": 0
   },
   "hofo_kampane": {
     "segmenty": [
       {
         "segment": "klinika",
         "drafty": 1559,
-        "odeslano": 434,
-        "zbyva": 1125,
+        "odeslano": 444,
+        "zbyva": 1115,
         "dnes": 0
       },
       {
@@ -2157,17 +2162,17 @@
         "dnes": 0
       },
       {
-        "segment": "strojirenstvi",
-        "drafty": 2634,
-        "odeslano": 2583,
-        "zbyva": 51,
-        "dnes": 8
-      },
-      {
         "segment": "agentury",
         "drafty": 67,
         "odeslano": 20,
         "zbyva": 47,
+        "dnes": 0
+      },
+      {
+        "segment": "strojirenstvi",
+        "drafty": 2634,
+        "odeslano": 2595,
+        "zbyva": 39,
         "dnes": 0
       },
       {
@@ -2213,9 +2218,9 @@
         "dnes": 0
       }
     ],
-    "odeslano": 4576,
+    "odeslano": 4598,
     "drafty": 6507,
-    "zbyva": 1931,
-    "dnes": 8
+    "zbyva": 1909,
+    "dnes": 0
   }
 }
