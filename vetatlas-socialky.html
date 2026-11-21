@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VetAtlas — Sociálky Kit</title>
+<style>
+  :root{--red:#E30A14;--ink:#17120F;--cream:#F7F3EE;--line:#e4dccf;--muted:#7a7066}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,"Segoe UI",Inter,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;margin:0;padding:0}
+  .wrap{max-width:960px;margin:0 auto;padding:40px 20px 90px}
+  h1{font-size:34px;letter-spacing:-.02em;margin:0 0 4px}
+  h2{font-size:22px;margin:46px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--red)}
+  h3{font-size:16px;margin:22px 0 8px}
+  .lead{color:var(--muted);font-size:15px;margin-top:0}
+  a{color:var(--red)}
+  .pill{display:inline-block;background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr}}
+  code,.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:#efe7dd;padding:1px 6px;border-radius:5px}
+  .muted{color:var(--muted);font-size:13px}
+  .note{background:#fff8e6;border:1px solid #f0d98a;border-radius:10px;padding:12px 16px;font-size:14px;margin-top:14px}
+  table{border-collapse:collapse;width:100%;margin-top:10px;font-size:14px}
+  td,th{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:#efe7dd}
+  .post{border-left:4px solid var(--red);background:#fff;border-radius:0 10px 10px 0;padding:14px 18px;margin-top:14px}
+  .post .meta{font-size:12px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.05em}
+  .post .cap{white-space:pre-line;margin:8px 0}
+  .tags{color:#4a73c0;font-size:13px}
+
+  /* ---- profilovka (1:1) ---- */
+  .avatar{width:260px;height:260px;border-radius:50%;background:var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 8px 30px rgba(227,10,20,.3)}
+  .avatar svg{width:78px;height:96px;margin-bottom:6px}
+  .avatar .wm{font-weight:800;font-size:30px;letter-spacing:-.02em}
+  .avatar .wm b{color:#17120F}
+  /* ---- cover (16:9-ish, 1640x624 FB ratio ~2.63:1) ---- */
+  .cover{width:100%;max-width:760px;aspect-ratio:1640/624;border-radius:14px;overflow:hidden;position:relative;
+    background:linear-gradient(135deg,#E30A14 0%,#b00810 100%);color:#fff;display:flex;align-items:center;padding:0 7%}
+  .cover .pins{position:absolute;inset:0;opacity:.14;background-image:radial-gradient(circle,#fff 2px,transparent 2px);background-size:46px 46px}
+  .cover .ct{position:relative;z-index:2}
+  .cover .ct .t{font-size:clamp(20px,4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+  .cover .ct .s{font-size:clamp(12px,2vw,18px);opacity:.92;margin-top:8px}
+  .cover .mk{position:absolute;right:7%;z-index:2;width:clamp(60px,12vw,120px)}
+  .export{font-size:12px;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="pill">🐾 VetAtlas · Sociálky Kit</span>
+  <h1>VetAtlas — sociální sítě</h1>
+  <p class="lead">Kompletní startovní balíček: vizuál profilů, texty, obsahový plán a 12 postů k launchi. Barva značky <code>#E30A14</code>. Verze k 21. 11. 2026.</p>
+
+  <div class="note"><strong>Co udělat ty:</strong> založit účty <strong>Facebook</strong>, <strong>Instagram</strong> a <strong>TikTok</strong> (potřebuje to tvůj telefon/e-mail). Doporučený mail k registraci: <code>info@vetatlas.cz</code>. Pak mi pošli reálné URL profilů a doplním odkazy na web.</p>
+
+  <!-- ============ 1. VIZUÁL ============ -->
+  <h2>1. Vizuál profilů</h2>
+
+  <h3>Profilovka (1:1) — stejná na FB / IG / TikTok</h3>
+  <div class="card" style="display:flex;gap:28px;align-items:center;flex-wrap:wrap">
+    <div class="avatar">
+      <svg viewBox="0 0 52 64"><path d="M26 2C13 2 3 12 3 25c0 16 23 37 23 37s23-21 23-37C49 12 39 2 26 2z" fill="#fff"/><g fill="#E30A14"><circle cx="17" cy="20" r="3.4"/><circle cx="26" cy="17.5" r="3.7"/><circle cx="35" cy="20" r="3.4"/><path d="M26 24c-5.3 0-9.3 4-9.3 8.3 0 3 2.5 5 5.6 5 1.8 0 2.5-.8 3.7-.8s1.9.8 3.7.8c3.1 0 5.6-2 5.6-5C35.3 28 31.3 24 26 24z"/></g></svg>
+      <div class="wm">VetAtlas</div>
+    </div>
+    <div style="flex:1;min-width:240px">
+      <p>Červené kolo, bílý <strong>pin s packou</strong> (= mapa + zvíře) a wordmark. Čisté, čitelné i v malé velikosti profilovky.</p>
+      <p class="export">📸 <strong>Export:</strong> zvětši okno, udělej screenshot kruhu a ořízni na čtverec (ideálně nahraj v 500×500 px). Nebo řekni a vyrenderuju čisté PNG.</p>
+    </div>
+  </div>
+
+  <h3>Cover / úvodní foto (FB 1640×624)</h3>
+  <div class="card">
+    <div class="cover">
+      <div class="pins"></div>
+      <div class="ct">
+        <div class="t">Veterinární mapa<br>celé Evropy</div>
+        <div class="s">Najdi nejbližší kliniku i pohotovost — zdarma.</div>
+      </div>
+      <svg class="mk" viewBox="0 0 52 64"><path d="M26 2C13 2 3 12 3 25c0 16 23 37 23 37s23-21 23-37C49 12 39 2 26 2z" fill="#fff"/><g fill="#E30A14"><circle cx="17" cy="20" r="3.4"/><circle cx="26" cy="17.5" r="3.7"/><circle cx="35" cy="20" r="3.4"/><path d="M26 24c-5.3 0-9.3 4-9.3 8.3 0 3 2.5 5 5.6 5 1.8 0 2.5-.8 3.7-.8s1.9.8 3.7.8c3.1 0 5.6-2 5.6-5C35.3 28 31.3 24 26 24z"/></g></svg>
+    </div>
+    <p class="export">📸 <strong>Export:</strong> screenshot obdélníku. Pro IG/TikTok stačí stejný motiv zúžený na čtverec. Tečkovaný vzor = mapa.</p>
+  </div>
+
+  <!-- ============ 2. HANDLE + BIO ============ -->
+  <h2>2. Jména profilů a bio</h2>
+  <div class="note">Handle <code>@vetatlas</code> zkontroluj při zakládání. Pokud je obsazený: <code>@vetatlas.cz</code> → <code>@vetatlasapp</code> → <code>@vetatlas.app</code>. Drž stejný handle na všech sítích.</div>
+
+  <div class="grid3">
+    <div class="card">
+      <h3 style="margin-top:0">📘 Facebook</h3>
+      <p class="muted">Název stránky</p>
+      <p><strong>VetAtlas — veterinární mapa</strong></p>
+      <p class="muted">Bio / O nás</p>
+      <p>🐾 Veterinární mapa celé Evropy. Najdi nejbližší kliniku i pohotovost — zdarma, na pár kliků.<br>📍 vetatlas.cz</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">📸 Instagram</h3>
+      <p class="muted">Bio (max 150 znaků)</p>
+      <p>🐾 Veterinární mapa Evropy<br>📍 Nejbližší pohotovost hned<br>🆓 Zdarma · 200 000+ klinik<br>👇 Spusť mapu</p>
+      <p class="muted">Odkaz v biu</p>
+      <p><code>vetatlas.cz</code></p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">🎵 TikTok</h3>
+      <p class="muted">Bio (max 80 znaků)</p>
+      <p>🐾 Veterinární mapa Evropy<br>📍 Najdi pomoc pro mazlíčka zdarma</p>
+      <p class="muted">Odkaz</p>
+      <p><code>vetatlas.cz</code></p>
+    </div>
+  </div>
+
+  <!-- ============ 3. OBSAHOVÝ PLÁN ============ -->
+  <h2>3. Obsahový plán</h2>
+
+  <h3>Pilíře obsahu (střídat je)</h3>
+  <table>
+    <tr><th>Pilíř</th><th>O čem</th><th>Příklad</th></tr>
+    <tr><td>🚨 <strong>Pohotovost</strong></td><td>Když jde o čas — jak rychle najít veterinu</td><td>„Pes něco snědl v neděli ve 22:00. Co teď?"</td></tr>
+    <tr><td>🐕 <strong>Tipy majitelům</strong></td><td>Prevence, první pomoc, sezónní rizika</td><td>„5 věcí z kuchyně, které jsou pro psa jed"</td></tr>
+    <tr><td>🗺️ <strong>Jak mapu použít</strong></td><td>Funkce, filtry, „nejbližší pohotovost"</td><td>Krátké demo: 3 kliky k nejbližší klinice</td></tr>
+    <tr><td>❤️ <strong>Komunita</strong></td><td>Příběhy, fotky mazlíčků, ankety</td><td>„Ukažte svého parťáka 👇"</td></tr>
+    <tr><td>🎒 <strong>MANMAT</strong> (jemně)</td><td>Výbava, postroje — nenásilně, ne reklama</td><td>„Na výlet s psem: co sbalit"</td></tr>
+  </table>
+
+  <h3>Frekvence</h3>
+  <table>
+    <tr><th>Síť</th><th>Posty</th><th>Formát</th></tr>
+    <tr><td>Facebook</td><td>3–4× / týden</td><td>Obrázek + text, odkaz na mapu, ankety</td></tr>
+    <tr><td>Instagram</td><td>4–5× / týden + stories</td><td>Karusely, reels, tipy, komunita</td></tr>
+    <tr><td>TikTok</td><td>3× / týden</td><td>Krátká videa (demo mapy, tipy, „co dělat když…")</td></tr>
+  </table>
+
+  <h3>Launch sekvence (první 2 týdny)</h3>
+  <p>Týden 1 = <strong>představení</strong> (co VetAtlas je, k čemu je, že je zdarma). Týden 2 = <strong>užitek</strong> (tipy + pohotovost, sdílitelný obsah). Cíl prvních 14 dní: lidi pochopí „když se mazlíčkovi něco stane, otevřu VetAtlas".</p>
+
+  <!-- ============ 4. PRVNÍ POSTY ============ -->
+  <h2>4. Prvních 12 postů (hotové k vložení)</h2>
+
+  <div class="post"><div class="meta">#1 · Launch · FB + IG</div>
+    <div class="cap">🐾 Je tu VetAtlas — veterinární mapa celé Evropy.
+
+Najít nejbližší kliniku nebo pohotovost pro mazlíčka teď zvládneš za pár vteřin. Zdarma, bez registrace, 200 000+ zařízení napříč Evropou.
+
+Protože když jde o mazlíčka, každá minuta se počítá. ❤️
+
+👉 Otevři mapu: vetatlas.cz</div>
+    <div class="tags">#vetatlas #veterina #pejsci #kočky #mazlíček #pohotovost</div>
+  </div>
+
+  <div class="post"><div class="meta">#2 · Jak to funguje · TikTok / Reels</div>
+    <div class="cap">📍 Nejbližší veterinární pohotovost za 3 kliky.
+
+[Video: otevření mapy → tlačítko „Nejbližší pohotovost" → výsledek]
+
+Ulož si vetatlas.cz na plochu telefonu. Ať to máš po ruce, až to bude potřeba.</div>
+    <div class="tags">#vetatlas #lifehack #pejsek #kočka #veterina #czechtiktok</div>
+  </div>
+
+  <div class="post"><div class="meta">#3 · Tip · FB + IG</div>
+    <div class="cap">🚨 Co dělat, když pes něco snědl?
+
+1. Zjisti co a kolik.
+2. Nevyvolávej zvracení naslepo — u některých látek to uškodí.
+3. Volej veterinu / pohotovost HNED.
+
+Nejbližší najdeš na vetatlas.cz 📍
+
+Ulož si tento post, ať ho máš po ruce.</div>
+    <div class="tags">#prvnípomoc #pejsci #vetatlas #veterina</div>
+  </div>
+
+  <div class="post"><div class="meta">#4 · Komunita · IG</div>
+    <div class="cap">Ukažte nám svého parťáka! 👇🐾
+
+Hoďte do komentářů fotku svého mazlíčka a jak se jmenuje. Uděláme si tu pořádnou smečku. 🐶🐱</div>
+    <div class="tags">#mazlíček #pejsci #kočky #vetatlas #smečka</div>
+  </div>
+
+  <div class="post"><div class="meta">#5 · Užitek · FB</div>
+    <div class="cap">Jedete na dovolenou s pejskem? 🚗🐕
+
+VetAtlas funguje po celé Evropě. Než vyrazíte, mrkněte, kde je u vašeho cíle nejbližší veterina — ať vás nic nezaskočí.
+
+📍 vetatlas.cz</div>
+    <div class="tags">#dovolenáspsem #vetatlas #cestování #pejsci</div>
+  </div>
+
+  <div class="post"><div class="meta">#6 · Tip · TikTok / Reels</div>
+    <div class="cap">🌡️ 3 příznaky, že s pejskem máte rychle k veterináři:
+
+• apatie + odmítání vody
+• opakované zvracení
+• zvětšené/tvrdé břicho
+
+Když váháte, radši zavolejte. Nejbližší vet → vetatlas.cz</div>
+    <div class="tags">#vetatlas #pejsci #zdravípsa #veterina</div>
+  </div>
+
+  <div class="post"><div class="meta">#7 · Anketa · FB + IG stories</div>
+    <div class="cap">Kočka 🐱 nebo pes 🐶?
+
+Hlasuj v komentářích (nebo ve story) a řekni proč. 😄</div>
+    <div class="tags">#anketa #kočkanebopes #vetatlas</div>
+  </div>
+
+  <div class="post"><div class="meta">#8 · MANMAT (jemně) · IG</div>
+    <div class="cap">🎒 Co sbalit na výlet se psem:
+
+💧 voda + miska
+🦴 pamlsky
+🧷 pevný postroj (pohodlí = víc nachozeno)
+📍 a jistota — kde je cestou veterina (vetatlas.cz)
+
+Dobrá výbava = klidnější výlet. 🐾</div>
+    <div class="tags">#výletsespsem #manmat #vetatlas #pejsci</div>
+  </div>
+
+  <div class="post"><div class="meta">#9 · Edukace · FB</div>
+    <div class="cap">Věděli jste? 🩺
+
+Většina otrav u psů se stane doma — čokoláda, xylitol (žvýkačky), hrozny, cibule.
+
+Mějte číslo na veterinu po ruce. A když ho nemáte? 📍 vetatlas.cz najde nejbližší za vteřinu.</div>
+    <div class="tags">#vetatlas #prvnípomoc #otravapsa #veterina</div>
+  </div>
+
+  <div class="post"><div class="meta">#10 · Funkce · TikTok / Reels</div>
+    <div class="cap">Na mapě VetAtlas si přepneš, co hledáš:
+🔴 pohotovost · 🏥 nemocnice · 🐾 klinika · 🚑 sanitka
+
+[Video: proklik filtrů na mapě]
+
+Zkus to: vetatlas.cz</div>
+    <div class="tags">#vetatlas #mapa #pejsci #kočky #veterina</div>
+  </div>
+
+  <div class="post"><div class="meta">#11 · Komunita · IG</div>
+    <div class="cap">Znáte to? Ten pohled, co říká „ještě jeden pamlsek". 🥺🐶
+
+Tag parťáka, kterej u vás vždycky vyhraje. 👇</div>
+    <div class="tags">#pejsci #mazlíček #vetatlas #dogsofinstagram</div>
+  </div>
+
+  <div class="post"><div class="meta">#12 · CTA / připomínka · FB + IG</div>
+    <div class="cap">📌 Malá rada na závěr týdne:
+
+Dej si vetatlas.cz na plochu telefonu. Zabere to 10 vteřin a jednou ti to může ušetřit drahocenné minuty.
+
+Zdarma. Celá Evropa. Vždycky po ruce. 🐾</div>
+    <div class="tags">#vetatlas #pejsci #kočky #pohotovost #veterina</div>
+  </div>
+
+  <!-- ============ 5. ODKAZY NA WEB ============ -->
+  <h2>5. Odkazy na web</h2>
+  <p>Jakmile budeš mít reálné URL profilů, doplním ikony FB / IG / TikTok do patičky <strong>vetatlas.cz</strong> i mapy. Kód je připravený — stačí doplnit odkazy.</p>
+
+  <p class="muted" style="margin-top:40px">VetAtlas · MANMAT s.r.o. · interní materiál pro sociální sítě</p>
+</div>
+</body>
+</html>
